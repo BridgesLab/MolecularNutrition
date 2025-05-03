@@ -41,8 +41,10 @@ jobs:
             mkdir -p pdf
             for f in tex/*.tex; do
               fname=$(basename "$f" .tex)
-              pdflatex -interaction=nonstopmode -halt-on-error -output-directory=pdf "$f" || exit 1
-              pdflatex -interaction=nonstopmode -halt-on-error -output-directory=pdf "$f" || exit 1
+              cd tex
+              pdflatex -interaction=nonstopmode -halt-on-error -output-directory=../pdf "$fname.tex" || exit 1
+              pdflatex -interaction=nonstopmode -halt-on-error -output-directory=../pdf "$fname.tex" || exit 1
+              cd ..
             done
 
       - name: Deploy to GitHub Pages
