@@ -1,0 +1,15 @@
+\contentsline {section}{Learning Objectives}{2}{section*.1}%
+\contentsline {section}{Key Vocabulary and Concepts}{2}{section*.2}%
+\contentsline {section}{The Digestive Tract Organs}{3}{section*.3}%
+\contentsline {section}{Structure of the Digestive Tract}{3}{section*.4}%
+\contentsline {section}{Regulation of Digestive Processes}{4}{section*.5}%
+\contentsline {section}{The Main Organs and Their Functions}{6}{section*.6}%
+\contentsline {subsection}{Oral Cavity}{6}{subsection*.7}%
+\contentsline {subsection}{Esophagus}{7}{subsection*.8}%
+\contentsline {subsection}{Stomach}{7}{subsection*.9}%
+\contentsline {subsection}{Small Intestine}{8}{subsection*.10}%
+\contentsline {subsection}{Large Intestine}{10}{subsection*.11}%
+\contentsline {section}{Pathologies Related to GI Structure and Function}{11}{section*.12}%
+\contentsline {subsection}{Gastroesophageal reflex disease (GERD)}{11}{subsection*.13}%
+\contentsline {subsection}{Aspiration pneumonia and asphyxiation}{12}{subsection*.14}%
+\contentsfinish 

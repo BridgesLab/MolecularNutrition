@@ -1,0 +1,14 @@
+\contentsline {section}{Learning Objectives}{2}{section*.1}%
+\contentsline {section}{Key Vocabulary and Concepts}{2}{section*.2}%
+\contentsline {section}{Function of Lipids}{2}{section*.3}%
+\contentsline {subsection}{Structural Roles of Lipids}{3}{subsection*.4}%
+\contentsline {subsection}{Roles in Energy Storage}{3}{subsection*.5}%
+\contentsline {section}{Classes of Lipids}{4}{section*.6}%
+\contentsline {subsection}{Cholesterol and other Sterols}{4}{subsection*.7}%
+\contentsline {subsection}{Glycerolipids}{4}{subsection*.8}%
+\contentsline {section}{Properties and Structures of Fatty Acids}{5}{section*.9}%
+\contentsline {subsection}{Classes of Fatty Acids}{5}{subsection*.10}%
+\contentsline {subsection}{Fatty Acid Nomenclature Systems}{6}{subsection*.11}%
+\contentsline {subsection}{Polyunsaturated Fats}{6}{subsection*.12}%
+\contentsline {subsection}{Essential Fatty Acids ($\omega $-3 and $\omega $-6)}{7}{subsection*.13}%
+\contentsfinish 

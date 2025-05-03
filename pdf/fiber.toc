@@ -1,0 +1,9 @@
+\contentsline {section}{Learning Objectives}{2}{section*.1}%
+\contentsline {section}{Fiber Basics}{2}{section*.2}%
+\contentsline {section}{Key Characteristics (and Physiological Effects)}{3}{section*.3}%
+\contentsline {subsection}{Solubility}{3}{subsection*.4}%
+\contentsline {subsection}{Fermentable}{3}{subsection*.5}%
+\contentsline {subsection}{Functionality}{3}{subsection*.6}%
+\contentsline {subsection}{Other Characteristics}{3}{subsection*.7}%
+\contentsline {section}{Types of Fiber}{4}{section*.8}%
+\contentsfinish 

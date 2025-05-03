@@ -1,0 +1,11 @@
+\contentsline {section}{Learning Objectives}{2}{section*.1}%
+\contentsline {section}{Key Vocabulary and Concepts}{2}{section*.2}%
+\contentsline {section}{Dietary Lipids and Dietary Intake}{2}{section*.3}%
+\contentsline {section}{Lipid Digestion in the Upper Digestive Tract}{2}{section*.4}%
+\contentsline {section}{Absorption and Digestion of Lipids in the Small Intestine}{3}{section*.5}%
+\contentsline {subsection}{Bile Salts and Their Regulation}{4}{subsection*.6}%
+\contentsline {subsection}{Uptake of Lipids in the Small Intestine}{4}{subsection*.7}%
+\contentsline {subsection}{Short Chain Fatty Acid Absorption}{5}{subsection*.8}%
+\contentsline {subsection}{Endocrine Control of Lipid Digestion and Absorption}{6}{subsection*.9}%
+\contentsline {section}{Transport of Lipids out of the Enterocytes}{6}{section*.10}%
+\contentsfinish 

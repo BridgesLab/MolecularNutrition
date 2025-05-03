@@ -1,0 +1,8 @@
+\contentsline {section}{Learning Objectives}{2}{section*.1}%
+\contentsline {section}{Proteins, Amino Acids and Essentiality}{2}{section*.2}%
+\contentsline {subsection}{Recommended Protein Intake}{3}{subsection*.3}%
+\contentsline {subsection}{Diseases of Protein Malnutrition}{3}{subsection*.4}%
+\contentsline {section}{Protein Storage and the Amino Acid Pool}{3}{section*.5}%
+\contentsline {section}{Major Proteins in Human Nutrition}{4}{section*.6}%
+\contentsline {subsection}{Other Nutritional Aspects of the Protein Package}{5}{subsection*.7}%
+\contentsfinish 

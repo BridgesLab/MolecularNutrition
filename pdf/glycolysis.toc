@@ -1,0 +1,17 @@
+\contentsline {section}{Learning Objectives}{2}{section*.1}%
+\contentsline {section}{Key Concepts, Abbreviations and Vocabulary}{2}{section*.2}%
+\contentsline {section}{Glycolysis converts glucose to pyruvate}{3}{section*.3}%
+\contentsline {subsection}{How does glucose enter cells?}{3}{subsection*.4}%
+\contentsline {subsection}{The conversion of glucose to glucose-6-phosphate}{4}{subsection*.5}%
+\contentsline {subsection}{What are the fates of glucose-6-phosphate?}{5}{subsection*.6}%
+\contentsline {subsection}{The first committed step of glycolysis is catalysed by PFK1}{5}{subsection*.7}%
+\contentsline {subsection}{Pyruvate kinase regulates conversion to pyruvate}{7}{subsection*.8}%
+\contentsline {subsection}{The fate of pyruvate}{8}{subsection*.9}%
+\contentsline {section}{Energy production by glycolysis}{8}{section*.10}%
+\contentsline {subsection}{Hormonal regulation of glycolysis}{9}{subsection*.11}%
+\contentsline {section}{Fructose metabolism}{10}{section*.12}%
+\contentsline {subsection}{Fructose catabolism is independent of PFK1}{10}{subsection*.13}%
+\contentsline {subsection}{Fructose consumption has been linked to both obesity and liver disease}{11}{subsection*.14}%
+\contentsline {subsection}{Disorders of fructose metabolism}{11}{subsection*.15}%
+\contentsline {section}{Galactose metabolism}{11}{section*.16}%
+\contentsfinish 

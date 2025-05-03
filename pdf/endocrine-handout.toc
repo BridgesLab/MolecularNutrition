@@ -1,0 +1,16 @@
+\contentsline {section}{Key Terms and Concepts}{2}{section*.1}%
+\contentsline {section}{Mechanisms of Glucose Regulation}{3}{section*.2}%
+\contentsline {section}{Pancreatic Cell Types}{5}{section*.3}%
+\contentsline {section}{Key Mediators of Insulin Signaling}{5}{section*.4}%
+\contentsline {section}{Glucagon Promotes Glucose Elevation}{6}{section*.5}%
+\contentsline {subsection}{Glucagon Signal Transduction}{7}{subsection*.6}%
+\contentsline {subsection}{The Primary Target of Glucagon is the Liver}{7}{subsection*.7}%
+\contentsline {section}{Other Glucoregulatory Hormones}{8}{section*.8}%
+\contentsline {section}{Pathophysiology Related to Glucose Control}{9}{section*.9}%
+\contentsline {subsection}{Type I Diabetes Mellitus}{9}{subsection*.10}%
+\contentsline {subsection}{Insulin Resistance and Type II Diabetes Mellitus}{9}{subsection*.11}%
+\contentsline {section}{Hormonal Regulation of Protein Metabolism}{9}{section*.12}%
+\contentsline {subsection}{Endocrine Regulators of Protein Synthesis}{10}{subsection*.13}%
+\contentsline {subsection}{Hormonal Regulators of Protein Degradation}{10}{subsection*.14}%
+\contentsline {section}{Endocrine Regulation of Lipid Metabolism}{11}{section*.15}%
+\contentsfinish 

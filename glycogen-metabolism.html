@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Dave Bridges" />
+  <title>Glycogen Metabolism</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="tufte.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Glycogen Metabolism</h1>
+<p class="author">Dave Bridges</p>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Glycogen is an important storage macromolecule. While we injest
+polysaccharides in a variety of forms, glycogen is the major
+carbohydrate storage form in mammals. This unit will cover the roles of
+glycogen, and how intracellular and extracellular signals result in
+glycogen synthesis or release. Finally we will discuss the consequences
+of abberant glycogen storage. For more details on this topic, we
+recommend <span class="citation" data-cites="Bollen1998"></span> and
+chapter 11 of Lippincott’s Illustrated Reviews: Biochemistry<span
+class="citation" data-cites="Ferrier2017"></span>.</p>
+</div>
+</header>
+<h1 id="learning-objectives">Learning Objectives</h1>
+<ul>
+<li><p>Evaluate how the structure of glycogen allows for compact but
+accessible storage of glucose molecules.</p></li>
+<li><p>Understand how glycogen synthesis and glycolysis are regulated by
+intracellular metabolites.</p></li>
+<li><p>Explain how protein phosphorylation regulates Glycogen Synthase
+and Glycogen Phosphorylase activities and how extracellular signals
+affect glycogen metabolism.</p></li>
+<li><p>Assess the tissue-specific roles of insulin, adrenaline and
+glucagon in glycogen storage.</p></li>
+<li><p>Distinguish between the functions of glycogen in liver, adipose
+and muscle and evaluate how alterations in glycogen metabolism affect
+the physiological functions of these tissues.</p></li>
+<li><p>Explain how glycogen storage diseases can occur and how specific
+genes result in different pathophysiologies depending on both the gene,
+and tissue where it is expressed.</p></li>
+</ul>
+<h1 id="key-concepts-and-vocabulary">Key Concepts and Vocabulary</h1>
+<ul>
+<li><p>Glycogenesis</p></li>
+<li><p>Glycogenolysis</p></li>
+<li><p>Protein Phosphorylation</p></li>
+<li><p>Allosteric Regulation</p></li>
+<li><p>Adrenergic Signaling</p></li>
+<li><p>Branch Points</p></li>
+<li><p>Inborn Errors of Metabolism</p></li>
+</ul>
+<h1 id="structure-and-function-of-glycogen">Structure and function of
+glycogen</h1>
+<p>Glycogen is a homopolymer of glucose units connected to each other by
+<span class="math inline"><em>α</em></span>1-4 or <span
+class="math inline"><em>α</em></span>1-6 glycosidic linkages. This
+allows for many molecules of glucose to be compactly stored in the cell,
+and then made available upon energy or glucose demand. A series of <span
+class="math inline"><em>α</em></span>1-4 bonds result in a more or less
+straight chain of glucose molecules, while a <span
+class="math inline"><em>α</em></span>1-6 linkage results in a branch
+point. A single glucose monomer can have both an <span
+class="math inline"><em>α</em></span>1-4 and <span
+class="math inline"><em>α</em></span>1-6 linkage, and in glycogen these
+are typically spaced 8-12 glucose molecules apart (see Figure <a
+href="#fig:glycogen-structure" data-reference-type="ref"
+data-reference="fig:glycogen-structure">[fig:glycogen-structure]</a>).
+Compare this to the structure of the major dietary polysaccharides we
+discussed earlier in this unit (Table <a href="#tab:polysaccharides"
+data-reference-type="ref"
+data-reference="tab:polysaccharides">[tab:polysaccharides]</a>).</p>
+<div class="margintable">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Molecule</strong></th>
+<th style="text-align: center;"><strong>Main Linkages</strong></th>
+<th style="text-align: center;"><strong>Branches</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Glycogen</td>
+<td style="text-align: center;"><span
+class="math inline"><em>α</em></span>1-4</td>
+<td style="text-align: center;"><span
+class="math inline"><em>α</em></span>1-6 (every 8-12)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Amylose</td>
+<td style="text-align: center;"><span
+class="math inline"><em>α</em></span>1-4</td>
+<td style="text-align: center;">none</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Amylopectin</td>
+<td style="text-align: center;"><span
+class="math inline"><em>α</em></span>1-4</td>
+<td style="text-align: center;"><span
+class="math inline"><em>α</em></span>1-6 (every 24-30)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Cellulose</td>
+<td style="text-align: center;"><span
+class="math inline"><em>β</em></span>1-4</td>
+<td style="text-align: center;">none</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="role-of-glycogen-branching">Role of glycogen branching</h2>
+<p>The branched structure of glycogen means that a single macromolecule
+can be both very compact, but have many free glucose ends. If glycogen
+was totally linear then glucose could only be released one at a time
+from the one free end of a glycogen molecule. By having many branch
+points, multiple enzymes that liberate glucose from glycogen can release
+glucose from the many reducing ends at the same time. This allows for
+rapid mobilization of glucose when needed.</p>
+<div class="marginfigure">
+<p><img src="figures/Glycogen.png" alt="image" /></p>
+</div>
+<p>overly branched glycogen is extremely compact, but its digestion may
+be limited by how well Glycogen Phosphorylase and the glycogen
+debranching enzyme can work in concert. Defects in debranching enzyme
+result in a glycogen storage disease characterized by an inability to
+eliminate these branch points (see the section on Glycogen storage
+diseases below).</p>
+<h2 id="different-tissues-use-glycogen-for-different-purposes">Different
+tissues use glycogen for different purposes</h2>
+<p>Glycogen is an easily accessible source of glucose for many tissues.
+The content of glycogen ranges from 1-3% of total weight in muscle
+tissue to up to 10% of total mass in a well fed liver. Since glycogen is
+very hydrophilic, it is estimated that approximately 3g of water are
+bound for every gram of glycogen <span class="citation"
+data-cites="Olsson1970 Fernandez-Elias2015"></span>. This is one reason
+why very low carbohydrate diets can result in rapid, initial weight
+loss, as glycogen is rapidly depleted. Based on what we have already
+learned about how glucose and phosphorylation differs between cells,
+different tissues use glycogen for slightly different reasons. In
+general, muscle cells use glycogen when energy is needed, for example
+during exercise. Liver cells on the other hand store glycogen to make
+glucose available for itself and other tissues, rather than for
+energy.</p>
+<p>Muscle tissue can have dramatic and rapid depletions of ATP in
+response to exercise. The initial resource to replenish ATP is the
+creatine phosphate system described in Figure <a
+href="#fig:creatine-kinase" data-reference-type="ref"
+data-reference="fig:creatine-kinase">[fig:creatine-kinase]</a>. Think of
+creatine phosphate like the battery on your laptop, and can supply (or
+store) excess ATP. The amount of creatine phosphate can be quickly
+depleted, so muscle cells next turn to glycogen for glucose. These
+glucose molecules typically undergo glycolysis (depending on the muscle
+fiber type) then the TCA cycle and electron transport chain to make ATP.
+As we will describe below, the primary signals for glycogen metabolism
+in muscle are energy dependent.</p>
+<div class="marginfigure">
+<p><embed src="figures/creatine-kinase.pdf" /></p>
+</div>
+<p>During prolonged exercise, muscle glycogen can be dramatically
+depleted. To prevent this, athletes often ingest carbohydrates during
+exercise in order to continuously provide energy to the contracting
+muscles. Another approach is to deplete glycogen levels prior to
+exercise, then eat a large carbohydrate rich meal. This results in
+<em>more</em> glycogen storage than the normal fed states, a condition
+known as glycogen super-compensation. These extra glycogen stores are
+thought to fuel a longer sustained effort during exercise. For more
+information on this concept see <span class="citation"
+data-cites="Hawley1997"></span>.</p>
+<p>The liver on the other hand mobilizes glycogen in order to maintain
+glucose levels in blood. Whether due to fasting or exercise the body
+needs to make glucose available for many tissues. This is especially
+important for the brain, which is very poor at converting fatty acids
+into ATP. As such, glycogen levels in the liver are generally controlled
+by indicators of glucose levels, such as glucose-6-phosphate. Unlike the
+muscle, <em>once glycogen is catabolized into glucose-6-phosphate it can
+be dephosporylated into glucose and released from hepatocytes</em> for
+transport to other tissues.</p>
+<h1 id="regulation-of-glycogen-synthesis">Regulation of glycogen
+synthesis</h1>
+<p>Glycogen is stored when glucose and energy are plentiful. After a
+typical meal, in a healthy person glycogen levels increase by about 50%
+peaking about 4h after a meal <span class="citation"
+data-cites="Taylor1996a"></span>. This is due to a combination of
+increased glucose availability and the postprandial actions of insulin.
+Glycogen is synthesized starting from Glucose-6-phosphate via the
+following series of reactions:</p>
+<p><span
+class="math display"><em>G</em><em>l</em><em>u</em><em>c</em><em>o</em><em>s</em><em>e</em> − 6 − <em>p</em><em>h</em><em>o</em><em>s</em><em>p</em><em>h</em><em>a</em><em>t</em><em>e</em> ⇌ <em>G</em><em>l</em><em>u</em><em>c</em><em>o</em><em>s</em><em>e</em> − 1 − <em>p</em><em>h</em><em>o</em><em>s</em><em>p</em><em>h</em><em>a</em><em>t</em><em>e</em></span></p>
+<p><span
+class="math display"><em>G</em><em>l</em><em>u</em><em>c</em><em>o</em><em>s</em><em>e</em> − 1 − <em>p</em><em>h</em><em>o</em><em>s</em><em>p</em><em>h</em><em>a</em><em>t</em><em>e</em> + <em>U</em><em>T</em><em>P</em> ⇌ <em>U</em><em>D</em><em>P</em> − <em>G</em><em>l</em><em>u</em><em>c</em><em>o</em><em>s</em><em>e</em> + <em>P</em><em>P</em><em>i</em></span></p>
+<p><span
+class="math display"><em>U</em><em>D</em><em>P</em> − <em>G</em><em>l</em><em>u</em><em>c</em><em>o</em><em>s</em><em>e</em> + <em>G</em><em>l</em><em>y</em><em>c</em><em>o</em><em>g</em><em>e</em><em>n</em><sub><em>n</em></sub> → <em>G</em><em>l</em><em>y</em><em>c</em><em>o</em><em>g</em><em>e</em><em>n</em><sub><em>n</em> + 1</sub></span></p>
+<p>There are two important things to note about this process, one is
+that the first two reversible steps mean that the levels of G6P are
+extremely important in this process. The second is that by using UTP to
+activate glucose, this is an <em>energy consuming process</em>. This
+means that there is an energetic cost (the equivalent of one ATP
+phosphodiester bond) to storing glycogen. The third reaction is
+catalyzed by the enzyme Glycogen Synthase and that is the main point of
+regulatory control in glycogen synthesis.</p>
+<h2 id="glycogen-synthase-is-activated-by-glucose-6-phosphate">Glycogen
+Synthase is activated by Glucose-6-phosphate</h2>
+<p>Both isoforms of Glycogen Synthase are allosterically activated by
+glucose-6-phosphate as first described in the late 1950s by <span
+class="citation" data-cites="Leloir1959"></span>. G6P levels are
+increased when glycolysis is low, but glucose levels are high. This is
+generally a situation where nutrient levels are high, but energy demand
+is low. This is a good time to store extra glucose, so this makes
+physiological sense.</p>
+<div id="tab:gs-sites">
+<table>
+<caption>Protein kinases that phosphorylate and inactivate Glycogen
+Synthase.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Kinase</strong></th>
+<th style="text-align: center;"><strong>Signal</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">PKA</td>
+<td style="text-align: center;">Adrenaline/Glucagon</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">GSK3</td>
+<td style="text-align: center;">Insulin (inactivates)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">AMPK</td>
+<td style="text-align: center;">Energy Stress</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="extracellular-control-and-signaling">Extracellular control and
+signaling</h2>
+<p>In addition to this metabolite-level control, Glycogen Synthase is
+also regulated by reversible protein phosphorylation <span
+class="citation" data-cites="Larner1960"></span>. There are several
+protein kinases that regulate Glycogen Synthase, and as a general rule
+they result in the <em>inactivation</em> of the enzyme. These kinases
+are summarized in Table <a href="#tab:gs-sites"
+data-reference-type="ref" data-reference="tab:gs-sites">1</a>. Insulin
+<em>activates</em> Glycogen Synthase, and it does so by
+<em>dephosphorylating</em> these sites (see Figure <a
+href="#fig:glycogen-phosphorylation" data-reference-type="ref"
+data-reference="fig:glycogen-phosphorylation">1</a>). Part of this
+mechanism is by reducing the activity of the kinases (especially GSK3
+and PKA) but insulin also functions by activating protein phosphatase
+activity towards Glycogen Synthase. This is accomplished via a series of
+proteins that specifically target a protein phosphatase on the glycogen
+particle. The precise mechanisms by which insulin promotes this
+dephosphorylation are still unclear. At the same time that Glycogen
+Synthase is being dephosphorylated (and activated), Glycogen
+Phosphorylase is also dephosphorylated and inactivated.</p>
+<figure id="fig:glycogen-phosphorylation">
+<img src="figures/glycogen-phosphorylation" />
+<figcaption>Post-translational regulation of glycogen metabolism. Red
+indicates inactive enzymes, while green indicates active enzymes. PP1 is
+a protein phosphatase that removes the phosphate groups from both
+Glycogen Synthase and Glycogen Phosphorylase. The dashed arrow indicates
+the mechanisms by which this phosphatase are activated are currently
+unknown.</figcaption>
+</figure>
+<p>recall that insulin will also promote glucose uptake (in muscle and
+fat tissues). This increased glucose flux will result in more
+Glucose-6-phosphate in the cell and allosteric activation of Glycogen
+Synthase. Therefore there are at least two ways by which insulin can
+promote glycogenesis.</p>
+<h1 id="regulation-of-glycogen-breakdown">Regulation of glycogen
+breakdown</h1>
+<p>Glycogen is broken down to release glucose in two steps:</p>
+<p><span
+class="math display"><em>G</em><em>l</em><em>y</em><em>c</em><em>o</em><em>g</em><em>e</em><em>n</em><sub><em>n</em></sub> → <em>G</em><em>l</em><em>y</em><em>c</em><em>o</em><em>g</em><em>e</em><em>n</em><sub><em>n</em> − 1</sub> + <em>G</em><em>l</em><em>u</em><em>c</em><em>o</em><em>s</em><em>e</em> − 1 − <em>p</em><em>h</em><em>o</em><em>s</em><em>p</em><em>h</em><em>a</em><em>t</em><em>e</em></span></p>
+<p><span
+class="math display"><em>G</em><em>l</em><em>u</em><em>c</em><em>o</em><em>s</em><em>e</em> − 1 − <em>p</em><em>h</em><em>o</em><em>s</em><em>p</em><em>h</em><em>a</em><em>t</em><em>e</em> ↔︎ <em>G</em><em>l</em><em>u</em><em>c</em><em>o</em><em>s</em><em>e</em> − 6 − <em>p</em><em>h</em><em>o</em><em>s</em><em>p</em><em>h</em><em>a</em><em>t</em><em>e</em></span></p>
+<p>The fate of Glucose-6-phosphate depends on the relative activities of
+PFK1, Glucose-6-phosphate dehydrogenase and, in the case of liver cells
+Glucose-6-phosphatase. Generally, in the muscle the liberated
+Glucose-6-phosphate enters glycolysis whereas in the liver it is
+dephosphorylated and released as glucose when energy is needed in the
+body.</p>
+<h2 id="intracellular-control">Intracellular control</h2>
+<p>The first, and rate limiting step of glycogenolysis is catalyzed by
+an enzyme named Glycogen Phosphorylase. Glycogen Phosphorylase is
+allosterically activated by AMP. This activation by AMP is blocked by
+the presence of ATP or Glucose-6-phosphate. AMP is increased when there
+is energy demand, so if there is a need for energy, Glycogen
+Phosphorylase gets activated. This can be over-ridden when ATP is
+plentiful (indicating a lack of energy stress) or Glucose-6-phosphate is
+elevated (indicating sufficient glucose levels). While all three
+isoforms respond similarly in direction, the muscle enzyme is much more
+sensitive to activation by AMP than the liver enzyme. This is due to
+structural differences in the AMP-binding pocket between the muscle and
+liver isoforms <span class="citation" data-cites="Rath2000"></span>. As
+part of its reaction mechanism, Glycogen Phosphorylase also uses Vitamin
+B<span class="math inline"><sub>6</sub></span>-derived Pyridoxal
+phosphate as a prosthetic group.</p>
+<div class="marginfigure">
+<p><embed src="figures/gp-activation.pdf" /></p>
+</div>
+<h2 id="extracellular-control-and-signaling-1">Extracellular control and
+signaling</h2>
+<p>The activation of Glycogen Phosphorylase by AMP can be over-ridden by
+protein phosphorylation by an enzyme named Phosphorylase Kinase (see
+Figure <a href="#fig:gp-activation" data-reference-type="ref"
+data-reference="fig:gp-activation">[fig:gp-activation]</a>). Once
+phosphorylated, the enzyme functions as if it is in the AMP-activated
+state. The phosphorylation of Glycogen Phosphorylase is activated by PKA
+dependent signaling, induced by either glucagon in the liver or
+adrenaline in liver, muscle and other tissues. Similarly, PKA-dependent
+signaling phosphorylates and inactivates Glycogen synthase. This means
+that adrenergic signaling turns Glycogen Phosphorylase on, and Glycogen
+Synthase off simultaneously. This makes sense since adrenergic signals
+would want to increase release of glucose and reduce glycogen storage. A
+summary of the effects of reversible protein phosphorylation on the
+enzymes of glycogen metabolism is shown in Table <a
+href="#tab:gs-gp-phosphorylation" data-reference-type="ref"
+data-reference="tab:gs-gp-phosphorylation">2</a>.</p>
+<h2
+id="regulation-of-glycogen-branching-and-removal-of-branch-points">Regulation
+of glycogen branching and removal of branch points</h2>
+<p>The generation and removal of glycogen branch points is an important
+part of glycogen metabolism. Glycogen Phosphorylase can only cleave at
+<span class="math inline"><em>α</em></span>1-4 bonds and cannot proceed
+past <span class="math inline"><em>α</em></span>1-6 linkages. Whenever
+an <span class="math inline"><em>α</em></span>1-6 linkage is
+encountered, the Glycogen Debranching Enzyme is recruited, which removes
+the <span class="math inline"><em>α</em></span>1-6 link and allows for
+Glycogen Phosphorylase to proceed. Currently, there is no strong data
+suggesting that either Glycogen Branching or Debranching Enzymes are
+regulated by metabolites, or hormonal signals, but inappropriate
+activity can result in under- or over-branched glycogen.</p>
+<div id="tab:gs-gp-phosphorylation">
+<table>
+<caption>Summary of how protein phosphorylation regulates Glycogen
+Synthase and Glycogen Phosphorylase.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Enzyme</strong></th>
+<th style="text-align: center;"><strong>Effects of
+Phosphorylation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Glycogen Synthase</td>
+<td style="text-align: center;">Inactivates - Less Synthesis</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Glycogen Phosphorylase</td>
+<td style="text-align: center;">Activates - More Breakdown</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="glycogen-storage-diseases">Glycogen storage diseases</h1>
+<p>There are a variety of rare, heritable defects which result in
+abberant glycogen metabolism (see Table <a
+href="#tab:glycogen-storage-diseases" data-reference-type="ref"
+data-reference="tab:glycogen-storage-diseases">3</a>). Some of these
+result in an inability to synthesize glycogen, while others prevent
+glycogenolysis, resulting in pathologically large particles of glycogen
+resulting in cell death. Some common glycogen storage diseases, and the
+affected enzymes are below.</p>
+<p>. <span id="tab:glycogen-storage-diseases"
+label="tab:glycogen-storage-diseases"></span></p>
+<div id="tab:glycogen-storage-diseases">
+<table>
+<caption>Some examples of glycogen storage diseases and the gene that is
+mutated. <em>G6PC</em>: Glucose-6-phosphatase; <em>PFKM</em>: Muscle
+PFK1; <em>PHKA1/2</em>: Phosphorylase kinase; <em>SLC4A2</em>: GLUT2.
+Before class, try to predict what the loss of activity of these proteins
+would do to glycogen levels.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Disease</strong></th>
+<th style="text-align: center;"><strong>Enzyme</strong></th>
+<th style="text-align: center;"><strong>Predicted Glycogen
+Levels</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Fanconi-Bickel syndrome</td>
+<td style="text-align: center;"><em>SLC4A2</em></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">von Gierke’s disease</td>
+<td style="text-align: center;"><em>G6PC</em></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Tarui’s disease</td>
+<td style="text-align: center;"><em>PFKM</em></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">GSD Type 0</td>
+<td style="text-align: center;"><em>GYS2</em></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Cori’s disease</td>
+<td style="text-align: center;"><em>AGL</em></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Andersen disease</td>
+<td style="text-align: center;"><em>GBE</em></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">McArdle disease</td>
+<td style="text-align: center;"><em>PYGM</em></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Hers’ disease</td>
+<td style="text-align: center;"><em>PYGL</em></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">GSD type IX</td>
+<td style="text-align: center;"><em>PHKA1/2</em></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="footer">
+<p>Last updated: 2025-05-03</p>
+<p>Author: Dave Bridges</p>
+</div>
+</body>
+</html>

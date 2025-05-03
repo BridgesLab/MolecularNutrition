@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>TCA Cycle and the Electron Transport Chain</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="tufte.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">TCA Cycle and the Electron Transport Chain</h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>The aquisition and utilization of mitochondria during evolution
+dramatically improved the ability of the cell to generate energy. In the
+presence of oxygen and ATP demand, the products of glycolysis, amino
+acid catabolism and lipid oxidation enter the TCA Cycle. This allows for
+complete oxidation of metabolites into CO<sub>2</sub> and efficient
+energy production by the mitochondrial ATP synthase. This unit will
+describe how the TCA Cycle and Electron Transport Chain are regulated,
+and how various nutrients interact with this cellular pathway. For more
+details about the these topics see Chapters 18-20 in Biochemistry: A
+Short Course<span class="citation" data-cites="Berg2015"></span>,
+available on reserve.</p>
+</div>
+</header>
+<h1 id="learning-objectives">Learning Objectives</h1>
+<ul>
+<li><p>Evaluate the potential metabolic fates of pyruvate and the
+signals that control these changes.</p></li>
+<li><p>Assess the importance of the mitochondria in glucose
+metabolism.</p></li>
+<li><p>Describe the key regulatory nodes of the TCA cycle.</p></li>
+<li><p>Understand the concepts of anaplerosis and cataplerosis and how
+this can affect TCA cycle efficiency. Predict whether a particular
+pathway is anaplerotic or cataplerotic.</p></li>
+<li><p>Explain the differences in efficiency between anaerobic
+glycolysis and the TCA cycle linked to the electron transport
+chain.</p></li>
+<li><p>Recall the key functions of the electron carriers NADH,
+FADH<sub>2</sub> and QH<sub>2</sub>.</p></li>
+<li><p>Calculate ATP production from GTP, NADH and FADH<sub>2</sub>
+equivalents.</p></li>
+<li><p>Understand how mitochondria balance nutrient flux with ATP
+requirements.</p></li>
+</ul>
+<h1 id="key-vocabulary-and-concepts">Key Vocabulary and Concepts</h1>
+<ul>
+<li><p>Anaplerosis</p></li>
+<li><p>Cataplerosis</p></li>
+<li><p>Electron Carrier Molecules (including NADH, FADH<sub>2</sub> and
+QH<sub>2</sub>)</p></li>
+<li><p>Proton Gradients and the Electromotive Force</p></li>
+<li><p>Oxidative Stress, Antioxidants, and Reactive Oxygen
+Species</p></li>
+</ul>
+<h1
+id="the-next-steps-in-carbohydrate-metabolism-require-mitochondria">The
+Next Steps in Carbohydrate Metabolism Require Mitochondria</h1>
+<p>While glucose oxidation to the level of Pyruvate generates the
+equivalent of 7 ATP molecules, full oxidation to CO<span
+class="math inline"><sub>2</sub></span> can yield up to 32 molecules of
+ATP. This process requires transport of pyruvate into the mitochondria
+where Acetyl-CoA is generated and degraded to CO<span
+class="math inline"><sub>2</sub></span>, GTP and reduction of electron
+carrier molecules. These molecules, NADH and FADH<sub>2</sub>, are
+passed to the electron transport chain, generating a proton gradient,
+which powers the mitochondrial ATPase. Mitochondria are also the only
+way to catabolize fatty acids, and most Amino Acids. As a
+membrane-enclosed organelle, many key metabolites are impermeable to
+mitochondria without transporters. These include cytoplasmic NADH
+generated during glycolysis as well as Pyruvate. Fortunately there are a
+variety of transporters and shuttle systems that transport key materiel
+from the cytoplasm into the mitochondria.</p>
+<h2 id="regulation-of-mitochondrial-numbers">Regulation of Mitochondrial
+Numbers</h2>
+<p>Before we start with what happens in mitochondria, its worth taking a
+step back and considering how mitochondrial amounts are regulated. The
+presence of mitochondria is essential for aerobic metabolism, and muscle
+fibers that are rich in mitochondria are able to fully oxidize glucose
+and other fuels. These are known as Type I muscle fibers, or
+colloquially as slow-twitch muscle fibers. The number and efficiency of
+mitochondria in muscle is not static, and can be modified by training.
+For example endurance training dramatically increases the number of
+mitochondria and the levels of TCA and ETC enzymes in both rodent and
+human studies <span class="citation"
+data-cites="Exercise1967 Gollnick1972 Gollnick1973"></span>.
+Understanding the molecular mechanisms by which this happens is a major
+research area both in terms of human performance, and in terms of
+modifying energy expenditure and promoting healthy aging (for more
+details see <span class="citation" data-cites="Cartee2016"></span>).
+Some cells have few or no mitochondria. In this case they are entirely
+dependent on glycolysis for ATP production.</p>
+<h1 id="the-possible-fates-of-pyruvate">The Possible Fates of
+Pyruvate</h1>
+<p>As we discussed in the unit on glycolysis, pyruvate has several
+possible fates. If Alanine levels are low and Glutamate levels are high,
+Pyruvate can be converted to Alanine via ALT. If there is energy demand,
+PDH is activated and pyruvte becomes Acetyl-CoA. If Acetyl-CoA levels
+are high, Pyruvate becomes the TCA Cycle intermediate Oxaloacetate via
+the actions of Pyruvate Carboxylase. If none of these enzymes are
+activated, Pyruvate is converted by Lactate Dehydrogenase and released
+from the cell as Lactate. The reversible Lactate Dehydrogenase reaction
+is:</p>
+<p><span
+class="math display"><em>P</em><em>y</em><em>r</em><em>u</em><em>v</em><em>a</em><em>t</em><em>e</em> + <em>N</em><em>A</em><em>D</em><em>H</em> ⇌ <em>L</em><em>a</em><em>c</em><em>t</em><em>a</em><em>t</em><em>e</em> + <em>N</em><em>A</em><em>D</em><sup>+</sup></span></p>
+<h2 id="anaerobic-glycolysis">Anaerobic Glycolysis</h2>
+<p>If oxygen is unavailable to the cell, or there are no mitochondria
+present and lactate is produced, this is the end of anaerobic
+glycolysis. The reaction to generate lactate uses up the NADH produced
+during glycolysis. This means that on net one glucose molecule now
+generates just two ATP equivalents. The lactate molecule that is
+released was once thought to be primarily converted back to glucose by a
+pathway called the Cori cycle but recent experiments monitoring the flux
+of lactate shows that a large fraction of lactate is anaplerotic,
+meaning it is used to increase the number of molecules in the TCA cycle
+<span class="citation" data-cites="Hui2017 Ferguson2018"></span>.</p>
+<div class="margintable">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Pyruvate Fate</strong></th>
+<th style="text-align: center;"><strong>Conditions</strong></th>
+<th style="text-align: center;"><strong>Key Enzyme</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">TCA cycle</td>
+<td style="text-align: center;">High PDH Activity</td>
+<td style="text-align: center;">PDH</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Lactate</td>
+<td style="text-align: center;">Low PDH Activity</td>
+<td style="text-align: center;">PDH</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Alanine</td>
+<td style="text-align: center;">Low Ala, High Glu</td>
+<td style="text-align: center;">ALT</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Oxaloacetate</td>
+<td style="text-align: center;">High Acetyl-CoA</td>
+<td style="text-align: center;">PC</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="regulation-of-pyruvate-dehydrogenase">Regulation of Pyruvate
+Dehydrogenase</h2>
+<p>Pyruvate Dehydrogenase is a mitochondrial enzyme that catalyzes this
+irreversible reaction:</p>
+<p><span
+class="math display"><em>P</em><em>y</em><em>r</em><em>u</em><em>v</em><em>a</em><em>t</em><em>e</em> + <em>N</em><em>A</em><em>D</em><sup>+</sup> + <em>C</em><em>o</em><em>A</em> → <em>A</em><em>c</em><em>e</em><em>t</em><em>y</em><em>l</em><em>C</em><em>o</em><em>A</em> + <em>C</em><em>O</em><sub>2</sub> + <em>N</em><em>A</em><em>D</em><em>H</em> + <em>H</em><sup>+</sup></span></p>
+<p>The two most important products here are Acetyl-CoA, which will enter
+the TCA cycle and NADH which will go to Complex I of the Electron
+Transport Chain. As one of the most important molecular decision steps,
+it makes sense that this enzyme is tightly regulated. Intracellularly,
+PDH activity is turned on when energy is low, and turned off when energy
+is available. The specific regulators are shown in Table <a
+href="#tab:pdh-regulators" data-reference-type="ref"
+data-reference="tab:pdh-regulators">[tab:pdh-regulators]</a> and Figure
+<a href="#fig:pdh-pdk" data-reference-type="ref"
+data-reference="fig:pdh-pdk">[fig:pdh-pdk]</a>. The first several of
+these should be familiar to you, as increased substrate, and decreased
+energy (as sensed by low ATP, high ADP and low NADH, Acetyl-CoA) all
+promote PDH activity. Ca<sup>2+</sup> is an activator of PDH activity,
+and as we will describe, also plays a role in activating several other
+TCA Cycle enzymes. This is because, when muscles contract they release
+Calcium. This allows for mitochondria to respond to contraction by
+generating more ATP.</p>
+<div class="marginfigure">
+<p><embed src="figures/pdk-regulation.pdf" /></p>
+</div>
+<p>The phosphorylation of PDH is regulated by a specific protein kinase
+(PDH Kinase or PDK) which adds a phosphate group to PDH and reduces its
+activity (see Figure <a href="#fig:pdh-pdk" data-reference-type="ref"
+data-reference="fig:pdh-pdk">[fig:pdh-pdk]</a>). The overall mechanism
+of regulation of PDH therefore is a combination of direct inhibitors of
+PDH (NADH and Acetyl-CoA), activators of the inhibitory kinase (ATP,
+Acetyl-CoA, NADH) and activators of the activating phosphatase
+(Ca<sup>2+</sup>). Unlike PFK2 and Pyruvate Kinase, PDK activity is
+regulated mostly at the metabolite level and not acutely by hormonal
+signals and protein phosphorylation.</p>
+<p>While the activity of PDK is primarily regulated by metabolites, the
+number of PDK enzymes can be induced by several signals. Here are a
+couple, as you read these take a moment to think <em>why</em> this
+stimuli would alter PDK levels, and what would be the effects on
+glycolysis, gluconeogenesis and mitochondrial respiration. Remember more
+PDK means <em>less</em> PDH activity:</p>
+<ul>
+<li><p>Glucocorticoids induce PDK4 transcription via FOXO <span
+class="citation" data-cites="Connaughton2010a"></span>.</p></li>
+<li><p>Starvation induces PDK4 <span class="citation"
+data-cites="WU1998"></span>.</p></li>
+<li><p>Insulin reduces PDK4 levels, insulin resistance elevates PDK4
+levels <span class="citation" data-cites="Harris2001"></span>.</p></li>
+<li><p>Hypoxia (low oxygen) induces PDK1 via HIF1<span
+class="math inline"><em>α</em></span> <span class="citation"
+data-cites="Kim2006"></span>.</p></li>
+</ul>
+<div class="margintable">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Regulator</strong></th>
+<th style="text-align: center;"><strong>Effect</strong></th>
+<th style="text-align: center;"><strong>Mechanism</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Pyruvate</td>
+<td style="text-align: center;">Positive</td>
+<td style="text-align: center;">Inactivates PDK</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ADP</td>
+<td style="text-align: center;">Positive</td>
+<td style="text-align: center;">Inactivates PDK</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">ATP</td>
+<td style="text-align: center;">Negative</td>
+<td style="text-align: center;">Activates PDK</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Acetyl-CoA</td>
+<td style="text-align: center;">Negative</td>
+<td style="text-align: center;">Activates PDK, Inhibits PDH</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">NADH</td>
+<td style="text-align: center;">Negative</td>
+<td style="text-align: center;">Inhibits PDH</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Ca<sup>2+</sup></td>
+<td style="text-align: center;">Positive</td>
+<td style="text-align: center;">Activates PDH Phosphatase</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>While we have focused so far on carbohydrate metabolism, now is a
+good time to talk briefly about lipid oxidation. Unlike carbohydrates,
+when fatty acids are broken down they produce Acetyl-CoA, not Pyruvate.
+This means that in humans, fatty acids enter the TCA cycle here. If
+fatty acids are oxidized in the liver, but the TCA Cycle is not
+activated, those extra Acetyl-CoA molecules are released as ketone
+bodies, which can be used by other tissues, after re-conversion back
+into Acetyl-CoA.</p>
+<p>As we will learn in the gluconeogenesis and amino acid catabolism
+lectures, some amino acids, depending on the circumstances are able to
+become converted into glucose. Others are converted into Acetyl-CoA and
+are known as the ketogenic amino acids. These amino acids can only be
+oxidized into energy by entering the TCA cycle as Acetyl-CoA, but cannot
+become glucose.</p>
+<h1 id="the-tca-cycle-products">The TCA Cycle Products</h1>
+<p>The TCA Cycle/ETC completely oxidizes Acetyl-CoA to CO<sub>2</sub>.
+One cycle, using one molecule of Acetyl-CoA generates the following:</p>
+<div id="tab:atp-tca">
+<table>
+<caption>TCA Cycle ATP generation. See Table <a
+href="#tab:atp-equivalents" data-reference-type="ref"
+data-reference="tab:atp-equivalents">[tab:atp-equivalents]</a> for
+details on conversion rates.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Product</strong></th>
+<th style="text-align: center;"><span class="math inline">→</span></th>
+<th style="text-align: center;"><strong>ATP</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">3 NADH</td>
+<td style="text-align: center;"><span class="math inline">→</span></td>
+<td style="text-align: center;">7.5 ATP</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1 FADH<sub>2</sub></td>
+<td style="text-align: center;"><span class="math inline">→</span></td>
+<td style="text-align: center;">1.5 ATP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1 GTP</td>
+<td style="text-align: center;"><span class="math inline">→</span></td>
+<td style="text-align: center;">1 ATP</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Total</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>10 ATP</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>if we include the NADH generated by Pyruvate Dehydrogenase, that
+means that Pyruvate oxidation results in 12.5 molecules of ATP. Based on
+what we have discussed in this unit and in the glycolysis unit, try to
+determine how much ATP is generated from one molecule of glucose.
+Compare this to the two molecules of ATP generated by anaerobic
+glycolysis and it should make sense why we breathe heavier when we
+exercise.</p>
+<h2
+id="nadh-and-fadh2-are-substrates-for-the-electron-transport-chain">NADH
+and FADH<sub>2</sub> Are Substrates for the Electron Transport
+Chain</h2>
+<p>Once Acetyl-CoA is generated by PDH, or by the breadown of amino or
+fatty acids, the TCA cycle functions to extract electrons from these
+substrates and pass them along to the electron transport chain. This is
+done by transferring electrons from TCA intermediates to electron
+carrier molecules including NADH and FADH<sub>2</sub>. These molecules
+are "charged" by these electrons, and then transfer them to Complex I
+(for NADH) or Complex II (for FADH<sub>2</sub>). The electron transport
+chain takes these charged carriers, and transfers the energy through a
+series of complexes. After Complex I or II, electrons are next
+transported to another carrier called Ubiquinone (or Coenzyme Q) which
+takes them to Complex III. Between complex III and IV is a final carrier
+called Cytochrome c. As electrons are passed between electron carriers,
+complexes I, III and IV result in proton ions being pumped out of the
+mitochondrial cristae, resulting in a gradient of protons. The final
+step at complex IV reduces oxygen into water. Oxygen is the final
+electron carrier and is essential for the complete oxidation of the
+electron carrier molecules.</p>
+<div class="margintable">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Molecule</strong></th>
+<th style="text-align: center;"><span class="math inline">→</span></th>
+<th style="text-align: center;"><strong>ATP</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1 NADH</td>
+<td style="text-align: center;"><span class="math inline">→</span></td>
+<td style="text-align: center;">2.5 ATP</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1 FADH<sub>2</sub></td>
+<td style="text-align: center;"><span class="math inline">→</span></td>
+<td style="text-align: center;">1.5 ATP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1 GTP</td>
+<td style="text-align: center;"><span class="math inline">→</span></td>
+<td style="text-align: center;">1 ATP</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="the-electron-transport-chain-is-coupled-to-atp-production">The
+Electron Transport Chain is Coupled to ATP Production</h2>
+<p>As a result of the reactions in Complex I, III and IV, protons are
+pumped from the inside of the mitochondria to the inner-membrane space.
+This generates a proton gradient with more protons on the outside of the
+inner membrane than on the inside. This gradient drives a proton-coupled
+pump called ATP Synthase. If the proton gradient is established, and
+sufficient ADP levels are present inside the mitochondria, ATP Synthase
+catalyzes the production of ATP from ADP.</p>
+<p>These all need to be available in the mitochondria to allow electrons
+to flow from the TCA cyle through the ETC. These molecules are reduced
+by the actions of the TCA cycle then oxidized back to their original
+form by the ETC. All three of these can be generated endogenously, but
+NAD and FAD are usually generated from vitamins (see Table <a
+href="#tab:etc-carriers" data-reference-type="ref"
+data-reference="tab:etc-carriers">[tab:etc-carriers]</a>). It has been
+suggested that as we age, we are less able to generate NAD, and several
+preclinical trials are underway to test whether NAD supplementation may
+slow aging in humans (reviewed in <span class="citation"
+data-cites="Rajman2018"></span>) .Coenzyme Q is generated endogenously
+using some enzymes of the steroid biosynthesis pathway, and inhibitors
+of this pathway (such as statins) have been suggested to result in CoQ
+deficiency (reviewed in <span class="citation"
+data-cites="Quinzii2007"></span>).</p>
+<div class="margintable">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Carrier</strong></th>
+<th style="text-align: center;"><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">NAD</td>
+<td style="text-align: center;">Vitamin B3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">FAD</td>
+<td style="text-align: center;">Vitamin B2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">CoQ</td>
+<td style="text-align: center;">Not Considered a Vitamin</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="regulation-of-the-tca-cycle">Regulation of the TCA Cycle</h1>
+<p>The TCA/ETC cycle has to be tightly controlled. This happens in three
+levels. The first is that the entire system is driven by ATP demand.
+Think of this aspect of metabolism more as being pulled by the need,
+rather than being pushed by substrates. The second level of regulation
+is how many TCA cycle intermediates are present. Since this is a cycle,
+where the starting substrate (oxaloacetate) is regenerated, having more
+oxaloacetate molecules in the cycle will increase efficiency. The third
+level of regulation is regulation of the TCA cycle enzymes themselves.
+This can be allosteric (increased activity with low ATP/NADH),
+transcriptional or post-translational.</p>
+<h2 id="the-etc-is-driven-by-atp-demand">The ETC is Driven by ATP
+Demand</h2>
+<p>Many metabolic pathways are driven by the nutrients that flow in. An
+example of this is that glycolysis occurs more rapidly when more glucose
+is present. This is facilitated by feed-forward mechanisms where more
+glucose results in higher activity of PFK (via F26bP) and Pyruvate
+Kinase (via F16bP). The electron transport chain, however, is primarily
+regulated by demand, rather than supply. In this case, demand means high
+levels of ADP. In the absence of ADP, electrons from NADH/FADH<span
+class="math inline"><sub>2</sub></span> do not get transported to the
+final electron acceptor (O<span
+class="math inline"><sub>2</sub></span>). If ADP levels are high, that
+indicates that ATP needs to be synthesized and the electron transport
+chain is active.</p>
+<h2 id="changes-in-tca-cycle-intermediates">Changes in TCA Cycle
+Intermediates</h2>
+<p>Unlike glycolysis, which starts with glucose and ends with Pyruvate,
+the TCA cycle takes in Acetyl-CoA and after one round of the cycle, is
+left with Oxaloacetate. That means that other than Acetyl-CoA, the cycle
+is self-replenishing. As you might suspect, having more Oxaloacetate can
+mean there is more efficient Acetyl-CoA metabolism. While normal TCA
+cycle function as we have been describing does not alter these levels,
+there are several important processes that can affect this. One example
+is gluconeogenesis, which extracts Oxaloacetate (via the activity of an
+enzyme called PEPCK) to form glucose. Another example is that
+biosynthesis of some amino acids uses up TCA cycle intermediates. The
+process by which TCA Cycle intermediates are removed is known as
+<em>cataplerosis</em>. This process is extremely important for growth as
+it is a source of many building blocks for cells (for more details see
+<span class="citation" data-cites="inigoInsOutsTCA2021"></span>).</p>
+<p>These can derive from Pyruvate, or from the breakdown of amino acids.
+The most important enzyme here is called Pyrvate Carboxylase. This
+enzyme performs the following irreversible, ATP consuming reaction:</p>
+<p><span
+class="math display"><em>P</em><em>y</em><em>r</em><em>u</em><em>v</em><em>a</em><em>t</em><em>e</em> + <em>B</em><em>i</em><em>c</em><em>a</em><em>r</em><em>b</em><em>o</em><em>n</em><em>a</em><em>t</em><em>e</em> + <em>A</em><em>T</em><em>P</em> → <em>O</em><em>x</em><em>a</em><em>l</em><em>o</em><em>a</em><em>c</em><em>e</em><em>t</em><em>a</em><em>t</em><em>e</em> + <em>A</em><em>D</em><em>P</em> + <em>P</em><em>i</em></span></p>
+<p>There are two important roles of Pyruvate Carboxylase, one of which
+is to increase TCA Cycle intermediates. The second is to generate
+Oxaloacetate for gluconeogenesis. The activity of Pyruvate Carboxylase
+is positively regulated by Acetyl-CoA. Since Acetyl-CoA is not directly
+anaplerotic, this mechanism balances flow of "passengers" (Acetyl-CoA)
+to the number of "trains" (Oxaloacetate). Extending the metaphor, if
+there are too many passengers, Pyruvate Carboxylase results in more
+trains being put into service. As we will discuss later in the section
+on gluconeogenesis, Acetyl-CoA (the major metabolite of fatty acid
+oxidation) is <em>unable</em> to become glucose, meaning that while
+fatty acids can promote gluconeogenesis, the process is still reliant on
+other precursors such as lactate, alanine and glycerol.</p>
+<h2 id="allosteric-regulation-of-the-tca-cycle">Allosteric Regulation of
+the TCA Cycle</h2>
+<p>As we discussed above, the ETC is inactive unless there is ATP
+demand. It is therefore imperative that the ETC can feed back to the TCA
+cycle and stop NADH/FADH<span class="math inline"><sub>2</sub></span>
+production if these activated electron carriers are not needed. The
+primary mechanism by which this occurs is negative allosteric regulation
+described in Table <a href="#tab:tca-allosteric"
+data-reference-type="ref" data-reference="tab:tca-allosteric">2</a>. The
+signals of high energy availability are ATP, NADH and FADH<span
+class="math inline"><sub>2</sub></span>.</p>
+<div id="tab:tca-allosteric">
+<table>
+<caption>Key regulated steps of the TCA cycle. The step in paranthesis
+indicates where the enzyme is in the cycle.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Enzyme (step)</strong></th>
+<th style="text-align: left;"><strong>Activators</strong></th>
+<th style="text-align: left;"><strong>Inhibitors</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Citrate synthase (1)</td>
+<td style="text-align: left;">OAA, AMP</td>
+<td style="text-align: left;">NADH, FADH<span
+class="math inline"><sub>2</sub></span>, ATP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Isocitrate dehydrogenase (3)</td>
+<td style="text-align: left;">ADP, Ca<span
+class="math inline"><sup>2+</sup></span></td>
+<td style="text-align: left;">NADH, ATP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span
+class="math inline"><em>α</em></span>-ketoglutarate dehydrogenase
+(4)</td>
+<td style="text-align: left;">Ca<span
+class="math inline"><sup>2+</sup></span></td>
+<td style="text-align: left;">NADH</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You should note from Table <a href="#tab:tca-allosteric"
+data-reference-type="ref" data-reference="tab:tca-allosteric">2</a> that
+these enzymes are broadly activated by two things, low energy levels
+(AMP or ADP) and Calcium increases. Calcium plays a key role here,
+because in skeletal muscle Calcium release causes muscle contraction. By
+activating the TCA cycle, Calcium couples the initiation of muscle
+contraction to the replenishment of ATP levels. By the same token, the
+TCA cycle is inhibited when there is a buildup of high energy molecues
+(NADH, FADH<span class="math inline"><sub>2</sub></span>, ATP) either
+when there is a lack of oxygen or sufficient energy stores.</p>
+<h1
+id="oxidative-damage-can-result-from-superoxide-production">Oxidative
+Damage Can Result from Superoxide Production</h1>
+<p>The terminal electron acceptor of the TCA cycle and electron
+transport chain is oxygen. This is the reason why aerobic metabolism
+requires a supply of oxygen. The oxygen is converted to water by Complex
+IV of the ETC.</p>
+<p><span
+class="math display">4<em>C</em><em>y</em><em>t</em><em>C</em><sub><em>r</em><em>e</em><em>d</em></sub> + 4<em>H</em><sup>+</sup> + <em>O</em><sub>2</sub> → 4<em>C</em><em>y</em><em>t</em><em>C</em><sub><em>o</em><em>x</em></sub> + 2<em>H</em><sub>2</sub><em>O</em></span></p>
+<p>While this process is efficient most of the time, due to the high
+reactivity of oxygen, approximately 2-4% of the time, rather than being
+reduced to water, oxygen can be partially reduced into a superoxide or
+peroxide molecule. These <em>reactive oxygen species</em> such as <span
+class="math inline"><em>H</em><em>O</em><sub>2</sub><sup>−</sup></span>
+can cause cellular damage by reacting with proteins and lipids in the
+cell. To defend against this, mitochondria express an enzyme known as
+superoxide dismutate (SOD) which scavenges these superoxides and
+converts them to hydrogen peroxide and then via an enzyme known as
+catalase back into water. These reactions are described in reactions <a
+href="#eq:sod" data-reference-type="ref"
+data-reference="eq:sod">[eq:sod]</a> and <a href="#eq:catalase"
+data-reference-type="ref" data-reference="eq:catalase">[eq:catalase]</a>
+below:</p>
+<p><span
+class="math display">2<em>H</em><em>O</em><sub>2</sub><sup>−</sup> → <em>O</em><sub>2</sub> + <em>H</em><sub>2</sub><em>O</em><sub>2</sub></span></p>
+<p><span
+class="math display">2<em>H</em><sub>2</sub><em>O</em><sub>2</sub> → 2<em>H</em><sub>2</sub><em>O</em> + <em>O</em><sub>2</sub></span></p>
+<p>Overwhelming this system has been linked to a wide variety of chronic
+diseases including Alzheimer’s, Parkinson’s disease, Cancer and
+Diabetes. One of the benefits of chronic physical activity is to
+increase the expression of SOD and catalase. By the same token,
+antioxidant vitamins such as Vitamins C and E can also reduce the
+potential damage of reactive oxygen species generated by the
+mitochondria. For more information about reactive oxygen species see
+<span class="citation" data-cites="Turrens2003"></span>.</p>
+<div class="footer">
+<p>Last updated: 2025-05-03</p>
+<p>Author: Dave Bridges</p>
+</div>
+</body>
+</html>

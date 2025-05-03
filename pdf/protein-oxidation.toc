@@ -1,0 +1,10 @@
+\contentsline {section}{Learning Objectives}{2}{section*.1}%
+\contentsline {section}{Protein Breakdown}{2}{section*.2}%
+\contentsline {subsection}{Mechanisms of Protein Degradation}{2}{subsection*.3}%
+\contentsline {subsection}{Endocrine and Metabolic Signals of Protein Breakdown}{3}{subsection*.4}%
+\contentsline {section}{Amino Acid Catabolism}{3}{section*.5}%
+\contentsline {subsection}{Regulation of Glutamate Dehydrogenase}{5}{subsection*.6}%
+\contentsline {subsection}{The Urea Cycle}{6}{subsection*.7}%
+\contentsline {subsection}{Branched-Chain Amino Acid Catabolism}{6}{subsection*.8}%
+\contentsline {subsection}{The Fates of Amino Acid-Derived Carbon Skeletons}{7}{subsection*.9}%
+\contentsfinish 

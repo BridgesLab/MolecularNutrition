@@ -1,0 +1,16 @@
+\contentsline {section}{Learning Objectives}{2}{section*.1}%
+\contentsline {section}{Key Vocabulary and Concepts}{2}{section*.2}%
+\contentsline {section}{The Next Steps in Carbohydrate Metabolism Require Mitochondria}{2}{section*.3}%
+\contentsline {subsection}{Regulation of Mitochondrial Numbers}{3}{subsection*.4}%
+\contentsline {section}{The Possible Fates of Pyruvate}{3}{section*.5}%
+\contentsline {subsection}{Anaerobic Glycolysis}{3}{subsection*.6}%
+\contentsline {subsection}{Regulation of Pyruvate Dehydrogenase}{4}{subsection*.7}%
+\contentsline {section}{The TCA Cycle Products}{5}{section*.8}%
+\contentsline {subsection}{NADH and FADH\textsubscript {2} Are Substrates for the Electron Transport Chain}{6}{subsection*.9}%
+\contentsline {subsection}{The Electron Transport Chain is Coupled to ATP Production}{6}{subsection*.10}%
+\contentsline {section}{Regulation of the TCA Cycle}{7}{section*.11}%
+\contentsline {subsection}{The ETC is Driven by ATP Demand}{7}{subsection*.12}%
+\contentsline {subsection}{Changes in TCA Cycle Intermediates}{7}{subsection*.13}%
+\contentsline {subsection}{Allosteric Regulation of the TCA Cycle}{8}{subsection*.14}%
+\contentsline {section}{Oxidative Damage Can Result from Superoxide Production}{9}{section*.15}%
+\contentsfinish 

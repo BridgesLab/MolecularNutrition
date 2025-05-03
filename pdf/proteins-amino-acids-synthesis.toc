@@ -1,0 +1,12 @@
+\contentsline {section}{Learning Objectives}{2}{section*.1}%
+\contentsline {section}{Key Concepts and Vocabulary}{2}{section*.2}%
+\contentsline {section}{Protein Synthesis is a Tightly Regulated Process}{2}{section*.3}%
+\contentsline {subsection}{The Rate of Protein Synthesis Depends on the Levels of Available Amino Acids}{3}{subsection*.4}%
+\contentsline {subsection}{Several Endocrine Signals Regulate Protein Biosynthesis}{3}{subsection*.5}%
+\contentsline {subsection}{Protein Synthesis is Energetically Expensive}{4}{subsection*.6}%
+\contentsline {section}{Synthesis of Non-Essential Amino Acids}{5}{section*.7}%
+\contentsline {subsection}{Humans Have Lost the Ability to Synthesize Several Amino Acids.}{5}{subsection*.8}%
+\contentsline {subsection}{The Nitrogen Pool is Key for Amino Acid Synthesis}{6}{subsection*.9}%
+\contentsline {subsection}{Regulation of Non-Essential Amino Acid Biogenesis.}{7}{subsection*.10}%
+\contentsline {section}{Protein Requirements and Determination Thereof}{7}{section*.11}%
+\contentsfinish 

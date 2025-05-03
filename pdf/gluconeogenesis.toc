@@ -1,0 +1,14 @@
+\contentsline {section}{Learning Objectives}{2}{section*.1}%
+\contentsline {section}{Key Concepts and Vocabulary}{2}{section*.2}%
+\contentsline {section}{The Importance in Maintaining Blood Glucose Levels}{3}{section*.3}%
+\contentsline {section}{Gluconeogenesis Primarily Occurs in the Liver}{3}{section*.4}%
+\contentsline {section}{Gluconeogenic Substrates}{4}{section*.5}%
+\contentsline {subsection}{Glycerol}{4}{subsection*.6}%
+\contentsline {subsection}{Lactate and the Cori Cycle}{5}{subsection*.7}%
+\contentsline {subsection}{Alanine and other Amino Acids}{5}{subsection*.8}%
+\contentsline {section}{Energetic Demands of Gluconeogenesis}{6}{section*.9}%
+\contentsline {section}{Key Regulatory Steps in Gluconeogenesis}{7}{section*.10}%
+\contentsline {subsection}{Acute Regulation of Gluconeogenesis}{8}{subsection*.11}%
+\contentsline {subsection}{Transcriptional Regulation of Gluconeogenesis}{9}{subsection*.12}%
+\contentsline {section}{Consequences of Unrestrained Gluconeogenesis}{9}{section*.13}%
+\contentsfinish 

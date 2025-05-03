@@ -1,0 +1,10 @@
+\contentsline {section}{Learning Objectives}{2}{section*.1}%
+\contentsline {section}{Carbohydrate Basic Structure}{2}{section*.2}%
+\contentsline {section}{Classes of Carbohydrates}{2}{section*.3}%
+\contentsline {subsection}{Nomenclature}{2}{subsection*.4}%
+\contentsline {subsection}{Chirality}{3}{subsection*.5}%
+\contentsline {subsection}{Glycosidic Bonding}{4}{subsection*.6}%
+\contentsline {section}{Disaccharides}{4}{section*.7}%
+\contentsline {section}{Oligosaccharides}{5}{section*.8}%
+\contentsline {section}{Polysaccharides}{5}{section*.9}%
+\contentsfinish 

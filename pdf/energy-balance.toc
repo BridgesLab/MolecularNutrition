@@ -1,0 +1,12 @@
+\contentsline {section}{Learning Objectives}{2}{section*.1}%
+\contentsline {section}{Key Vocabulary}{2}{section*.2}%
+\contentsline {section}{Energy Balance and Changes in Body Weight}{2}{section*.3}%
+\contentsline {section}{Energy Intake}{3}{section*.4}%
+\contentsline {subsection}{What is Energy Intake?}{3}{subsection*.5}%
+\contentsline {subsection}{How do the foods we eat affect energy intake?}{3}{subsection*.6}%
+\contentsline {subsection}{How do we assess energy intake?}{4}{subsection*.7}%
+\contentsline {section}{Energy Expenditure}{4}{section*.8}%
+\contentsline {subsection}{What are the components of energy expenditure?}{4}{subsection*.9}%
+\contentsline {subsection}{How do we calculate energy expenditure}{5}{subsection*.10}%
+\contentsline {subsection}{How does nutrition affect energy expenditure?}{6}{subsection*.11}%
+\contentsfinish 

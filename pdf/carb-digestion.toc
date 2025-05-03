@@ -1,0 +1,12 @@
+\contentsline {section}{Learning Objectives}{2}{section*.1}%
+\contentsline {section}{Carbohydrate Digestion}{2}{section*.2}%
+\contentsline {subsection}{Oral Cavity and Stomach}{2}{subsection*.3}%
+\contentsline {subsection}{Small Intestine}{3}{subsection*.4}%
+\contentsline {section}{Monosaccharide Absorption and Transportation}{3}{section*.5}%
+\contentsline {subsection}{Glucose and Galactose}{3}{subsection*.6}%
+\contentsline {subsection}{Fructose}{4}{subsection*.7}%
+\contentsline {section}{Systemic Carbohydrate Transport}{5}{section*.8}%
+\contentsline {section}{Insulin Resistance and Diabetes}{5}{section*.9}%
+\contentsline {subsection}{Glycemic Index}{6}{subsection*.10}%
+\contentsline {section}{Lactase Non-persistence}{7}{section*.11}%
+\contentsfinish 

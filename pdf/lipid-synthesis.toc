@@ -1,0 +1,13 @@
+\contentsline {section}{Learning Objectives}{2}{section*.1}%
+\contentsline {section}{Key Concepts and Vocabulary}{2}{section*.2}%
+\contentsline {section}{Synthesis of Triglycerides from Fatty Acids}{3}{section*.3}%
+\contentsline {subsection}{Glycerol-3-Phosphate Supply for Triglycerides}{4}{subsection*.4}%
+\contentsline {subsection}{Regulation of Triglyceride Esterification Enzymes}{5}{subsection*.5}%
+\contentsline {section}{\textit {De Novo} Fatty Acid Synthesis}{6}{section*.6}%
+\contentsline {subsection}{Fatty Acid Synthesis from Glucose and Ketogenic Amino Acids}{6}{subsection*.7}%
+\contentsline {subsection}{Desaturation of Fatty Acids}{7}{subsection*.8}%
+\contentsline {subsection}{Regulation of Fatty Acid Synthesis}{8}{subsection*.9}%
+\contentsline {subsection}{Lipodystrophy Results from Impaired Triglyceride Storage}{9}{subsection*.10}%
+\contentsline {section}{Cholesterol Synthesis}{9}{section*.11}%
+\contentsline {subsection}{The Relationship Between Dietary Fat and Cholesterol Synthesis}{11}{subsection*.12}%
+\contentsfinish 

@@ -1,0 +1,14 @@
+\contentsline {section}{Learning Objectives}{2}{section*.1}%
+\contentsline {section}{Key Concepts and Vocabulary}{2}{section*.2}%
+\contentsline {section}{Structure and function of glycogen}{2}{section*.3}%
+\contentsline {subsection}{Role of glycogen branching}{3}{subsection*.4}%
+\contentsline {subsection}{Different tissues use glycogen for different purposes}{3}{subsection*.5}%
+\contentsline {section}{Regulation of glycogen synthesis}{4}{section*.6}%
+\contentsline {subsection}{Glycogen Synthase is activated by Glucose-6-phosphate}{5}{subsection*.7}%
+\contentsline {subsection}{Extracellular control and signaling}{5}{subsection*.8}%
+\contentsline {section}{Regulation of glycogen breakdown}{6}{section*.9}%
+\contentsline {subsection}{Intracellular control}{6}{subsection*.10}%
+\contentsline {subsection}{Extracellular control and signaling}{7}{subsection*.11}%
+\contentsline {subsection}{Regulation of glycogen branching and removal of branch points}{7}{subsection*.12}%
+\contentsline {section}{Glycogen storage diseases}{7}{section*.13}%
+\contentsfinish 

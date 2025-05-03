@@ -1,0 +1,13 @@
+\contentsline {section}{Learning Objectives}{2}{section*.1}%
+\contentsline {section}{Key Vocabulary and Concepts}{2}{section*.2}%
+\contentsline {section}{The Pentose Phosphate Pathway}{2}{section*.3}%
+\contentsline {section}{Glucose-6-Phosphate Dehydrogenase}{3}{section*.4}%
+\contentsline {subsection}{Nucleotide Biosynthesis and the Pentose Phosphate Pathway}{3}{subsection*.5}%
+\contentsline {section}{The Importance of NADPH}{4}{section*.6}%
+\contentsline {subsection}{The Role of NADPH in Anabolism}{4}{subsection*.7}%
+\contentsline {subsection}{NADPH is Important for Fighting Oxidative Damage}{4}{subsection*.8}%
+\contentsline {subsection}{Dietary Antioxidants}{5}{subsection*.9}%
+\contentsline {subsection}{NADPH is Required for Innate Immunity}{6}{subsection*.10}%
+\contentsline {subsection}{Disorders of the Pentose Phosphate Pathway}{6}{subsection*.11}%
+\contentsline {section}{Alcohol Metabolism}{6}{section*.12}%
+\contentsfinish 

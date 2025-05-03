@@ -1,0 +1,13 @@
+\contentsline {section}{Learning Objectives}{2}{section*.1}%
+\contentsline {section}{Lipolysis Liberates Fatty Acids from Triglyerides}{2}{section*.2}%
+\contentsline {subsection}{Carbohydrate Overfeeding and Lipid Utilization}{3}{subsection*.3}%
+\contentsline {section}{Fatty Acid Oxidation}{3}{section*.4}%
+\contentsline {subsection}{The Role of CPTI in Lipid Oxidation}{4}{subsection*.5}%
+\contentsline {subsection}{Lipid Oxidation in the Mitochondria}{5}{subsection*.6}%
+\contentsline {subsection}{Alternative Fatty Acid Catabolism}{5}{subsection*.7}%
+\contentsline {subsection}{Determining the Energy Content of a Fatty Acid}{6}{subsection*.8}%
+\contentsline {subsection}{Ketolysis}{6}{subsection*.9}%
+\contentsline {section}{Regulation of Fatty Acid Oxidation}{7}{section*.10}%
+\contentsline {subsection}{Short-term Regulation}{7}{subsection*.11}%
+\contentsline {subsection}{Transcriptional Adaptations for Fatty Acid Oxidation}{8}{subsection*.12}%
+\contentsfinish 
