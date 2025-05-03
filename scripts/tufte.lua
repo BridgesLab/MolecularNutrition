@@ -1,5 +1,16 @@
 -- tufte.lua
 local format = string.format
+local os = require("os")
+
+-- Function to get the current date if last-update is not set
+function get_last_update(meta)
+  if meta['last-update'] then
+    return meta['last-update']
+  else
+    -- If no last-update metadata is provided, return today's date
+    return os.date("%Y-%m-%d")
+  end
+end
 
 -- This function handles margin notes in Tufte style
 function MarginNote(el)
@@ -15,8 +26,8 @@ end
 
 -- This function ensures that the footer (for the page number) is added in the correct format
 function Header(doc)
-  -- Get the date the file was last updated (use the metadata field `last-update` if it's available)
-  local last_update = doc.meta['last-update'] or os.date("%Y-%m-%d")
+  -- Get the last update date using the function
+  local last_update = get_last_update(doc.meta)
   -- Modify the footer to include the last update
   local footer = pandoc.Div({
     pandoc.Para({pandoc.Str('Last updated: ' .. last_update)}),
