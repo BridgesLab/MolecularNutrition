@@ -1,0 +1,247 @@
+\documentclass{tufte-handout}
+
+%\geometry{showframe}% for debugging purposes -- displays the margins
+
+\usepackage{amsmath}
+
+% Set up the images/graphics package
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{Metabolic Control Systems}
+\author{}
+\date{}  % if the \date{} command is left out, the current date will be used
+
+% The following package makes prettier tables.  We're all about the bling!
+\usepackage{booktabs}
+
+% The units package provides nice, non-stacked fractions and better spacing
+% for units.
+\usepackage{units}
+
+% The fancyvrb package lets us customize the formatting of verbatim
+% environments.  We use a slightly smaller font.
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+
+% Small sections of multiple columns
+\usepackage{multicol}
+
+% Provides paragraphs of dummy text
+\usepackage{lipsum}
+
+% These commands are used to pretty-print LaTeX commands
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+
+\begin{document}
+
+\maketitle% this prints the handout title, author, and date
+
+\begin{abstract}
+\noindent This lecture will cover the basics of metabolic control, including how enzymes and transport systems control the fate of a metabolite and how systems are integrated to maintain homeostasis.  These concepts should be a review of material covered in your Biochemistry classes.  For further details please refer to the books on reserve for this course\cite{Berg2013}\textsuperscript{,}\cite{Ferrier2017}
+\end{abstract}
+
+\tableofcontents
+
+\pagebreak
+\section{Learning Objectives}
+
+\begin{itemize}
+\item Explain what a rate limiting enzyme is, what a committed enzyme step is and what a reversible reaction is.
+\item Predict the differences in speed and persistence of allosteric, post-translational and transcriptional regulation of metabolism.
+\item Describe the role of cellular transport in macromolecular regulation. Understand the differences between active and passive transport.
+
+\end{itemize}
+
+\section{Key Terms and Concepts}
+
+\begin{itemize}
+\item Activation Energy
+\item Allosteric Regulation
+\item Cofactor
+\item Concentration Gradient
+\item Enzyme
+\item Rate Limiting Enzyme
+\item Transcription Factor
+\item Transporters (Active and Passive)
+\end{itemize}
+
+
+
+\section{Control of Metabolic Flux}
+
+Cells need to control the rates at which nutrients are taken up, stored, or used and there are several ways by which this occurs.  Here we will review the biochemistry of both nutrient transport and enzyme function.  Understanding these concepts will be very important to understanding how the metabolic pathways we will discuss are controlled. 
+
+\section{Cellular Transport Systems}
+
+First we will describe the ways in which cells control nutrient permeability.  Most of the nutrients we will discuss\sidenote{The exceptions are sterols and some other lipids} are unable to pass through the plasma membrane of the cell.  Allowing or denying access to a nutrient is one way by which cells can control nutrient metabolism.  Without these transport mechanisms we would be unable to absorb digested food, or transport nutrients from cell to cell.  While we normally think of transporters as getting nutrients into or out of a cell, they are also important \emph{within} cells, for example getting pyruvate into the mitochondria, or storing calcium in the endoplasmic reticulum.
+
+\subsection{Types of Membrane Transporters}
+
+Membrane transporters are generally fairly specific for the molecule they transport.  For example GLUT4 transports glucose, but GLUT5 transports fructose.  Transporters can broadly be separated into two major types, passive transporters and active transporters.  These can be differentiated by considering whether they work \emph{with} or \emph{against} the concentration gradient, with active transporters typically working against the concentration gradient.
+
+\newthought{Passive transporters} allow for nutrients to pass down a concentration gradient into the cell.  As an example, the liver expresses a glucose transporter named GLUT2.  Glucose can either enter the liver (if there is more glucose in the blood than the liver) or exit the liver (if the reverse is true).  Passive transporters will only allow a nutrient to enter a cell \emph{if there is less of the nutrient in a cell than in the blood}.  This is quite efficient for disposing of excess nutrients, such as after a meal, but is not effective in storing things away against a concentration gradient.  It may seem like passive transporters are not regulated, but as we will see in the case of GLUT4, the amount of transporters at the cell surface can be controlled by cell signaling\sidenote{if you want to jump ahead, here is a review on that process \citep{Leto2012}}.  The rate of a passive transport is defined by three things, the gradient of the transported molecule, the number of transporters at the relevant membrane, and the efficiency of the transporter.
+
+\newthought{Active transporters} can force nutrients into a cell \emph{against} the concentration gradient.  These transporters function like pumps and have to use energy of one sort or another to "power" the molecule into the cell.  You may think that this is a bad idea, but there are lots of examples where this matters physiologically.  One example is retaining salt.  If your kidneys weren't actively retrieving sodim out of urine and back into the blood, then you would rapidly lose osmotic pressure in your blood. The key is to think about the concentration inside or outside, if you are pushing against the transport gradient, you need active transport.
+
+\subsection{Powering Active Transport}
+
+Active transport requires energy of some type.  This energy can come from several sources such as ATP, other concentration gradients, or even light.  Some examples are described in Figure \ref{fig:active-transport-mechanisms}.  The key to controlling the rate of these transporters is not only the concentration gradient of the transported molecule, but also the levels (or gradient) of the powering force.  In the cases where molecules are co-transported they can either be pulled in simultaneously (this is known as a symporter) with the molecule of interest as shown on the left of Figure \ref{fig:active-transport-mechanisms}, or can be exchanged where one molecule exits, powering the entry of the molecule of interest (this is known as an antiporter).  A classic example of an antiporter is the sodium:glucose exchanger SGLT1, which extrudes sodium down its concentration gradient (into the gut lumen) to force uptake of glucose from the gut into cells.  This allows for efficient carbohydrate uptake in a meal\sidenote{SGLT2 does a similar thing, retrieving glucose from urine back into the blood.  Therefore inhibiting SGLT2 prevents glucose retrieval back to the blood, and is the target of several drugs which try to lower blood glucose in diabetics.  The trade names for these drugs include Invokana, Farxiga and Jardiance.} even if the gastrointestinal cells have similar or higher glucose levels to the gut lumen.
+
+\begin{marginfigure}
+\includegraphics{figures/active-transport-mechanisms.jpg}\
+\caption{Examples of active transport.  Reproduced from \citet{Alberts2002a}}
+\label{fig:active-transport-mechanisms}
+\end{marginfigure}
+
+\section{Enzymes}
+
+\subsection{Thermodynamics}
+
+\newthought{Every chemical in the body has a certain amount of energy.}  When we eat, some of this chemical energy is converted into ATP to allow for function.  This is known as catabolism.  When we are storing nutrients, we use ATP to generate higher energy molecules such as fats or glycogen.  This is known as anabolism.  Every molecule in our body has a set amount of energy and a chemical reaction can be considered endothermic (requiring energy) or exothermic (releasing energy), depending on whether the reactants or products have higher energy.  The levels of these metabolites at equilibrium can be calculated with the following equation where K$_{eq}$ is the \emph{Eqiulibrium constant}\sidenote{The square brackets mean the concentration of A or B}:
+
+\begin{equation}
+K_{eq}=\tfrac{[B]}{[A]}
+\end{equation}
+
+ The equilibrium constant can be calculated from the \emph{free energy} of the reactants and products.
+
+\begin{equation}
+\Delta G_{o} = G^{'}_{o} - R T ln K_{eq}
+\end{equation}
+\begin{equation}
+\Delta G^{'}_{o} = G^{'}_{o} (reactants) - G^{'}_{o} (products) 
+ \end{equation}
+
+
+Some reactions have products with very similar energy levels and the balance between the reactants and the products is based primarily on their concentrations.  This is known as an \emph{equilibrium} reaction which would have a K$_{eq}$ of near to 1.  If a reaction requires a lot of energy to occur, this is often an \emph{irreversible} or \emph{committed} step\sidenote{This would have a large, negative G$_{o}$}.  This means that once this reaction happens, there is no going back.  If you think about the metabolic pathway in Figure \ref{fig:committed-step}, this would mean that once you proceed through step 2 to make  C you cannot go back to B.  Given the free energy ($G^{'}_{o}$) and concentration of the reactants and products in a reaction you can calculate the $\Delta G$ and equillibrium constant for a reaction and estimate whether it is reversible\sidenote{There is a good blog post explaining how the steady state $\Delta G$ is determined on this basis at \url{http://sandwalk.blogspot.com/2007/10/aldolase-reaction-and-steady-state.html}} under normal conditions.
+
+\begin{marginfigure}
+\includegraphics[width=0.5\marginparwidth]{figures/committed-step.pdf}\
+\caption{Example schematic of a metabolic pathway.}
+\label{fig:committed-step}
+\end{marginfigure}
+
+\subsection{Enzyme Kinetics}
+
+Without enzymes, many reactions occur very slowly due to the \emph{activation energy} needed for the reaction to occur.  Enzymes increase the rate of a chemical reaction by reducing the activation energy required for a reaction to occur.  This does not change the equilibrium constant, it just allows the reaction to reach equilibrium faster.  This is sketched out in Figure \ref{fig:enzymatic-rates}, note that $\Delta G$ is not changed, but the dashed line has a higher activation energy, and therefore slower reaction rate than the solid line.  
+
+\begin{marginfigure}
+\includegraphics[width=\marginparwidth]{figures/enzymatic-rates.pdf}\
+\caption{Example schematic of the activation energy (E$_a$) of an enzymatic reaction.}
+\label{fig:enzymatic-rates}
+\end{marginfigure}
+
+\newthought{Most metabolic pathways are controlled by altering the rates} at which metabolites are converted to final products. The overall rate of a metabolic pathway is controlled by the \emph{rate-limiting step}\sidenote{the rate-limiting step is generally the \emph{slowest} step of a pathway.  As an example, in glycolysis the rate-limiting step is catalysed by phosphofructokinase-1}.  In a linear pathway, the speed of this step's enzymatic reaction controls the overall rate.  Quite often the rate-limiting enzyme is an important point of regulation, as adjusting the speed of this reaction can speed up or slow down and entire pathway.  
+
+Reaction rates increase in rate as the concentration of substrates increase until the enzymes are saturated (see the solid line in Figure \ref{fig:enzyme-kinetics}).  This is known as Michaelis-Menten kinetics.  The reaction rate constant (k) and rate can be calculated from the activation energy with these equations\sidenote{A and R are constants, T is temperature and e is Euler's number.  $K_{m}$ is the Michaelis constant for an enzyme.}:
+
+\begin{equation}
+k = A e^{-\frac{E_{a}}{RT}} 
+\end{equation}
+\begin{equation}
+rate = k\tfrac{[Reactant][Enzyme]}{[Reactant] + K_{m}}
+\end{equation}
+
+If products build up the reaction becomes more complex and now looks like this where K$_{p}$ is the binding constant for the product:
+
+\begin{equation}
+rate = k\tfrac{[Reactant][Enzyme]}{[Reactant] +K_{m}\left \{ 1 + \frac{[Product]}{Kp} \right \}}
+\end{equation}
+
+\begin{marginfigure}
+\includegraphics[width=\marginparwidth]{figures/enzyme-kinetics.pdf}\
+\caption{Example of Michaelis-Menten (solid line) and allosteric (dashed line) kinetics.}
+\label{fig:enzyme-kinetics}
+\end{marginfigure}
+
+\newthought{Allosteric regulation is another way by which enzymes can control reaction rates}.  Allosteric enzymes are generally multi-subunit enzymes that change their K${m}$ as more products bind.  An example of this is the dashed line in Figure \ref{fig:enzyme-kinetics}.  This has several advantages in terms of regulation.  One advantage is that the reaction rate can be effectively zero or at maximum in a much narrower range, bracketing the actual range of substrates present physiologically.  Another advantage is that allosteric activators or inhibitors can shift the curve to the left or right, to effectively increase or decrease the reaction rate.  This is a common mechanism by which the activity of rate-limiting enzymes are regulated.
+
+On the basis of these equations, reaction rates (and the rate of a particular metabolic pathway) can be increased by several things\sidenote{Some examples include:\\\begin{enumerate}
+\item Decreasing the activation energy
+\item Increase the amount of the reactant(s)
+\item Decrease the amount of the product(s)
+\item Increase the number of enzymes
+\item Decreasing the K$_m$ of the enzyme
+\item Shifting the substrate sensitivity of the allosteric enzyme
+\end{enumerate}	}.  Try to convince yourselves how this happens based on the equations listed above. Can you think of any other things that would affect pathway flux? 
+
+\newthought{While linear flow through a pathway is important}, another aspect of pathway control is how the fate of a particular nutrient is decided.  This is illustrated in Figure \ref{fig:nutrient-pathways}.  In the example on top the nutrient would be equally distributed between three products, but in the bottom example, by adjusting the rates of the specific pathways, a nutrient can be directed to a particular product.  At several points during this class, we will describe how the "fates" of particular metabolites are controlled by the relative rates of metabolic pathways.
+
+\begin{marginfigure}
+\includegraphics[width=0.75\marginparwidth]{figures/nutrient-pathways.pdf}\
+\caption{Example of how regulated pathways control nutrient fate.}
+\label{fig:nutrient-pathways}
+\end{marginfigure}
+
+\subsection{Cofactors}
+Many enzymes require non-protein helper molecules to catalyze their reactions.  These are known as \emph{cofactors}.  Table \ref{tab:cofactors} lists some important cofactors, and the dietary vitamins from which they are derived.  Other important roles of vitamins, for example in activating molecules like Co-enzyme A and electron carrier molecules like NADH will be described later in the semester.  A lack of a dietary source of a cofactor can often impair the activity of an enzyme.
+
+\begin{margintable}
+\caption{Some examples of cofactors that are important for enzymatic catalysis.}
+\label{tab:cofactors}
+\begin{tabular}{@{}ll@{}}
+ \textbf{Cofactor}  & \textbf{Source}           \\ \midrule
+TPP & Vitamin B\textsubscript{1} \\
+Pyrdioxal Phosphate & Vitamin B\textsubscript{6} \\
+Biotin & Vitamin H \\
+THF & Folic Acid \\
+Iron &  Fe source?? \\ 
+Selenium & Se source?? \\ \bottomrule
+\end{tabular}
+\end{margintable}
+
+\section{Integrated Control of Metabolism}
+
+There are several ways in which enzymes are regulated, both based on intracellular and extracellular signals.  An example might be that a lack of intracellular ATP causes an increase in ATP producing pathways such as glycolysis.  On the other hand, low circulating blood glucose levels may work to stop a glucose consuming process such as glycolysis.  We will discuss this in detail throughout the class, but some of the hormones we will discuss in this course that are particularly important are listed in Table \ref{tab:hormones}:
+
+\begin{table}[h]
+\centering
+\caption{Some important metabolic hormones we will discuss in this class.}
+\label{tab:hormones}
+\begin{tabular}{cc}
+\hline
+\textbf{Hormone}       & \textbf{Main Function}                     \\
+\hline
+Insulin                & Reduces blood glucose and lipid levels     \\
+Adrenaline        & Increases blood flow, nutrients to muscle \\
+Glucagon               & Increases blood glucose levels acutely     \\
+Cortisol               & Increases blood glucose levels chronically \\
+GH/IGF1                & Promotes protein synthesis and bone growth \\
+Testosterone           & Promotes protein synthesis                 \\
+Leptin                 & Suppresses appetite                        \\
+CCK, Gastrin, Secretin & Regulation of digestion                   \\
+\hline
+\end{tabular}
+\end{table}
+
+
+Hopefully these hormones, how they work and how they are regulated is material you are familiar with from previous classes.  If not, or you want a refresher, check out the \textbf{Endocrine Regulation of Macronutrient Metabolism} handout also available on Canvas.  
+
+\subsection{Post-Translational Modification}
+
+One common way by which enzymes are regulated is by the modification of existing proteins.  One common example is protein phosphorylation.  In this example a phosphate molecule is attached to an existing protein, which could increase or decrease its activity.  This is often reversible, so a good analogy is that post-translational regulation is like flipping a switch for an enzyme on or off.  This can occur fairly rapidly, and is not a permanent change.
+
+\subsection{Transcriptional Regulation}
+
+Another way to change the activity of a pathway is to selectively change the number of enzymes.  If this is done at the messenger RNA level, it is known as transcriptional regulation.  This is because transcription is the process by which new mRNA is made.  By increasing or decreasing the rate of mRNA (and eventually protein) production, the cell can respond to a stimulus to make more or less of a particular protein.  One example we will discuss in this course is that when cholesterol levels are low, the liver responds by making more cholesterol biosynthetic and retrieval enzymes and receptors.  The regulation of transcription is often controlled by \emph{transcription factors}, a class of proteins that can bind to selective sites of DNA and recruit the machinery to make (or prevent the making) of mRNA.  For a really great review with more details on transcription factors, take a look at \citet{Lambert2018}.  These kinds of changes are slow, energetically costly and difficult to reverse.  They represent a chronic response, and are not appropriate for short term modifications.  The relationship between allosteric, post-translational and transcriptional regulation is demonstrated in Figure \ref{fig:regulation-models}.  Reflect on an example of metabolic regulation that you can think of.  Then consider the timescale by which the changes happen, and try to think what would be the most appropriate mechanism to alter metabolism.
+
+\begin{marginfigure}
+\includegraphics{figures/regulation-models}
+\caption{Shematic of the timing and permanence of some forms of enzymatic regulation.}
+\label{fig:regulation-models}
+\end{marginfigure}
+
+
+\bibliography{library}
+\bibliographystyle{plainnat}
+
+\end{document}

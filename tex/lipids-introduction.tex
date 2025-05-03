@@ -1,0 +1,209 @@
+\documentclass{tufte-handout}
+
+%\geometry{showframe}% for debugging purposes -- displays the margins
+
+\usepackage{amsmath}
+
+% Set up the images/graphics package
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{Introduction to Lipids}
+\author{Dave Bridges}
+\date{}  % if the \date{} command is left out, the current date will be used
+
+% The following package makes prettier tables.  We're all about the bling!
+\usepackage{booktabs}
+
+% The units package provides nice, non-stacked fractions and better spacing
+% for units.
+\usepackage{units}
+
+% The fancyvrb package lets us customize the formatting of verbatim
+% environments.  We use a slightly smaller font.
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+
+% Small sections of multiple columns
+\usepackage{multicol}
+
+% Provides paragraphs of dummy text
+\usepackage{lipsum}
+
+% These commands are used to pretty-print LaTeX commands
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+
+\begin{document}
+
+\maketitle% this prints the handout title, author, and date
+
+\begin{abstract}
+\noindent This unit will cover lipid metabolism, with lectures on structure and properties, digestion, synthesis, oxidation and transportation.  This particular lecture will cover the general properties of lipids, including fatty acid, steroid and tri- and diglycerides.  For more details on general fatty acid properties refer to Chapter 30 in Lippincott's Illustrated Reviews in Biochemistry available in reserve\cite{Ferrier2017}.
+\end{abstract}
+
+\tableofcontents
+
+\pagebreak
+\section{Learning Objectives}
+
+\begin{itemize}
+\item Understand the different roles of lipids in our bodies
+\item Describe the structure and functions of triacylglycerols (triglycerides)
+\item Recognize that phospholipids are amphipathic and play an important role as structural components within our body
+\item Identify the structure and functions of cholesterol and other steroids
+\item Use the common, n- and $\omega$ nomenclature systems to describe fatty acids, and be able to draw fatty acids based on these various naming systems
+\item Describe the structure of fatty acids and analyze how this affects their packing, solubility and physical state
+\item Explain the roles of the essential fatty acids, including what makes them essential
+
+\end{itemize}
+
+\section{Key Vocabulary and Concepts}
+
+\begin{itemize}
+\item Neutral Lipid
+\item Amphipathic Lipid
+\item Lipid Droplet
+\item Saturated, Unsaturated, Monounsaturated and Polyunsaturated Fatty Acids
+\item Essential Fatty Acids
+\item Cholesterol and Cholesterol Esters
+\item Phospholipids and Phospholipid Head Groups
+
+\end{itemize}
+
+\section{Function of Lipids}
+
+The defining characteristic of lipids is their poor water solubility.  Since these do not mix well in water, they are digested, absorbed and transported very differently from the water soluble molecules we have been discussing up to this point.  While solubility presents some challenges in terms of digestion and storage, they also provide several important biological advantages.
+
+\subsection{Structural Roles of Lipids}
+
+Lipids can be considered neutral, or amphipathic.  Neutral lipids have little to no charge, this means that they are not soluble at all in water, and generally separate into different layers when mixed.  This can be an advantage in terms of storage.  For example in adipocytes neutral lipids are packed in water-free organelles called lipid droplets (see Figure \ref{fig:lipid-droplets}).  This is a very efficient way of storing energy because lipids have a very high energy content.  This also sequesters triglycerides  and cholesterol esters away from normal cellular machinery.  A review on the role of lipid droplets in the storage and release of triglycerides can be found in \citet{Walther2009}.  Neutral lipids include triglycerides and cholesterol esters\sidenote{Both of these will be described in the next section.}.  
+
+\begin{marginfigure}
+\includegraphics[width=3cm]{figures/lipid-droplets.pdf}
+\caption{Schematic of a lipid droplet.  Amphipathic phospholipids are shown in green, while neutral lipids such as cholesterol esters and triglycerides are shown in blue.  The outside of the droplet allows it to be soluble in water, while the inside is hydrophobic.}
+\label{fig:lipid-droplets}
+\end{marginfigure}
+
+\newthought {Amphipathic lipids generally contain two parts}, a hydrophilic portion that \emph{is} soluble in water and a hydrophobic part that is not soluble in water.  These lipids are useful for generating biological barriers and membranes.  Thinking about the lipid droplet example, an amphipathic lipid, such as a phospholipid will orient itself such that the hydrophobic part interacts with the interior triglyceride containing part of the droplet, while the hydrophillic part of the phospholipid orients itself on the outside facing the water of the cellular cytoplasm.  
+
+\subsection{Roles in Energy Storage}
+
+\begin{margintable}
+\centering
+\caption{Total energy stored as glycogen and lipid in a typical person.  Mass is the total amount of this storage fuel, converted to calories using Atwater factors.  Days indicates how many days worth of TDEE that can be supported by this number of calories.  Calculation is based on a 75kg person with 28\% body fat and a TDEE of 2000 Calories/day.}
+\label{tab:macromolecule-storage}
+\begin{tabular}{llll}
+\hline
+\multicolumn{1}{c}{\textbf{Form}} & \textbf{Mass} & \textbf{Calories} & \textbf{Days} \\ \hline
+Glycogen & 500g & 2000 & 1 \\
+Lipid & 21kg & 189,000 & 95 \\
+\end{tabular}
+\end{margintable}
+
+The second major role of lipids is as excess energy storage.  Lipids contain much more stored energy both on a per molecule and a per gram basis than either carbohydrates or proteins.  In addition we store much more lipid than glycogen on a per gram basis (see Table \ref{tab:macromolecule-storage}).  Finally, in contrast to protein, for the most part storage lipids and glycogen are not part of the normal cellular machinery, so their breakdown does not affect cellular functionality.  We will calculate this in the lipid oxidation lecture, but as one example, the oxidation of a triglyceride containing three palmitates conjugated to glycerol generates \emph{330 molecules of ATP} once oxidized completely, compared with 32 for the complete oxidation of one molecule of glucose and 8.5 ATP equivalents for one molecule of Alanine. Dietary lipids or lipids synthesized by our bodies\sidenote{The process by which fatty acids are generated from glucose or amino acids is called \textit{de novo} lipogenesis.} are an excellent long term storage molecule.  We will discuss the regulation and importance of both storage and release of lipids in the next few lectures.
+
+\section{Classes of Lipids}
+
+There are two main subclasses of lipids, the sterols and the acylglycerols.  These are physically very different and are used in very different ways in the body but are both lipids due to their hydrophobicity.
+
+\subsection{Cholesterol and other Sterols}
+
+Cholesterol is a steroid that can be synthesized by most tissues.  It is \emph{not} used for energy but is an essential component of all cellular membranes, aiding in their fluidity.  Cholesterol can either be free, or esterified.  By esterification we mean that a fatty acid group can be added to cholesterol.  This makes it hydrophobic\sidenote{Free cholesterol is amphipathic}, and is important for transportation.  Since cholesterol is made endogenously, but is not used for fuel the only way to reduce cholesterol is through bile-mediated secretion, which we will discuss in the digestion lecture.  In addition to its membrane-fluidity properties, cholesterol is a precursor for many important steroid hormones including estrogen, testosterone, and cortisol.  These molecules are all modifications of the existing cholesterol molecule, and are important for a wide range of biological functions.  Associations between circulating cholesterol and cardiovascular events suggested that restrictions of dietary cholesterol may be prudent, but more recent research has shown that dietary cholesterol plays an insignificant role in modulating blood cholesterol levels, and the 2015 Dietary Guidelines published by the Department of Health and Human Services no longer recommends restricting dietary cholesterol\cite{USDA2015}.
+
+\subsection{Glycerolipids}
+
+The next group of lipids are those with a glycerol backbone.  By that we mean that one, two or three fatty acids are conjugated to a glycerol molecule using via an ester linkage.  If three fatty acids are added, the molecule is known as a triglyceride\sidenote{Or triacylglycerol}. Its properties are based on which specific fatty acids are added and in which location.  Triglycerides are neutral lipids because there is no polar group.
+
+\newthought{Phospholipids are a class of diglycerides.}  These lipids generally contain fatty acids at the first and second positions of the glycerol molecule.  \emph{These are known as the sn1 and sn2 positions with the head group at the sn3 position}.  At the third position is a phosphate molecule, which has a highly negative charge and then a variable head group.  Several head groups are described in Table \ref{tab:head-groups}.  These headgroups therefore affect the packing and function of these phospholipids.  
+
+\begin{margintable}
+\centering
+\caption{Common phospholipid head groups.  Note that for Phosphatidylglycerol there is a \emph{second} glycerol headgroup in addition to the one conjugated to the fatty acids.  For Cardiolipin, there is another entire phosphatidylglycerol molecule, meaning there are two glycerol molecules, and four fatty acids linked via the phosphate group.}
+\label{tab:head-groups}
+\begin{tabular}{ll}
+\hline
+\multicolumn{1}{c}{\textbf{Head Group}} & \textbf{Lipid} \\ \hline
+Phosphate Only          & Phosphatidic Acid      \\
+Ethanolamine           & Phosphatidylethanolamine           \\
+Choline           & Phosphatidylcholine          \\
+Serine        & Phosphatidylserine \\
+Inositol & Phosphatidylinositol \\
+Glycerol & Phosphatidylglycerol \\
+Phosphatidylglycerol & Cardiolipin     
+\end{tabular}
+\end{margintable}
+
+\section{Properties and Structures of Fatty Acids}
+
+In addition to properties of lipids that are due to the head group, lipids contain a wide variety of fatty acids.  Since each triglyceride can contain three different fatty acids, the number of combinations possible for a triglyceride is very high.  The fatty acids are very hydrophobic once esterified to a glycerol backbone, but their length and structure affect their metabolism and functions.
+
+\subsection{Classes of Fatty Acids}
+
+The acyl chains that are conjugated to glycerol\sidenote{In the case of triglycerides}, a glycerol and phospholipid head group\sidenote{In the case of diacylglycerides or phospholipids} or steroids\sidenote{In the case of esterified cholesterol, for example} are defined by two aspects of their structure.  The first is their length, or the number of carbon atoms in the fatty acid.  Based on this criteria, fatty acids are grouped together as short, medium, long or very long-chain fatty acids (see Table \ref{tab:fa-length}).  Shorter fatty acids are more soluble, but contain less energy (since energy is released when each bond is broken).  Short chain fatty acids are generally derived from fermentation of fiber in the colon, while the other three fatty acid lengths are generally obtained as part of ingested triglycerides and phospholipids.
+
+\begin{margintable}
+\centering
+\caption{Classification of fatty acids by length of the fatty acid tail}
+\label{tab:fa-length}
+\begin{tabular}{ll}
+\hline
+\multicolumn{1}{c}{\textbf{Type}} & \textbf{Length} \\ \hline
+Short Chain Fatty Acid            & 5 or less       \\
+Medium Chain Fatty Acid           & 6-12            \\
+Long Chain Fatty Acid             & 13-21           \\
+Very Long Chain Fatty Acid        & 22 or more     
+\end{tabular}
+\end{margintable}
+
+\newthought{Saturation levels is another criteria for comparing fatty acids.}  While saturated fatty acids have no double bonds, both monounsaturated\sidenote{containing one double bond} and polyunsaturated\sidenote{containing more than one bond} fatty acids can be made.  These double bonds are generated by a class of enzymes known as \emph{desaturases}.  For example Stearoyl-CoA desaturase\sidenote{also known as $\Delta$-9-desaturase} can introduce a double bond at the $\Delta$-9 position\sidenote{more about what this means in the nomenclature section.  Lots of footnotes today!} of a fatty acid, so could convert a saturated fatty acid into a monounsaturated fatty acid.
+
+\newthought{The type of double bond is a third criteria.}  In nature most bonds are in what we refer to as the \textit{cis} position.  This means that the hydrogens on either side of a double bond are on the same side.  The opposite stereoisomer, where the hydrogens are on opposite sides of the double bond are known as \textit{trans} fatty acids, or more commonly as trans fats.  While these are rare in nature, they became abundant in our food supply because of the process of converting unsaturated fats (such as those in corn or canola oil) to saturated fats.  This hydrogenation made most double bonds into single bonds, but sometimes also switched the stereoisomer orientation from a \textit{cis} to a \textit{trans} orientation.  Nutritional epidemiology studies have associated trans fatty acid intake with about a 50\% increased risk of coronary heart disease \citep{Willett1993,D.2006}.  Since trans fats are dispensable to the human diet, and because of their health risks, they are limited or banned in most countries, including the United States which plans to have them removed from the food supply by January 2020.  
+
+\subsection{Fatty Acid Nomenclature Systems}
+
+Based on the above criteria (length, location and types of double bonds) there is a wide variety of potential fatty acids.  As such three naming systems have been used, their common names, the $\Delta$ notation and the $\omega$ notation.  
+
+\newthought{The common name} is generally the hardest to remember.  Each fatty acid is given a different name, like stearic acid, oleic acid, or $\alpha$-linoleic acid.  Often these common names are offshoots of foods that these fatty acids were found in.  Without remembering the name to structure comparison it is very hard to guess anything about the physical properties from a common name.
+
+\newthought{The $\Delta$ system} has two parts.  The first part refers to the length, so a C16:0 means a fatty acid that is 16 carbons in length, but with \emph{no} double bonds\sidenote{This fatty acid's common name is palmitate, now is it a saturated fatty acid, or an unsaturated fatty acid?}.  A fatty acid that is C16:1 has one double bond, C16:2 has two and so forth.  This is useful for identifying two of our three criteria; length and saturation level, but it does not tell us about the location and isomer of the double bond.  Therefore the $\Delta$ system adds another piece of information, how many atoms from the acidic end the double bond is located at.  Palmitoleic acid is a C16:1$\Delta^9$-\textit{cis} fatty acid.  It can be generated by the generation of a double bond at the 9\textsuperscript{th} carbon, starting from the acid end.  This is the product of the enzyme Stearoyl-CoA desaturase acting on palmitic acid, since that enzyme has specificity for generating \textit{cis} bonds at the $\Delta$9 position.
+
+\newthought{The $\omega$ system}, also known as the n- system is very similar, but instead counts from the free end, not the acid end.  Going back to our example of Palmitoleic acid, while it is a C16:1$\Delta^9$-\textit{cis} fatty acid, it is also a C16:1$\omega$7-\textit{cis} fatty acid.  It can also be referred to as a C16:1(n-7) fatty acid, indicating the double bond is 7 carbons from the end.  Count the carbons from one end to the other and convince yourself, of the numbering.
+
+\subsection{Polyunsaturated Fats}
+
+We can identify if a fatty acid is polyunsaturated fatty acid (or a PUFA) because the number after the colon is greater than one.  For example 18:3$\omega$-6\textit{cis} is also known as Gamma-linolenic acid.  By now, hopefully you can appreciate that this fatty acid is 18 carbons long, contains three double bonds and one of them is six carbons from the n-end.  But what about the other two double bonds?  One way to solve this is to be explicit and indicate that this fatty acid is 18:3, \textit{cis,cis,cis}-$\Delta^9$,$\Delta^{12}$,$\Delta^{15}$.  This indicates that the double bonds are at the 9,12 and 15th carbons starting from the acidic end\sidenote{For practice, figure out where the double bonds would be from the n-end, or how could you be explicit about this fatty acid's $\omega$ naming}.  As a shorthand, double bonds in a PUFA are almost always separated by \emph{three} carbons, so if you know how many double bonds are present, and you know the location of one double bond , you can presume that the other bonds are three carbons away.  The convention for this shorthand therefore is to assign the $\omega$ or $\Delta$ notation to the farthest or closest double bond from the acidic end respectively\sidenote{If you are looking for more practice in naming or drawing, look up any fatty acid on wikipedia and it should give you the structure, $\omega$ and $\Delta$ nomenclature}.
+
+\subsection{Essential Fatty Acids ($\omega$-3  and $\omega$-6)}
+
+\begin{margintable}
+\centering
+\caption{Recommended daily intake of lipids.  Based on the 2015-2020 USDA Dietary Guidelines \citep{USDA2015}.  Values are for an adult (19-30) year old.}
+\label{tab:lipid-amdr}
+\begin{tabular}{ll}
+\hline
+\multicolumn{1}{c}{\textbf{Lipid}} & \textbf{Recommended Intake} \\ \hline
+Total Fat &  20-35\% of Energy\\
+Saturated Fat & <10\% of Energy\\
+Linoleic Acid ($\omega$-6) & 17g (M), 12g (F) \\
+$\alpha$ Linolenic Acid ($\omega$-3) & 1.6g (M), 1.1g (F) \\
+\end{tabular}
+\end{margintable}
+
+A subset of PUFA's are those that have a double bond at the $\omega$-3 or $\omega$-6 position.  Fatty acids that have bonds at this location are essential for several physiological functions in humans \emph{but} we cannot synthesize those particular double bonds ourselves.  The biochemical reason for this is that human desaturases are all $\Delta$-specific\sidenote{This means that they bind to a fatty acid from the acidic end, and generate a double bond relative to that position.}.  The specific human isoforms are $\Delta^9$, $\Delta^6$, $\Delta^5$, and $\Delta^4$.  This means that if humans synthesize palmitate (C16:0), we could potentially make double bonds at these positions.  Switching to the $\omega$ nomenclature, the double bond closest to the end is C16:1$\Delta^9$, which is equivalent to C16:1$\omega$7.  To make a $\omega$-6 fatty acid humans would either have to start with an odd numbered fatty acid (such as a C15:0, not made by humans) or have a different desaturase.  The same logic is true for $\omega$-3 fatty acids.  This makes these two fatty acids essential in our diet.  Dietarily we can consume these in several forms.  For the $\omega$-3 series, some common fatty acid sources include alpha-linoleic acid (ALA; C18:3$\omega$-3), eicosapentaenoic acid (EPA; C20:5$\omega$-3) and docosahexaenoic acid (DHA; C22:6$\omega$-3).  These can be inter-converted into each other as long a they are ingested already with the $\omega$-3 bond present.  This means that both $\omega$-3  and $\omega$-6 fatty acids are essential in our diet\sidenote{Individuals vary quite a lot in how efficiently they can convert, for example ALA into DHA, so it is probably more effective to obtain DHA from dietary sources, rather than rely on our ability to inter-convert these fatty acids.  Fish is an excellent source of DHA, this is one of the reasons why the protein package associated with fish is proposed to be so healthy.}.  The recommended daily intakes of lipids are shown in Table \ref{tab:lipid-amdr}.
+
+\newthought{These essential fatty acids play several important functions.}  Due to their structure these fatty acids are less tightly packed, so are important for membrane fluidity in many tissues.  Some tissues, such as the brain, have very high levels of $\omega$-3 fatty acids\sidenote{Up to 30\% of the total mass of the brain is thought to be DHA \citep{Crawford1976}, suggesting a very important role in neural development.}.  Another important role of these fatty acids is in the generation of bioactive lipids.  These lipids function as hormones to mediate inflammatory responses.  In general, the $\omega$-6 derived fatty acids\sidenote{For example arachidonic acid; C22:4$\omega$-6.  Some foods with very high $\omega$-6 fatty acids are plant seeds and oils.} are generally \emph{more} inflammatory than the $\omega$-3 fatty acids.  The $\omega$-3 fatty acids generally play a role in the resolution of inflammation, though these are generalizations and not entirely understood.  For more details on the role of essential fatty acids on inflammation, see \citet{Calder2013}.  
+
+\newthought{$\omega$-6 and $\omega$-3 fatty acids can compete for many of the same enzymes.}  While both these fatty acids are essential, in practice humans generally consume far more $\omega$-6  than $\omega$-3 fatty acids.  This can be problematic because since these fatty acids share desaturases and elongases\sidenote{These are enzymes that extend a fatty acid, say from C16:1 to C18:1.}.  The result could be an inability to generate enough $\omega$-3-derived fatty acids, and an overproduction of the $\omega$-6-derived fatty acids.  This can mean that our dietary shift towards high $\omega$-6:$\omega$-3 ratios may result in higher inflammatory responses.
+
+\bibliography{library}
+\bibliographystyle{plainnat}
+
+\end{document}

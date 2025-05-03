@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   width="74"
+   height="83">
+<g
+   id="bonds" fill="none" stroke="black" stroke-width="0.86">
+  <path
+     id="path12"
+     d="m 31.189534,38.723101 0,-10.620009"/>
+  <path
+     id="path24"
+     d="m 31.189534,52.55381 0,10.620008"/>
+  <path
+     id="path30"
+     d="m 37.600031,45.761944 10.971813,0"/>
+  <path
+     id="path34"
+     d="m 25.025595,45.761944 -11.834764,0"/>
+  <path
+     id="path38"
+     d="m 38.586262,19.211922 7.889842,-4.569073"/>
+  <path
+     id="path40"
+     d="m 36.367243,15.38378 7.889843,-4.569074"/>
+  <path
+     id="path44"
+     d="M 25.025595,17.730061 16.396079,12.790522"/>
+</g>
+<g
+   id="text" font-family="helvetica" font-size="13.58" text-anchor="middle" fill="black" stroke="none">
+  <text
+     id="text8"
+     y="51.071949"
+     x="31.312813">C</text>
+  <text
+     id="text10"
+     y="26.621229"
+     x="31.312813">C</text>
+  <text
+     id="text14"
+     y="75.522667"
+     x="31.312813">C</text>
+  <text
+     id="text16"
+     y="75.522667"
+     x="41.051838">H</text>
+  <text
+     id="text18"
+     y="79.968254"
+     x="48.448566"
+     font-size="9">2</text>
+  <text
+     id="text20"
+     y="75.522667"
+     x="56.21513">O</text>
+  <text
+     id="text22"
+     y="75.522667"
+     x="66.447266">H</text>
+  <text
+     id="text26"
+     y="51.071949"
+     x="55.598736">O</text>
+  <text
+     id="text28"
+     y="51.071949"
+     x="65.830872">H</text>
+  <text
+     id="text32"
+     y="51.071949"
+     x="6.9036121">H</text>
+  <text
+     id="text36"
+     y="14.272384"
+     x="52.023651">O</text>
+  <text
+     id="text42"
+     y="14.395872"
+     x="9.9855824">H</text>
+</g>
+</svg>

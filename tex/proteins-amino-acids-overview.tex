@@ -1,0 +1,160 @@
+\documentclass{tufte-handout}
+
+%\geometry{showframe}% for debugging purposes -- displays the margins
+
+\usepackage{amsmath}
+
+% Set up the images/graphics package
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{Introduction to Proteins and Amino Acids}
+\author{}
+\date{}  % if the \date{} command is left out, the current date will be used
+
+% The following package makes prettier tables.  We're all about the bling!
+\usepackage{booktabs}
+
+% The units package provides nice, non-stacked fractions and better spacing
+% for units.
+\usepackage{units}
+
+% The fancyvrb package lets us customize the formatting of verbatim
+% environments.  We use a slightly smaller font.
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+
+% Small sections of multiple columns
+\usepackage{multicol}
+
+% Provides paragraphs of dummy text
+\usepackage{lipsum}
+
+% These commands are used to pretty-print LaTeX commands
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+
+\begin{document}
+
+\maketitle% this prints the handout title, author, and date
+
+\begin{abstract}
+\noindent This lecture is the introduction to the proteins unit.  In this unit we will describe some of the important functions of protein and their constituent amino acids including why some amino acids are essential (or conditionally essential), how they are interconverted and how they are used for energy.  Amino acids also are the precursors for many other important biological molecules, so we will discuss these non-protein functions of amino acids as well.
+\end{abstract}
+
+\tableofcontents
+
+\pagebreak
+\section{Learning Objectives}
+
+\begin{itemize}
+\item Apply your knowledge of amino acid biochemistry to explain why proteins are essential macronutrients
+\item Understand the basic structure of protein
+\item Identify the property that makes an amino acid different from another 
+\item Describe different functional roles of protein
+\item Identify the major proteins present in food
+\item Differentiate between the different classifications of amino acids
+\item Understand how nonessential amino acids can become essential
+\item Explain the nutritional requirements of collagen synthesis
+
+
+\end{itemize}
+
+\section{Proteins, Amino Acids and Essentiality}
+
+\begin{margintable}
+\centering
+\caption{Amino Acid Essentiality.}
+\label{tab:aa-dispensibility}
+\begin{tabular}{lll}
+\hline
+\textbf {Dispensible} & \textbf{Essential} & \textbf{Conditional}\\
+\hline
+Ala & Phe & Arg\\
+Asp & Trp & Tyr\\
+Asn & Thr & Cys\\
+Glu & Ile & Pro\\
+Gly & Met & Gln\\
+Ser & Val\\
+ & Leu\\
+ & His\\
+ & Lys\\
+\hline
+\end{tabular}
+\end{margintable}
+
+Glucose and other carbohydrates are not strictly essential.  As we described in the unit on gluconeogenesis, we can generate glucose even if dietary supplies are low or absent.  The same is not true for proteins, which are macromolecules comprised of amino acids.  While plants, bacteria and fungi can often synthesize their own amino acids, we have lost the ability to make certain amino acids during evolution (see Table \ref{tab:aa-dispensibility}).  Since most proteins consist of at least multiple of the amino acids, that means that we cannot generate new proteins unless we have a dietary supply of the essential amino acids.  In this context, dispensible means that we can make these amino acids from other fuels in our body, such as glucose\sidenote{Recall from the glycolysis lecture that pyruvate can be converted to alanine as part of the Cahill cycle via ALT function.}.  Essential means that we must get those amino acids from our diet.  
+
+\newthought{When we say that an amino acid is conditional}, that means that we can only make it if we have another amino acid.   For example, we can make Tyrosine in the body, but only if we have sufficient amounts of Phenylalanine. If we do not have sufficient amounts of Phenylalanine, then we cannot make Tyrosine, which makes Tyrosine a conditionally essential amino acid. The reaction to convert Phenylalanine to Tyrosine is catalyzed by the enzyme phenylalanine hydroxylase\sidenote{BH$_4$ in this equation indicates tetrahydrobiopterin, a cofactor for this reaction.}:
+
+\begin{equation}
+Phe + BH_4 + O_2\leftrightarrow Tyr + BH_2 + H_2O 
+\end{equation}
+
+\subsection{Recommended Protein Intake}
+
+The USDA recommends increasing protein levels over the lifespan (see Table \ref{tab:protein-amdr}), but suggests a wide range where <35\% of calories are from protein.  From an essentiality perspective, the amounts of each amino acid needed from the diet depend on the amino acid content of the food.  As en example, legumes (beans and nuts) tend to be low in the essential amino acid methionine while grains often contain low levels of the essential amino acid lysine.  When thinking about an appropriate protein amount, two things are important to consider: 1.are there sufficient dietary levels of the essential amino acids in a certain  food? and 2.if protein levels in that food are low, are the calories from this food coming from lipids or carbohydrates?
+
+\begin{margintable}
+\centering
+\caption{ Acceptable Macronutrient Distribution Range (AMDR) for protein intake over the lifespan in percent of calories (from \citep{USDA2015}).}
+\label{tab:protein-amdr}
+\begin{tabular}{lll}
+\hline
+\textbf {Age (years)} & \textbf{Amount (percent)}\\
+1-3 & 5-20\\
+4-19 & 10-30\\
+19+ & 10-35\\
+\hline
+
+\hline
+\end{tabular}
+\end{margintable}
+
+\subsection{Diseases of Protein Malnutrition}
+
+In the developed world, protein deficiency is rare; however, in some developing nations, protein deficiency is a major public health problem.  Protein deficiency can manifest in two main ways, \emph{kwashiorkor} which is a deficiency of protein, but an acceptable total calorie intake; and \emph{marasmus} which is a deficiency of both protein and calories.  Protein deficiencies can lead to impaired physical and mental development, fatty liver, hair loss and characteristic distended abdomen.
+
+\section{Protein Storage and the Amino Acid Pool}
+
+Unlike glucose\sidenote{Glycogen stored in the liver, muscle and kidneys.} and fatty acids\sidenote{Triglycerides stored in adipose tissue.}, there is no storage pool of amino acids for exchange or use.  Instead, amino acids are stored as functional proteins in many tissues, but largely in muscle.  This means that protein-deficient diets come at a functional cost, as proteins are broken down from the muscle to enable amino acid liberation for fuel or for synthesis of other proteins.
+
+\newthought{While the majority of amino acids are part of proteins, there are some free amino acids both in tissues and in the blood.}  This is known as the \emph{amino acid pool}, which functionally comprises of the available amino acids that can be used for protein synthesis.  As proteins are broken down, this pool fills up with amino acids.  The available amino acid pool is especially important for the essential amino acids, since once they are depleted they must be obtained from the diet.
+
+\newthought{Branched-chain amino acids\sidenote{Abbreviated as BCAAs} are a special subgroup of essential amino acids.}  These three amino acids, \emph{Leucine, Isoleucine} and \emph{Valine} are very important as they relate to the amino acid pool for two reasons:
+\begin{enumerate}
+\item They are extremely abundant in our proteins, comprising of ~20\% of all amino acids and ~35\% of indispensible amino acids.  Therefore during protein synthesis, these essential amino acids can become limiting.
+\item There are very low levels of free BCAAs in tissue.  Normally, there are about 3g/kg of amino acids in tissue, but only about 100mg of those amino acids are the three BCAAs.
+\end{enumerate}
+
+These two factors combine to mean that BCAAs are nutritionally important, especially during growth and other times of protein synthesis\sidenote{As such, the degradation of BCAAs is under especially tight control, as we will discuss in the amino acid oxidation lecture}.  Some foods that have  high levels of BCAAs include red meat, chicken, fish and eggs.
+
+\section{Major Proteins in Human Nutrition}
+There are many thousands of different proteins, each of which have different synthetic requirements and nutritional components.  However, some proteins are much more abundant in the food we eat, or in our bodies.  Some of the major proteins we will discuss are collagen, actin and myosin.  In terms of amino acids, collagen is particularly enriched in glycine, proline, and hydroxyproline.
+
+\newthought{Actin and Myosin are major proteins in muscle.}  Foods that are muscle derived, especially meats are high in actin and myosin.  Actin and myosin form the contractile units of muscle and are the major components in both meat and in building muscle tissue.  These proteins form long fibers, and therefore are generally denatured by cooking in order to aid digestion of those proteins when they are ingested.  Since mammalian-derived meat and human skeletal muscle are similar in composition, these proteins contain high levels of all the essential amino acids needed for muscle growth.
+
+\newthought{Whey and casein are abundant in milk products.}  Casein makes up to 80\% of all protein in cow milk.  Whey proteins include a variety of soluble globular proteins that are digested quite efficiently.  On the other hand, casein tends to be fairly insoluble, and often slow to digest.  This results in a faster, but less sustained increase in blood amino acids when digesting whey (which is efficiently and rapidly digested) as opposed to when digesting casein (needs longer time to be digested).  Both whey and casein contain high levels of all of our essential amino acids, and just like meat, they are thought of as complete proteins.
+
+\newthought{There are several vegetarian sources of amino acids.}  Soy contains high levels of all the essential amino acids and therefor is considered a complete protein sources unlike pea or wheat derived-proteins.  The major protein in wheat is gluten, which is low in lysine (an essential amino acid).  Legumes on the other hand, are low in methoinine (essential amino acid).  Vegetarian diets often combine wheat and legume-derived proteins into the meals to form a complete source of essential amino acids.
+
+\newthought{Collagen has atypical composition and requirements}
+Collagen is a triple helical protein that makes up much of our connective tissue\sidenote{Connective tissue includes the extracellular matrices that hold cells in place}.  Collagen is also a major component in ligaments, tendons and the skin.  Collagen is the most abundant protein in mammals, making up 25-35\% of the whole body content.  Collagen has quite a unique amino acid composition, with extremely high levels of both proline and hydroxyproline.  Collagen synthesis is especially important during growth, wound healing and tissue remodeling.
+
+\newthought{Hydroxyproline is not one of the standard amino acids.}  It is synthesized from the conditionally essential amino acid Proline\sidenote{Proline can be generated from Glutamate, so is therefore conditionally essential and dependent on Glutamate levels.} via the enzyme \emph{Proline hydroxylase}.  Collectively proline and hydroxyproline comprise about a third of the weight of collagen \citep{Bowes1948}.  The conversion of Proline to Hydroxyproline occurs post-translationally, meaning that collagen is translated first, then the reaction occurs on the already assembled protein.  Proline hydroxylase requires Vitamin C (also known as ascorbate) to catalyze the reaction.  The instability of collagen due to Vitamin C deficiency is the biochemical basis of scurvy \cite{Lind1753}. 
+
+\subsection{Other Nutritional Aspects of the Protein Package}
+
+While we have focused on the proteins and amino acids contained in particular foods, we appreciate that protein is generally consumed as part of a larger more complex set of foods.  As we will discuss in the lecture on non-protein products of amino acids, there are often other key nutrients that should be considered when thinking of a protein-rich food.  Some particularly relevant nutrients that may be present or absent in the food depending on the protein source include Vitamin B12, iron, carnitine and creatine.  These are important key nutrients to consider in addition to the types of fats and carbohydrates that may also be contained in the protein source. 
+
+\bibliography{library}
+\bibliographystyle{plainnat}
+
+\end{document}

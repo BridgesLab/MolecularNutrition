@@ -1,0 +1,239 @@
+%!TEX program = pdflatex
+\documentclass{tufte-handout}
+
+%\geometry{showframe}% for debugging purposes -- displays the margins
+
+\usepackage{amsmath}
+
+% Set up the images/graphics package
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{Gluconeogenesis}
+\author{Dave Bridges}
+\date{}  % if the \date{} command is left out, the current date will be used
+
+% The following package makes prettier tables.  We're all about the bling!
+\usepackage{booktabs}
+
+% The units package provides nice, non-stacked fractions and better spacing
+% for units.
+\usepackage{units}
+
+% The fancyvrb package lets us customize the formatting of verbatim
+% environments.  We use a slightly smaller font.
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+
+% Small sections of multiple columns
+\usepackage{multicol}
+
+% Provides paragraphs of dummy text
+\usepackage{lipsum}
+
+% These commands are used to pretty-print LaTeX commands
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+
+\begin{document}
+
+\maketitle% this prints the handout title, author, and date
+
+\begin{abstract}
+\noindent Glucose is not an essential nutrient, and can be generated from a variety of precursors including glycerol, lactate and amino acids.  This is important because several tissues, including the brain, are highly dependent on glucose levels.  As such, the body maintains blood glucose levels in a very narrow range, and gluconeogensis is essential to ensuring glucose is available in the blood.  This unit will describe the function and regulation of gluconeogenesis including its regulation by internal and external signals.  For more details on gluconeogenesis, refer to Chapter 17 of Biochemistry: A Short Course\cite{Berg2015} and Chapter 10 of Lippincott's Illustrated Reviews: Biochemistry\cite{Ferrier2017}, both on reserve.
+\end{abstract}
+
+\tableofcontents
+\pagebreak
+\section{Learning Objectives}
+
+\begin{itemize}
+\item Describe the tissues where gluconeogenesis occurs and the key enzymatic determinants of this specificity.
+\item Explain the major precursors of gluconeogenesis, including where they are derived from and at what step they integrate.
+\item Evaluate how the flow of each these precursors is regulated differently, dependent on where they enter the gluconeogenic pathway.
+\item Analyse the energetic costs of gluconeogenesis, given the precursor substrate.
+\item Describe how chronic activation of gluconeogenesis results in ketone body production from the liver.
+\item Understand the importance of the Cori and Cahill cycles in recycling waste products back to glucose.
+\item Recognize the key steps by which gluconeogenesis is controlled by allosteric control, protein phosphorylation and transcriptional changes, especially in response to insulin, glucagon/adrenaline and Cortisol.
+\item Evaluate how the cell ensures that gluconeogenesis and glycolysis do not occur simultaneously.
+\end{itemize}
+
+\section{Key Concepts and Vocabulary}
+
+\begin{itemize}
+	\item Cori Cycle and Cahill Cycle
+	\item Glucocorticoids, including Cortisol
+	\item Gluconeogenic Substrates
+	\item Direct Regulation (in the liver) vs Indirect Regulation of Gluconeogenesis
+	\item Pyruvate Carboxylase and its regulation
+	\item PEPCK and G6Pase and their regulation
+	\item Alanine Aminotransferase (ALT)
+\end{itemize}
+
+\section{The Importance in Maintaining Blood Glucose Levels}
+
+Glucose is not an essential macronutrient.  Unlike vitamins, minerals, essential amino acids, and $\omega$-3/6 fatty acids we are able to make glucose even if there is no dietary source.  This process is called gluconeogenesis.  While many of the tissues that we focus on in this course can use a variety of substrates for fuel, some tissues are highly dependent on glucose.  Among these are the brain, and red blood cells.  Adding to this problem, neurons are very poor at storing glucose as glycogen, which means they need a constant supply of glucose from the blood to maintain their function.  While the brain is generally only 2\% of the mass of a human, it consumes around 20\% of the glucose in the body \citep{Erbsloh1958}.  Even individuals who consume extremely low carbohydrate diets are able to maintain their blood glucose near the normal range\sidenote{While individuals on ketogenic diets still use a lot of glucose for brain function, there is evidence that in those individuals the brains can adapt to use ketone bodies as an energy source as well.  We will discuss this in the lectures on lipid oxidation later on in the semester.} \citep{Bueno2013}.  The ability to maintain blood glucose, with limited dietary carbohydrate ingestion is the primary role of gluconeogenesis.  In healthy humans, when gluconeogenesis is active, we produce the carbohydrate equivalent of over 6 cups of cooked rice per day\sidenote{Calculated from values in \citet{Rothman1991}, and the USDA food database.}.  
+
+\section{Gluconeogenesis Primarily Occurs in the Liver}
+
+The primary glucose producing tissues are the liver and the kidneys, though in terms of circulating glucose the liver predominates.  The molecular determinant of this is the presence of the enzyme Glucose-6-Phosphatase which catalyzes the removal of phosphate from Glucose-6-Phosphate, allowing it to be exported from the cell.  While gluconeogenic substrates can become converted to Glucose-6-Phosphate through similar pathways described below, the final phosphate removal and release of glucose only occurs in cells with this enzyme.
+
+\begin{marginfigure}
+\includegraphics{figures/gk-hk-kinetics.pdf}
+\caption{Schematic of the kinetics of glucokinase (GK) and hexokinase (HK).  Not the differences in K$_m$, V$_{max}$ and co-operativity between these enzymes.}
+\label{fig:gk-hk-kinetics}
+\end{marginfigure}
+
+\newthought{Glucokinase plays an important role in this process.}  If you recall from the lecture on glycolysis, the enzyme kinetics of the Glucokinase is an important site of regulation (see Figure \ref{fig:gk-hk-kinetics}.  Muscle and adipose tissues have hexokinase, which is very efficient at phosphorylating even low concentrations of Glucose. Glucokinase, which is present in the liver, has very low kinetic efficiency at low glucose concentrations.  This means that when glucose levels are low in the blood, Glucokinase will be inactive and Glucose-6-Phosphate dephosphorylation will not be undone.
+
+\section{Gluconeogenic Substrates}
+
+There are several substrates that can be converted into glucose as illustrated in Figure \ref{fig:gluconeogenic-substrates}.  The main substrates are glycerol, lactate and alanine.  The first thing to note is how similar the overlap of this pathway is to glycolysis.  Most of the reactions in glycolysis are reversed in gluconeogenesis, and are catalyzed by the same enzymes, with only a few exceptions.  One is that the Pyruvate Kinase step (from PEP to Pyruvate) is not reversible, and the other is that instead of PFK1, a different enzyme known as Fructose bisphosphatase (FBPase1) is used to generate Fructose-6-Phosphate.  As you may have guessed, both of these are key sites of regulation.  As you read about these reactions, consider that the biochemical steps where glycerol, lactate, or alanine enters the pathway, and see how that dictates what sites of regulation are important to the control its flow to glucose.  
+
+\begin{marginfigure}
+\includegraphics{figures/gluconeogenic-substrates.pdf}
+\caption{Schematic of gluconeogenesis.  Red indicates key gluconeogenic substrates while green indicates energy consuming or generating steps.}
+\label{fig:gluconeogenic-substrates}
+\end{marginfigure}
+
+\subsection{Glycerol}
+
+Glycerol is derived from the breakdown of triglycerides and is increased during lipolysis.  That process releases both glycerol and free fatty acids, both of which traffic to the liver.  While fatty acids (shown in blue in Figure \ref{fig:gluconeogenic-substrates}) are \emph{unable} to be converted to glucose, they play a role in activating Pyruvate Carboxylase via Acetyl-CoA and providing energy to drive gluconeogenesis.  Glycerol on the other hand becomes activated by phosphorylation, then is converted into DHAP.  DHAP and GA3P are combined by Aldolase into Fructose-1,6-bisphosphate, which is then dephosphorylated by FBPase1.  Figure \ref{fig:gluconeogenic-substrates-glycerol} shows how glycerol flows into glucose.
+
+\begin{figure}
+\includegraphics{figures/gluconeogenic-substrates-glycerol.pdf}
+\caption{Schematic of gluconeogenesis from glycerol.  Red indicates key gluconeogenic substrates while green indicates energy consuming or generating steps.  Based on this diagram, you can see that per glycerol 1 ATP is used, and 1 FADH\textsubscript{2} is generated.  This is a net of +0.5 ATP/glycerol, or since two glycerol molecules are needed to make a glucose, a net ATP increase of 1 ATP/glucose generated.}
+\label{fig:gluconeogenic-substrates-glycerol}
+\end{figure}
+
+\subsection{Lactate and the Cori Cycle}
+
+Lactate, the product of anaerobic glycolysis can be inter-converted back to pyruvate via the reversible actions of Lactate Dehydrogenase.  This is an important inter-organ cycle called the Cori Cycle\sidenote{Or the Lactic Acid Cycle.  This is named after Carl and Gerty Cori who won the Nobel Prize in Medicine or Physiology for this and her work on glycogen metabolism.  Gerty Cori was the first woman to win the Nobel Prize in Medicine or Physiology.}.  This cycle involves the anaerobic breakdown of glucose to lactate in the muscle, followed by its re-synthesis back to glucose in the liver.  This re-formed glucose now travels back to the muscle (see Figure \ref{fig:cori-cycle}).  Overall this cycle consumes four ATP molecules, but is an important way to ensure that the muscle has sufficient glucose available for anaerobic metabolism.  We discussed this previously, with respect to metabolic efficiency and the basal metabolic rate.  If you go through a round of the Cori Cycle, you end up with exactly the same glucose molecule, but you have had to burn four ATP molecules.  This is \emph{inefficient} and would increase the basal metabolic rate.  The route by which lactate becomes glucose is shown in Figure \ref{fig:gluconeogenic-substrates-lactate}.
+
+\begin{marginfigure}
+\includegraphics{figures/cori-cycle.pdf}
+\caption{Schematic of the Cori Cycle.  Each turn through this cycle uses up 4 ATP (6 ATP used in the liver, 2 generated in the muscle).}
+\label{fig:cori-cycle}
+\end{marginfigure}
+
+
+\begin{marginfigure}
+\includegraphics{figures/gluconeogenic-substrates-lactate.pdf}
+\caption{Schematic of gluconeogenesis from lactate.  Based on this diagram, you can see that per lactate 2 ATPs and 1 GTP are used, and one NADH is generated and then consumed.  This is a net of -3 ATP/lactate, or since two lactate molecules are needed to make a glucose, a net ATP use of 6 ATP/glucose generated.}
+\label{fig:gluconeogenic-substrates-lactate}
+\end{marginfigure}
+
+
+\subsection{Alanine and other Amino Acids}
+
+Several amino acids can be converted into glucose.  This can be the case either when there is excessive dietary protein, or if proteins (primarily in the muscle) are broken down and sent to the liver.  The class of amino acids that can become glucose is known as the \emph{glucogenic} amino acids.  The amino acids that cannot be converted to glucose are known as ketogenic amino acids\sidenote{We will cover this in more detail in the amino acid catabolism lectures.}.  The catabolic routes of the glucogenic amino acids vary but the most important of them is Alanine. As we discussed regarding the fates of Pyruvate, Alanine and Pyruvate can be inter-converted via the actions of Alanine Aminotransferase (ALT):
+
+
+\begin{equation}\label{eq:alt}
+Alanine + \alpha - Ketoglutarate \rightleftharpoons Glutamate + Pyruvate
+\end{equation}
+
+This enzyme is important for making Alanine (for example when levels are low and Pyruvate levels are high), but also can make pyruvate for gluconeogenesis when alanine levels are high and pyruvate levels are low.  As shown in Figure \ref{fig:gluconeogenic-substrates-alanine} the conversion of Pyruvate to Phosphoenolpyruvate\sidenote{This is the inverse of the Pyruvate Kinase reaction that was important for glycolysis.} is not a simple reversible reaction.  Instead, for Pyruvate to undergo gluconeogenesis, it first must be carboxylated to oxaloacetic acid (OAA) by Pyruvate Carboxylase and then converted back to Phosphoenolpyruvate by the enzyme Phosphoenolpyruvate carboxykinase (PEPCK).  Both of these enzymes are important sites of regulatory control. It is important to note that (absent the balancing influx of Alanine) activation of PEPCK is cataplerotic.  It removes TCA cycle intermediates (OAA) and pushes them towards gluconeogenesis.  This means that gluconeogenesis occurs at a cost of TCA cycle efficiency, since when OAA is depleted, Acetyl-CoA cannot enter the TCA cycle for energy production.  This is the main reason why very low carbohydrate diets result in ketone body production.  Gluconeogenesis depletes OAA, and Acetyl-CoA is converted into ketone bodies because it cannot enter the TCA cycle.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.5in]{figures/gluconeogenic-substrates-alanine.pdf}
+\caption{Schematic of gluconeogenesis from alanine.  Based on this diagram, you can see that per alanine 2 ATPs and 1 GTP are used, and one NADH is consumed.  This is a net of -5.5 ATP/alanine, or since two alanine molecules are needed to make a glucose, a net ATP use of 11 ATP/glucose generated.  As we will discuss later in the semester, disposal of the amino group on alanine (which is now on Glutamate) requires the Urea cycle, which comes at a cost of an additional 4 ATP's.  Therefore in total gluconeogenesis from alanine costs 15 ATP/alanine.}
+\label{fig:gluconeogenic-substrates-alanine}
+\end{center}
+\end{figure}
+
+\begin{marginfigure}
+\includegraphics{figures/cahill-cycle.pdf}
+\caption{Schematic of the Cahill Cycle.  Each turn through this cycle uses up 13 ATP (15 ATP used in the liver, 2 generated in the muscle).}
+\label{fig:cahill-cycle}
+\end{marginfigure}
+
+\newthought{Alanine reconversion to glucose is known as the Cahill Cycle or Glucose-Alanine cycle.}  Similar to the Cori cycle, the cycle of Alanine release from muscle, conversion to glucose and then return to blood glucose is an important inter-organ metabolic loop.  When muscle is broken down, Alanine is released and can be converted by the liver back into glucose for fuel.  This is more costly than the Cori cycle, because Urea must be removed from Glutamate.  This cycle uses 4 ATP equivalents for the Urea cycle and 11 ATP molecules for Gluconeogenesis, so requires a lot of energy from the liver.  Unlike the Cori cycle, the Cahill cycle is not a closed circuit, as every round depletes amino acids from muscle, a result of muscle protein breakdown.
+
+\section{Energetic Demands of Gluconeogenesis}
+
+Gluconeogenesis is typically energetically costly.  It requires a variable number of ATP molecules depending on the substrate.  The energy consuming steps, are Pyruvate Carboxylase (one ATP), PEPCK, and Phosphoglycerate Kinase (1 ATP).  Since at the Aldolase step, two three carbon precursors (GA3P and DHAP) are combined, this means that to make one molecule of glucose you need to follow this pathway twice.  That means that to go from Pyruvate to Glucose you need 2 x 3 ATP equivalents plus two NADH equivalents (at the Glyceraldehyde Dehydrogenase step).  Since each NADH is equivalent to 2.5 ATP molecules, gluconeogenesis from Pyruvate consumes 11 ATP equivalents per glucose produced.  A summary for the main gluconeogenic substrates are shown in Table \ref{tab:gluconeogenesis-energetics}.
+
+\begin{table}
+\centering
+\caption{Gluconeogenic energy use in terms of ATP equivalents.}
+\label{tab:gluconeogenesis-energetics}
+\begin{tabular}{cccc}
+\hline
+\textbf {Substrate} & \textbf{Gluconeogenesis}  & \textbf{Urea Cycle} & \textbf{Total}\\
+\hline
+Glycerol & +1 & 0 & +1\\
+Lactate & -6 & 0 & -6 \\
+Alanine & -11 & -4 & -15\\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Key Regulatory Steps in Gluconeogenesis}
+
+Since it is counterproductive to have gluconeogenesis and glycolysis operating simulataneously the regulation of these pathways is largely reciprocal.  Generally when one pathway is activated, the other is inactivated.  In the case of gluconeogenesis, the key points of regulation are Pyruvate Carboxylase, PEPCK, FBPase and Glucose-6-Phosphatase/Glucokinase.  These are under a combination of acute (rapid and reversible, mainly allosteric) and chronic (slow and permanent, mainly transcriptional) control mechanisms. Each substrate has its own regulatory path too.  For example, as shown in Figure \ref{fig:gluconeogenic-substrates-glycerol}, Glycerol is not subject to PEPCK or PC-dependent regulation and only Alanine is subject to regulation at the ALT step.  All gluconeogenic substrates are sensitive to the activities of FBPase1 and G6Pase.  
+
+\newthought{Gluconeogenesis is regulated both directly and indirectly.}  Gluconeogenesis requires a supply of its substrates (glycerol, lactate and alanine).  Therefore the transport of these molecules from other tissues to the liver is one major regulatory step.  As an example, during prolonged fasting, proteins are catabolized and amino acids like Alanine are released.  The increased availability of these amino acids results in more glucose production, while also preventing glycolysis (at the PK step) and tipping the ALT equilibrium towards making pyruvate.  Another example of indirect regulation is when lipolysis is activated after Cortisol or Adrenaline stimulation.  This provides substrates (glycerol), energy (from fatty acid oxidation) and acetyl-CoA ato activate Pyruvate Carboxylase.  Gluconeogenesis can also be indirectly inhibited.  One example is that insulin suppresses lipolysis.  This reduces glycerol and fatty acid delivery to the liver and slows gluconeogenesis (on top of the direct effects of insulin).
+
+\subsection{Acute Regulation of Gluconeogenesis}
+
+As we discussed in the TCA cycle lecture, Pyruvate Carboxylase (PC) is an important anaplerotic enzyme.  It is stimulated by Acetyl-CoA levels, to generate OAA from Pyruvate.  In terms of gluconeogenesis, a key role of fatty acid-derived Acetyl-CoA is promoting glucose production by activating PC \citep{Perry2015}.  While fatty acids cannot directly be converted into glucose, this is one mechanism by which they induce gluconeogenesis.  This has important consequences for understanding the relationships between the regulation of lipolysis on glucose production.
+
+\newthought{The second major site of acute control is at the FBPase1 step.}  Similar to PFK1, FBP1 is regulated by AMP, and F26bP though in this case the regulation is in the opposite direction (see Table \ref{tab:fbpase-pfk}).  The levels of F26bP are controlled by the activities of PFK2\sidenote{As we discussed in detail in the glycolysis lecture} and FBPase2. In fact, these two activities are the same polypeptide, which comprises a bifunctional enzyme.  FBPase2 will remove the phosphate from F26bP, depleting that important allosteric activator of PFK1.  F26bP is a potent inhibitor of FBPase1, so its removal activates gluconeogenesis while stopping glycolysis. The same PKA-dependent phosphorylation that that reduced PFK2 activity activates FBPase2 activity resulting in less F26bP and F16bP will be directed towards glucose.  In addition to the effects of F26bP, FBPase1 is inhibited by AMP.  Since gluconeogenesis is so energy consuming, this regulatory step ensures that ATP is sufficient for gluconeogneesis to occur.  A comparison of the regulation of FBPase1 and PFK1 is shown in Table \ref{tab:fbpase-pfk} and more details about FBPase regulation can be found in this review: \citet{Okar2001}. 
+
+\begin{figure}
+\includegraphics{figures/PFK2-FBPase2.pdf}
+\caption{Co-ordinate regulation of PFK2/FBPase2 by protein phosphorylation.  This is a bifunctional enzyme, and regulated \emph{in the liver} such that either the phosphatase or kinase activity is activated, while the other activity is suppressed.}
+\label{fig:gluconeogenic-substrates-lactate}
+\end{figure}
+
+\newthought{PKA, activated by Glucagon or Epinephrine promotes gluconeogenesis in the liver}.  By inactivating PFK2 and activating FBPase2, PKA drives glucose production from precursor molecules in the liver.  This, along with promoting the breakdown of glycogen provides tissues with glucose in times of need.  Gluconeogenesis is slower and more costly than glycogenolysis, but is able to use a wider variety of sources to make glucose.
+
+\begin{margintable}
+\centering
+\caption{PFK1 and FBPase1 Regulation}
+\label{tab:fbpase-pfk}
+\begin{tabular}{ccc}
+\hline
+\textbf {Regulator} & \textbf{PFK1}  & \textbf{FBPase1} \\
+\hline
+F26bP & Activates & Inactivates\\
+AMP & Activates & Inactivates \\
+ATP & Inactivates & - \\
+Citrate & Inactivates & - \\
+PKA & Inactivates & Activates\\
+\hline
+\end{tabular}
+\end{margintable}
+
+\subsection{Transcriptional Regulation of Gluconeogenesis}
+
+In contrast to PKA's effects activating gluconeogenesis, insulin potently suppresses the production of glucose.  Since insulin is elevated in response to elevations in glucose, this suppression is a major part by which insulin reduces blood glucose\sidenote{The others being stimulation of glucose uptake and glycogenesis}.  One mechanism by which this is thought to occur is through transcriptional regulation, largely through the transcription factor FOXO.  Insulin promotes the Akt-dependent phosphorylation of FOXO, which removes it from the nucleus, rendering it inactive.  Several key gluconeogenic genes are FOXO targets including PEPCK and G6Pase.  This means that when insulin inhibits FOXO function, the transcription of those genes is markedly reduced (see Figure \ref{fig:foxo-gluconeogenesis}).  More information about the role of FOXO can be found in \citet{Barthel2005}.
+
+\begin{marginfigure}
+\includegraphics{figures/foxo-gluconeogenesis.pdf}
+\caption{Glucocorticoid- and insulin-dependent regulation of FOXO and its relationship to gluconeogenesis and proteolysis.}
+\label{fig:foxo-gluconeogenesis}
+\end{marginfigure}
+
+\newthought{Cortisol is another gluconeogenic hormone.}  By binding to its nuclear hormone receptor, glucocorticoids such as Cortisol can promote the transcription of Pyruvate Carboxylase, PEPCK and G6Pase.  You can think of this as the opposite of the effects of insulin.  By synthesizing more of these rate limiting enzymes, Cortisol can promote glucose production and make glucose available to the rest of the body during times of stress.  Notably, glucocorticoid-induced hyperglycemia is a result of Cushing's disease\sidenote{Overproduction of cortisol by the adrenal gland, often associated with pituitary or adrenal tumors.} or prescription glucocorticoids such as predinosone or cortisone.  In times of stress, one the main functions of Cortisol is to ensure proper supply of glucose to the brain.  
+
+\section{Consequences of Unrestrained Gluconeogenesis}
+
+While gluconeogenesis is essential to maintaining blood glucose levels in times of glucose deprivation, activation of gluconeogenesis is a hallmark of both Type 1 and Type 2 diabetes.  Insulin's ability to suppress gluconeogenesis is either absent (in type 1) or impaired (in type 2 diabetes).  Diabetics therefore tend to have over-active gluconeogenesis, which results in elevated blood glucose.  Insulin resistance promotes both direct (hepatic) and indirect activation of gluconeogenesis, and the rates of gluconeogenesis in diabetics are nearly double than in controls \citep{Magnusson1992}.  Even in the absence of dietary glucose, elevated glucose means that hyperglycemia may be present due to increased gluconeogenesis.  Gluconeogenesis is therefore an active target for controlling blood glucose in diabetes, which now affects more than 29 million Americans, with another 86 million considered at risk\cite{CentersforDiseaseControl2016}.
+
+
+
+
+\bibliography{library}
+\bibliographystyle{plainnat}
+
+\end{document}

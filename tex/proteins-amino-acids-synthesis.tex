@@ -1,0 +1,200 @@
+\documentclass{tufte-handout}
+
+%\geometry{showframe}% for debugging purposes -- displays the margins
+
+\usepackage{amsmath}
+
+% Set up the images/graphics package
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{Protein and Amino Acid Synthesis}
+\author{}
+\date{}  % if the \date{} command is left out, the current date will be used
+
+% The following package makes prettier tables.  We're all about the bling!
+\usepackage{booktabs}
+
+% The units package provides nice, non-stacked fractions and better spacing
+% for units.
+\usepackage{units}
+
+% The fancyvrb package lets us customize the formatting of verbatim
+% environments.  We use a slightly smaller font.
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+
+% Small sections of multiple columns
+\usepackage{multicol}
+
+% Provides paragraphs of dummy text
+\usepackage{lipsum}
+
+% These commands are used to pretty-print LaTeX commands
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+
+\begin{document}
+
+\maketitle% this prints the handout title, author, and date
+
+\begin{abstract}
+\noindent This lecture will cover mechanisms and signals of both protein synthesis and non-essential amino acid biosynthesis.  Protein building is important for growth as well as tissue repair.  This lecture will also cover in more detail why some amino acids are essential or conditionally essential in our diet.
+\end{abstract}
+
+\tableofcontents
+
+\pagebreak
+\section{Learning Objectives}
+
+\begin{itemize}
+\item Understand the mechanistic differences between dispensable and indispensable amino acids.
+\item Evaluate the roles of insulin, growth hormone, testosterone and cortisol on protein synthesis and degradation.
+\item Describe the central roles of glutamate and glutamine as a pool of nitrogen.
+\item Describe the relationships between the glycolytic and TCA cycle intermediates and amino acid biosynthesis.
+\item Explain why some amino acids are dispensable only if precursors are available.
+\item Understand how amino acid biosynthetic rates are controlled by utilization and by negative feedback.
+\item Understand the role that the indispensable amino acids play in controlling protein synthesis.
+\end{itemize}
+
+\section{Key Concepts and Vocabulary}
+\begin{itemize}
+	\item Essential and Non-Essential Amino Acid
+	\item Negative Feedback
+	\item Protein Synthesis
+	\item Amino Acid Pool and Nitrogen Pool
+	\item Carbon Skeletons
+	\item BCAA, and why they are a special group of amino acids
+	\item mTORC1 
+	\item GCN2
+	\item FGF21
+	\item Transaminases
+	\item Insulin, IGF-1, Testosterone and Growth Hormone
+\end{itemize}
+
+\section{Protein Synthesis is a Tightly Regulated Process}
+
+As we will discuss throughout this section, protein synthesis involves a complex interplay of detecting the levels of the amino acids\sidenote{especially the essential amino acids}, integrating a diverse array of hormonal signals and co-ordinating growth with energy demand.
+
+\subsection{The Rate of Protein Synthesis Depends on the Levels of Available Amino Acids}
+
+In order for most proteins to be made, the cell needs to have an available pool of all the amino acids.  Since the non-essential amino acids can be generated when cellular levels are low, a main factor affecting rate is the availability of the essential amino acids.  This is particularly important after exercise wherein proteins are degraded for energy but need to be resynthesized \citep{Tipton1999}.  Among the essential amino acids, the branched-chain amino acids\sidenote{Leucine, Isoleucine,and Valine, abbreviated as BCAA's} are particularly important as they are: used at high levels in human proteins; essential; and often limiting in the amino acid pool.  Of the three, Leucine is likely the most important, because it is not only an essential BCAA, but it is also a potent activator of mTORC1, a protein kinase that plays a central role in protein synthesis\sidenote{It should not be suggested that leucine is the only thing required for protein synthesis, while it is both a potent activator, and a key substrate, protein synthesis cannot occur without sufficient levels of all the amino acid building blocks.}.   In order to induce muscle hypertrophy\sidenote{The growth of muscle, often in concert with resistance exercise.} it is popular to ingest protein, often in the form of a protein shake shortly after a workout.  This has been shown to be valuable for post-workout muscle protein synthesis, but due to limitations in digestion, absorption or transport is only beneficial up to about 1.6g/kg/day \citep{Morton2017}\sidenote{For an average sized woman (~75kg) this means that ingesting more than 120g of protein per day has no additional benefit to muscle hypertophy or strength.}.
+
+\subsection{Several Endocrine Signals Regulate Protein Biosynthesis}
+
+Amino acid levels, particularly essential amino acid levels, are sensed via two systems.  One is a slow-acting transcriptional system controlled by GCN2\sidenote{This stands for the unhelpful name General Control Non-Derepressable 2 protein.}.  Short-term regulation is accomplished by the protein kinase mTORC1\sidenote{Mechanistic Target of Rapamycin, again, sorry these names are not exactly easy to remember.}.
+
+\newthought{GCN2 regulates chronic protein and amino acid homeostasis.}  GCN2\sidenote{sometimes referred to as eIF2$\alpha$-kinase} is a protein kinase that is \emph{activated} by low levels of essential amino acids \citep{Castilho2014}.  One major function it has is to \emph{prevent} protein synthesis when amino acids are low.  This is accomlished by phosphorylating and inhibiting the protein synthesis initiating factor eIF2$\alpha$.  In addition to this, GCN2 activates a transcription factor called ATF4.  This transcription factor increases the levels of enzymes involved in non-essential amino acid biosynthesis, and amino acid transporters.  Together, reduced protein synthesis, increased amino acid biogenesis and increased amino acid transport function to restore amino acid levels.  
+
+\newthought{FGF21 is a liver-derived hormone that rises in response to protein restriction.}  Very recent studies have shown that protein restriction results in the production of FGF21\sidenote{Fibroblast Growth Factor 21}, and this has emerged as a signal for restoring amino acid homeostasis \citep{Laeger2014}.  FGF21 production in response to protein restriction is mediated by GCN2.  The mechanisms by which FGF21 might restore protein homeostasis are currently unknown but one hypothesis is that it drives increased appetite\sidenote{Interestingly this happens in concert with increased energy expenditure, so it may represent an energy balance-neutral adaptation.}, as the only way to increase the amount of essential amino acids is to consume them \citep{Solon-Biet2016a}.  If you are interested, more details about the relationship between protein and satiety can be found in \citet{Morrison2015}.
+
+\newthought{Several hormonal signaling and protein sensing systems converge on mTORC1.}  Growth Hormone/IGF1\sidenote{Insulin-like Growth Factor}, insulin and testosterone all activate mTORC1 in protein synthetic tissues such as muscle.  Catabolic signals such as Cortisol also function in part by reducing mTORC1 activity.  In addition to hormonal inputs, mTORC1 can sense the levels of three key amino acids (Leucine, Lysine and Arginine) and energy levels.  When these amino acids, energy levels, or the anabolic hormone signaling pathways are elevated, mTORC1 is active.  mTORC1 in turn then promotes protein synthesis at several levels, including promoting mRNA translation, ribosome biogenesis and suppressing protein breakdown (both autophagy and proteolysis).  mTORC1 has emerged as a master regulator of growth and homeostasis; more details about mTORC1 activity can be found in a recent review by \citet{Saxton2017}.
+
+\subsection{Protein Synthesis is Energetically Expensive}
+
+Protein synthesis is the sequential conjugation of amino acids in a series defined by a messenger RNA molecule.  Each addition of an amino acid to an elongating chain requires \emph{four ATP molecules}.  These are broken down as follows:
+
+\begin{enumerate}
+\item First a specific tRNA\sidenote{Transfer RNA, which is distinct from a mRNA molecule.} must have a free amino acid added to it.  This costs 2 ATP equivalents.
+\item Binding of the charged tRNA to the ribosome costs 1 ATP equivalent.
+\item The elongation step requires another ATP equivalent.
+\end{enumerate}
+
+Proteins vary widely in their length, but for one example, Actin a very common protein in humans, has 374 amino acids, which is relatively short in length.  This means that for to make a molecule of Actin the approximate ATP cost is:
+
+\begin{equation}
+374 x 4 = 1492 
+\end{equation}
+
+That means, to generate a single Actin molecule you would need 46 glucose molecules to undergo aerobic glycolysis through the TCA/ETC or 748 glucose molecules to go through anaerobic glycolysis\sidenote{Check the math yourself}. Thats not even accounting for the energy costs needed if any of the  amino acids need to be synthesized or transported into the cell.  This is one major reason why protein digestion has a very high level of diet-induced thermogenesis, and why energy demands are very high during growth.  The flip side of this is that protein breakdown \sidenote{which we will discuss next lecture} must be only occur under careful control.
+
+\section{Synthesis of Non-Essential Amino Acids}
+
+Amino acids contain both a carbon skeleton and at least one amino group.  For the non-essential amino acids, five can be generated under most normal conditions\sidenote{Mnemonic is ANDES using their single letter abbreviations, meaning Alanine, Asparagine, Aspartate, Glutamate, Serine.}.  The other non-essential amino acids require at least one precursor\sidenote{Arginine and Proline require Glutamate; Cysteine and Glycine require Serine, Glutamine requires Glutamate, and as we discussed for PKU, Tyrosine requires Phenylalanine}.  These relationships are summarized in Table \ref{tab:aa-biosynthesis-summary}.
+
+\subsection{Humans Have Lost the Ability to Synthesize Several Amino Acids.}  Some of the more complex amino acid biosynthetic pathways have been lost during human evolution.  A plausible explanation is that these amino acids were easier for us to obtain from the diet, and were too evolutionarily costly to continue to synthesize\sidenote{Plants, on the other hand are not very effective hunter-gatherers and therefore need to make all of their amino acids.}.  There are some remnants of this process where we can generate an amino acid, but not particularly efficiently.   For example, Arginine is synthesized from Glutamate in a eight step pathway.  This is why Arginine is nutritionally essential during growth and development, because it is so difficult to synthesize.
+
+\newthought{Non-Essential Amino Acids Are Derived from Glycolytic and TCA Cycle Intermediates.}  As shown in Table \ref{tab:aa-biosynthesis-summary}, Serine, Cysteine and Glycine are all derived from the glycolytic intermediate 3-Phosphoglycerate.  Alanine, as we have previously discussed is generated from Pyruvate.  Aspartate and Asparagine are eventually generated from Oxaloacetate.  Since all amino acids require a nitrogen source, Glutamate and Glutamine are particularly important, not just for Arginine and Proline, but also as a nitrogen source for the remaing amino acids\sidenote{Except Phenylalanine, which is a special case}. 
+
+\begin{table}[h]
+\centering
+\caption{Summary of biosynthetic pathways of essential amino acids.  Amino acids are generally made from a carbon skeleton and a nitrogen source.  Conditional indicates that these amino acids are generated by further metabolism of the initial amino acid.}
+\label{tab:aa-biosynthesis-summary}
+\begin{tabular}{|c|c|c|c|}
+\hline
+AA source        & Nitrogen Source  & Carbon Skeleton & Conditional      \\ \hline
+Ser    & Glutamate                            & 3-Phosphoglycerate                                 & Cys, Gly            \\ \hline
+Ala   & Glutamate                            & Pyruvate                             &                              \\ \hline
+Asp & Glutamate                         & Oxaloacetate                        & Asn                   \\ \hline
+Gln & Ammonia                              & Glutamate                            &   Glu                           \\ \hline
+Glu & \multicolumn{2}{c|}{Glutamine}                                              & Arg, Pro \\ \hline
+Tyr  & \multicolumn{2}{c|}{Phenylalanine}                                          &                              \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{The Nitrogen Pool is Key for Amino Acid Synthesis}
+
+Glutamate is a part of several \emph{transaminase} reactions\sidenote{Transaminases require the cofactor pyridoxal phosphate, derived from Vitamin B\textsubscript{6}}.  These are near-equillibrium reactions where an amino group is transfered fom glutamate to another amino acid, or vice versa.  Some examples are below:
+
+ \begin{equation}\label{eq:alt}
+\alpha KG + Ala \rightleftharpoons Glu + Pyr
+\end{equation}
+
+ \begin{equation}\label{eq:ast}
+\alpha KG + Asp \rightleftharpoons Glu + OAA
+\end{equation}
+
+ \begin{equation}
+\alpha KG + Val \rightleftharpoons Glu +\alpha Ketoisovalerate
+\end{equation}
+
+Since these are easily reversible reactions, the directionality depends on the concentrations of products and substrates on each side.  For example in reaction \ref{eq:alt}, if there are high levels of Glutamate and Pyruvate, then  Alanine and $\alpha$-ketoglutarate will be produced.  Because Glutamate and $\alpha$-ketoglutarate are present on both sides of most transaminase reactions, this is one way in which TCA cycle intermediates ($\alpha$-ketoglutarate) and amino acids (\textit{i.e.} Glutamate) are kept in balance.
+
+\newthought{Glutamate and Glutamine are non-toxic carriers of nitrogen.}  During amino acid breakdown\sidenote{This will be covered in the next lecture}, several amino acids can be converted to glutamate via transaminases, then glutamate releases its amino group via the functions of Glutamate Dehydrogenase:
+
+\begin{equation}\label{eq:GDH}
+Glu + H_2O + NAD^+  \rightarrow  \alpha KG + NH_3 + NADH + H^+
+\end{equation}
+
+In humans this is irreversible, as we cannot re-synthesize glutamate from ammonia.  The ammonia released from this reaction is released into the Urea cycle\sidenote{Also covered in the next lecture}.
+
+\newthought{Glutamine is the most abundant amino acid in most cells.}  Glutamine is another particularly important amino acid, because it contains two nitrogen atoms, and can be quickly be synthesized to or from Glutamate with the following reactions, catalysed by Glutamine Synthetase:
+
+\begin{equation}
+Glu + ATP +  NH_3 \rightarrow  P_i + Gln
+\end{equation}
+
+and Glutaminase:
+
+\begin{equation}\label{eq:glutaminase} 
+Gln + H_2O \rightarrow Glu + NH_3
+\end{equation}
+
+Free glutamine is typically present in muscle cells about 4 fold higher than glutamate, and eight-fold higher than the next most abundant amino acid (Alanine).  This is our mechanism to store nitrogen and make it available for other amino acid biosynthetic reactions\sidenote{Typically the transaminase reactions we described above in Table \ref{tab:aa-biosynthesis-summary}}.  For example, if Aspartate is required, Glutamine is converted by reaction \ref{eq:glutaminase} into Glutamate, which then acts as a nitrogen donor in reaction \ref{eq:ast}.
+
+\subsection{Regulation of Non-Essential Amino Acid Biogenesis.}
+
+There are two main ways that amino acid biogenesis is sensed and controlled, outside of the endocrine signals discussed above.  One mechansim is the nature of the transaminase reactions described above.  Because these are rapid, near-equillibrium reactions, if an non-essential amino acid such as Alanine has low levels, the equillibrium of this reaction will shift to produced more Alanine\sidenote{Refer to reaction  \ref{eq:alt} for example and recall that for a near-equillibrium reaction, the concentration of the products will be nearly equal to the concentration of reactants.  In such an example, if Alanine (or $\alpha$-Ketoglutarate) are low, then Pyruvate and Glutamate will be used to make these reactants.}.
+
+\newthought{Negative feedback also plays a role in regulating amino acid biosynthesis.}  Several amino acids are synthesized via multiple step reactions.  For example, Serine is generated from 3-phosphoglycerate via several steps.  The first and rate-limiting step is catalyzed by an enzyme called phosphoglycerate dehydrogenase.  This enzyme is negatively regulated by Serine.  In this way, Serine level controls whether more or less Serine can be generated.
+
+
+\section{Protein Requirements and Determination Thereof}
+When amino acids are being oxidized, ammonia is generated\sidenote{See reactions \ref{eq:glutaminase} and \ref{eq:GDH} and recall that most amino acids are going to be catabolized via transaminases into Glutamate, which then feeds into reaction \ref{eq:GDH}.}. This can be measured by urinary nitrogen levels.  If dietary nitrogen and urinary nitrogen are equal, then a person is said to be in \emph{Nitrogen Balance}.  During periods of protein catabolism, urinary nitrogen is higher than intake.  During periods of protein synthesis, urinary nitrogen is lower.  \emph{This is because dietary nitrogen-containing amino acids are not being oxidized.}.  This is one way by which dietary requirements are determined, since a lack of any essential amino acid causes proteins to be degraded to release the essential amino acids.  An excess of the non-limiting amino acid will then be oxidized and released as urea.  Several other methods for determining protein requirements exist, briefly these include:
+
+\begin{description}
+\item [Nitrogen Balance.]  In this method nitrogen intake is compared to nitrogen release, protein synthesis being associated with positive nitrogen balance.
+\item [Direct Amino Acid Oxidation.]  In this method, stable-isotope labelled Phenylalanine, Lysine, Leucine, Isoleucine of Valine are provided.   When catabolized, these indispensible amino acids release the label to the body's bicarbonate pool which is eventually released as \textsuperscript{13}CO\textsubscript{2}.  The oxidation and release of this amino acid will increase if that amino acid is in excess.
+\item [Indicator Amino Acid Oxidation.] In this method a stable-isotope labelled amino acid is added.  If in protein deficiency, that amino acid will be oxidized.  As protein intake increases, oxidation will decrease.  Therefore the detection of oxidized label (typically \textsuperscript{13}CO\textsubscript{2}) is inversely proportional to protein levels.  More details in this method can be found in \citet{Elango2008}.
+\end{description}
+\bibliography{library}
+\bibliographystyle{plainnat}
+
+\end{document}

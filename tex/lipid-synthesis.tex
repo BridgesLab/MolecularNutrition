@@ -1,0 +1,257 @@
+\documentclass{tufte-handout}
+
+%\geometry{showframe}% for debugging purposes -- displays the margins
+
+\usepackage{amsmath}
+
+% Set up the images/graphics package
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{Endocrine Regulation of Macronutrient Homeostasis}
+\author{}
+\date{}  % if the \date{} command is left out, the current date will be used
+
+% The following package makes prettier tables.  We're all about the bling!
+\usepackage{booktabs}
+
+% The units package provides nice, non-stacked fractions and better spacing
+% for units.
+\usepackage{units}
+
+% The fancyvrb package lets us customize the formatting of verbatim
+% environments.  We use a slightly smaller font.
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+
+% Small sections of multiple columns
+\usepackage{multicol}
+
+% Provides paragraphs of dummy text
+\usepackage{lipsum}
+
+% These commands are used to pretty-print LaTeX commands
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+
+
+\begin{document}
+
+\maketitle% this prints the handout title, author, and date
+
+\begin{abstract}
+\noindent This unit will cover the synthesis of lipids including cholesterol, fatty acid and triglyceride synthesis.  For more details on these topics, refer to Chapters 28 and 29 in Biochemistry: A Short Course available in reserve\cite{Berg2015}.
+\end{abstract}
+
+\tableofcontents
+
+\pagebreak
+\section{Learning Objectives}
+
+\begin{itemize}
+\item Describe the conditions and tissues wherein fatty acids are generated, and from what precursors.
+\item Explain the regulation of fatty acid biosynthesis by metabolite levels and hormones, including how it is ensured that $\beta$-oxidation and \textit{de novo lipogenesis} do not occur simultaneously.
+\item Understand the energy costs of generating fatty acids from glucose, compared with using glucose for fuel.  Included in this is the source of carbon units, and reducing equivalents that are necessary for fatty acid biogenesis.
+\item Analyse the role of citrate in co-ordination of glycolysis, TCA cycle activity and lipogenesis.
+\item Explain the causes of lipodystrophy, including the metabolic consequences of ectopic fat deposition.
+\item Understand how transcriptional and post-translational regulation control triglyceride synthesis and cholesterol synthesis.
+\item Analyse the cellular conditions that lead to cholesterol synthesis and ketogenesis.
+\item Describe the roles and activation of SREBP1 and SREBP2 in fatty acid/triglyceride and cholesterol biogenesis respectively.
+\end{itemize}
+
+\section{Key Concepts and Vocabulary}
+\begin{itemize}
+\item \textit{de novo} lipogenesis and triglyceride synthesis
+\item glyceroneogenesis and glycerol phosphorylation
+\item Acetyl-CoA Synthetase, ATP Citrate Lyase and Fatty Acid Synthase
+\item HMG-CoA Reductase and Statins
+\item SREBP1 and 2
+\item Hypercholesterolemia
+\item Lipodistrophy
+
+\end{itemize}
+
+\section{Synthesis of Triglycerides from Fatty Acids}
+
+Fatty acids are obtained from the diet, or can be made from excess glucose/amino acids\sidenote{A process known as \textit{de novo} lipogenesis.}.  The esterification of these fatty acids within cells is very important because free fatty acids can be toxic to a cell once they build up.  Most tissues are able to store excess fatty acids to some degree but the major sites of synthesis are adipose tissue, and liver.
+
+Generally cells have to decide between three general fates for the fatty acids that arrive inside the cell\sidenote{Though in growing and dividing cells, the fraction of fatty acids that become phospholipids becomes much more relevant.}:
+\begin{description}
+\item [Without energy demand:] esterify with glycerol as triglycerides
+\item [With energy demand, but with OAA availability:] oxidize fatty acid to Acetyl-CoA and use that for fuel in the TCA cycle to generate ATP.
+\item [With energy demand but insufficient OAA:] oxidize to Acetyl-CoA and convert that to ketone bodies for release (primarily in the liver\sidenote{Two main reasons why this is mainly in the liver, the first is that there is typically less cataplerosis in non-hepatic tissues because there is less gluconeogenesis.  The second is that the enzymes of ketogenesis are at higher levels in the liver.}).
+\end{description}
+
+We will discuss the regulation of $\beta$-oxidation, which is the main process by which fatty acids become Acetyl-CoA in the next lecture.  When fatty acid synthesis is active, the associated elevations in malonyl-CoA\sidenote{Described below} will generally suppress $\beta$-oxidation via inhibition of Carnitine Palmitoyltransferase I\sidenote{Abbreviated CPTI, the rate limiting step of fatty acid breakdown.}.  This ensures that fatty acid synthesis and oxidation do not occur simultaneously.
+
+\newthought{Triglyceride synthesis involves the sequential addition of fatty acids to a glycerol backbone.}  This involves enzymatic reactions starting with phosphorylated glycyerol (Glycerol3P) and an activated fatty acid.  To prepare fatty acids for esterification, a fatty acid\sidenote{Also known as an acyl group.  Generally this could be any fatty acid, but different Acyl-CoA Synthetases have differing fatty acid length preferences.} is conjugated to coenzyme A by Acyl-CoA Synthetase:
+
+\begin{equation}
+Fatty Acid + CoA +  ATP \rightarrow AcylCoA + AMP + PPi
+\end{equation}
+
+Note that this reaction \emph{consumes} two high ATP equivalents for each fatty acid to be added.  This fatty acid is now in the \emph{activated} form and is available to be conjugated to phosphorylated glycerol by the following four sequential reactions:
+
+\begin{equation}\label{eq:gpat}
+AcylCoA + Glycerol3P \rightarrow Lysophosphatidic Acid
+\end{equation}
+
+\begin{equation}\label{eq:lpat}
+AcylCoA + Lysophosphatidic Acid \rightarrow Phosphatidic Acid
+\end{equation}
+
+\begin{equation}\label{eq:lipin}
+Phosphatidic Acid \rightarrow Diacylglycerol + Pi
+\end{equation}
+
+\begin{equation}\label{eq:dgat}
+AcylCoA + Diacylglycerol \rightarrow Triacylglycerol
+\end{equation}
+
+\newthought{The phosphatidic acid generated in step \ref{eq:lpat} is the precursor for most phospholipids.}  Enzymes can convert phosphatidic acid to phosphatidylserine, or phosphatidylinositol.  Phosphatidylserine is the substrate for the generation of phosphatidylethanolamine, which in turn generates phosphatidylcholine\sidenote{This is the reaction catalyzed by \textit{PEMT}, the enzyme that has variants which confer choline dependence as choline cannot be endogenously synthesized.}.  For more details about phospholipid synthesis see \citet{Kent1995}.  These structural lipids are particularly important during development, and are potential drug targets to reduce the growth of cancer cells, which require generation of substantial membranes thus requiring a lot of phospholipid synthesis.  
+
+\newthought{Fatty acids are added in a specific manner.}  Generally the sn2 position has an unsaturated fatty acid, while there is a saturated fatty acid at the sn1 position.  The sn3 position seems to have much less specificity in mammalian triglyceride formation \citep{Brockerhoff1971}.  This is relevant for phospholipids that form membranes, as these will tend to have one saturated and one unsaturated fatty acid at each of the sn1 and sn2 positions\sidenote{The sn3 position is where the phosphate group is located.}.  
+
+\subsection{Glycerol-3-Phosphate Supply for Triglycerides}
+
+While each triglyceride molecule needs three fatty acids, they also require a phosphorylated glycerol backbone for reaction \ref{eq:gpat}.  The source of this glycerol varies between tissues.  In the liver, glycerol-3-phosphate can be generated by phosphorylation of glycerol via Glycerol Kinase at a cost of an ATP:
+
+\begin{equation}
+Glycerol + ATP \rightarrow Glycerol3P
+\end{equation}
+
+
+Adipocytes on the other hand have low levels of glycerol kinase activity.  Therefore when fatty acids are presented to adipocytes they \emph{require} phosphorylated glycerol to be made from glucose since they lack the ability to make phosphorylated glycerol from glycerol (since adipocytes lack Glycerol Kinase).  The glycolytic intermediate dihydroxyacetone phosphate (DHAP) is generated by Aldolase\sidenote{Two steps \emph{after} PFK1} and can be converted into glycerol.
+
+\begin{equation}\label{eq:g3pdh}
+DHAP + NADH \rightleftharpoons Glycerol3P + NAD^+
+\end{equation}
+
+
+This reaction comes at a cost of one NADH molecule, or 2.5 ATP equivalents. The lack of glycerol kinase in adipocytes is thought to be an adaptation to prevent the futile release and then re-esterification of fatty acids post lipolysis, whereby after lipolysis in adipocytes \emph{both} glycerol and fatty acids can go to the liver, as the liver always has sufficient glycerol to prevent fatty acid accumulation. Nonetheless, because of this requirement, a substantial amount of the glucose used in adipocytes is used to generate glycerol backbones. In the absence of glucose, gluconeogenic precursors such as lactate and alanine can be converted to glycerol in adipocytes, a process known as glyceroneogenesis\sidenote{This is equivalent to gluconeogenesis, up to the DHAP step, where reaction \ref{eq:g3pdh} takes precedence over the Aldolase reaction thus production of Glycerol3P occurs even when Aldolase cannot synthesize DHAP due to glucose insufficiency.}.
+
+\newthought{The energy costs of triglyceride synthesis}, based on these pathways is substantial.  Three acyl chains must be activated at a cost of 2 ATP equivalents each using 6 ATP in total. This is tissue independent. In the liver, one more ATP is needed to activate glycerol to glycerol3P so a total of 7 ATP is required to form one triglyceride.  In adipose tissue the cost is more because you use 2 x ATP in the preparation phase of glycolysis (remember that glycerol in adipocytes needs to come from glycolysis due to the lack of Glycerol Kinase) and another NADH to form Glycerol-3-phosphate in reaction \ref{eq:g3pdh}.  This means the cost in adipose tissue is 10.5 ATP (2ATP for glycolysis activation + 2.5ATP/NADH + 6ATP/3FA activation = 10.5), so it is not only more energy demanding, but also consumes some of the glucose that would be used to generate those ATP molecules.
+
+\subsection{Regulation of Triglyceride Esterification Enzymes}  
+
+Both in the liver and in adipose, triglyceride synthesis will increase in response to insulin.  The mechanisms of this include both short-term and long term regulation.  Recall first, that in adipocytes glucose uptake is increased by insulin via stimulation of GLUT4 translocation.  Insulin can acutely activate GPAT\sidenote{The enzyme that catalyzes reaction \ref{eq:gpat}.} and Lipin \sidenote{The enzyme that catalyzes reaction \ref{eq:lipin}, this is mediated by activation of mTORC1 \citep{Harris2007}}.  Together the increased glucose and fatty acid flux postprandial, combined with more activity of these triglyceride synthesizing enzymes will result in efficient triglyceride storage in adipose tissue after a meal. Simultaneous to these effects, as we will discuss in the lipid transport lecture, insulin also suppresses triglyceride breakdown, a process known as \emph{lipolysis}.  For more insights into how insulin regulates triglyceride synthesis, see the recent review by \citet{Coleman2011}.
+
+\newthought{Chronic regulation of triglyceride synthesis is transcriptional} and is regulated by the two transcription factors SREBP1c\sidenote{Sterol response element binding protein 1c, which has a similar isoform SREBP2, that plays a key role in cholesterol synthesis, more on this in the next section.} and PPAR$\gamma$\sidenote{This stands for Peroxisome proliferator-activated receptor gamma, a nuclear hormone receptor which promotes both triglyceride synthesis and new adipocyte formation.  It is the target of the anti-diabetic drugs of the thiazolidinedione family.}. Both of these nuclear hormone receptors increase the number of the key triglyceride synthesis enzymes, including GPAT, Lipin and AGPAT\sidenote{Which catalyzes reaction \ref{eq:gpat} in adipocytes.}. The regulation of SREBP1c is quite complicated but involves insulin- and mTORC1-dependent signals (reviewed in \citet{Bakan2012}). In this way both insulin and nutritional status can promote the efficiency of triglyceride storage.
+
+
+
+\section{\textit{De Novo} Fatty Acid Synthesis}
+
+Triglycerides can use fatty acids derived from the diet, or that are generated endogenously.  Certain fatty acids (the $\omega$3 and $\omega$6 derived fatty acids) are entirely dependent on nutritional inputs, but others are generated endogenously.  This can vary substantially, with individuals on a high carbohydrate diet generating many of their fatty acids \textit{de novo}, with those on a low carbohydrate diet relying almost entirely on dietary intake.  Most tissues can perform this function\sidenote{As it may be important for phospholipid synthesis}, but the major sites are liver and adipose tissue.
+
+\subsection{Fatty Acid Synthesis from Glucose and Ketogenic Amino Acids}
+
+
+Fatty acid biosynthesis occurs in the endoplasmic reticulum, which presents the first problem in terms of substrates.  The initial input, Acetyl-CoA is generated from its precursors\sidenote{Hypothetically from pyruvate via Pyruvate Dehydrogenase, from ketogenic amino acids or as the product of $\beta$-oxidation, though the latter is unlikely as the cell will not typically break down fatty acids and then immediately resynthesize them.} in the mitochondria, and there are no Acetyl-CoA transporters.  Therefore Acetyl-CoA must first be converted to Citrate via Citrate Synthase\sidenote{This is the same Citrate Synthase that is the first step of the TCA cycle.}:
+
+
+\begin{equation}\label{eq:acl}
+AcetylCoA + OAA + H_2O \rightarrow Citrate + CoA
+\end{equation}
+
+
+Citrate transporters do exist in the mitochondria, so citrate is transported to the cytoplasm and then reconverted to Acetyl-CoA via an enzyme called ATP-Citrate Lyase via the following reaction:
+
+\begin{equation}\label{eq:acl}
+Citrate + ATP + CoA \rightarrow AcetylCoA + OAA + ADP + Pi
+\end{equation}
+
+Once the Acetyl-CoA is in the cytoplasm\sidenote{As we will discuss later, the Oxaloacetate from ATP-Citrate Lyase (ACL) activity in the cytoplasm is also important for generating reducing agents.  This is described in reaction \ref{eq:me} below.}, the next and rate-limiting step is catalyzed by an enzyme called \emph{Acetyl-CoA Carboxylase} or ACC.  This enzyme catalyzes the following reaction:
+
+\begin{equation}\label{eq:acc}
+AcetylCoA + ATP + HCO_3 \rightarrow MalonylCoA + ADP + Pi + H^+
+\end{equation}
+
+
+Malonyl-CoA\sidenote{When levels of this lipid are high (reflecting high ACL and ACC activity and active lipogenesis), it inhibits the transport of fatty acids back into the mitochondria by inhibiting Carnitine Palmitoyltransferase I.  More on this in the lipid oxidation unit.} and Acetyl-CoA are both the substrates for Fatty Acid Synthase, a multifunctional enzyme that catalyzes the next several reactions.  Acetyl-CoA serves as both a primer \emph{as in an initial substrate} and a source of carbon units\sidenote{Through MalonylCoA generated by ACC}.  The first round generates a four carbon fatty acid condensing Acetyl-CoA and Malonyl-CoA and using two NADPH\sidenote{Not NADH, remember this from the pentose phosphate shunt?} molecules. After that, each round of the reaction consumes two NADPH and another Malonyl-CoA, resulting in the sequential addition of carbons two at a time.  This ends when the acyl chain is 16 carbons long, releasing Palmitate, a C16:0 fatty acid. In sum, the overall reaction for a single palmitate is:
+
+\begin{equation}\label{eq:pamitate-overall}
+8 AcetylCoA + 7 ATP + 14 NADPH \rightarrow Palmitate + 14 NADP^+ + 7 ADP + 8 CoA  + 7 Pi + 6H_2O
+\end{equation}
+
+
+\newthought{The NADPH requirements of fatty acid synthesis are high.}  Each palmitate requires 14 NADPH molecules along with a substantial amount of ATP.  The NADPH comes from two sources: the pentose phosphate shunt\sidenote{Wherein one glucose molecule yields one NADPH molecule.}, and the activity of Malic Enzyme. Recall from above, when a Citrate molecule is exported, the other product of ATP-Citrate Lyase, shown in reaction \ref{eq:acl}, is oxaloacetate.  While this is used as a TCA intermediate in the mitochondria, in the cytoplasm OAA can be converted into pyruvate via Malic Dehydrogenase and Malic Enzyme.  These reactions are:
+
+
+\begin{equation}\label{eq:me}
+OAA + NADH  \rightarrow Malate + NAD^+
+\end{equation}
+
+\begin{equation}\label{eq:mdh}
+Malate + NADP+  \rightarrow NADPH + CO_2 + 2 Pyruvate
+\end{equation}
+
+
+In sum, these reactions use a cytosolic NADH and the released oxaloacetate to generate NADPH and two pyruvate molecules, which can then be re-oxidized in the mitochondria.  This means that for each Citrate released and Acetyl-CoA generated by ATP-Citrate Lyase, one NADPH is regenerated (again, at a cost of an ATP from reaction 9). This helps to maintain the NADPH pool. Therefore we can suspect that the 8 Acetyl-CoA's needed in reaction \ref{eq:pamitate-overall} will come with 8 NADPH molecules, so on average we need 6 more from the pentose phosphate shunt to have 14NADPH's needed to syntehsize palmitate. This means we need the equivalent of 6 molecules of glucose to go through the pentose phosphate pathway, and still need to generate 7 ATP, 8 NADH (equivalent to 20 ATP) and 8 Acetyl-CoA molecules (This requires  4 Glucoses, but generates 12 NADH and 4 ATP during partial oxidation) to power the formation of a single palmitic acid.  This means a net requirement of 16 glucose molecules to make a single palmitic acid, at a net gain of only 11 ATP equivalents of energy\sidenote{The exact math here is unimportant, since this is simplified scenario, but the point is that you have to use up a lot of glucose without gaining a lot of energy to make a single fatty acid}.  Recall that if those same glucose molecules were to undergo complete oxidation it would yield 512 ATP\sidenote{16 Glucose x 32 ATP/glucose.}.  This is a huge diversion of resources for making a single fatty acid.
+
+
+\subsection{Desaturation of Fatty Acids}
+
+While palmitate is the initial fatty acid made by mammals, this fatty acid (C16:0) can be further modified by both elongases and desaturases.  Elongases can extend dietary or \textit{de novo} fatty acids by increments of two by adding another Malonyl-CoA moiety and using two more NADPH molecules.  This results in the synthesis of very long chain fatty acids.  There are several elongases in the human genome, but mutations in \textit{ELOVL4} have been linked to macular dystrophy, highlighting the importance of fatty acid elongation in the conversion of ALA to DHA \citep{Zhang2001}.  Adipocytes and liver cells express high levels of ELOVL6, which elongates fatty acids to a maximum of 18 carbons.  This is one reason\sidenote{The other reason is the activity of SCD1, the $\Delta^9$ desaturase.} why the primary \textit{de novo} synthesized fatty acids end up as C16:0, C16:1$\Delta^9$, C18:0, and C18:1$\Delta^9$ in these tissues.
+
+
+\newthought{Humans have four desaturases} that work on the $\Delta$4, $\Delta$5, $\Delta$6 and $\Delta$9 positions of a fatty acid.  The enzymes that catalyze these reactions are FADS1 and FADS2, which we discussed in terms of PUFA metabolism and the Stearoyl-CoA Desaturase\sidenote{Abbreviated SCD.}.  The desaturation is a key part of the assembly of triglycerides and phosphpolipids, as a desaturated fatty acid is preferentially attached to the sn2 position.  Both desaturases and elongases can alter the structure of both dietary and endogenously produced fatty acids.
+
+\subsection{Regulation of Fatty Acid Synthesis}
+
+Two steps of fatty acid biosynthesis are under relatively acute control.  ATP-Citrate Lyase is phosphorylated and activated by insulin-dependent signaling through Akt \citep{Berwick2002}, whereas Acetyl-CoA Carboxylase is dephosphorylated and activated, also in an Akt-dependent manner \citep{Witters1992}.  The inactivation of ACC is due to phosphorylation by both PKA\sidenote{In response to glucagon or adrenaline signaling} or AMPK\sidenote{The AMP-Activated Protein Kinase, In response to energy needs.}, so the role of insulin is to reverse that inhibition.  The precise process by which insulin and Akt mediate this dephosphorylation is not clear at this stage.  
+
+\newthought{Citrate is a feed-forward regulator of ACC.}  When citrate is exported to the cytoplasm, it serves as an activator of ACC and results in the production of more Malonyl-CoA \citep{VAGELOS1963}.  Cytoplasmic citrate is also a potent negative regulator of phosphofructokinase 1\sidenote{Remember this from the glycolysis unit?}.  This means that when there is excessive Acetyl-CoA production, and if ATP-Citrate Lyase is active, citrate production will \emph{block} glycolysis while promoting lipogenesis indicating that there is excess glucose in the cell that has to be stored while slowing down glycolysis. In this way, glucose can be saved\sidenote{For example, stored as glycogen.} when there is sufficient substrates to store energy as lipid.  This is \emph{not} the case for fructolysis, which bypasses PFK1 regulation by citrate.  An implication of this is that even when there is sufficient Acetyl-CoA to make lipids, dietary fructose will continue to be processed into more Acetyl-CoA.  This positive feedback loop, ocurring mainly in the liver will result in more lipogenesis.  This is proposed to be the biochemical mechanism by which fructose consumption is associated with the development of NAFLD\sidenote{Non-alcoholic fatty liver disease.}\citep{Lim2010}.
+
+
+\newthought{At a chronic level, fatty acid biosynthesis is regulated by transcriptional control of several enzymes.}  SREBP1c, discussed earlier, promotes the synthesis of Fatty Acid Synthase, ACC, ATP-Citrate Lyase, SCD1 and several of the elongases \citep{Horton2002b,Moon2012b}.  Another transcriptional regulator is the more recently described ChREBP\sidenote{Carbohydrate Response Element Binding Protein}.  This transcription factor is activated by excessive carbohydrates, and especially in the liver, results in the activation of many of the same lipid synthetic proteins\sidenote{More information about ChREBP can be found in \citet{Baraille2015}.}.  ChREBP is thought to play a key role in fructose's strong lipogenic effects in the liver \citep{Kim2016d}.
+
+\subsection{Lipodystrophy Results from Impaired Triglyceride Storage}
+
+We may generally consider fatty acid formation and storage as negative, as increased adiposity is causal of obesity, which now affects over a third of Americans \citep{Flegal2016}.  However fat synthesis and storage is also essential for normal physiological function.  Disorders or impairments of either adipocyte generation, or lipid storage result in a disease termed \emph{lipodystrophy}.  In this condition, fatty acids are unable to be stored effectively as triglycerides in adipose depots and therefore are ectopically deposited in tissues such as liver and muscle, promoting tissue impairment and inducing insulin resistance.  A recent genetic association study showed that among normal-weight seeming individuals with insulin resistance and hyperlipidemia, variants in lipogenic and adipogenic genes were associated with this phenotype \citep{Lotta2016a}.  This may also be part of the reason why some ethnic groups, such as those of Chinese descent, have increased diabetes and liver disease risk, even at adiposity levels that pose less risk for those of European descent \citep{Chiu2011a}.
+
+\section{Cholesterol Synthesis}
+
+All cells are able to produce cholesterol, and in all cases the rate limiting enzyme is \emph{HMG-CoA Reductase}, abbreviated HMGCR\sidenote{The HMG-CoA here stands for 3-hydroxy-3-methylglutaryl-CoA}.  Prior to this step, there are reversible reactions interconverting Acetyl-CoA and Acetoacetyl-CoA and then an irreversible reaction\sidenote{This is irreversible only in liver; this reaction is reversible in muscle tissues and other tissues that can utilize ketone bodies} catalysed by HMG-CoA Synthase:
+
+\begin{equation}\label{eq:hmgcs}
+Acetoacetyl-CoA + Acetyl-CoA + H_2O \rightarrow HMG-CoA + CoA
+\end{equation}
+
+This produces the intermediate HMG-CoA.  At this stage the pathway branches between cholesterol synthesis and Acetoacetate synthesis \sidenote{ketogenesis}.  HMG-CoA has two potential fates:
+\begin{description}
+\item [If HMG-CoA Reductase is Active:] The HMG-CoA continues along to irreversibly become mevalonate and then cholesterol
+\item [If HMG-CoA Lyase is Present and HMGCR is Inactive:] HMG-CoA is cleaved to form Acetoacetate, which in turn can be converted into $\beta$-Hydroxybutyrate and Acetone the three major ketone bodies.  This is thought to occur primarily in the liver.
+\end{description}
+
+The reaction catalyzed by HMGCR is:
+
+\begin{equation}\label{eq:hmgcs}
+HMG-CoA + 2NADPH \rightarrow Mevalonate + CoA + 2NADP
+\end{equation}
+
+ Because the steps other than HMGCR and HMG-CoA Lyase are generally reversible there are some key consequences.  First, a build up of Acetyl-CoA will result in increased flux towards cholesterol biogenesis.  This will occur when fatty acid oxidation\sidenote{This generates a lot of Acetyl-CoA, but this is also true if there is excessive PDH activity or ketogenic amino acid catabolism.} occurs but energy demands are insufficient to pull Acetyl-CoA through the TCA cycle.  Second, this means that in most tissues that are not ketogenic, excessive Acetyl-CoA will result in increased cholesterol synthesis.  As we will discuss below there is some negative feedback to this system but endogenous cholesterol synthesis is the primary mechanism of hypercholesterolemia.  Third, in tissues that are ketogenic, ketone bodies can be produced if there is insufficient oxaloacetate and/or insufficient TCA cycle activity.  Efficient ketone body production, export and usage can alleviate this overflow of Acetyl-CoA, but its worth considering that the tissues that the ketone bodies traffic to also need to have efficient energy demands and TCA cycle activity to use those for energy.  Otherwise ketone bodies are converted back to HMG-CoA and can become cholesterol there.
+
+
+\newthought{The activity of HMGCR is therefore the most important regulatory step in cholesterol synthesis}.  This reaction is regulated by allosteric, post-translational and transcriptional mechanisms.  There is negative feedback inhibition, via a mevalonate-derived product which reduces the activity of HMGCR, but to date the endogenous inhibitor has not been found.  Instead, much like Acetyl-CoA Carboxylase, HMGCR is phosphorylated and inhibited by the AMPK-Activated Protein Kinase (AMPK).  This means that when energy levels are low, Acetyl-CoA is not converted to cholesterol but instead is converted to ATP\sidenote{Of course, the reverse is also true; that when ATP levels are high, HMGCR activity is also high.}. 
+
+\newthought{Sensing and regulation of sterol biosynthesis by SREBP2.}  At the transcriptional level HMGCR is controlled by the transcription factor SREBP2.  This transcription factor is normally present in the endoplasmic reticulum where it is inactive.  Once it is activated, SREBP2 would drive the transcriptional upregulation of HMGCR, HMGCS and the LDLR\sidenote{The Low-Density Lipoprotein Receptor, which is used to scavenge cholesterol in the form of LDL back into the liver.  This will be covered in the lipid transport lecture.}.  SREBP2 is maintained in the ER, in an inactive form by high cholesterol levels.  This mechanism means that when cholesterol levels in the tissue are high, cholesterol synthesis is reduced but when the cholesterol levels in the tissue are low these genes are activated.
+
+\newthought{HMG-CoA Reductase is the target of statins.}  Inhibition of HMGCR by drugs will reduce endogenous cholesterol production, an approach that has proven far more effective than dietary restriction in the reduction of blood cholesterol levels. Currently, one in five Americans above the age of 40 take a statin, which is a HMG-CoA Reductase inhibitor.  These drugs are quite effective, reducing the risk of cardiovascular events by approximately 20\% \citep{Treatment2010}.  There are some serious side effects of statins however, including a small but significant risk of diabetes and an increased risk in muscle breakdown, potentially due to reductions in CoEnzyme Q\sidenote{This was discussed way back in the TCA cycle lecture, where we discussed how CoEnzyme Q, an electron carrier in the electron transport chain is generated from cholesterol.}.
+
+\subsection{The Relationship Between Dietary Fat and Cholesterol Synthesis}
+
+There is a strong negative association between MUFA and PUFA intake and both LDL/HDL ratio and cardiovascular risk \citep{Hu1998,Zong2016}.  Consistent with this, a large randomized controlled trial with a high intake of PUFA and MUFA containing foods reduced cardiovascular events by about 30\% \citep{Estruch2013a}.  The exact mechanisms by which saturated fats more potently promote cholesterol biogenesis, while MUFA and PUFA do not are still under investigation.  Some possibilities include higher energy content, preferential oxidation to acetyl-coA and reduced packing density.
+
+
+\bibliography{library}
+\bibliographystyle{plainnat}
+
+\end{document}

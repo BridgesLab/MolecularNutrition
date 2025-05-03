@@ -1,0 +1,195 @@
+\documentclass{tufte-handout}
+
+%\geometry{showframe}% for debugging purposes -- displays the margins
+
+\usepackage{amsmath}
+
+% Set up the images/graphics package
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{Protein and Amino Acid Catabolism}
+\author{}
+\date{}  % if the \date{} command is left out, the current date will be used
+
+% The following package makes prettier tables.  We're all about the bling!
+\usepackage{booktabs}
+
+% The units package provides nice, non-stacked fractions and better spacing
+% for units.
+\usepackage{units}
+
+% The fancyvrb package lets us customize the formatting of verbatim
+% environments.  We use a slightly smaller font.
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+
+% Small sections of multiple columns
+\usepackage{multicol}
+
+% Provides paragraphs of dummy text
+\usepackage{lipsum}
+
+% These commands are used to pretty-print LaTeX commands
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+
+\begin{document}
+
+\maketitle% this prints the handout title, author, and date
+
+\begin{abstract}
+\noindent In this lecture we discuss protein breakdown and subsequent amino acid catabolism into energy and other products.  Amino acids are broken down into carbon skeletons (which often feed into glycolysis or the TCA cycle) and their amino groups (typically transfered to Glutamate/Glutamine for storage, or released via the Urea Cycle).  This unit will discuss the functions and the regulation of these processes.  For more details on amino acid breakdown and the Urea cycle refer to \emph{Chapter 30 in Biochemistry: A Short Course}, available in reserve\cite{Berg2015}.
+\end{abstract}
+
+\tableofcontents
+
+\pagebreak
+\section{Learning Objectives}
+
+\begin{itemize}
+\item Evaluate the signals that lead to protein degradation and how those signals activate proteolysis and autophagy.
+\item Explain the circumstances in which amino acids and proteins would be degraded.
+\item Describe the fates of the carbon skeletons when amino acids are catabolized.
+\item Consider the importance of branched chain amino acids, and describe the regulation of branched-chain ketoacid dehydrogenase.
+\item Explain the key role, and the mechanisms of regulation of Glutamate Dehydrogenase in amino acid catabolism.
+\item Describe the role of the urea cycle and analyse how defects in the urea cycle could be detected and treated.
+\end{itemize}
+
+\section{Protein Breakdown}
+
+As we discussed in the last unit, whereas glycogen serves as a store of glucose there is no easily accessible depot for amino acids.  Essential amino acids can only be obtained via the diet or by breaking down proteins. Since most proteins play key functional roles breaking down proteins comes at a cost.  Furthermore, making proteins is energetically very costly, so breaking down proteins should only be done when absolutely necessary.  As such, protein breakdown into amino acids is very tightly controlled in cells.
+
+\subsection{Mechanisms of Protein Degradation}
+
+There are two main organelles in which proteins are broken down: the proteasome or the lysosome.  The proteasome is a large multi-subunit complex which is the site of protein degradation when the cell requires specific proteins to be catabolized \citep{Finley2009}.  Individual proteins are tagged, usually by the addition of ubiquitin\sidenote{itself a small protein}. Once targeted these proteins move to the proteasome and degraded into individual amino acids.  For example a protein that the cell wants to get rid of can be very specifically targeted and removed which leaves other untageged proteins alone. The specificity of this targeting is mediated via a class of enzymes called E3 Ubiquitin Ligase.  These proteins recognize a specific protein, and target it for ubiquitinylation. An example of this in muscle tissue is an E3 ligase called MuRF1\sidenote{Muscle ring finger 1}.  During muscle atrophy, MuRF1 activity is increased, which targets myofibrillar proteins for ubiquitinylation and degradation \citep{Bodine2014}.  
+
+\newthought{The other main organelle of protein degradation is the lysosome, which catabolizes macromolecules in a process called autophagy.}  In autophagy, instead of targeting individual proteins entire organelles (like a mitochondrion) can be engulfed to be broken down within lysosomes.  The lipids (via lipases) and proteins (via proteases) are broken down within the lysosomes\sidenote{For more information see \url{https://www.ncbi.nlm.nih.gov/books/NBK9953/}}.  Compared to the proteasome, autophagy is much less specific but has a much higher capacity\sidenote{The discovery of which led to the 2016 Nobel Prize in Medicine and Physiology, see \url{https://www.nobelprize.org/nobel_prizes/medicine/laureates/2016/press.html}}.  Autophagy is often upregulated during times of amino acid starvation.  As such, mTORC1 activity\sidenote{which is decreased during amino acid or energy deprivation} is a potent \emph{inhibitor} of autophagy \citep{Noda1998}.
+
+\newthought{Extracellular proteins such as collagen are broken down via the secretion of proteases.}  To digest proteins outside the cell a variety of enzymes known as matrix metalloproteases are secreted by cells.  These degrade parts of the extracellular matrix including collagen, elastin and fibronectin.
+
+\subsection{Endocrine and Metabolic Signals of Protein Breakdown}
+
+One protein degradation signal that we have discussed previously is the hormone cortisol.  This glucocorticoid signals muscle cells to break down proteins into their constituent amino acids, largely to provide gluconeogenic substrates to the liver.  The primary route of action of glucocorticoids is thought to be the FOXO-dependent transcriptional activation of the atrogenes MuRF1 and Atrogin.  These ubiquitin ligases then target muscle proteins for degradation and amino acid release.  This is one mechanism by which chronic stress or prescription glucocorticoids\sidenote{such as prednisone, corticosterone or dexamethasone} result in muscle weakness.
+
+Another factor in the regulation of proteolysis is the \emph{reduction in anabolic signals}.  Insulin and mTORC1 are both potent suppressors of proteasome and autophagosome function, so reductions in these signaling pathways often promotes protein breakdown.  This is thought to be especially important when the mTORC1 activators Leucine, Arginine and Lysine are depleted.  During insulin resistance\sidenote{For example, in obese pre-diabetic or diabetic individuals.}, insulin signaling in the muscle is reduced and protein breakdown can be accelerated \citep{Wang2006b}.  This can increase gluconeogenesis\sidenote{By providing more substrates.} and reduce exercise capacity.
+
+\section{Amino Acid Catabolism}
+
+For energy to be derived from amino acids, two decisions must be made: first the protein must be broken down into amino acids, then those amino acids must be deaminated and/or oxidized. Proteins are broken down for two major reasons:
+
+\begin{itemize}
+\item To free up essential amino acids for other protein synthetic requirements.
+\item To provide energy or generate glucose via amino acid oxidation or gluconeogenesis respectively.
+\end{itemize}	
+
+In the former example, generally cellular and organismal energy requirements are met, but amino acids are needed for protein synthesis to occur.  In the latter example, the cell or organism requires energy or glucose, and protein synthesis is largely inactive.  The removal of an amino group\sidenote{A process called deamination.} from an amino acid is typicaly irreversible.  This is an especially important consideration for essential amino acids, since a deficit caused by their catabolism must now be provided by the diet.  As you might expect, the regulation and disposal of these amino groups is extremely tightly regulated.  We will discuss the regulation of these processes first, then discuss the fates of the remainder of the amino acid\sidenote{Which we refer to as the carbon skeleton.}.
+
+
+\newthought{The nitrogen groups from amino acids are often transfered to glutamate.}  As we discussed previously, there are a series of transaminase reactions used for both biosynthetic and degradation purposes.  These enzymes are particularly important for removing the amino group from an amino acid, leaving a carbon skeleton (also sometimes refered to as an $\alpha$-ketoacid) and glutamate.  We have discussed ALT and AST previously, but a longer list of mammalian transaminases can be found in Table \ref{tab:transaminases} .
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[b]
+\centering
+\caption{Mammalian transaminases}
+\label{tab:transaminases}
+\begin{tabular}{@{}rllrl@{}}
+\toprule
+\multicolumn{2}{c}{\textbf{Substrates}} & \textbf{Enzyme} & \multicolumn{2}{c}{\textbf{Products}}   \\ \midrule
+Alanine          & $\alpha$-Ketoglutarate      & ALT             & Pyruvate                    & Glutamate \\
+Aspartate        & $\alpha$-Ketoglutarate      & AST             & Oxaloacetate                & Glutamate \\
+Leucine          & $\alpha$-Ketoglutarate      & BCAT            & $\alpha$-Ketoisocaproate           & Glutamate \\
+Valine           & $\alpha$-Ketoglutarate      & BCAT            & $\alpha$-Ketoisovalerate           & Glutamate \\
+Isoleucine       & $\alpha$-Ketoglutarate      & BCAT            & $\alpha$-Ketomethylvalerate        & Glutamate \\
+Tyrosine         & $\alpha$-Ketoglutarate      & TAT             & 4-hydroxyphenylpyruvate     & Glutamate \\
+Tryptophan       & $\alpha$-Ketoglutarate      & TTA             & (indol-3-yl)pyruvate        & Glutamate \\
+Methionine       & $\alpha$-Ketoglutarate      & MAT             & 2-oxo-4-methylthiobutanoate & Glutamate \\
+Cysteine         & $\alpha$-Ketoglutarate      & CT              & Sulfinylpyruvate            & Glutamate \\ \bottomrule
+\end{tabular}
+\end{table}
+
+The implications of concentration-mediated regulation of transaminase reactions can be highlighted with the cases of $\alpha$-Ketoglutarate and glutamate.  The non-amino acid substrate in all of these cases is the TCA cycle intermediate $\alpha$-Ketoglutarate, which makes this step of amino acid degradation highly cataplerotic, since in the absence of $\alpha$-Ketoglutarate, there is no substrate for the amino group receptor.  This also means that amino acid breakdown is driven by a buildup of the free amino acids in the presence of available TCA cycle intermediates.  The second implication of all transaminase reactions being rapid, equillibrium reactions is that the concentration of glutamate is important for this first step.  If glutamate is building up in the cell, then these amino acids will not be degraded to the same extent.
+
+\newthought{Several amino acids\sidenote{the amino acids not shown in Table \ref{tab:transaminases} } are not catablolized via trans-animase reactions.}  As we have discussed previously Glutamine is converted to Glutamate via the Glutaminase enzyme, while Asparagine is processed to Aspartate using a similar enzyme, Asparaginase.  Phenylalanine is converted first to Tyrosine\sidenote{Via Phenylalanine Hydroxylase, the enzyme deficient among individuals with PKU.}.  Arginine, Histidine, Lysine and Proline have complex paths but end up as Glutamate as well.  The only two exceptions to nitrogen flow through Glutamate are Threonine and Serine.  These are both catabolized into Glycine, which is broken down into CO$_2$ and ammonia via the Glycine Cleavage System\sidenote{A series of enzymes that completely catabolize glycine in several steps.}.
+
+\subsection{Regulation of Glutamate Dehydrogenase}
+
+The flow of nitrogen during amino acid catabolism is generally amino acid to Glutamate then Glutamate to ammonia.  This second step is controlled by Glutamate Dehydrogenase (GDH), which catalyzes the \emph{irreversible} reaction shown in Reaction \ref{eq:GDH}.  The primary location of this enzyme is mitochondrial, so for amino acids to be oxidized they (or the Glutamate derived from them) must be transported into the mitochondria.
+
+\begin{equation}\label{eq:GDH}
+Glu + H_2O + NAD^+  \rightarrow  \alpha KG + NH_4^+ + NADH + H^+
+\end{equation}
+
+This reaction replenishes the $\alpha$-Ketoglutarate consumed in the previous transaminase step, while also releasing Glutamate's amino agroup as ammonia ($NH_4^+$) and generating a molecule of NADH\sidenote{Typically worth 2.5 ATP equivalents}.  As you may have guessed, for an irreversible enzyme of such importance, GDH is under multiple sets of allosteric control.  Before you read any further, take a minute to think about the conditions under which this reaction would proceed.
+
+If your thoughts were \emph{energy needs} and \emph{amino acid surplus} you are on the right track!  The main positive regulators of GDH are ADP, GDP, NAD$^+$ and branched chain amino acids (especially Leucine).  The main inhibitors include GTP, NADH and Palmitoyl-CoA\sidenote{This is the first step in the degradation of the fatty acid palmitate, and indicates that there are sufficient fatty acids to use as fuel, rather than breaking down proteins}.  In general that means that Glutamate will be irreversibly broken down only when energy needs are high, essential amino acids are high and fatty acids are low.  More details on the allosteric regulation of GDH can be found in \citet{Smith2008}'s review article.  
+
+At a post-translational level, GDH is also under the control of mTORC1 signaling.  mTORC1\sidenote{Which as you may recall is activated by some amino acids, insulin and high energy levels.} is thought to work through an enzyme called SIRT4.  SIRT4 adds an ADP-ribose group to GDH, thus inactivating this enzyme.  Therefore when mTORC1 is active, GDH becomes active \citep{Csibi2013}.  One hypothesis is that this could be a pathway by which nutrient excess leads to the oxidation of un-needed amino acids, especially Glutamine and Glutamate.
+
+\subsection{The Urea Cycle}
+
+The final nitrogen products of Glutamate Dehydrogenase, Glutaminase, Arginase and the Glycine Cleavage System\sidenote{Which ends the catabolism of Serine, Threonine and Glycine.} is ammonia.  Ammonia is very toxic to cells and organs, the accumulation of which is a condition known as hyperammonia.  As such, ammonia needs to be efficiently converted to the less damaging, and more easily excreted molecule Urea.  The urea cycle begins in the mitochondria, typically in the liver via the synthesis of free ammonia and bicarbonate to form a molecule called Carbamoyl Phosphate (CPS), the first committed step of this cycle.  Somewhat similarly to the TCA cycle, CPS is attached to Ornithine, which goes through several conversion steps, releasing Urea and regenerating Ornithine.  This step, diagramed in Reaction \ref{eq:CPS1}, is the key regulator of the Urea cycle.
+
+\begin{equation}\label{eq:CPS1}
+ NH_4^+ + CO_2 + 2 ATP \rightarrow  CPS
+\end{equation}
+
+\newthought{The activity of the Urea Cycle is controlled by the levels of N-Acetylglutamate.}  The activity of the Urea cycle should be coupled to the amounts of amino acid breakdown products, namely Glutamate.  As such, a Glutamate-derived molecule called N-Acetylglutamate (NAG) is a potent allosteric activator of Carbamoyl Phosphate Synthetase, the enzyme which catalyzes reaction \ref{eq:CPS1}.  NAG synthase is itself regulated by Arginine, so that when amino acids\sidenote{Specifically Arginine and Glutamate} and Acetyl-CoA\sidenote{Generated either via fatty acid $\beta$-oxidation, Ketogenic Amino Acid catabolism or from Pyruvate Dehydrogenase.} are elevated, NAG increases, which in turn activates the Urea cycle\sidenote{It might help to sketch this out in the margins.}.  Urea cycle enzymes are also upregulated by gluconeogenic hormones including glucagon and cortisol.  This ensures that the deamination products of gluconeogenesis are able to be removed.
+
+\subsection{Branched-Chain Amino Acid Catabolism}
+
+The branched-chain amino acids\sidenote{Leucine, Isoleucine and Valine} are under a another level of metabolic control.  Because they are high-demand, low-availability essential amino acids, it is especially important that their levels remain protected.  The first step in BCAA catabolism is their transamination (see the Branched-Chain Aminotransferase, BCAT in Table \ref{tab:transaminases}).  This reversible reaction equillibrates the pool of BCAA's with their respective $\alpha$-ketoacids\sidenote{Think about what could cause a build-up of these $\alpha$-ketoacids.}.  The rate-limiting step of their catabolism is the next step, mediated by an enzyme called Branched Chain Ketoacid Dehydrogenase (BCKDH).  This enzyme catalyzes the following \emph{irreversible} steps of BCAA catabolism, starting with the transamination products of Leucine, Valine and Isoleucine respectively:
+
+\begin{equation}\label{eq:leu}
+\alpha Ketoisocaproate + CoA + NAD^+ \rightarrow IsovalerylCoA + NADH + CO_2
+\end{equation}
+
+\begin{equation}\label{eq:val}
+\alpha Ketoisovalerate + CoA + NAD^+ \rightarrow IsobutyrylCoA + NADH + CO_2
+\end{equation}
+
+\begin{equation}\label{eq:iso}
+\alpha Ketomethylvalerate + CoA + NAD^+ \rightarrow \alpha MethylbutyrylCoA + NADH + CO_2
+\end{equation}
+
+These reactions are all fairly similar in that they take an $\alpha$-ketoacid and generate an activated form\sidenote{The CoA version; the activation of a product prior to complete oxidation will come up again when we discuss lipid oxidation.}, release CO$_2$ and produce NADH.  These activated products are then catabolized further as described in the next section.  Since BCKDH is the rate limiting step for all three of these reactions, and is the main control point by which BCAA's are released, it is unsurprising that it is controlled by both internal and external signals.
+
+\newthought{BCKDH is inhibited by protein phosphorylation.}  Similar to PFK2 and Pyruvate Kinase, BCKDH is \emph{inactivated} by protein phosphorylation.  The kinase that is responsible for BCKDH phosphorylation is \emph{inactivated} by a build-up of the branched chain ketoacids, especially the Leucine catabolite $\alpha$ Ketoisocaproate (see reaction \ref{eq:leu}).  In this way, a buildup of the ketoacids turns off the inhibitory protein kinase and allows for BCAA catabolism.  It has been reported that BCKDH expression is induced by glucocorticoids, and reduced by insulin, suggesting that chronic gluconeogenic signals can modify the activity of this process. 
+
+\subsection{The Fates of Amino Acid-Derived Carbon Skeletons}
+
+We have focused on the amino groups of the amino acids and how they often end up in the Urea cycle, but what about the rest of the amino acid carbon skeleton?  Generally, in steps that are thought to be in near-equillibrium, the carbon skeletons are catabolized into molecules you are probably already familiar with.  These endpoints are summarized in Table \ref{tab:carbon-skeletons}
+
+\newthought{The ketogenic amino acids, Lysine and Leucine, are converted into Acetyl-CoA}, while the partially ketogenic amino acids\sidenote{Phenylalanine, Isoleucine, Threonine and Tyrosine} are broken down into both Acetyl-CoA and another potentially glucogenic molecule.  This is an important difference because it means that the products of Leucine and Lysine catabolism \emph{can not} enter gluconeogenesis.  That is because Acetyl-CoA cannot become glucose.  Rather it can be catabolized in the TCA cycle, enter \textit{de novo} lipogenesis, or be released as a ketone body.
+
+\begin{table}[]
+\centering
+\caption{Carbon skeleton fates.  These often involve other side products being generated, but note that most of the amino acids end up as Acetyl-CoA, TCA cycle intermediates (like Fumarate, Succinyl-CoA and $\alpha$ Ketoglutarate or Pyruvate.)}
+\label{tab:carbon-skeletons}
+\begin{tabular}{lll}
+\textbf{Amino Acids}                                        & \textbf{Carbon Skeleton Fate}        & \textbf{Notes}                 \\ \hline
+Leucine, Lysine                                    & Acetyl-CoA                  & Ketogenic  \\ \hline
+Tyrosine and\\ Phenylalanine                         & Acetyl-CoA and\\ Fumarate     & Partially Ketogenic   \\ \hline
+Isoleucine                                         & Acetyl-CoA, Succinyl-CoA & Partially Ketogenic   \\ \hline
+Threonine and\\ Tryptophan                           & Acetyl-CoA, Pyruvate     & Partially Ketogenic   \\ \hline
+Asparagine and\\ Aspartate                           & Oxaloacetate                & via AST               \\ \hline
+Arginine, Proline,\\ Histidine,\\ Glutamine, Glutamate & $\alpha$ Ketoglutarate      & via GDH               \\ \hline
+Methionine                                         & Succinyl-CoA                &                       \\ \hline
+Cysteine, Alanine                                  & Pyruvate                    &                      
+\end{tabular}
+\end{table}
+
+\newthought{The gluconeogenic amino acids} on the other hand are either anaplerotic or they can become Pyruvate. Anaplerotic gluconeogenic amino acids\sidenote{Tyrosine, Phenylalanine, Asparagine, Aspartate, Arginine, Proline, Histidine, Glutamine,  Glutamate and Methionine} can either function in the TCA cycle or be converted via PEPCK into phoshpoenolpyruvate.  Gluconeogenic amino acids destined  to become Pyruvate\sidenote{Alanine, Threonine, Tryptophan, Cystine}  can then undergo gluconeogenesis via the activities of Pyruvate Carboxylase and PEPCK. To conceptualize whether amino acids will be catabolized to energy or enter gluconeogenesis, consider the metabolites and hormones that govern the rates of gluconeogeneic flux and oxidative phosphorylation.
+
+\bibliography{library}
+\bibliographystyle{plainnat}
+
+\end{document}
