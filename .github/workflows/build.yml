@@ -1,0 +1,52 @@
+name: Build Notes (HTML + PDF)
+
+on:
+  push:
+    paths:
+      - 'tex/*.tex'
+      - 'scripts/**'
+      - '.github/workflows/build.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up LaTeX and Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-full pandoc
+
+      - name: Create output folders
+        run: |
+          mkdir -p html
+          mkdir -p pdf
+
+      - name: Build HTML files with Pandoc + Lua filter
+        run: |
+          for f in tex/*.tex; do
+            fname=$(basename "$f" .tex)
+            pandoc "$f" \
+              --lua-filter=scripts/tufte.lua \
+              -s \
+              --css=tufte.css \
+              -o "html/${fname}.html"
+          done
+
+      - name: Build PDF files with LaTeX
+        run: |
+          for f in tex/*.tex; do
+            fname=$(basename "$f" .tex)
+            pdflatex -interaction=nonstopmode -output-directory=pdf "$f"
+          done
+
+      - name: Upload HTML and PDF as artifacts (optional)
+        uses: actions/upload-artifact@v3
+        with:
+          name: built-files
+          path: |
+            html/
+            pdf/
