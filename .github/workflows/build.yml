@@ -47,26 +47,6 @@ jobs:
               cd ..
             done
 
-      - name: Deploy to GitHub Pages
-        run: |
-          # Set up Git for deployment
-          git config --global user.email "dave.bridges@gmail.com"
-          git config --global user.name "Dave Bridges"
-          
-          # Create a new branch 'gh-pages'
-          git checkout --orphan gh-pages
-          git rm -rf .
-
-          # Copy the generated HTML to the gh-pages branch
-          cp -R html/* .
-
-          # Add and commit the changes
-          git add .
-          git commit -m "Deploy HTML files"
-
-          # Push to gh-pages branch
-          git push -f origin gh-pages
-
       - name: Upload HTML and PDF as artifacts (optional)
         uses: actions/upload-artifact@v4
         with:
