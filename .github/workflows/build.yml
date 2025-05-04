@@ -57,6 +57,14 @@ jobs:
             cd ..
           done
 
+      - name: Generate sitemap.xml
+        id: sitemap
+        uses: cicirello/generate-sitemap@v1
+        with:
+          base-url-path: https://bridgeslab.github.io/MolecularNutrition/
+          directory: html
+          output-file: html/sitemap.xml          
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
@@ -64,12 +72,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './html'
-
-      - name: Generate sitemap.xml
-        id: sitemap
-        uses: cicirello/generate-sitemap@v1
-        with:
-          base-url-path: https://bridgeslab.github.io/MolecularNutrition/
 
       - name: Deploy to GitHub Pages
         id: deployment
