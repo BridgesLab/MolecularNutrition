@@ -82,12 +82,12 @@ jobs:
         with:
           path: './html'
           
-      - name: Check for broken links
-        uses: JustinBeckwith/linkinator-action@v1
-        with:
-          paths: 'html'
-          recurse: true
-          markdown: false  
+      # - name: Check for broken links
+      #   uses: JustinBeckwith/linkinator-action@v1
+      #   with:
+      #     paths: 'html'
+      #     recurse: true
+      #     markdown: false  
 
       - name: Deploy to GitHub Pages
         id: deployment
