@@ -61,9 +61,17 @@ jobs:
         id: sitemap
         uses: cicirello/generate-sitemap@v1
         with:
+          path-to-root: html
           base-url-path: https://bridgeslab.github.io/MolecularNutrition/
-          directory: html
-          output-file: html/sitemap.xml          
+          include-html: true
+          include-pdf: false
+          
+      - name: Debug: List files in workspace
+        run: |
+          echo "Root directory contents:"
+          ls -al
+          echo "HTML directory contents:"
+          ls -al html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
