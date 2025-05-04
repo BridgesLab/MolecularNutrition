@@ -2,10 +2,21 @@ name: Build and Deploy Notes (HTML + PDF)
 
 on:
   push:
+    branches: ["main"]
     paths:
       - 'tex/*.tex'
       - 'scripts/**'
-      - '.github/workflows/build.yml'
+      - '.github/workflows/build-and-deploy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -13,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up LaTeX and Pandoc
         run: |
@@ -38,20 +49,22 @@ jobs:
 
       - name: Build PDF files
         run: |
-            mkdir -p pdf
-            for f in tex/*.tex; do
-              fname=$(basename "$f" .tex)
-              cd tex
-              pdflatex -interaction=nonstopmode -halt-on-error -output-directory=../pdf "$fname.tex" || exit 1
-              pdflatex -interaction=nonstopmode -halt-on-error -output-directory=../pdf "$fname.tex" || exit 1
-              cd ..
-            done
+          for f in tex/*.tex; do
+            fname=$(basename "$f" .tex)
+            cd tex
+            pdflatex -interaction=nonstopmode -halt-on-error -output-directory=../pdf "$fname.tex" || exit 1
+            pdflatex -interaction=nonstopmode -halt-on-error -output-directory=../pdf "$fname.tex" || exit 1
+            cd ..
+          done
 
-      - name: Upload HTML and PDF as artifacts (optional)
-        uses: actions/upload-artifact@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site content
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: built-files
-          path: |
-            html/
-            pdf/
-  
+          path: './html'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
