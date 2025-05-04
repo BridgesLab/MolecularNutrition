@@ -68,6 +68,9 @@ jobs:
         env:
           SITEMAP_OUTPUT_PATH: html/sitemap.xml
 
+      - name: Fix sitemap.xml ownership
+        run: sudo chown runner:docker html/sitemap.xml    
+
       - name: List html directory to confirm sitemap presence
         run: ls -l html     
           
