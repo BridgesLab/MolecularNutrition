@@ -100,9 +100,11 @@ jobs:
           git config user.email "github-actions@github.com"
           git fetch
           git checkout main
-          mkdir -p pdf
-          cp -r pdf/* pdf/
-          git add pdf/*.pdf   
+      
+          mkdir -p pdf-out
+          cp pdf/*.pdf pdf-out/
+      
+          git add pdf-out/*.pdf
           git commit -m "Add built PDFs [skip ci]" || echo "No changes to commit"
           git push https://x-access-token:${GIT_TOKEN}@github.com/${{ github.repository }}.git main
         env:
