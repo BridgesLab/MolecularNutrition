@@ -66,12 +66,8 @@ jobs:
           include-html: true
           include-pdf: false
           
-      - name: List files in workspace
-        run: |
-          echo "Root directory contents:"
-          ls -al
-          echo "HTML directory contents:"
-          ls -al html
+      - name: Move sitemap.xml to html folder
+        run: mv sitemap.xml html/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
