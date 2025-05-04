@@ -65,12 +65,12 @@ jobs:
         with:
           path: './html'
 
+      - name: Generate sitemap.xml
+        id: sitemap
+        uses: cicirello/generate-sitemap@v1
+        with:
+          base-url-path: https://bridgeslab.github.io/MolecularNutrition/
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-      - name: Generate sitemap.xml
-        uses: cobalt-org/sitemap-generator@v1
-        with:
-          base-url: https://bridgeslab.github.io/MolecularNutrition
-          directory: html
