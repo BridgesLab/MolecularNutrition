@@ -68,3 +68,18 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Generate sitemap.xml
+        run: |
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > html/sitemap.xml
+          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> html/sitemap.xml
+          for file in html/*.html; do
+            fname=$(basename "$file")
+            url="https://bridgeslab.github.io/MolecularNutrition/$fname"
+            mod_date=$(git log -1 --format="%cI" "tex/${fname%.html}.tex" 2>/dev/null || date -I)
+            echo "  <url>" >> html/sitemap.xml
+            echo "    <loc>$url</loc>" >> html/sitemap.xml
+            echo "    <lastmod>$mod_date</lastmod>" >> html/sitemap.xml
+            echo "  </url>" >> html/sitemap.xml
+          done
+          echo '</urlset>' >> html/sitemap.xml
