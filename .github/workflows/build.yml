@@ -71,6 +71,9 @@ jobs:
       - name: Fix sitemap.xml ownership
         run: sudo chown runner:docker html/sitemap.xml    
 
+      - name: Copy figures to HTML folder
+        run: cp -r tex/figures html/
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
