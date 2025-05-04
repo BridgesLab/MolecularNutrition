@@ -71,12 +71,6 @@ jobs:
       - name: Fix sitemap.xml ownership
         run: sudo chown runner:docker html/sitemap.xml    
 
-      - name: List html directory to confirm sitemap presence
-        run: ls -l html     
-          
-      - name: Move sitemap.xml to html folder
-        run: mv sitemap.xml html/
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
