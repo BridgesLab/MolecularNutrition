@@ -1,16 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Molecular Nutrition Notes</title>
   <link rel="stylesheet" href="tufte.css">
+  <style>
+    body { max-width: 900px; margin: 2rem auto; padding: 2rem; font-family: serif; }
+    h1, h2, h3 { font-weight: normal; }
+    ul { list-style-type: none; padding-left: 1em; }
+    li::before { content: "→ "; color: #999; }
+    footer { margin-top: 4rem; font-size: 0.9em; color: #555; border-top: 1px solid #ccc; padding-top: 1rem; }
+  </style>
+  <style>
+    a.no-link {
+      color: inherit; /* Inherit the text color from the parent */
+      text-decoration: none; /* Remove the underline */
+      cursor: default; /* Change the cursor to default (not a pointer) */
+    }
+  </style>
 </head>
 <body>
   <h1>Molecular Nutrition Notes</h1>
+  <p><strong>Authors:</strong> Dave Bridges, Ph.D. and Oliva Anderson, MPH, R.D., Ph.D.</p>
+  <p><a href="https://sph.umich.edu/ns/" class="no-link">Department of Nutritional Sciences, University of Michigan School of Public Health</a></p>
+
+  <h2>Background</h2>
   <ul>
-    <li><a href="carb-digestion.html">Carb Digestion</a></li>
-    <li><a href="lipid-metabolism.html">Lipid Metabolism</a></li>
-    <!-- Add more links as needed -->
+    <li><a href="metabolic-control-systems.html">Metabolic Control Systems</a></li>
+    <li><a href="endocrine-handout.html">Endocrine Handout</a></li>
+    <li><a href="digestive-tract-introduction.html">Digestive Tract Introduction</a></li>
+    <li><a href="energy-balance.html">Energy Balance</a></li>
   </ul>
+
+  <h2>Carbohydrates</h2>
+  <ul>
+    <li><a href="carb-structure.html">Carbohydrate Structure</a></li>
+    <li><a href="carb-digestion.html">Carbohydrate Digestion</a></li>
+    <li><a href="fiber.html">Fiber</a></li>
+    <li><a href="glycolysis.html">Glycolysis</a></li>
+    <li><a href="tca-cycle.html">TCA Cycle</a></li>
+    <li><a href="pentose-phosphate-pathway.html">Pentose Phosphate Pathway</a></li>
+    <li><a href="glycogen-metabolism.html">Glycogen Metabolism</a></li>
+    <li><a href="gluconeogenesis.html">Gluconeogenesis</a></li>
+  </ul>
+
+  <h2>Lipids</h2>
+  <ul>
+    <li><a href="lipids-introduction.html">Lipids Introduction</a></li>
+    <li><a href="lipid-digestion.html">Lipid Digestion</a></li>
+    <li><a href="lipid-synthesis.html">Lipid Synthesis</a></li>
+    <li><a href="lipid-catabolism.html">Lipid Catabolism</a></li>
+    <li><a href="lipid-transport.html">Lipid Transport</a></li>
+  </ul>
+
+  <h2>Proteins</h2>
+  <ul>
+    <li><a href="proteins-amino-acids-overview.html">Amino Acids Overview</a></li>
+    <li><a href="proteins-amino-acids-synthesis.html">Amino Acid Synthesis</a></li>
+    <li><a href="protein-oxidation.html">Protein Oxidation</a></li>
+  </ul>
+
+  <footer>
+    <p>Licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License (CC BY 4.0)</a>.</p>
+    <p>Last updated: <span id="date"></span></p>
+  </footer>
+
+  <script>
+    // Set the current date automatically
+    document.getElementById("date").textContent = new Date().toISOString().split('T')[0];
+  </script>
 </body>
 </html>
