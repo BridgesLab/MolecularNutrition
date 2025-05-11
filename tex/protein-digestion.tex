@@ -1,0 +1,155 @@
+%!TEX program = pdflatex
+\documentclass{tufte-handout}
+
+%\geometry{showframe}% for debugging purposes -- displays the margins
+
+\usepackage{amsmath}
+
+% Set up the images/graphics package
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{Protein Digestion and Absorption}
+\author{Olivia Anderson}
+\date{}  % if the \date{} command is left out, the current date will be used
+
+% The following package makes prettier tables.  We're all about the bling!
+\usepackage{booktabs}
+
+% The units package provides nice, non-stacked fractions and better spacing
+% for units.
+\usepackage{units}
+
+% The fancyvrb package lets us customize the formatting of verbatim
+% environments.  We use a slightly smaller font.
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+
+% Small sections of multiple columns
+\usepackage{multicol}
+
+% Provides paragraphs of dummy text
+\usepackage{lipsum}
+
+% These commands are used to pretty-print LaTeX commands
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+
+\begin{document}
+
+\maketitle
+
+\section*{Learning Objectives}
+\begin{itemize}
+  \item Describe protein digestion in the organs of the digestive tract.
+  \item Understand the roles of enzymes and compounds in the stomach and small intestine.
+  \item Explain how amino acids and peptides cross the apical membrane of the enterocyte.
+  \item Understand that free amino acids cross the basolateral membrane.
+  \item Explain why not all amino acids are absorbed into the bloodstream.
+\end{itemize}
+
+\section{Digestion}
+
+\subsection{Stomach}
+Enzymatic digestion of protein begins in the stomach. Hydrochloric acid (HCl), secreted by parietal cells, initiates protein denaturation by lowering the pH. This unfolds the quaternary, tertiary, and secondary structures, disrupting hydrogen and electrostatic bonds but leaving peptide bonds intact.
+
+HCl also activates pepsinogen (from chief cells) into pepsin, which functions as an endopeptidase—hydrolyzing interior peptide bonds, particularly adjacent to hydrophobic or aromatic amino acids.
+
+The result: linear polypeptide chains and oligopeptides.
+
+\subsection{Small Intestine}
+As chyme enters the small intestine, hormones secretin and CCK slow gastric digestion and stimulate pancreatic juice release. This juice contains bicarbonate and zymogens including:
+\begin{itemize}
+  \item \textbf{Trypsinogen} ($\rightarrow$ trypsin)
+  \item \textbf{Chymotrypsinogen} ($\rightarrow$ chymotrypsin)
+  \item \textbf{Procarboxypeptidase} ($\rightarrow$ carboxypeptidase)
+\end{itemize}
+
+Enteropeptidase activates trypsinogen to trypsin, which then activates the other zymogens.
+
+Chymotrypsin targets peptide bonds next to tyrosine, phenylalanine, or tryptophan (large neutral amino acids).
+\marginnote{Reflection: What are the end products of chymotrypsinogen?}
+
+Carboxypeptidase is an exopeptidase that cleaves from the C-terminal, producing free amino acids and shorter peptides.
+
+Brush border enzymes include:
+\begin{itemize}
+  \item \textbf{Aminopeptidases}: N-terminal cleavage
+  \item \textbf{Tripeptidases}: act on tripeptides
+  \item \textbf{Dipeptidylaminopeptidases}: act on dipeptides
+\end{itemize}
+
+\section{Absorption}
+
+\subsection{Small Intestine}
+Digestion products—free amino acids, dipeptides, and tripeptides—must cross:
+\begin{itemize}
+  \item Apical membrane (facing lumen)
+  \item Through enterocyte
+  \item Basolateral membrane (facing bloodstream)
+\end{itemize}
+
+Most absorption happens in the lower duodenum and upper jejunum. About 70\% of apical absorption occurs as di/tripeptides via the PEPT1 transporter, co-transporting with H\textsuperscript{+} ions.
+
+To maintain gradients:
+\begin{itemize}
+  \item H\textsuperscript{+} exchanged for Na\textsuperscript{+}
+  \item Na\textsuperscript{+} pumped out by Na/K ATPase
+\end{itemize}
+
+Free amino acids use carrier-mediated systems. Their transport is influenced by:
+\begin{itemize}
+  \item Side chain structure
+  \item Electrical charge
+\end{itemize}
+
+\begin{table}[h]
+\caption{Selected Free Amino Acid Transport Systems (Apical Membrane)}
+\begin{tabular}{ll}
+\toprule
+\textbf{System} & \textbf{Target Amino Acids} \\
+\midrule
+L System & Branched-chain and aromatic AAs \\
+X\textsuperscript{-} System & Acidic AAs \\
+B\textsuperscript{0,+} System & Neutral and basic AAs \\
+ASC System & Small neutral AAs \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\marginnote{Reflection: How does amino acid competition affect absorption?}
+
+Inside the enterocyte, peptides are hydrolyzed to amino acids. These are then transported across the basolateral membrane into capillaries, ultimately reaching the liver via the portal vein.
+
+\begin{table}[h]
+\caption{Basolateral Membrane Transport Systems}
+\begin{tabular}{ll}
+\toprule
+\textbf{System} & \textbf{Notes} \\
+\midrule
+LAT1 & Large neutral AAs \\
+y\textsuperscript{+}LAT1 & Basic AAs \\
+TAT1 & Aromatic AAs \\
+SNAT & Sodium-dependent neutral AAs \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Not all amino acids enter circulation—some are retained for:
+\begin{itemize}
+  \item Protein synthesis
+  \item Nitrogen-containing compounds
+  \item Oxidation for energy
+\end{itemize}
+
+\subsection{Large Intestine}
+About 10–20 g of amino acids escape absorption daily. Gut bacteria use these for growth, and the rest are excreted in feces.
+
+\end{document}
