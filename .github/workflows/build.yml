@@ -19,23 +19,17 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  compile-html:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-
       - name: Set up LaTeX and Pandoc
         run: |
           sudo apt-get update
           sudo apt-get install -y texlive-full pandoc
-
-      - name: Create output folders
-        run: |
-          mkdir -p html
-          mkdir -p pdf
-
+      - name: Create output folder
+        run: mkdir -p html
       - name: Build HTML files with Pandoc + Lua filter
         run: |
           for f in tex/*.tex; do
@@ -46,14 +40,20 @@ jobs:
               --css=tufte.css \
               -o "html/${fname}.html"
           done
-
-      - name: Copy existing PDFs to hosting folder
+      - name: Copy existing PDFs to HTML folder
         run: |
           mkdir -p html/pdf
           cp tex/*.pdf html/pdf/
+      - name: Copy figures to HTML folder
+        run: cp -r tex/figures html/
 
+  generate-sitemap:
+    needs: compile-html
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
       - name: Generate sitemap.xml
-        id: sitemap
         uses: cicirello/generate-sitemap@v1
         with:
           path-to-root: html
@@ -62,32 +62,31 @@ jobs:
           include-pdf: false
         env:
           SITEMAP_OUTPUT_PATH: html/sitemap.xml
-
       - name: Fix sitemap.xml ownership
-        run: sudo chown runner:docker html/sitemap.xml    
+        run: sudo chown runner:docker html/sitemap.xml
 
-      - name: Copy figures to HTML folder
-        run: cp -r tex/figures html/
-
+  deploy-pages:
+    needs: generate-sitemap
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
-
       - name: Upload site content
         uses: actions/upload-pages-artifact@v3
         with:
           path: './html'
-          
-      # - name: Check for broken links
-      #   uses: JustinBeckwith/linkinator-action@v1
-      #   with:
-      #     paths: 'html'
-      #     recurse: true
-      #     markdown: false  
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
 
+  push-pdf-update:
+    needs: deploy-pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
       - name: Push to main
         run: |
           git config user.name "github-actions[bot]"
