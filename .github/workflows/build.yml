@@ -47,15 +47,10 @@ jobs:
               -o "html/${fname}.html"
           done
 
-      - name: Build PDF files
+      - name: Copy existing PDFs to hosting folder
         run: |
-          for f in tex/*.tex; do
-            fname=$(basename "$f" .tex)
-            cd tex
-            pdflatex -interaction=nonstopmode -halt-on-error -output-directory=../pdf "$fname.tex" || exit 1
-            pdflatex -interaction=nonstopmode -halt-on-error -output-directory=../pdf "$fname.tex" || exit 1
-            cd ..
-          done
+          mkdir -p html/pdf
+          cp tex/*.pdf html/pdf/
 
       - name: Generate sitemap.xml
         id: sitemap
