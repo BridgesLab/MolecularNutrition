@@ -43,6 +43,7 @@ jobs:
               --lua-filter=scripts/tufte.lua \
               -s \
               --css=tufte.css \
+              --mathjax \
               -o "output/${fname}.html"
           done
 
