@@ -85,10 +85,15 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Move files to deploy folder
+        run: |
+          mkdir deploy
+          cp -r html/* deploy/
+      
       - name: Upload site content
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './html'
+          path: ./deploy
 
       - name: Deploy to GitHub Pages
         id: deployment
