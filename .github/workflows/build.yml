@@ -44,6 +44,8 @@ jobs:
               -s \
               --css=tufte.css \
               --mathjax \
+              --citeproc \
+              --bibliography=tex/library.bib \
               -o "output/${fname}.html"
           done
 
