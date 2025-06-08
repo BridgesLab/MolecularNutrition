@@ -6,6 +6,8 @@ on:
     paths:
       - 'tex/*.tex'
       - 'scripts/**'
+      - 'html/index.html'
+      - 'html/tufte.css'
       - '.github/workflows/build-and-deploy.yml'
   workflow_dispatch:
 
@@ -19,7 +21,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  compile-site:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -30,10 +32,10 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y texlive-full pandoc
 
-      - name: Create output folder
-        run: mkdir -p site
+      - name: Create output directory
+        run: mkdir -p output/pdf output/figures
 
-      - name: Build HTML files with Pandoc + Lua filter
+      - name: Compile HTML from .tex
         run: |
           for f in tex/*.tex; do
             fname=$(basename "$f" .tex)
@@ -41,43 +43,29 @@ jobs:
               --lua-filter=scripts/tufte.lua \
               -s \
               --css=tufte.css \
-              -o "site/${fname}.html"
+              -o "output/${fname}.html"
           done
-          cp tufte.css site/
 
-      - name: Copy PDFs to site
-        run: |
-          mkdir -p site/pdf
-          cp tex/*.pdf site/pdf/
+      - name: Copy PDFs
+        run: cp tex/*.pdf output/pdf/
 
-      - name: Copy figures to site
-        run: cp -r tex/figures site/
+      - name: Copy figures
+        run: cp -r tex/figures/* output/figures/ || true
 
-      - name: Generate sitemap.xml
-        uses: cicirello/generate-sitemap@v1
-        with:
-          path-to-root: site
-          base-url-path: https://bridgeslab.github.io/MolecularNutrition/
-          include-html: true
-          include-pdf: false
-        env:
-          SITEMAP_OUTPUT_PATH: site/sitemap.xml
+      - name: Copy tufte.css
+        run: cp html/tufte.css output/
 
-  deploy-pages:
-    needs: compile-site
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Setup GitHub Pages
-        uses: actions/configure-pages@v5
+      - name: Copy custom index.html
+        run: cp html/index.html output/
 
       - name: Upload site content
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './site'
+          path: ./output
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
