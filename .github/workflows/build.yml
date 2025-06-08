@@ -19,7 +19,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  compile-html:
+  compile-site:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -31,7 +31,7 @@ jobs:
           sudo apt-get install -y texlive-full pandoc
 
       - name: Create output folder
-        run: mkdir -p html
+        run: mkdir -p site
 
       - name: Build HTML files with Pandoc + Lua filter
         run: |
@@ -41,85 +41,43 @@ jobs:
               --lua-filter=scripts/tufte.lua \
               -s \
               --css=tufte.css \
-              -o "html/${fname}.html"
+              -o "site/${fname}.html"
           done
+          cp tufte.css site/
 
-      - name: Copy existing PDFs to HTML folder
+      - name: Copy PDFs to site
         run: |
-          mkdir -p html/pdf
-          cp tex/*.pdf html/pdf/
+          mkdir -p site/pdf
+          cp tex/*.pdf site/pdf/
 
-      - name: Copy figures to HTML folder
-        run: cp -r tex/figures html/
-
-      - name: Debug HTML folder contents
-        run: ls -R html || true
-
-  generate-sitemap:
-    needs: compile-html
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - name: Copy figures to site
+        run: cp -r tex/figures site/
 
       - name: Generate sitemap.xml
         uses: cicirello/generate-sitemap@v1
         with:
-          path-to-root: html
+          path-to-root: site
           base-url-path: https://bridgeslab.github.io/MolecularNutrition/
           include-html: true
           include-pdf: false
         env:
-          SITEMAP_OUTPUT_PATH: html/sitemap.xml
-
-      - name: Fix sitemap.xml ownership
-        run: sudo chown runner:docker html/sitemap.xml
+          SITEMAP_OUTPUT_PATH: site/sitemap.xml
 
   deploy-pages:
-    needs: generate-sitemap
+    needs: compile-site
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Move files to deploy folder
-        run: |
-          mkdir deploy
-          cp -r html/* deploy/
-      
       - name: Upload site content
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./deploy
+          path: './site'
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-  push-pdf-update:
-    needs: deploy-pages
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo (disable default credentials)
-        uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-
-      - name: Debug git remote and branch
-        run: |
-          git remote -v
-          git status
-          git rev-parse HEAD
-          git branch
-
-      - name: Push to main using PAT
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "Update PDFs" || echo "No changes to commit"
-          git remote set-url origin https://x-access-token:${{ secrets.PDF_BUILD }}@github.com/${{ github.repository }}.git
-          git push origin main
