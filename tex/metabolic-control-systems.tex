@@ -67,8 +67,11 @@
 \item Activation Energy
 \item Allosteric Regulation
 \item Cofactor
+\item Compartmentalization
 \item Concentration Gradient
 \item Enzyme
+\item Feedback Inhibition
+\item Post-Translational Modification
 \item Rate Limiting Enzyme
 \item Transcription Factor
 \item Transporters (Active and Passive)
@@ -163,7 +166,7 @@ rate = k\tfrac{[Reactant][Enzyme]}{[Reactant] +K_{m}\left \{ 1 + \frac{[Product]
 \label{fig:enzyme-kinetics}
 \end{marginfigure}
 
-\newthought{Allosteric regulation is another way by which enzymes can control reaction rates}.  Allosteric enzymes are generally multi-subunit enzymes that change their K${m}$ as more products bind.  An example of this is the dashed line in Figure \ref{fig:enzyme-kinetics}.  This has several advantages in terms of regulation.  One advantage is that the reaction rate can be effectively zero or at maximum in a much narrower range, bracketing the actual range of substrates present physiologically.  Another advantage is that allosteric activators or inhibitors can shift the curve to the left or right, to effectively increase or decrease the reaction rate.  This is a common mechanism by which the activity of rate-limiting enzymes are regulated.
+\newthought{Allosteric regulation is another way by which enzymes can control reaction rates}.  Allosteric enzymes are generally multi-subunit enzymes that change their K${m}$ as more products bind.  An example of this is the dashed line in Figure~\ref{fig:enzyme-kinetics}.  This has several advantages in terms of regulation.  One advantage is that the reaction rate can be effectively zero or at maximum in a much narrower range, bracketing the actual range of substrates present physiologically.  Another advantage is that allosteric activators or inhibitors can shift the curve to the left or right, to effectively increase or decrease the reaction rate.  This is a common mechanism by which the activity of rate-limiting enzymes are regulated.  
 
 On the basis of these equations, reaction rates (and the rate of a particular metabolic pathway) can be increased by several things\sidenote{Some examples include:\\\begin{enumerate}
 \item Decreasing the activation energy
@@ -183,25 +186,30 @@ On the basis of these equations, reaction rates (and the rate of a particular me
 \end{marginfigure}
 
 \subsection{Cofactors}
-Many enzymes require non-protein helper molecules to catalyze their reactions.  These are known as \emph{cofactors}.  Table \ref{tab:cofactors} lists some important cofactors, and the dietary vitamins from which they are derived.  Other important roles of vitamins, for example in activating molecules like Co-enzyme A and electron carrier molecules like NADH will be described later in the semester.  A lack of a dietary source of a cofactor can often impair the activity of an enzyme.
+Many enzymes require non-protein helper molecules to catalyze their reactions.  These are known as \emph{cofactors}.  Table~\ref{tab:cofactors} lists some important cofactors, and the dietary vitamins from which they are derived.  Other important roles of vitamins, for example in activating molecules like Co-enzyme A and electron carrier molecules like NADH will be described later in the semester.  A lack of a dietary source of a cofactor can often impair the activity of an enzyme.
 
 \begin{margintable}
-\caption{Some examples of cofactors that are important for enzymatic catalysis.}
-\label{tab:cofactors}
+\caption{Some examples of cofactors that are important for enzymatic catalysis.}\label{tab:cofactors}
 \begin{tabular}{@{}ll@{}}
  \textbf{Cofactor}  & \textbf{Source}           \\ \midrule
 TPP & Vitamin B\textsubscript{1} \\
 Pyrdioxal Phosphate & Vitamin B\textsubscript{6} \\
 Biotin & Vitamin H \\
 THF & Folic Acid \\
-Iron &  Fe source?? \\ 
-Selenium & Se source?? \\ \bottomrule
+Iron &  Dietary Fe \\ 
+Selenium & Dietary Se \\ \bottomrule
 \end{tabular}
 \end{margintable}
 
-\section{Integrated Control of Metabolism}
+\subsection{Isoenzymes and Tissue Specificity}
+\newthought{Enzymes can be tissue specific.}  This means that the same reaction can be catalyzed by different enzymes in different tissues.  These are known as \emph{isoenzymes} or \emph{isozymes}.  An example of this is lactate dehydrogenase, which has several isoforms that are expressed in different tissues.  The liver isoform is more active at lower pH than the muscle isoform, which is more active at higher pH.  This means that the liver can continue to produce glucose from lactate even when the blood pH is low, such as during exercise.  This is an important concept to understand, as it allows for different tissues to have different metabolic priorities, and will be discussed in more detail later in the course.
 
-There are several ways in which enzymes are regulated, both based on intracellular and extracellular signals.  An example might be that a lack of intracellular ATP causes an increase in ATP producing pathways such as glycolysis.  On the other hand, low circulating blood glucose levels may work to stop a glucose consuming process such as glycolysis.  We will discuss this in detail throughout the class, but some of the hormones we will discuss in this course that are particularly important are listed in Table \ref{tab:hormones}:
+\subsection{Compartmentalization}
+\newthought{Cells are not just a bag of enzymes.}  They are highly organized structures with different compartments that have different functions.  This is known as \emph{compartmentalization}.  For example, the mitochondria are the site of oxidative phosphorylation, while the endoplasmic reticulum is the site of protein synthesis and lipid metabolism.  This allows for different metabolic pathways to occur in different parts of the cell, which can help to control the rates of reactions and prevent unwanted side reactions.  Compartmentalization also allows for the separation of metabolic pathways that may otherwise interfere with each other, such as glycolysis and gluconeogenesis.
+
+\section{Integrated Control of Metabolism and Regulation of Enzymes}
+
+There are several ways in which enzymes are regulated, both based on intracellular and extracellular signals.  An example might be that a lack of intracellular ATP causes an increase in ATP producing pathways such as glycolysis.  On the other hand, low circulating blood glucose levels may work to stop a glucose consuming process such as glycolysis.  We will discuss this in detail throughout the class, but some of the hormones we will discuss in this course that are particularly important are listed in Table~\ref{tab:hormones}:
 
 \begin{table}[h]
 \centering
@@ -226,16 +234,19 @@ CCK, Gastrin, Secretin & Regulation of digestion                   \\
 
 Hopefully these hormones, how they work and how they are regulated is material you are familiar with from previous classes.  If not, or you want a refresher, check out the \textbf{Endocrine Regulation of Macronutrient Metabolism} handout also available on Canvas.  
 
+\subsection{Allosteric Regulation}
+As noted above, one way by which enzymes are regulated is by allosteric regulation.  This is a common mechanism by which the activity of rate-limiting enzymes are controlled.  Allosteric enzymes have multiple subunits and can change their conformation when a metabolite binds to them.  This can either increase or decrease the activity of the enzyme, depending on the metabolite that binds.  Allosteric regulation is often rapid, and can be reversed quickly, so it is a good way to control metabolic pathways in response to changes in substrate or product levels.\sidenote{An example of this is phosphofructokinase-1, which is allosterically activated by AMP and inhibited by ATP.}  This means that when ATP levels are high, glycolysis is slowed down, but when ATP levels are low, glycolysis is sped up.
+
 \subsection{Post-Translational Modification}
 
-One common way by which enzymes are regulated is by the modification of existing proteins.  One common example is protein phosphorylation.  In this example a phosphate molecule is attached to an existing protein, which could increase or decrease its activity.  This is often reversible, so a good analogy is that post-translational regulation is like flipping a switch for an enzyme on or off.  This can occur fairly rapidly, and is not a permanent change.
+One common way by which enzymes are regulated is by the modification of existing proteins.  One common example is protein phosphorylation.  In this example a phosphate molecule is attached to an existing protein, which could increase or decrease its activity.  This is often reversible, so a good analogy is that post-translational regulation is like flipping a switch for an enzyme on or off.  This can occur fairly rapidly, and is not a permanent change.\sidenote{An example of this is that in response to glucagon or adrenaline, glycogen phosphorylase is phosphorylated, which increases its activity and allows for glycogen breakdown to glucose.}  This is a good way to rapidly change the activity of a pathway in response to a stimulus, such as low blood glucose levels or exercise.
 
 \subsection{Transcriptional Regulation}
 
-Another way to change the activity of a pathway is to selectively change the number of enzymes.  If this is done at the messenger RNA level, it is known as transcriptional regulation.  This is because transcription is the process by which new mRNA is made.  By increasing or decreasing the rate of mRNA (and eventually protein) production, the cell can respond to a stimulus to make more or less of a particular protein.  One example we will discuss in this course is that when cholesterol levels are low, the liver responds by making more cholesterol biosynthetic and retrieval enzymes and receptors.  The regulation of transcription is often controlled by \emph{transcription factors}, a class of proteins that can bind to selective sites of DNA and recruit the machinery to make (or prevent the making) of mRNA.  For a really great review with more details on transcription factors, take a look at \citet{Lambert2018}.  These kinds of changes are slow, energetically costly and difficult to reverse.  They represent a chronic response, and are not appropriate for short term modifications.  The relationship between allosteric, post-translational and transcriptional regulation is demonstrated in Figure \ref{fig:regulation-models}.  Reflect on an example of metabolic regulation that you can think of.  Then consider the timescale by which the changes happen, and try to think what would be the most appropriate mechanism to alter metabolism.
+Another way to change the activity of a pathway is to selectively change the number of enzymes.  If this is done at the messenger RNA level, it is known as transcriptional regulation.  This is because transcription is the process by which new mRNA is made.  By increasing or decreasing the rate of mRNA (and eventually protein) production, the cell can respond to a stimulus to make more or less of a particular protein.\sidenote{An example we will discuss in this course is that when stress levels are high, the brain responds by increasing appetite.}  The regulation of transcription is often controlled by \emph{transcription factors}, a class of proteins that can bind to selective sites of DNA and recruit the machinery to make (or prevent the making) of mRNA.  For a really great review with more details on transcription factors, take a look at \citet{Lambert2018}.  These kinds of changes are slow, energetically costly and difficult to reverse.  They represent a chronic response, and are not appropriate for short term modifications.  The relationship between allosteric, post-translational and transcriptional regulation is demonstrated in Figure \ref{fig:regulation-models}.  Reflect on an example of metabolic regulation that you can think of.  Then consider the timescale by which the changes happen, and try to think what would be the most appropriate mechanism to alter metabolism.
 
 \begin{marginfigure}
-\includegraphics{figures/regulation-models}
+\includegraphics{figures/regulation-models.png}
 \caption{Shematic of the timing and permanence of some forms of enzymatic regulation.}
 \label{fig:regulation-models}
 \end{marginfigure}
