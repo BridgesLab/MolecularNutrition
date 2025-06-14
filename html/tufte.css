@@ -436,6 +436,13 @@ label.margin-toggle:not(.sidenote-number) {
         position: relative;
     }
 
+    .newthought {
+        font-variant: small-caps;
+        font-weight: bold;
+        font-size: 1.15em;
+        color: #444;
+    }
+
     label {
         cursor: pointer;
     }
