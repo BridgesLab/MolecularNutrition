@@ -41,6 +41,7 @@ jobs:
             fname=$(basename "$f" .tex)
             pandoc "$f" \
               --lua-filter=scripts/tufte.lua \
+              --lua-filter=scripts/newthought.lua \
               -s \
               --css=tufte.css \
               --mathjax \
