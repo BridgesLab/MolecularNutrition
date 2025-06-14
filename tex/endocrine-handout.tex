@@ -70,6 +70,7 @@ Below is a list of some key vocabulary related to this unit.  If any of these te
 		\item Glucose Uptake, including Insulin Stimulated Glucose Uptake
 		\item Glycogenesis and Glycogenolysis
 		\item Insulin Secretion
+		\item Insulin Sensitivity (or Insulin Resistance)
 		\item Ketogenesis and Ketoacidosis
 		\item Lipolysis
 		\item Proteolysis
@@ -88,29 +89,29 @@ Below is a list of some key vocabulary related to this unit.  If any of these te
 
 	\item [Protein Kinases] These are proteins that phosphorylate other proteins and lead to post-translational regulation\sidenote{A \emph{kinase} is an enzyme that adds a phosphate group to a molecule, a \emph{protein kinase} is an enzyme that adds a phosphate group to another protein.  These reactions are reversed by enzymes called \emph{phosphatases}}.  You should be familiar with what hormones regulate these kinases, and over the course of the semester how they control metabolism.
 	\begin{itemize}
-		\item Akt\sidenote{Also referred to as Protein Kinase B}
-		\item AMP-Activated Protein Kinase (AMPK)
-		\item Glycogen Synthase Kinase 3 (GSK3)
-		\item Protein Kinase A (PKA)
-		\item Mechanistic Target of Rapamycin Complex 1 (mTORC1)
+		\item Akt --- Also referred to as Protein Kinase B.  Promotes glucose uptake and glycogen synthesis downstream of insulin.
+		\item AMP-Activated Protein Kinase (AMPK) --- Activated by low energy levels, promotes catabolism and inhibits anabolism.
+		\item Glycogen Synthase Kinase 3 (GSK3) --- Inactivated by insulin, promotes glycogen synthesis.
+		\item Protein Kinase A (PKA) --- Activated by adrenaline and glucagon, promotes glycogenolysis and gluconeogenesis.
+		\item Mechanistic Target of Rapamycin Complex 1 (mTORC1) --- Activated by insulin, high ATP, and high nutreint status.  Promotes nutrient storage and protein synthesis.
 	\end{itemize}
 	\item [Transcription Factors].  These regulate gene transcription, or the production of new proteins.  This typically is much slower than allosteric or post-translational regulation.
 		\begin{itemize} 
-			\item cAMP-Response Element Binding Protein (CREB)
-			\item Glucocorticoid Receptor
-			\item FOXO\sidenote{A family of Forkhead Box proteins}
-			\item Sterol Response Element Binding Protein (SREBP)
+			\item cAMP-Response Element Binding Protein (CREB) --- Activated by PKA, promotes gluconeogenesis.
+			\item Peroxisome Proliferator-Activated Receptor (PPAR) --- Sensors of lipids and regulators lipid metabolism.
+			\item Glucocorticoid Receptor --- Activated by cortisol, promotes gluconeogenesis and proteolysis.
+			\item FOXO --- A family of Forkhead Box proteins.  Active during fasting; promotes gluconeogenesis and autophagy.
+			\item Sterol Response Element Binding Protein (SREBP) --- A family of transcription factors that regulate lipid synthesis and uptake.
 		\end{itemize}
 \end{description}
 
 
 \section{Mechanisms of Glucose Regulation}
 
-\newthought{Glucose is typically maintained in a very narrow range}, between 4.4 to 6.1 mmol/L.  The major tissues responsible for regulating glucose levels are listed in Table \ref{glucose-sites}. Glucose levels need to be re-established after changes in feeding status or energy utilization or elevated during the absence of dietary carbohydrates.  In general, when glucose levels decrease, glucagon is released from alpha cells of the pancreas to promote glucose production, either from glycogen breakdown or gluconeogenesis.  Alternately, after a meal when glucose levels increase, insulin is secreted from beta cells of the pancreas causing glucose levels in the blood to decrease.
+\newthought{Glucose is typically maintained in a very narrow range}, between 80 to 110 mg/dL.  The major tissues responsible for regulating glucose levels are listed in Table~\ref{glucose-sites}. Glucose levels need to be re-established after changes in feeding status or energy utilization or elevated during the absence of dietary carbohydrates.  In general, when glucose levels decrease, glucagon is released from alpha cells of the pancreas to promote glucose production, either from glycogen breakdown or gluconeogenesis.  Alternately, after a meal when glucose levels increase, insulin is secreted from beta cells of the pancreas causing glucose levels in the blood to decrease.
 
 \begin{margintable}
-\caption{Primary sites for regulation of glucose homeostasis}
-\label{glucose-sites}
+\caption{Primary sites for regulation of glucose homeostasis}\label{glucose-sites}
 \begin{tabular}{@{}ll@{}}
 \textbf{Process }                          & \textbf{Tissue}           \\ \midrule
 Insulin Stimulated \\Glucose Uptake & Muscle and Fat   \\ \midrule
@@ -120,26 +121,25 @@ Gluconeogenesis & Liver \\ \bottomrule
 \end{tabular}
 \end{margintable}
 
-For the purposes of the acute maintenance of glucose homeostasis, four organs are the most important; the pancreas, liver, muscle and adipose tissue.  After a meal, muscles are the primary site of glucose disposal \citep{DeFronzo1981}.  The inability to clear glucose from the bloodstream and into muscles is one major cause of the hyperglycemia associated with type 2 diabetes\sidenote{The other proximal cause is unrestrained gluconeogenesis.}.
+For the purposes of the acute maintenance of glucose homeostasis, four organs are the most important; the pancreas, liver, muscle and adipose tissue.  After a meal, muscles are the primary site of glucose disposal \citep{DeFronzo1981}.  The inability to clear glucose from the bloodstream and into muscles is one major cause of the hyperglycemia associated with type 2 diabetes\sidenote{The other proximal cause is unrestrained gluconeogenesis.}.  Central to glucose control is the integrated control of multiple organ systems.  This is accomplished by \emph{hormones} that orchestrate the actions of these organs. 
 
 \newthought{Glucose enters the cell, down a concentration gradient} via passive transport from the blood into most tissues including liver, pancreas, kidneys and the brain.  In these cases the passive transport of glucose into the cell is mostly unregulated.  However, for glucose to enter into muscle and fat tissue, insulin is required.  This is accomplished by moving GLUT4 transporters from intracellular storage sites to the plasma membrane, allowing for glucose influx.  Once inside the cell, insulin will promote both glycogenesis and glycolysis.  
 
-\newthought{Glucose can be stored as glycogen\sidenote{This is known as glycogenesis}}.  To form glycogen, glucose must first be converted through glucose-1-phosphate into UDP-glucose.  This activated form of glucose is then added onto existing glycogen chains through the activity of an enzyme named glycogen synthase.  As we will discuss later in the semester, in addition to being regulated by protein phosphorylation and sub-cellular location, glycogen synthase is also allosterically activated by glucose-6-phosphate, promoting increased glycogen synthesis when glucose levels\sidenote{and therefore G6P levels} in the cell are high.  The combination of the allosteric and post-translational signals mean that when insulin levels are high, glycogenesis is promoted.
+\newthought{Glucose can be stored as glycogen\sidenote{This is known as glycogenesis}}.  To form glycogen, glucose must first be converted through glucose-1-phosphate into UDP-glucose.  This activated form of glucose is then added onto existing glycogen chains through the activity of an enzyme named glycogen synthase.  As we will discuss later in the semester, in addition to being regulated by protein phosphorylation and sub-cellular location, glycogen synthase is also allosterically activated by glucose-6-phosphate, promoting increased glycogen synthesis when glucose levels\sidenote{and therefore G6P levels} in the cell are high.  The combination of the allosteric and post-translational signals mean that when insulin levels are high, glycogenesis is promoted.\sidenote{How would the effects of insulin on glycogen storage affect people with type 1 and type 2, and their ability to control blood glucose under fasting conditions?}
 
 \newthought{To liberate glucose from stored glycogen, an enzyme known as glycogen phosphorylase is activated}.  This enzyme hydrolyses glycogen, releasing glucose-1-phosphate, which can then be dephosphorylated into glucose for glycolysis or release into the blood stream.  Hepatic glycogenolysis is the preferred source of short term glucose maintenance.  In addition to post-translational modifications and recruitment to the glycogen pellet by accessory proteins, glycogen phosphorylase is allosterically activated by energy stress such as increases in AMP, or negatively by increases in glucose-6-phosphate levels.  When adrenaline\sidenote{or for the liver, glucagon as well.} is elevated, glycogenolysis occurs releasing stored glucose for energy or to maintain normoglycemia.
 
 \newthought{Gluconeogenesis is the generation of glucose from non-carbohydrate precursor molecules}.  These typically include amino acids, lactate and glycerol\sidenote{Along with free fatty acids, the products of triglyceride breakdown, also known as \emph{lipolysis}.}.  The majority of gluconeogenesis occurs in the liver, and generally is important for glucose production from proteins and lipids after glycogen stores are depleted.  This biochemistry of gluconeogenesis is similar to reversed glycolysis though in several cases different enzymes are used.  As we will discuss later in the lecture, the rate limiting enzymes in gluconeogenesis are phosphoenolpyruvate carboxykinase, fructose-1,6-bisphosphatase and glucose-6-phosphatase.  These enzymes are under both transcriptional and post-translational control as described below.  Both the supply of gluconeogenic precursors (via breakdown of triglycerides and proteins), as well as the activity of gluconeogenic enzymes are reduced by insulin.  Adrenaline and glucagon both \emph{prevent} glycolysis in the liver (but not the muscle).  This is to make sure that the glucose that is produced via gluconeogenesis in liver isn't catabolized back to energy in the liver, but instead is sent to the muscles for uptake and use. Ultimately, the body tries to always ensure that the muscles have sufficient glucose and so it would be counterproductive for adrenaline and glucagon to have a negative regulatory role on muscle glycolysis.
 
-\newthought{When energy is needed}, for example during fasting, the primary source is circulating glucose, followed by the the breakdown of glycogen and then the production of new glucose (gluconeogenesis) from proteins and lipids.  At the same time, the unnecessary synthesis of new glycogen is stopped.  When glucose levels are too high, the first response is uptake and oxidation by the muscle, followed by glycogen synthesis and then eventually by \textit{de novo} lipogenesis.  At this time of excess glucose presence, gluconeogenesis (which is not needed) is stopped.  A summary of how insulin and adrenaline function to control these processes is shown in Table \ref{tab:endocrine-glucose}.
+\newthought{When energy is needed}, for example during fasting, the primary source is circulating glucose, followed by the the breakdown of glycogen and then the production of new glucose (gluconeogenesis) from proteins and lipids.  At the same time, the unnecessary synthesis of new glycogen is stopped.  When glucose levels are too high, the first response is uptake and oxidation by the muscle, followed by glycogen synthesis and then eventually by \textit{de novo} lipogenesis.  At this time of excess glucose presence, gluconeogenesis (which is not needed) is stopped.  A summary of how insulin and adrenaline function to control these processes is shown in Table~\ref{tab:endocrine-glucose}.
 
 \begin{margintable}
-\caption{Primary functions of insulin and the adrenergic hormones, glucagon and adrenaline on glucose homeostasis.}
-\label{tab:endocrine-glucose}
+\caption{Primary functions of insulin and the adrenergic hormones, glucagon and adrenaline on glucose homeostasis.}\label{tab:endocrine-glucose}
 \begin{tabular}{@{}lll@{}}
 \textbf{Process }                          & \textbf{Insulin}  & \textbf{Adrenergic}           \\ \midrule
-Insulin Stimulated \\Glucose Uptake & $\uparrow$ & -  \\ \midrule
-Glycolysis - Liver & $\uparrow$ & $\downarrow$ \\  \midrule
-Glycolysis - Muscle/Brain & $\uparrow$ & - \\  \midrule
+Insulin Stimulated \\Glucose Uptake & $\uparrow$ & ---  \\ \midrule
+Glycolysis --- Liver & $\uparrow$ & $\downarrow$ \\  \midrule
+Glycolysis --- Muscle/Brain & $\uparrow$ & --- \\  \midrule
 Glycogenolysis & $\downarrow$ & $\uparrow$ \\ \midrule
 Gluconeogenesis & $\downarrow$ & $\uparrow$\\ \midrule
 Lipolysis & $\downarrow$ & $\uparrow$ \\ \bottomrule
@@ -149,17 +149,16 @@ Lipolysis & $\downarrow$ & $\uparrow$ \\ \bottomrule
 
 \section{Pancreatic Cell Types}
 
-In order to balance the energy requirements of all tissues, blood glucose is primarily controlled via endocrine and neuroendocrine mechanisms.  The primary mediators are insulin and glucagon which are secreted from the pancreas during times of hyper and hypoglycemia, respectively.  These two peptide hormones are released from two cell types in the pancreas, the $\alpha$ cells which release glucagon and the $\beta$ cells which release insulin.  Both cell types are located in the Islets of Langerhans within the pancreas (see Figure \ref{pancreas-cells}).
+In order to balance the energy requirements of all tissues, blood glucose is primarily controlled via endocrine and neuroendocrine mechanisms.  The primary mediators are insulin and glucagon which are secreted from the pancreas during times of hyper and hypoglycemia, respectively.  These two peptide hormones are released from two cell types in the pancreas, the $\alpha$ cells which release glucagon and the $\beta$ cells which release insulin.  Both cell types are located in the Islets of Langerhans within the pancreas (see Figure~\ref{pancreas-cells}).
 
 \begin{figure}
 \includegraphics{figures/insulin-cells.png}
-\caption{Schematic of a pancreatic islet.  Taken from \citet{Efrat2012}}
-\label{pancreas-cells}
+\caption{Schematic of a pancreatic islet.  Taken from \citet{Efrat2012}}\label{pancreas-cells}
 \end{figure}
 
 \section{Key Mediators of Insulin Signaling}
 
-Insulin was discovered by Frederick Banting and his colleagues at the University of Toronto in 1921.  They performed experiments in which they injected extracts from pancreas fractions into dogs which had their pancreas surgically removed.  They showed that a secreted substance from the pancreas lowered blood glucose in these dogs \citep{Banting1922b}.  They were then able to confirm that this treatment was also effective in children with type 1 diabetes.  This work led to Banting and John Macleod winning the Nobel Prize in Medicine and Physiology in 1923.  We now know that type 1 diabetes is caused by autoimmune destruction of the pancreatic beta cells\sidenote{At this stage you should be able to predict how the lack of insulin affects glucose disposal, gluconeogenesis, and lipolysis}.  On the other hand, type 2 diabetes, often associated with obesity, is a \emph{peripheral resistance} to the effects of insulin.  This occurs when the muscle, fat tissue and liver stop responding to insulin.
+Insulin was discovered by Frederick Banting and his colleagues at the University of Toronto in 1921.  They performed experiments in which they injected extracts from pancreas fractions into dogs which had their pancreas surgically removed.  They showed that a secreted substance from the pancreas lowered blood glucose in these dogs \citep{Banting1922b}.  They were then able to confirm that this treatment was also effective in children with type 1 diabetes.\marginnote{In uncontrolled Type 1 diabetes, insulin is absent. Which processes go unregulated?}  This work led to Banting and John Macleod winning the Nobel Prize in Medicine and Physiology in 1923.  We now know that type 1 diabetes is caused by autoimmune destruction of the pancreatic beta cells\sidenote{At this stage you should be able to predict how the lack of insulin affects glucose disposal, gluconeogenesis, and lipolysis}.  On the other hand, type 2 diabetes, often associated with obesity, is a \emph{peripheral resistance} to the effects of insulin.  This occurs when the muscle, fat tissue and liver stop responding to insulin.\sidenote{What do you think would happen if insulin signaling is impaired in the liver, but not the muscle or vice versa?}
 
 The majority of the actions of insulin are mediated by a protein kinase called Akt (see \citep{Manning2007} for more details).  This protein kinase is activated downstream of both the insulin and IGF1 receptor.  Loss of function mutations in one of the isoforms, \textit{AKT2} in humans results in dramatic peripheral insulin resistance \citep{George2004}\sidenote{These mutations are quite rare in the general population.}.  Akt, once activated by insulin or IGF1 can phosphorylate a variety of proteins including key metabolic enzymes, but also activates key signaling cascades.  Three important cascades we will discuss that function downstream of Akt are FOXO and GSK3 (which are inactivated by Akt) and mTORC1 (which is activated).  
 
@@ -169,13 +168,15 @@ The majority of the actions of insulin are mediated by a protein kinase called A
 
  When glucose levels are low, glucagon is released from alpha cells in the pancreas.  This promotes the breakdown of glycogen stores in liver and muscle, and the generation of glucose from gluconeogenic precursors in the liver.  Glucagon receptors exist mainly in the liver, so glucagon does not exert its main catabolic effects on either adipose or muscle tissue. 
 
-The mechanisms which underlie hypoglycemia induced glucagon release are incompletely understood.  What is clear however, is that when blood glucose levels decrease, glucagon is released from the alpha cells of the pancreas into the portal vein.
+The mechanisms which underlie hypoglycemia induced glucagon release are incompletely understood.  What is clear however, is that when blood glucose levels decrease, glucagon is released from the alpha cells of the pancreas into the portal vein.\marginnote{\textbf{Clinical Note:} In untreated type 1 diabetes, insulin is absent, but glucagon secretion is often inappropriately high. This leads to excessive hepatic glucose production—even when blood glucose is already elevated—contributing to hyperglycemia and ketoacidosis.
+}
 
 \subsection{Glucagon Signal Transduction}
 
 Adrenergic-receptor coupled mediated cAMP synthesis was the first example of a hormonal second messenger.  Earl Sutherland was interested in the regulation of glycogenolysis, and he noticed that if he added adrenaline to intact cells, he could accelerate glycogen breakdown, but if he added it to lysed cells he could not.  In his key experiment he treated one set of livers with adrenaline, then lysed them.  He then added that lysate to a second set of livers which had already been broken.  He found that there was an internal factor (later identified as cAMP) in the stimulated tissues, that could accelerate glycogenolysis in the other tissues \citep{Rall1956}. For this work, Sutherland won the Nobel Prize in Medicine and Physiology in 1971.
 
-In metabolism, the main effector of cAMP in cells is Protein Kinase A (PKA).  This protein kinase is allosterically activated by cAMP and phosphorylates a wide variety of important metabolic substrates.  The identification of PKA and its role in carbohydrate homeostasis led to Fisher and Krebs winning the Nobel Prize in Medicine and Physiology in 1992.  The primary role of glucagon is to increase blood glucose, both by mobilizing glycogen stores and inducing gluconeogenesis.  The mechanisms for this are identical to those for adrenaline, as both of these hormones activate G-protein coupled receptors \sidenote{G protein-coupled receptors are receptors that detect molecules outside the cell and activate internal signals.} and result in PKA activation in the liver.
+In metabolism, the main effector of cAMP in cells is Protein Kinase A (PKA).  This protein kinase is allosterically activated by cAMP and phosphorylates a wide variety of important metabolic substrates.  The identification of PKA and its role in carbohydrate homeostasis led to Fisher and Krebs winning the Nobel Prize in Medicine and Physiology in 1992.  The primary role of glucagon is to increase blood glucose, both by mobilizing glycogen stores and inducing gluconeogenesis.\marginnote{\textbf{Clarifying Example:} After an overnight fast, blood glucose begins to fall. Glucagon rises and stimulates the liver to break down glycogen and activate gluconeogenesis. Meanwhile, insulin falls, reducing glucose uptake in peripheral tissues, conserving it for the brain.
+}  The mechanisms for this are identical to those for adrenaline, as both of these hormones activate G-protein coupled receptors \sidenote{G protein-coupled receptors are receptors that detect molecules outside the cell and activate internal signals.} and result in PKA activation in the liver.
 
 \subsection{The Primary Target of Glucagon is the Liver}
 
@@ -193,11 +194,10 @@ Transcriptionally, the transcription factor CREB is phosphorylated by PKA where 
 
 \section{Other Glucoregulatory Hormones}
 
-Since glucagon works primarily on liver tissue, different hormonal messengers function to stimulate catabolism of lipid in muscle and fat tissue.  A key difference from adrenaline and glucagon, is that adrenaline also has major effects on fat and muscle tissues, as well as glycogen.  Therefore, in addition to simulating hepatic gluconeogenesis and glycogenolysis, adrenaline also promotes lipid release and muscle glucose oxidation.  Both adrenaline and glucagon function by stimulating adrenergic signaling and cAMP-dependent PKA activation.  Some similarities and differences between glucagon and adrenaline are shown in Table \ref{tab:glucagon-adrenaline}.
+Since glucagon works primarily on liver tissue, different hormonal messengers function to stimulate catabolism of lipid in muscle and fat tissue.  A key difference from adrenaline and glucagon, is that adrenaline also has major effects on fat and muscle tissues, as well as glycogen.  Therefore, in addition to simulating hepatic gluconeogenesis and glycogenolysis, adrenaline also promotes lipid release and muscle glucose oxidation.  Both adrenaline and glucagon function by stimulating adrenergic signaling and cAMP-dependent PKA activation.  Some similarities and differences between glucagon and adrenaline are shown in Table~\ref{tab:glucagon-adrenaline}.
 
 \begin{margintable}
-\caption{Comparison between glucagon and adrenaline.  Glucagon does not promote lipolysis, think about why that might be the case.}
-\label{tab:glucagon-adrenaline}
+\caption{Comparison between glucagon and adrenaline.  Glucagon does not promote lipolysis, think about why that might be the case.}\label{tab:glucagon-adrenaline}
 \begin{tabular}{@{}lll@{}}
  & \textbf{Glucagon}  & \textbf{Adrenaline}           \\ \midrule
 Source & Pancreas & Adrenal \\ 
@@ -207,23 +207,23 @@ Signaling Pathway & PKA & PKA \\
 Gluconeogenesis & $\uparrow$ & $\uparrow$ \\  
 Hepatic Glycolysis & $\downarrow$ & $\downarrow$ \\ 
 Lipid Oxidation & $\uparrow$ & $\uparrow$ \\ 
-Lipolysis & - & $\uparrow$\\ \bottomrule
+Lipolysis & --- & $\uparrow$\\ \bottomrule
 \end{tabular}
 \end{margintable}
 
 In adipose tissue, adrenaline induces lipolysis, via phosphorylation and activation of Hormone Sensitive Lipase (HSL), Perilipin and Adipocyte Triglyceride Lipase (ATGL).  These proteins function to mobilize triglycerides into free fatty acids for use in other tissues, especially muscle.  For more information on the regulation of lipolysis, see \citep{Young2013}.  At an acute level, these do not contribute much to glucose homeostasis but are extremely important for lipid metabolism.
 
-\newthought{Longer term glucose control is regulated by two other hormones previously discussed, growth hormone and cortisol.}  These hormones are elevated during times of growth or stress where it is important to keep circulating glucose available for other functions.  During a prolonged fast, both GH and cortisol can be released, causing longer-lasting changes which ensure adequate blood supply to the brain.
+\newthought{Longer term glucose control is regulated by two other hormones previously discussed, growth hormone and cortisol.}  These hormones are elevated during times of growth or stress where it is important to keep circulating glucose available for other functions.  During a prolonged fast, both GH and cortisol can be released, causing longer-lasting changes which ensure adequate blood supply to the brain.\sidenote{How do the timescales of cortisol vs.\ adrenaline effects differ, and why does this matter clinically?}
 
-\newthought{Incretins enhance insulin release}, and are typically released from the gut.  They were first described when it was noted that when equal amounts of glucose are provided either through the gut, or intravenously, the gut-supplied glucose leads to a more robust insulin secretion effect.  Eventually gut-derived peptide hormones, GLP-1 and GIP1\sidenote{glucagon-like peptide 1 and gastric inhibitory peptide respectively} were described.  Both of these peptides are degraded by an enzyme called DPP-4, and inhibitors of this process have provided an exciting new potential therapeutic mechanism for enhancing glucose control.
+\newthought{Incretins enhance insulin release}, and are typically released from the gut.  They were first described when it was noted that when equal amounts of glucose are provided either through the gut, or intravenously, the gut-supplied glucose leads to a more robust insulin secretion effect.  Eventually gut-derived peptide hormones, GLP-1 and GIP1\sidenote{glucagon-like peptide 1 and gastric inhibitory peptide respectively} were described.  Both of these peptides are degraded by an enzyme called DPP-4, and inhibitors of this process have provided an exciting new potential therapeutic mechanism for reducing body weight and enhancing glucose control.\marginnote{Incretins are discussed in more detail in the gastrointestinal physiology unit, but have several functions.  In addition to potentiating insulin response, they reduce fodo intake via signaling in the brain.  This is the primary mechanism by which GLP1 receptor agonists (\textit{e.g.} semaglutide (marketed as Ozempic or Wegovy) or tirzepatide (marketed as Mounjaro)) reduce food intake.}
 
 \section{Pathophysiology Related to Glucose Control}
 
-\subsection{Type I Diabetes Mellitus}
+\subsection{Type 2 Diabetes Mellitus}
 
 Type I Diabetes is typically caused by autoimmune destruction of pancreatic beta cells.  Without these cells, the pancreas is unable to produce insulin and without careful monitoring and exogenous insulin, blood glucose levels will rise.  At the same time, lipolysis is very high. The excess flow of fatty acids into a liver which is unable to oxidize them\sidenote{We will discuss this in much more detail when we talk about lipid oxidation, but because the liver is diverting TCA cycle intermediates towards gluconeogenesis, the TCA cycle is unable to oxidize Acetyl-CoA.  This results in Acetyl-CoA being converted into a ketone and released from the cell.  The biochemistry is similar to nutritional ketosis, except in that case ketone levels are not typically elevated as high.} results in the production of ketone bodies, which when uncontrolled can lead to diabetic ketoacidosis.
 
-\subsection{Insulin Resistance and Type II Diabetes Mellitus}
+\subsection{Insulin Resistance and Type 2 Diabetes Mellitus}
 
 Type II diabetes occurs as a result of a multi-step process starting with negative feedback loops on insulin signaling.  As more nutrients are stored, for example in obesity metabolic tissues become resistant to the effects of insulin, likely as a way to protect against excessive lipid storage.  
 
@@ -247,15 +247,14 @@ There are several hormones that control protein synthesis, often mediated by a p
 \subsection{Hormonal Regulators of Protein Degradation}
 Protein breakdown occurs via two mechanisms, proteolysis which targets specific proteins for degradation and autophagy\sidenote{or self-eating} which can target entire organelles.  Both of these processes result in the liberation of amino acids from proteins.  Unlike fatty acids (triglycerides) and glucose (glycogen) there is no standard storage molecule for amino acids, so when the body needs amino acids, a variety of proteins are catabolized. 
 
-\newthought{One major pathway by which proteolysis is suppressed is the Insulin/IGF-FOXO pathway}.  Akt-dependent signaling insulin and IGF1 \emph{reduce} FOXO activity (see Figure \ref{fig:foxo-gluconeogenesis}).  When active, FOXO transcriptionally activates proteolytic genes known as atrogenes to liberate amino acids.  These amino acids may be liberated for fuel, or to provide building blocks for gluconeogenesis.  Therefore, when insulin/IGF signaling is active, proteolysis is reduced. 
+\newthought{One major pathway by which proteolysis is suppressed is the Insulin/IGF-FOXO pathway}.  Akt-dependent signaling insulin and IGF1 \emph{reduce} FOXO activity (see Figure~\ref{fig:foxo-gluconeogenesis}).  When active, FOXO transcriptionally activates proteolytic genes known as atrogenes to liberate amino acids.  These amino acids may be liberated for fuel, or to provide building blocks for gluconeogenesis.  Therefore, when insulin/IGF signaling is active, proteolysis is reduced. 
 
 \begin{marginfigure}
-\includegraphics{figures/foxo-gluconeogenesis}
-\caption{Schematic of regulation of FOXO and its role in proteolysis and gluconeogenesis.}
-\label{fig:foxo-gluconeogenesis}
+\includegraphics{figures/foxo-gluconeogenesis.png}
+\caption{Schematic of regulation of FOXO and its role in proteolysis and gluconeogenesis.}\label{fig:foxo-gluconeogenesis}
 \end{marginfigure}
 
-\newthought{Cortisol functions to make blood glucose available to key organs such as the brain, during times of stress.}  As such, cortisol promotes gluconeogenesis, by transcriptionally activating several enzymes, including G6Pase, PEPCK and pyruvate carboxylase.  At the same time, cortisol promotes delivery of gluconeogenic precursors such as glycerol (from adipocyte lipolysis), lactate and alanine (from muscle tissue) to the liver.  Chronically elevated cortisol leads to substantial muscle breakdown and is a major side effect of prescribed glucocorticoids or chronic stress.  This is described in Figure \ref{fig:foxo-gluconeogenesis}. Based on this you might be able to make a prediction of how insulin resistance might affect glucose production and proteolysis.
+\newthought{Cortisol functions to make blood glucose available to key organs such as the brain, during times of stress.}  As such, cortisol promotes gluconeogenesis, by transcriptionally activating several enzymes, including G6Pase, PEPCK and pyruvate carboxylase.  At the same time, cortisol promotes delivery of gluconeogenic precursors such as glycerol (from adipocyte lipolysis), lactate and alanine (from muscle tissue) to the liver.  Chronically elevated cortisol leads to substantial muscle breakdown and is a major side effect of prescribed glucocorticoids or chronic stress.  This is described in Figure~\ref{fig:foxo-gluconeogenesis}. Based on this you might be able to make a prediction of how insulin resistance might affect glucose production and proteolysis.\sidenote{Cortisol increases gluconeogenesis but also has immune-suppressive effects—why might this be a problem in long-term steroid therapy?}
 
 \section{Endocrine Regulation of Lipid Metabolism}
 
@@ -263,7 +262,7 @@ Lipid synthesis is promoted by insulin and reversed by adrenaline.  Triglyceride
 
 \newthought{Insulin functions to promote lipid storage} in two ways.  It promotes the production of lipids from precursors\sidenote{This is known as \textit{de novo} lipogenesis.}, promotes the esterifictaion of fatty acids and glycerol into triglycerides and prevents the breakdown of triglycerides into fatty acids.  We will discuss the mechanisms by which insulin controls fat storage later in the semester.
 
-\newthought{To liberate and use lipids for fuel} first, fatty acids are released from adipose tissue, with the activation of $\beta$-oxidation happening concurrently in muscle.  There are several hormones that regulate this, but adrenaline, which promotes both adipocyte lipolysis and muscle lipid oxidation is very important as is the energy sensor AMPK.  As we will learn later in the semester, several key lipolytic and oxidative enzymes are activated by adrenaline (and PKA) mediated protein phosphorylation.
+\newthought{To liberate and use lipids for fuel} first, fatty acids are released from adipose tissue, with the activation of $\beta$-oxidation happening concurrently in muscle.  There are several hormones that regulate this, but adrenaline, which promotes both adipocyte lipolysis and muscle lipid oxidation is very important as is the energy sensor AMPK\@  As we will learn later in the semester, several key lipolytic and oxidative enzymes are activated by adrenaline (and PKA) mediated protein phosphorylation.
 
 \bibliography{library}
 \bibliographystyle{plainnat}
