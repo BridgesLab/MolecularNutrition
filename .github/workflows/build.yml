@@ -42,6 +42,7 @@ jobs:
             pandoc "$f" \
               --lua-filter=scripts/tufte.lua \
               --lua-filter=scripts/newthought.lua \
+              --lua-filter=scripts/marginnotes.lua \
               -s \
               --css=tufte.css \
               --mathjax \
