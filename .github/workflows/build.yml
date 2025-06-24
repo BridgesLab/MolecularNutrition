@@ -1,4 +1,4 @@
-name: Build and Deploy Notes (HTML + PDF)
+name: Build and Deploy Notes (HTML)
 
 on:
   push:
