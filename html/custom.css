@@ -1,0 +1,40 @@
+.marginnote {
+  display: none;
+  position: absolute;
+  top: 1.5em;
+  left: 0;
+  width: 200px;
+  background: #f8f8f8;
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+  font-size: 0.9em;
+}
+
+.marginnote-wrapper:hover .marginnote,
+.marginnote-wrapper:focus-within .marginnote {
+  display: block;
+  cursor: default;
+}
+
+.sidenote {
+  display: none;
+  position: absolute;
+  top: 1.5em;
+  left: 0;
+  width: 200px;
+  background: #f8f8f8;
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+  font-size: 0.9em;
+}
+
+.sidenote-wrapper:hover .sidenote,
+.sidenote-wrapper:focus-within .sidenote {
+  display: block;
+  cursor: default;
+}
+
