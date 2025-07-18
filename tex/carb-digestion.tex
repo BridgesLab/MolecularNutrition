@@ -13,6 +13,17 @@
 \author{Olivia Anderson and Dave Bridges}
 \date{}  % if the \date{} command is left out, the current date will be used
 
+% Conditionally redefine Tufte-style macros for HTML output
+\ifdefined\htmlversion
+  \def\newthought#1{@@newthought:#1@@}
+  \def\marginnote#1{@@marginnote:#1@@}
+  \def\sidenote#1{@@sidenote:#1@@}
+\else
+  \newcommand{\newthought}[1]{\textsc{#1}}
+  \newcommand{\marginnote}[1]{\marginpar{#1}}
+  \newcommand{\sidenote}[1]{\footnote{#1}}
+\fi
+
 % The following package makes prettier tables.  We're all about the bling!
 \usepackage{booktabs}
 

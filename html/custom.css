@@ -32,6 +32,11 @@
   font-size: 0.9em;
 }
 
+.sidenote-wrapper {
+  position: relative;
+  display: inline-block; /* so it wraps the icon and text nicely */
+}
+
 .sidenote-wrapper:hover .sidenote,
 .sidenote-wrapper:focus-within .sidenote {
   display: block;

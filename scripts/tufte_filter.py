@@ -1,4 +1,32 @@
 #!/usr/bin/env python3
+r"""Tufte-style macros filter for Panflute.
+
+Need to add this to the top of all tex files
+
+% Conditionally redefine Tufte-style macros for HTML output
+\ifdefined\htmlversion
+  \def\newthought#1{@@newthought:#1@@}
+  \def\marginnote#1{@@marginnote:#1@@}
+  \def\sidenote#1{@@sidenote:#1@@}
+\else
+  \newcommand{\newthought}[1]{\textsc{#1}}
+  \newcommand{\marginnote}[1]{\marginpar{#1}}
+  \newcommand{\sidenote}[1]{\footnote{#1}}
+\fi
+
+Local usage:
+    pandoc test.tex \
+        --from=latex+raw_tex \
+        --to=html5 \
+        --filter=../scripts/tufte_filter.py \
+        --template=../html/tufte_template.html \
+        --mathjax=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js \
+        --citeproc \
+        --bibliography=library.bib \
+        -V htmlversion \
+        --standalone \
+        -o test.html
+"""
 import panflute as pf
 import re
 
