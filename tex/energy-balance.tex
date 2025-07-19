@@ -30,7 +30,6 @@
 
 % Provides paragraphs of dummy text
 \usepackage{lipsum}
-
 % These commands are used to pretty-print LaTeX commands
 \newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
 \newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
@@ -40,6 +39,17 @@
 \newcommand{\docpkg}[1]{\texttt{#1}}% package name
 \newcommand{\doccls}[1]{\texttt{#1}}% document class name
 \newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+
+% Conditionally redefine Tufte-style macros for HTML output
+\ifdefined\htmlversion
+  \def\newthought#1{@@newthought:#1@@}
+  \def\marginnote#1{@@marginnote:#1@@}
+  \def\sidenote#1{@@sidenote:#1@@}
+\else
+  \newcommand{\newthought}[1]{\textsc{#1}}
+  \newcommand{\marginnote}[1]{\marginpar{#1}}
+  \newcommand{\sidenote}[1]{\footnote{#1}}
+\fi
 
 \begin{document}
 
@@ -174,12 +184,14 @@ DIT & Protein in Meal, Insulin Sensitivity, Meal Size\\
 \end{table}
 
 
-While it was once thought that lower TDEE could be causal of obesity, careful studies in the early 1990s showed that obesity was associated with \emph{higher} energy expenditure rather than lower energy expenditure \citep{Ravussin1982}.  This is now thought to be an adaptive response to gaining weight.  When excess calories are consumed, the body responds by increasing the metabolic rate to try to maintain homeostasis.  Supporting that, during weight loss, the metabolic rate actually \emph{decreases}, likely in an attempt to limit changes in body weight \citep{Leibel1995a}.  This is what is known as a metabolic set point.  It is a metabolic state that the body adapts around.  Unfortunately for those trying to sustain weight loss, this persistent reduction in metabolic rate lasts for many years \citep{Rosenbaum2008}.  Further complicating efforts in weight reduction, studies that have assessed appetite and appetite-driving hormones in successful dieters have shown that there are chronic feelings of both hunger and elevations in hunger hormones, again many years after weight loss \citep{Sumithran2011}.  These two factors, reduced TDEE and increased drive towards energy intake are major reasons why successful weight loss is so difficult to maintain over time.  A schematic of this is shown in Figure~\ref{fig:loss-regain}.
+While it was once thought that lower TDEE could be causal of obesity, careful studies in the early 1990s showed that obesity was associated with \emph{higher} energy expenditure rather than lower energy expenditure \citep{Ravussin1982}.  This is now thought to be an adaptive response to gaining weight.  When excess calories are consumed, the body responds by increasing the metabolic rate to try to maintain homeostasis.  Supporting that, during weight loss, the metabolic rate actually \emph{decreases}, likely in an attempt to limit changes in body weight \citep{Leibel1995a}.  This is what is known as a metabolic set point.  It is a metabolic state that the body adapts tp.  Unfortunately for those trying to sustain weight loss, this persistent reduction in metabolic rate lasts for many years \citep{Rosenbaum2008}.  Further complicating efforts in weight reduction, studies that have assessed appetite and appetite-driving hormones in successful dieters have shown that there are chronic feelings of both hunger and elevations in hunger hormones, again many years after weight loss \citep{Sumithran2011}.  These two factors, reduced TDEE and increased drive towards energy intake are major reasons why successful weight loss is so difficult to maintain over time.  A schematic of this is shown in Figure~\ref{fig:loss-regain}.
 
 \begin{marginfigure}
 \includegraphics{figures/Loss-Regain.png}\
 \caption{Physiological adaptations to weight loss promote weight re-gain.  An individual loses weight, but compensatory decreases in energy expenditure and increases in appetite often result in weight regain.}\label{fig:loss-regain}
 \end{marginfigure}
+
+\newthought{Obesity is mostly driven by appetite.}  While it is true that some people have a higher energy expenditure, the vast majority of people who are obese have high energy expenditure.  If you conmpare obesity rates and energy expenditure across cultures and economic strata, energy expenditure does not explain these differences in obesity rates \citep{mcgroskyEnergyExpenditureObesity2025}. It is is predicted that differential obesity rates are is due to differences in energy intake. Another line of evidence is that genetic studies of people with obesity have shown that the majority of genetic variants associated with obesity are related to appetite control, rather than energy expenditure \citep{jefferyEvidenceImplicatingEating2007}.  Finally the drugs and interventions that are most effective in reducing obesity work primarily by reducing appetite not by increasing energy expenditure.  For example GLP-1 Receptor Agonists\sidenote{Drugs such as Ozempic or Mounjaro.} reduce appetite (particularly towards highly palatable foods) but not energy expenditure \citep{martinTirzepatideIngestiveBehavior2025}. This is not to say that energy expenditure does not play a role in obesity, but rather that it is not the primary driver of obesity.  The primary driver of obesity is appetite, and the drive to eat more than we expend.  In the next unit we will discuss how appetite is regulated, and how this can be modified by genetics, physiology and the environment.
 
 
 \bibliography{library}
