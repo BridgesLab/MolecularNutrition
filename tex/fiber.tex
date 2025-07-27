@@ -8,7 +8,7 @@
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
 \graphicspath{{graphics/}}
 
-\title{Carbohydrate Structure}
+\title{Fiber}
 \author{Olivia Anderson and Dave Bridges}
 %\date{}  % if the \date{} command is left out, the current date will be used
 
@@ -40,6 +40,16 @@
 \newcommand{\doccls}[1]{\texttt{#1}}% document class name
 \newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
 
+% Conditionally redefine Tufte-style macros for HTML output
+\ifdefined\htmlversion
+  \def\newthought#1{@@newthought:#1@@}
+  \def\marginnote#1{@@marginnote:#1@@}
+  \def\sidenote#1{@@sidenote:#1@@}
+\else
+  \newcommand{\newthought}[1]{\textsc{#1}}
+  \newcommand{\marginnote}[1]{\marginpar{#1}}
+  \newcommand{\sidenote}[1]{\footnote{#1}}
+\fi
 
 \begin{document}
 \maketitle% this prints the handout title, author, and date
@@ -65,7 +75,7 @@ For this lecture we will review the basic structure of fiber and go over several
 \section{Fiber Basics}\index{Fiber|(}
 We discuss fiber within the carbohydrate unit because its structure is very similar except that the glycosidic bonds are resistant to digestive breakdown and will forgo absorption in the digestive tract. For example, recall the polysaccharide cellulose\index{Carbohydrates!Cellulose}. It is a linear homopolymer of beta-D glucose linked by beta 1, 4 bonds which are resistant to glycosidases in the digestive tract such as alpha amylase\index{Digestive Enzymes!Pancreatic Alpha Amylase} (enzyme specificity to alpha 1, 4 glycosidic bonds\index{Carbohydrates!Glycosidic Bonds}). This results in cellulose passing through the digestive tract intact and reaching the large intestine\index{Large Intestine}. Fiber is found in plants, specifically within the cellular walls. Common dietary sources of fiber include fruits, vegetables, grains and legumes. Fiber can also be synthetically added to food sources such as cereals, yogurt, juices, and even artificial sweeteners.
 
-\newthought{Most people do not consume the recommended amount of fiber} which is 25g per day for women and 38g per day for men \citep{InstituteofMedicine2005}. The average American consumes only 16g of fiber per day \citep{hoyFiberIntakeUS2010}.\marginnote{Consider what you percieve to be some high fiber foods, and look up the amount of fiber per serving.  Calculate how many servings of that food you need to achieve 38g, the recommendation for males.} The low intake of fiber is concerning because it has been shown to have several health benefits including the prevention of constipation\index{Constipation}, diverticular disease\index{Diverticulosis}, and colorectal cancer\index{Cancer!Colorectal} \citep{Slavin2013}. In addition, fiber can help with weight management\index{Weight Management} by increasing satiety\index{Satiety} and decreasing hunger\index{Hunger} \citep{clarkEffectFiberSatiety2013}.
+\newthought{Most people do not consume the recommended amount of fiber} which is 25g per day for women and 38g per day for men \citep{InstituteofMedicine2005}. The average American consumes only 16g of fiber per day \citep{hoyFiberIntakeUS2010}.\marginnote{Consider what you percieve to be some high fiber foods, and look up the amount of fiber per serving.  Calculate how many servings of that food you need to achieve 38g, the recommendation for males.} The low intake of fiber is concerning because it has been shown to have several health benefits including the prevention of constipation\index{Constipation}, diverticular disease\index{Diverticulosis}, and colorectal cancer\index{Cancer!Colorectal} \citep{slavinFiberPrebioticsMechanisms2013}. In addition, fiber can help with weight management\index{Weight Management} by increasing satiety\index{Satiety} and decreasing hunger\index{Hunger} \citep{clarkEffectFiberSatiety2013}.
 
 \section*{Defining Fiber}
 The term crude fiber was coined by two scientists in the 1800's who first discovered that there was material leftover from plants after an extraction in an acidic dilute followed by an alkali dilute which mimicked the digestive tract environment. As an understanding of how the digestive tract works and what this leftover fraction was, the definition of crude fiber evolved over time to what we most commonly refer to as dietary fiber or in other words, ``the plant polysaccharides and lignin which are resistant to hydrolysis by the digestive enzymes of a man'' \citep{Trowell1978}. For research and policy purposes, several definitions beyond dietary fiber have been developed by scientific and regulatory agencies. The definitions either encompass a physiological character of the fiber such as soluble\index{Fiber!Soluble Fiber} or fermentable\index{Fiber!Fermentable} or refer to an analytical method (i.e., can be synthetically made) associated with the fiber like functional fiber\index{Fiber!Functional Fiber}.
@@ -136,6 +146,9 @@ Resistant starch (RS) refers to starch and starch-degradation products that esca
 \end{itemize}
 Like other fermentable fibers, resistant starch can yield short-chain fatty acids upon bacterial fermentation. Some resistant starch types act as prebiotics. Resistant has been studied for beneficial effects on glycemic response, colonic health, and increasingly, metabolic parameters \citep{birtResistantStarchPromise2013}.
 
-\bibliography{library}
-\bibliographystyle{plainnat}
+\ifx\HCode\undefined
+    % Only include these during LaTeX compilation (PDF)
+    \bibliography{library}
+    \bibliographystyle{plainnat}
+\fi
 \end{document}
