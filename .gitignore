@@ -301,3 +301,4 @@ TSWLatexianTemp*
 #*Notes.bib
 *.DS_Store
 tstex_modules/_api.ts
+tex-processed/

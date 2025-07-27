@@ -19,13 +19,34 @@ for file in "$TEX_DIR"/*.tex; do
 
     echo "Processing $file to $output_file"
 
-    # Read the original file and modify it
-    # 1. Extract content after \begin{document}
-    # 2. Prepend \documentclass[../nutr630-notes.tex]{subfiles}
-    # 3. Remove everything before \begin{document} (i.e., the preamble)
+    # Use awk to:
+    # - Insert subfile documentclass at the top
+    # - Strip preamble (everything before \begin{document})
+    # - Remove lines with unwanted LaTeX commands
+    # - Replace abstract environment with a simple italic paragraph
+
     awk '
-    BEGIN { print "\\documentclass[../nutr630-notes.tex]{subfiles}\n" }
-    /\\begin{document}/ { print; in_document=1; next }
-    in_document { print }
+    BEGIN {
+        print "\\documentclass[../nutr630-notes.tex]{subfiles}\n"
+        in_document = 0
+    }
+    /\\begin{document}/ {
+        print; in_document = 1; next
+    }
+    {
+        if (in_document) {
+            # Remove unwanted lines
+            if ($0 ~ /\\tableofcontents/ || $0 ~ /\\maketitle/ || $0 ~ /\\bibliography{.*}/ || $0 ~ /\\bibliographystyle{.*}/) next
+
+            # Replace abstract environment with italic text block
+            gsub(/\\begin{abstract}/, "\\\\noindent\\\\textit{")
+            gsub(/\\end{abstract}/, "}")
+
+            print
+        }
+    }
     ' "$file" > "$output_file"
 done
+
+# Copy figures folder
+cp -r tex/figures "$OUTPUT_DIR/figures"
