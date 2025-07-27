@@ -44,9 +44,6 @@ jobs:
           source /usr/share/miniconda/etc/profile.d/conda.sh
           conda env update -f environment.yml -n base
           conda activate base
-          conda list pandoc
-          which pandoc
-          pandoc --version
           for f in tex/*.tex; do
             fname=$(basename "$f" .tex)
             pandoc "$f" \
@@ -68,8 +65,10 @@ jobs:
       - name: Copy figures
         run: cp -r tex/figures/* output/figures/ || true
 
-      - name: Copy tufte.css
-        run: cp html/tufte.css output/
+      - name: Copy CSS files
+        run: |
+          cp html/tufte.css output/html/
+          cp html/custom.css output/html/ || true
 
       - name: Copy custom index.html
         run: cp html/index.html output/
