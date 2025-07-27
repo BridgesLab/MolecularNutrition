@@ -30,7 +30,12 @@ jobs:
       - name: Set up LaTeX and Pandoc
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-full pandoc
+          sudo apt-get install -y texlive-full
+      
+      - name: Set up conda environment
+        run: |
+          conda env update -f environment.yml -n base
+          conda activate base
 
       - name: Create output directory
         run: mkdir -p output/pdf output/figures
