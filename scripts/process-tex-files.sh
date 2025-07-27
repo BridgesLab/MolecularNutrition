@@ -29,6 +29,3 @@ for file in "$TEX_DIR"/*.tex; do
     in_document { print }
     ' "$file" > "$output_file"
 done
-
-# Compile the main LaTeX document using latexmk
-latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode" "$MAIN_FILE"
