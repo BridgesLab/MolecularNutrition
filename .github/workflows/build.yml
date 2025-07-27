@@ -42,6 +42,9 @@ jobs:
           conda activate base
           # Add your subsequent commands here (e.g., run tests)
           conda info  # Optional: Verify Conda setup
+          conda list pandoc  # Check if pandoc is installed
+          which pandoc       # Check pandoc's path
+          pandoc --version   # Verify pandoc version
 
       - name: Create output directory
         run: mkdir -p output/pdf output/figures
