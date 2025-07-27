@@ -43,14 +43,12 @@ jobs:
               --from=latex+raw_tex \
               --to=html5 \
               --filter=scripts/tufte_filter.py \
-              --filter=scripts/convert_citations.py \
               --template=html/tufte_template.html \
               --mathjax=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js \
               --citeproc \
               --bibliography=tex/library.bib \
               -V htmlversion \
-              --standalone \  
-              --css=tufte.css \
+              --standalone \
               -o "output/${fname}.html"
           done
 

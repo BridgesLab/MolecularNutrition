@@ -30,55 +30,53 @@ Local usage:
 import panflute as pf
 import re
 
-def split_text_with_spaces(text):
-    # Split text by spaces but keep spaces as separate tokens
-    tokens = []
-    pos = 0
-    for m in re.finditer(r'\s+', text):
-        if m.start() > pos:
-            tokens.append(text[pos:m.start()])
-        tokens.append(text[m.start():m.end()])
-        pos = m.end()
-    if pos < len(text):
-        tokens.append(text[pos:])
-    return tokens
+def extract_text_from_elem(elem):
+    """Extract text from an element, preserving non-text elements."""
+    if isinstance(elem, pf.Str):
+        return elem.text, None
+    elif isinstance(elem, pf.Space):
+        return ' ', None
+    elif isinstance(elem, pf.SoftBreak):
+        return '\n', None
+    else:
+        # For non-text elements (like citations), return placeholder and store the element
+        return f"__ELEM_{id(elem)}__", elem
 
 def replace_macros_in_para(elem, doc):
     if doc.format not in ['html', 'html5']:
         return None
 
-    # Reassemble full paragraph text
+    # Extract text and preserve non-text elements
     text_parts = []
+    preserved_elems = {}
+    
     for item in elem.content:
-        if isinstance(item, pf.Str):
-            text_parts.append(item.text)
-        elif isinstance(item, pf.Space):
-            text_parts.append(' ')
-        elif isinstance(item, pf.SoftBreak):
-            text_parts.append('\n')
-        else:
-            text_parts.append(pf.stringify(item))
+        text, preserved_elem = extract_text_from_elem(item)
+        text_parts.append(text)
+        if preserved_elem is not None:
+            preserved_elems[f"__ELEM_{id(item)}__"] = preserved_elem
+
     full_text = ''.join(text_parts)
 
+    # If no tufte macros, return unchanged
     if '@@' not in full_text:
         return None
 
     pattern = r'@@(newthought|marginnote|sidenote):(.*?)@@'
 
+    # Process the text and build new elements
     new_elems = []
     pos = 0
+    
     for m in re.finditer(pattern, full_text):
         start, end = m.span()
         macro_type, macro_content = m.groups()
 
+        # Handle text before the macro
         before_text = full_text[pos:start]
-        tokens = split_text_with_spaces(before_text)
-        for t in tokens:
-            if t.isspace():
-                new_elems.append(pf.Space())
-            else:
-                new_elems.append(pf.Str(t))
+        new_elems.extend(process_text_with_preserved_elems(before_text, preserved_elems))
 
+        # Add the macro
         if macro_type in ['marginnote', 'sidenote']:
             wrapper = pf.Span(
                 pf.Span(pf.Str('‡'), classes=['margin-icon']),
@@ -91,15 +89,46 @@ def replace_macros_in_para(elem, doc):
 
         pos = end
 
+    # Handle remaining text after last macro
     after_text = full_text[pos:]
-    tokens = split_text_with_spaces(after_text)
-    for t in tokens:
-        if t.isspace():
-            new_elems.append(pf.Space())
-        else:
-            new_elems.append(pf.Str(t))
+    new_elems.extend(process_text_with_preserved_elems(after_text, preserved_elems))
 
     return pf.Para(*new_elems)
+
+def process_text_with_preserved_elems(text, preserved_elems):
+    """Process text string and restore preserved elements."""
+    elems = []
+    
+    # Split by preserved element placeholders
+    parts = re.split(r'(__ELEM_\d+__)', text)
+    
+    for part in parts:
+        if part in preserved_elems:
+            # Restore preserved element
+            elems.append(preserved_elems[part])
+        elif part:
+            # Process regular text, preserving spaces
+            tokens = split_text_with_spaces(part)
+            for token in tokens:
+                if token.isspace():
+                    elems.append(pf.Space())
+                else:
+                    elems.append(pf.Str(token))
+    
+    return elems
+
+def split_text_with_spaces(text):
+    """Split text by spaces but keep spaces as separate tokens."""
+    tokens = []
+    pos = 0
+    for m in re.finditer(r'\s+', text):
+        if m.start() > pos:
+            tokens.append(text[pos:m.start()])
+        tokens.append(text[m.start():m.end()])
+        pos = m.end()
+    if pos < len(text):
+        tokens.append(text[pos:])
+    return tokens
 
 def action(elem, doc):
     if isinstance(elem, pf.Para):
