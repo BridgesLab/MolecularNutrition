@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - 'tex/*.tex'
+      - 'tex/library.bib'
+      - 'tex/*/pdf'
   workflow_dispatch:
 
 jobs:
@@ -31,6 +33,7 @@ jobs:
           inkscape
           ghostscript
         texlive_version: 2025
+        post_compile: "bibtex nutr630-notes"
 
     - name: Upload PDF artifact
       uses: actions/upload-artifact@v4
