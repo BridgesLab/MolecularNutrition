@@ -26,6 +26,9 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+       
+      - name: Create output directory
+        run: mkdir -p output/pdf output/figures  
       
       - name: Set up Conda environment
         uses: conda-incubator/setup-miniconda@v3
@@ -35,23 +38,15 @@ jobs:
           activate-environment: base
           auto-activate-base: true
       
-      - name: Update and activate environment
+      - name: Update, activate, and process tex files
         shell: bash -l {0}
         run: |
+          source /usr/share/miniconda/etc/profile.d/conda.sh
           conda env update -f environment.yml -n base
           conda activate base
-          export PATH=$PATH:/usr/share/miniconda/bin #to make sure pandoc is in PATH
-          # Add your subsequent commands here (e.g., run tests)
-          conda info  # Optional: Verify Conda setup
-          conda list pandoc  # Check if pandoc is installed
-          which pandoc       # Check pandoc's path
-          pandoc --version   # Verify pandoc version
-
-      - name: Create output directory
-        run: mkdir -p output/pdf output/figures
-
-      - name: Compile HTML from .tex
-        run: |
+          conda list pandoc
+          which pandoc
+          pandoc --version
           for f in tex/*.tex; do
             fname=$(basename "$f" .tex)
             pandoc "$f" \
