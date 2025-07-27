@@ -40,6 +40,7 @@ jobs:
         run: |
           conda env update -f environment.yml -n base
           conda activate base
+          export PATH=$PATH:/usr/share/miniconda/bin #to make sure pandoc is in PATH
           # Add your subsequent commands here (e.g., run tests)
           conda info  # Optional: Verify Conda setup
           conda list pandoc  # Check if pandoc is installed
