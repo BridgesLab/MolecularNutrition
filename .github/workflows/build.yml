@@ -67,8 +67,8 @@ jobs:
 
       - name: Copy CSS files
         run: |
-          cp html/tufte.css output/html/
-          cp html/custom.css output/html/ || true
+          cp html/tufte.css output/
+          cp html/custom.css output/ || true
 
       - name: Copy custom index.html
         run: cp html/index.html output/
