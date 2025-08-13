@@ -11,7 +11,7 @@
 
 \title{Regulation of Lipid Catabolism}
 \author{Dave Bridges}
-\date{}  % if the \date{} command is left out, the current date will be used
+%\date{}  % if the \date{} command is left out, the current date will be used
 
 % The following package makes prettier tables.  We're all about the bling!
 \usepackage{booktabs}
@@ -40,6 +40,17 @@
 \newcommand{\docpkg}[1]{\texttt{#1}}% package name
 \newcommand{\doccls}[1]{\texttt{#1}}% document class name
 \newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+
+% Conditionally redefine Tufte-style macros for HTML output
+\ifdefined\htmlversion
+  \def\newthought#1{@@newthought:#1@@}
+  \def\marginnote#1{@@marginnote:#1@@}
+  \def\sidenote#1{@@sidenote:#1@@}
+\else
+  \newcommand{\newthought}[1]{\textsc{#1}}
+  \newcommand{\marginnote}[1]{\marginpar{#1}}
+  \newcommand{\sidenote}[1]{\footnote{#1}}
+\fi
 
 \begin{document}
 
@@ -172,7 +183,7 @@ Ketone bodies are produced when there is excessive acetyl-CoA, but insufficent T
 Acetoacetate + Succinyl-CoA \rightarrow Succinate + Acetoacetyl-CoA
 \end{equation} 
 
-As a result this generates a single Acetyl-CoA molecule after a thiolase reaction.  This reaction is not cataplerotic because both Succinate and Succinyl-CoA are part of the TCA cycle.  However bypassing the Succinyl-CoA Synthetase step means that one GTP is not generated during normal TCA cycle progress.  Overall, an Acetyl-CoA that is released from the liver as $\beta$-hydroxybutyrate costs the liver 3.5 ATP molecules \sidenote{1 ATP for the ATP-Citrate Lyase step, 2.5 ATP for the NADH used to generate $\beta$-hydroxybutyrate}.  In the recipient tissue, that $\beta$-hydroxybutyrate generates 6.5 ATP in net\sidenote{Generate 10 ATP from the TCA cycle oxidation of Acetyl-CoA, but using 1 NADH converting $\beta$-hydroxybutyrate to acetoacetate; and 1 GTP skipping the Succinyl-CoA Synthetase step. So 10 - 3.5 =6.5}.  Overall, ketone usage means that the original Acetyl-CoA in the liver now only generates 3 ATP equivalents rather than the 10 ATP if it remained in the liver (6.5 ATP generated - 3.5 ATP used in liver to generate the $\beta$-hydroxybutyrate = 3 ATP in total).  Table \ref{tab:transport-processes} summarizes the energy costs of the three major transport processes we have discussed this year.  The \emph{inefficiency} of these transport processes comes at a cost to performance, but can cause negative energy balance for weight loss.  In terms of low-carbohydrate, high fat diets this may explain the slight increase in energy expenditure (100-200kcal/day) observed in relation to low fat, high carbohydrate diets \citep{Hall2016a,Ebbeling2018}.
+As a result this generates a single Acetyl-CoA molecule after a thiolase reaction.  This reaction is not cataplerotic because both Succinate and Succinyl-CoA are part of the TCA cycle.  However bypassing the Succinyl-CoA Synthetase step means that one GTP is not generated during normal TCA cycle progress.  Overall, an Acetyl-CoA that is released from the liver as $\beta$-hydroxybutyrate costs the liver 3.5 ATP molecules \sidenote{1 ATP for the ATP-Citrate Lyase step, 2.5 ATP for the NADH used to generate $\beta$-hydroxybutyrate}.  In the recipient tissue, that $\beta$-hydroxybutyrate generates 6.5 ATP in net\sidenote{Generate 10 ATP from the TCA cycle oxidation of Acetyl-CoA, but using 1 NADH converting $\beta$-hydroxybutyrate to acetoacetate; and 1 GTP skipping the Succinyl-CoA Synthetase step. So 10 - 3.5 =6.5}.  Overall, ketone usage means that the original Acetyl-CoA in the liver now only generates 3 ATP equivalents rather than the 10 ATP if it remained in the liver (6.5 ATP generated - 3.5 ATP used in liver to generate the $\beta$-hydroxybutyrate = 3 ATP in total).  Table \ref{tab:transport-processes} summarizes the energy costs of the three major transport processes we have discussed this year.  The \emph{inefficiency} of these transport processes comes at a cost to performance, but can cause negative energy balance for weight loss.  In terms of low-carbohydrate, high fat diets this may explain the slight increase in energy expenditure (100-200kcal/day) observed in relation to low fat, high carbohydrate diets \citep{Hall2016b,Ebbeling2018}.
 
 \begin{margintable}
 \centering
@@ -195,7 +206,7 @@ As we described above, short term regulation is accomplished primarily through t
 
 \subsection{Transcriptional Adaptations for Fatty Acid Oxidation}
 
-\newthought{In terms of athletic performance,} increasing the ability to oxidize fatty acids is important for endurance athletes.  Highly trained athletes tend to have more mitochondria, and higher expression of enzymes such as Lipoprotein Lipase, CPT1, Acetyl-CoA Synthetase and enzymes of the TCA cycle.  One major regulator of these adaptations are transcription factors called PPAR$\delta$ and PPAR$\alpha$.  In muscle tissues PPAR$\alpha$ and PPAR$\delta$  activate the transcription of several lipid transport and oxidation genes.  In liver tissues, a similar transcription factor, PPAR$\alpha$ upregulates many of the same genes\sidenote{Activation of PPAR$\alpha$ is a promising target to alleviate hepatic steatosis and non-alcoholic fatty liver disease (NAFLD), though they have not yet reached the clinic.} along with genes involved in ketogenesis \citep{Kersten2000,Badman2007}.  Both of these transcription factors are induced by elevated intracellular fatty acid levels \citep{Keller1993}.  The specific natural ligands for the PPAR transcription factors have been difficult to unambiguously identify, but PUFA's seem to play a key role in activating these transcription factors \citep{Forman1997}.  This is potentially one mechanism by which PUFA's alleviate lipid accumulation.
+\newthought{In terms of athletic performance,} increasing the ability to oxidize fatty acids is important for endurance athletes.  Highly trained athletes tend to have more mitochondria, and higher expression of enzymes such as Lipoprotein Lipase, CPT1, Acetyl-CoA Synthetase and enzymes of the TCA cycle.  One major regulator of these adaptations are transcription factors called PPAR$\delta$ and PPAR$\alpha$.  In muscle tissues PPAR$\alpha$ and PPAR$\delta$  activate the transcription of several lipid transport and oxidation genes.  In liver tissues, a similar transcription factor, PPAR$\alpha$ upregulates many of the same genes\sidenote{Activation of PPAR$\alpha$ is a promising target to alleviate hepatic steatosis and metabolic dysfunction-associated steatotic liver disease (MASLD), though they have not yet reached the clinic.} along with genes involved in ketogenesis \citep{Kersten2000,Badman2007}.  Both of these transcription factors are induced by elevated intracellular fatty acid levels \citep{Keller1993}.  The specific natural ligands for the PPAR transcription factors have been difficult to unambiguously identify, but PUFA's seem to play a key role in activating these transcription factors \citep{Forman1997}.  This is potentially one mechanism by which PUFA's alleviate lipid accumulation.
 
 Interestingly, similar adaptations occur in the context of obesity, likely for the same reasons.  The major difference, is that in the absence of energy demand, lipids are only partially oxidized or end up stored as lipids in cells.  The buildup of stored, partially oxidized fatty acids is thought to play a role in the pathogenesis of insulin resistance, though the mechansims are not clearly defined.
 

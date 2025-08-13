@@ -9,9 +9,9 @@
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
 \graphicspath{{graphics/}}
 
-\title{Endocrine Regulation of Macronutrient Homeostasis}
-\author{}
-\date{}  % if the \date{} command is left out, the current date will be used
+\title{Lipid Synthesis}
+\author{Dave Bridges}
+%\date{}  % if the \date{} command is left out, the current date will be used
 
 % The following package makes prettier tables.  We're all about the bling!
 \usepackage{booktabs}
@@ -41,6 +41,16 @@
 \newcommand{\doccls}[1]{\texttt{#1}}% document class name
 \newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
 
+% Conditionally redefine Tufte-style macros for HTML output
+\ifdefined\htmlversion
+  \def\newthought#1{@@newthought:#1@@}
+  \def\marginnote#1{@@marginnote:#1@@}
+  \def\sidenote#1{@@sidenote:#1@@}
+\else
+  \newcommand{\newthought}[1]{\textsc{#1}}
+  \newcommand{\marginnote}[1]{\marginpar{#1}}
+  \newcommand{\sidenote}[1]{\footnote{#1}}
+\fi
 
 \begin{document}
 
@@ -208,7 +218,7 @@ While palmitate is the initial fatty acid made by mammals, this fatty acid (C16:
 
 Two steps of fatty acid biosynthesis are under relatively acute control.  ATP-Citrate Lyase is phosphorylated and activated by insulin-dependent signaling through Akt \citep{Berwick2002}, whereas Acetyl-CoA Carboxylase is dephosphorylated and activated, also in an Akt-dependent manner \citep{Witters1992}.  The inactivation of ACC is due to phosphorylation by both PKA\sidenote{In response to glucagon or adrenaline signaling} or AMPK\sidenote{The AMP-Activated Protein Kinase, In response to energy needs.}, so the role of insulin is to reverse that inhibition.  The precise process by which insulin and Akt mediate this dephosphorylation is not clear at this stage.  
 
-\newthought{Citrate is a feed-forward regulator of ACC.}  When citrate is exported to the cytoplasm, it serves as an activator of ACC and results in the production of more Malonyl-CoA \citep{VAGELOS1963}.  Cytoplasmic citrate is also a potent negative regulator of phosphofructokinase 1\sidenote{Remember this from the glycolysis unit?}.  This means that when there is excessive Acetyl-CoA production, and if ATP-Citrate Lyase is active, citrate production will \emph{block} glycolysis while promoting lipogenesis indicating that there is excess glucose in the cell that has to be stored while slowing down glycolysis. In this way, glucose can be saved\sidenote{For example, stored as glycogen.} when there is sufficient substrates to store energy as lipid.  This is \emph{not} the case for fructolysis, which bypasses PFK1 regulation by citrate.  An implication of this is that even when there is sufficient Acetyl-CoA to make lipids, dietary fructose will continue to be processed into more Acetyl-CoA.  This positive feedback loop, ocurring mainly in the liver will result in more lipogenesis.  This is proposed to be the biochemical mechanism by which fructose consumption is associated with the development of NAFLD\sidenote{Non-alcoholic fatty liver disease.}\citep{Lim2010}.
+\newthought{Citrate is a feed-forward regulator of ACC.}  When citrate is exported to the cytoplasm, it serves as an activator of ACC and results in the production of more Malonyl-CoA \citep{VAGELOS1963}.  Cytoplasmic citrate is also a potent negative regulator of phosphofructokinase 1\sidenote{Remember this from the glycolysis unit?}.  This means that when there is excessive Acetyl-CoA production, and if ATP-Citrate Lyase is active, citrate production will \emph{block} glycolysis while promoting lipogenesis indicating that there is excess glucose in the cell that has to be stored while slowing down glycolysis. In this way, glucose can be saved\sidenote{For example, stored as glycogen.} when there is sufficient substrates to store energy as lipid.  This is \emph{not} the case for fructolysis, which bypasses PFK1 regulation by citrate.  An implication of this is that even when there is sufficient Acetyl-CoA to make lipids, dietary fructose will continue to be processed into more Acetyl-CoA.  This positive feedback loop, ocurring mainly in the liver will result in more lipogenesis.  This is proposed to be the biochemical mechanism by which fructose consumption is associated with the development of MASLD\sidenote{Metabolic Dysfunction-Associated Steatotic Liver Disease, previously known as Non-Alcoholic Fatty Liver Disease or NAFLD.}\citep{Lim2010}.
 
 
 \newthought{At a chronic level, fatty acid biosynthesis is regulated by transcriptional control of several enzymes.}  SREBP1c, discussed earlier, promotes the synthesis of Fatty Acid Synthase, ACC, ATP-Citrate Lyase, SCD1 and several of the elongases \citep{Horton2002b,Moon2012b}.  Another transcriptional regulator is the more recently described ChREBP\sidenote{Carbohydrate Response Element Binding Protein}.  This transcription factor is activated by excessive carbohydrates, and especially in the liver, results in the activation of many of the same lipid synthetic proteins\sidenote{More information about ChREBP can be found in \citet{Baraille2015}.}.  ChREBP is thought to play a key role in fructose's strong lipogenic effects in the liver \citep{Kim2016d}.
@@ -248,7 +258,7 @@ HMG-CoA + 2NADPH \rightarrow Mevalonate + CoA + 2NADP
 
 \subsection{The Relationship Between Dietary Fat and Cholesterol Synthesis}
 
-There is a strong negative association between MUFA and PUFA intake and both LDL/HDL ratio and cardiovascular risk \citep{Hu1998,Zong2016}.  Consistent with this, a large randomized controlled trial with a high intake of PUFA and MUFA containing foods reduced cardiovascular events by about 30\% \citep{Estruch2013a}.  The exact mechanisms by which saturated fats more potently promote cholesterol biogenesis, while MUFA and PUFA do not are still under investigation.  Some possibilities include higher energy content, preferential oxidation to acetyl-coA and reduced packing density.
+There is a strong negative association between MUFA and PUFA intake and both LDL/HDL ratio and cardiovascular risk \citep{Hu1998,Zong2016}.  Consistent with this, a large randomized controlled trial with a high intake of PUFA and MUFA containing foods reduced cardiovascular events by about 30\% \citep{Estruch2018}.  The exact mechanisms by which saturated fats more potently promote cholesterol biogenesis, while MUFA and PUFA do not are still under investigation.  Some possibilities include higher energy content, preferential oxidation to acetyl-coA and reduced packing density.
 
 
 \bibliography{library}
