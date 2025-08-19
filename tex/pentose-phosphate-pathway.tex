@@ -10,8 +10,8 @@
 \graphicspath{{graphics/}}
 
 \title{Oxidative Stress, the Pentose Phosphate Pathway and Alcohol Metabolism}
-\author{}
-\date{}  % if the \date{} command is left out, the current date will be used
+\author{Dave Bridges}
+%\date{}  % if the \date{} command is left out, the current date will be used
 
 % The following package makes prettier tables.  We're all about the bling!
 \usepackage{booktabs}
@@ -40,6 +40,17 @@
 \newcommand{\docpkg}[1]{\texttt{#1}}% package name
 \newcommand{\doccls}[1]{\texttt{#1}}% document class name
 \newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+
+% Conditionally redefine Tufte-style macros for HTML output
+\ifdefined\htmlversion
+  \def\newthought#1{@@newthought:#1@@}
+  \def\marginnote#1{@@marginnote:#1@@}
+  \def\sidenote#1{@@sidenote:#1@@}
+\else
+  \newcommand{\newthought}[1]{\textsc{#1}}
+  \newcommand{\marginnote}[1]{\marginpar{#1}}
+  \newcommand{\sidenote}[1]{\footnote{#1}}
+\fi
 
 \begin{document}
 
@@ -118,7 +129,7 @@ Finally, recently a fourth pathway has emerged, wherin the reduction of 10-TMF t
 While glycolysis is a catabolic pathway, the pentose phosphate pathway could be considered an anabolic pathway.  This is because anabolic pathways, notably fatty acid and cholesterol biosynthesis requires a large number of NADPH molecules.  To make one molecule of palmitate (a 16 carbon fatty acid) you need \emph{14 NADPH molecules}.  As described in reaction \ref{eq:ppp-nadph}, you would need more than 6 glucose molecules, just to provide the reducing equivalents to make a palmitate (not including all the energy needed for these reactions, which will be described in the lipid synthesis unit).  Therefore in cells that make a lot of fatty acids and sterols, such as adipose, liver, the mammary glands, testes and adrenal glands, a substantial fraction of glucose is utilized to make NADPH.
 
 \begin{marginfigure}
-\includegraphics{figures/gsh-nadph.pdf}
+\includegraphics{figures/gsh-nadph.png}
 \caption{The glutathione:NADPH antioxidant system.  The oxidized form of each molecule is shown in orange, the reduced form is in blue.}
 \label{fig:gsh-system}
 \end{marginfigure}
@@ -139,7 +150,7 @@ In some cells, such as red blood cells NADPH is the \textit{only} way to reduce 
 While GSH is able to scavenge reactive oxygen species on its own, this system is extended by two key vitamins, C and E.  This occurs via a series of reactions wherein electrons are passed from Vitamins E and/or C to glutathione and then eventually to NADPH.  This is shown in Figure \ref{fig:gsh-system-vitamins}.  Vitamin C is largely soluble, and can scavenge electrons from water soluble areas.  Vitamin E is lipophilic and functions to alleviate the oxidative damage to lipids and lipid-bound proteins.
 
 \begin{figure}
-\includegraphics{figures/gsh-nadph-vitamins.pdf}
+\includegraphics{figures/gsh-nadph-vitamins.png}
 \caption{The glutathione:NADPH antioxidant system and Vitamins C and E.  The oxidized form of each molecule is shown in orange, the reduced form is in blue.  Ascorbate is the oxidized and active molecular form of Vitamin C, while $\alpha$-tocopherol is the molecular form of Vitamin E}
 \label{fig:gsh-system-vitamins}
 \end{figure}
@@ -161,12 +172,12 @@ Almost three quarters of the population of the United States report drinking alc
 
 
 \begin{figure}
-\includegraphics{figures/alcohol-adh.pdf}
+\includegraphics{figures/alcohol-adh.png}
 \caption{Alcohol metabolism into Acetyl-CoA via A) Alcohol Dehydrogenase or B) \textit{CYP2E1}.}
 \label{fig:alcohol-adh}
 \end{figure}
 
-Hopefully by now you can determine that for the ADH-dependent pathway there are 15 ATP equivalents generated, and one ATP used, so the net result is 14 ATP per ethanol molecule.  If you recall from the energy balance lecture, the Atwater value of ethanol is 7 kcal/g so more than carbohydrates or protein, but a bit less than lipids.  Still, that is a lot of energy to deliver to the liver.  The result is that the Acetyl-CoA is often diverted to lipogenesis, which can contribute to NAFLD, and while cataplerosis may be activated (recall that Acetyl-CoA activates Pyruvate Carboxylase, there is no corresponding increase in amino acids or glycerol from other tissues.  This results in depletion of glycogen from the liver and the reduction of TCA intermediates).  The situation gets worse in chronic drinkers, where the ADH enzyme cannot process the alcohol effectively enough.  This results in the transcriptional activation of Cytochrome P450 enzyme E1 (CYP2E1).  This set of reactions (shown in Figure \ref{fig:alcohol-adh}B) now \emph{use} NADPH rather than generating NADH.  This means that the liver's antioxidant capacity is reduced, and the chances of oxidative stress and chronic liver damage (known as alcoholic fatty liver disease) can occur.  While NAFLD is increasing in prevalence, most end-stage liver disease is due to chronic alcohol consumption.  This is thought to be a combination of lipid accumulation and oxidative damage.
+Hopefully by now you can determine that for the ADH-dependent pathway there are 15 ATP equivalents generated, and one ATP used, so the net result is 14 ATP per ethanol molecule.  If you recall from the energy balance lecture, the Atwater value of ethanol is 7 kcal/g so more than carbohydrates or protein, but a bit less than lipids.  Still, that is a lot of energy to deliver to the liver.  The result is that the Acetyl-CoA is often diverted to lipogenesis, which can contribute to MASLD\sidenote{Metabolic Dysfunction-Associated Steatotic Liver Disease}, and while cataplerosis may be activated (recall that Acetyl-CoA activates Pyruvate Carboxylase, there is no corresponding increase in amino acids or glycerol from other tissues.  This results in depletion of glycogen from the liver and the reduction of TCA intermediates).  The situation gets worse in chronic drinkers, where the ADH enzyme cannot process the alcohol effectively enough.  This results in the transcriptional activation of Cytochrome P450 enzyme E1 (CYP2E1).  This set of reactions (shown in Figure \ref{fig:alcohol-adh}B) now \emph{use} NADPH rather than generating NADH.  This means that the liver's antioxidant capacity is reduced, and the chances of oxidative stress and chronic liver damage (known as alcoholic fatty liver disease) can occur.  While MASLD is increasing in prevalence, most end-stage liver disease is due to chronic alcohol consumption.  This is thought to be a combination of lipid accumulation and oxidative damage.
 
 \newthought{The Cytochrome P450 system detoxifies many other substances.}  In addition to alcohol, other Cytochrome P450 enzymes cause the enzymatic alteration (generally for purposes of stabilization and excretion) of many other compounds.  This is an important process whereby the liver prepares and removes inessential compounds from our bodies.  An interesting example is caffeine, which is hydroxylated by \textit{CYP2E2}.  There are common variants in \textit{CYP1A2} that result in slower metabolism of caffeine.  These individuals have higher sustained spikes in caffeine in their blood, and may be at slightly higher risk for caffeine-induced hypertension.
 

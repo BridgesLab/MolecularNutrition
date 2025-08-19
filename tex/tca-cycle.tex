@@ -10,8 +10,8 @@
 \graphicspath{{graphics/}}
 
 \title{TCA Cycle and the Electron Transport Chain}
-\author{}
-\date{}  % if the \date{} command is left out, the current date will be used
+\author{Dave Bridges}
+%\date{}  % if the \date{} command is left out, the current date will be used
 
 % The following package makes prettier tables.  We're all about the bling!
 \usepackage{booktabs}
@@ -41,12 +41,23 @@
 \newcommand{\doccls}[1]{\texttt{#1}}% document class name
 \newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
 
+% Conditionally redefine Tufte-style macros for HTML output
+\ifdefined\htmlversion
+  \def\newthought#1{@@newthought:#1@@}
+  \def\marginnote#1{@@marginnote:#1@@}
+  \def\sidenote#1{@@sidenote:#1@@}
+\else
+  \newcommand{\newthought}[1]{\textsc{#1}}
+  \newcommand{\marginnote}[1]{\marginpar{#1}}
+  \newcommand{\sidenote}[1]{\footnote{#1}}
+\fi
+
 \begin{document}
 
 \maketitle% this prints the handout title, author, and date
 
 \begin{abstract}
-\noindent The aquisition and utilization of mitochondria during evolution dramatically improved the ability of the cell to generate energy.  In the presence of oxygen and ATP demand, the products of glycolysis, amino acid catabolism and lipid oxidation enter the TCA Cycle\sidenote{Also known as the Tricarboxylic Acid Cycle, Kreb's Cycle or Citric Acid Cycle.}.  This allows for complete oxidation of metabolites into CO\textsubscript{2} and efficient energy production by the mitochondrial ATP synthase.  This unit will describe how the TCA Cycle and Electron Transport Chain are regulated, and how various nutrients interact with this cellular pathway.  For more details about the these topics see Chapters 18-20 in Biochemistry: A Short Course\cite{Berg2015}, available on reserve.
+\noindent The acquisition and utilization of mitochondria during evolution dramatically improved the ability of the cell to generate energy.  In the presence of oxygen and ATP demand, the products of glycolysis, amino acid catabolism and lipid oxidation enter the TCA Cycle\sidenote{Also known as the Tricarboxylic Acid Cycle, Kreb's Cycle or Citric Acid Cycle.}.  This allows for complete oxidation of metabolites into CO\textsubscript{2} and efficient energy production by the mitochondrial ATP synthase.  This unit will describe how the TCA Cycle and Electron Transport Chain are regulated, and how various nutrients interact with this cellular pathway.  For more details about the these topics see Chapters 18-20 in Biochemistry: A Short Course\cite{Berg2015}, available on reserve.
 \end{abstract}
 %add chapters
 \tableofcontents
@@ -74,10 +85,10 @@
 \end{itemize}
 
 \section{The Next Steps in Carbohydrate Metabolism Require Mitochondria}
-While glucose oxidation to the level of Pyruvate generates the equivalent of 7 ATP molecules\sidenote{2 x NADH (5 ATP equivalents at 2.5 ATP/NADH) and 2 x ATP are generated.}, full oxidation to CO$_2$ can yield up to 32 molecules of ATP.  This process requires transport of pyruvate into the mitochondria where Acetyl-CoA is generated and degraded to CO$_2$, GTP and reduction of electron carrier molecules.  These molecules, NADH and FADH\textsubscript{2}, are passed to the electron transport chain, generating a proton gradient, which powers the mitochondrial ATPase\sidenote{This is a little confusingly named, as an "ase" generally can break down a molecule.  In this case the mitochondrial ATPase \emph{generates} ATP from ADP.}.  Mitochondria are also the only way to catabolize fatty acids, and most Amino Acids.  As a membrane-enclosed organelle, many key metabolites are impermeable to mitochondria without transporters.  These include cytoplasmic NADH generated during glycolysis as well as Pyruvate.  Fortunately there are a variety of transporters and shuttle systems that transport key materiel from the cytoplasm into the mitochondria.
+While glucose oxidation to the level of Pyruvate generates the equivalent of 7 ATP molecules\sidenote{2 x NADH (5 ATP equivalents at 2.5 ATP/NADH) and 2 x ATP are generated.}, full oxidation to CO$_2$ can yield up to 32 molecules of ATP\sidenote{The specific amount can vary from 30-32 depending on mitochondrial efficiency.}.  This process requires transport of pyruvate into the mitochondria where Acetyl-CoA is generated and degraded to CO$_2$, GTP and reduction of electron carrier molecules.  These molecules, NADH and FADH\textsubscript{2}, are passed to the electron transport chain, generating a proton gradient, which powers the mitochondrial ATPase\sidenote{This is a little confusingly named, as an "ase" generally can break down a molecule.  In this case the mitochondrial ATP synthase \emph{generates} ATP from ADP.}.  Mitochondria are also the only way to catabolize fatty acids, and most Amino Acids.  As a membrane-enclosed organelle, many key metabolites are impermeable to mitochondria without transporters.  These include cytoplasmic NADH generated during glycolysis as well as Pyruvate\sidenote{NADPH cannot cross the mitochondrial membrane, so requires shuttle pathways such as the malate–aspartate and glycerol–phosphate shuttles to indirectly share NADPH between compartments.  For more detail about these shuttles see \citet{mckennaNeuronalAstrocyticShuttle2006}.}.  Fortunately there are a variety of transporters and shuttle systems that transport key materiel from the cytoplasm into the mitochondria.
 
 \subsection{Regulation of Mitochondrial Numbers}
-Before we start with what happens in mitochondria, its worth taking a step back and considering how mitochondrial amounts are regulated.  The presence of mitochondria is essential for aerobic metabolism, and muscle fibers that are rich in mitochondria are able to fully oxidize glucose and other fuels.  These are known as Type I muscle fibers, or colloquially as slow-twitch muscle fibers\sidenote{There is another fast-twitch fiber type that contains less mitochondria called IIA fibers}.  The number and efficiency of mitochondria in muscle is not static, and can be modified by training.  For example endurance training dramatically increases the number of mitochondria and the levels of TCA and ETC enzymes in both rodent and human studies \citep{Exercise1967,Gollnick1972,Gollnick1973}.  Understanding the molecular mechanisms by which this happens is a major research area both in terms of human performance, and in terms of modifying energy expenditure and promoting healthy aging (for more details see \citet{Cartee2016}).  Some cells have few or no mitochondria.  In this case they are entirely dependent on glycolysis for ATP production.
+Before we start with what happens in mitochondria, its worth taking a step back and considering how mitochondrial amounts are regulated.  The presence of mitochondria is essential for aerobic metabolism, and muscle fibers that are rich in mitochondria are able to fully oxidize glucose and other fuels.  These are known as Type I muscle fibers, or colloquially as slow-twitch muscle fibers\sidenote{There is another fast-twitch fiber type that contains less mitochondria called IIA fibers}.  The number and efficiency of mitochondria in muscle is not static, and can be modified by training.  For example endurance training dramatically increases the number of mitochondria and the levels of TCA and ETC enzymes in both rodent and human studies \citep{Exercise1967,Gollnick1972,Gollnick1973,holloszyRegulationMitochondrialBiogenesis2011}.  Understanding the molecular mechanisms by which this happens is a major research area both in terms of human performance, and in terms of modifying energy expenditure and promoting healthy aging (for more details see \citet{Cartee2016}).  Some cells have few or no mitochondria.  In this case they are entirely dependent on glycolysis for ATP production.
 
 \section{The Possible Fates of Pyruvate}
 
@@ -88,7 +99,7 @@ Pyruvate + NADH \rightleftharpoons Lactate + NAD^+
 \end{equation}
 
 \subsection{Anaerobic Glycolysis}
-If oxygen is unavailable to the cell, or there are no mitochondria present and lactate is produced, this is the end of anaerobic glycolysis.  The reaction to generate lactate uses up the NADH produced during glycolysis.  This means that on net one glucose molecule now generates just two ATP equivalents\sidenote{Walk yourself through this to convince yourself this is correct.}.  The lactate molecule that is released was once thought to be primarily converted back to glucose by a pathway called the Cori cycle\sidenote{This will be explained in more detail when we discuss gluconeogenesis.} but recent experiments monitoring the flux of lactate shows that a large fraction of lactate is anaplerotic, meaning it is used to increase the number of molecules in the TCA cycle \citep{Hui2017,Ferguson2018}\sidenote{Anaplerosis and its inverse, cataplerosis will be described below.  If you are interested in understanding metabolic flux or the details of this study, there is a group bonus assignment about it on GradeCraft called Research Reflections - Lactate Flux and the use of Stable Isotopes.}.
+If oxygen is unavailable to the cell, or there are no mitochondria present and lactate is produced, this is the end of anaerobic glycolysis.  The reaction to generate lactate uses up the NADH produced during glycolysis.  This means that on net one glucose molecule now generates just two ATP equivalents\sidenote{Walk yourself through this to convince yourself this is correct.}.  The lactate molecule that is released was once thought to be primarily converted back to glucose by a pathway called the Cori cycle\sidenote{This will be explained in more detail when we discuss gluconeogenesis.} but recent experiments monitoring the flux of lactate shows that a large fraction of lactate is anaplerotic, meaning it is used to increase the number of molecules in the TCA cycle \citep{Hui2017,Ferguson2018}\sidenote{Anaplerosis and its inverse, cataplerosis will be described below, but in general is the removal of TCA cycle intermediates.}.
 
 \begin{margintable}
 \centering
@@ -118,7 +129,7 @@ Pyruvate + NAD^+ + CoA \rightarrow AcetylCoA + CO_2 + NADH +H^+
 The two most important products here are Acetyl-CoA, which will enter the TCA cycle and NADH which will go to Complex I of the Electron Transport Chain.  As one of the most important molecular decision steps, it makes sense that this enzyme is tightly regulated.  Intracellularly, PDH activity is turned on when energy is low, and turned off when energy is available.  The specific regulators are shown in Table \ref{tab:pdh-regulators} and Figure \ref{fig:pdh-pdk}.  The first several of these should be familiar to you, as increased substrate, and decreased energy (as sensed by low ATP, high ADP and low NADH, Acetyl-CoA) all promote PDH activity\sidenote{Now you may be thinking, I thought the key determinant of aerobic respiration was oxygen availability!  It may not be clear yet, but once you have read these notes, try to come back to this and think about how low oxygen levels would result in changes in PDH activity}.  Ca\textsuperscript{2+} is an activator of PDH activity, and as we will describe, also plays a role in activating several other TCA Cycle enzymes.  This is because, when muscles contract they release Calcium.  This allows for mitochondria to respond to contraction by generating more ATP.
 
 \begin{marginfigure}
-\includegraphics{figures/pdk-regulation.pdf}
+\includegraphics{figures/pdk-regulation.png}
 \caption{Regulation of pyruvate dehydrogenase.}
 \label{fig:pdh-pdk}
 \end{marginfigure}
@@ -162,8 +173,7 @@ The TCA Cycle/ETC completely oxidizes Acetyl-CoA to CO\textsubscript{2}.  One cy
 
 \begin{table}
 \centering
-\caption{TCA Cycle ATP generation.  See Table \ref{tab:atp-equivalents} for details on conversion rates.}
-\label{tab:atp-tca}
+\caption{TCA Cycle ATP generation.  See Table~\ref{tab:atp-equivalents} for details on conversion rates.}\label{tab:atp-tca}
 \begin{tabular}{ccc}
 \hline
 \textbf {Product} & $\rightarrow$ & \textbf{ATP}\\
@@ -176,15 +186,14 @@ Total & & \textbf{10 ATP}\\
 \end{tabular}
 \end{table}
 
-if we include the NADH generated by Pyruvate Dehydrogenase, that means that Pyruvate oxidation results in 12.5 molecules of ATP.  Based on what we have discussed in this unit and in the glycolysis unit, try to determine how much ATP is generated from one molecule of glucose\sidenote{For a slightly bigger challenge, consider that palmitate oxidation generates 8 Acetyl-CoA, 7 NADH and 7 FADH\textsubscript{2} molecules, but requires 2 ATP molecules for activation.  Consider the energy yield from a C16:0 (Palmitate) fatty acid, compared to glucose.}.  Compare this to the two molecules of ATP generated by anaerobic glycolysis and it should make sense why we breathe heavier when we exercise.
+if we include the NADH generated by Pyruvate Dehydrogenase, that means that Pyruvate oxidation results in 12.5 molecules of ATP.@  Based on what we have discussed in this unit and in the glycolysis unit, try to determine how much ATP is generated from one molecule of glucose\sidenote{For a slightly bigger challenge, consider that palmitate oxidation generates 8 Acetyl-CoA, 7 NADH and 7 FADH\textsubscript{2} molecules, but requires 2 ATP molecules for activation.  Consider the energy yield from a C16:0 (Palmitate) fatty acid, compared to glucose.}.  Compare this to the two molecules of ATP generated by anaerobic glycolysis and it should make sense why we breathe heavier when we exercise.
 
 \subsection{NADH and FADH\textsubscript{2} Are Substrates for the Electron Transport Chain}
-Once Acetyl-CoA is generated by PDH, or by the breadown of amino or fatty acids, the TCA cycle functions to extract electrons from these substrates and pass them along to the electron transport chain.  This is done by transferring electrons from TCA intermediates to electron carrier molecules including NADH and FADH\textsubscript{2}.  These molecules are "charged" by these electrons, and then transfer them to Complex I (for NADH) or Complex II (for FADH\textsubscript{2}).  The electron transport chain takes these charged carriers, and transfers the energy through a series of complexes.  After Complex I or II, electrons are next transported to another carrier called Ubiquinone (or Coenzyme Q) which takes them to Complex III.  Between complex III and IV is a final carrier called Cytochrome c.  As electrons are passed between electron carriers, complexes I, III and IV result in proton ions being pumped out of the mitochondrial cristae, resulting in a gradient of protons.  The final step at complex IV reduces oxygen into water.  Oxygen is the final electron carrier and is essential for the complete oxidation of the electron carrier molecules.
+Once Acetyl-CoA is generated by PDH, or by the breadown of amino or fatty acids, the TCA cycle functions to extract electrons from these substrates and pass them along to the electron transport chain.  This is done by transferring electrons from TCA intermediates to electron carrier molecules including NADH and FADH\textsubscript{2}.  These molecules are ``charged'' by these electrons, and then transfer them to Complex I (for NADH) or Complex II (for FADH\textsubscript{2}).  The electron transport chain takes these charged carriers, and transfers the energy through a series of complexes.  After Complex I or II, electrons are next transported to another carrier called Ubiquinone (or Coenzyme Q) which takes them to Complex III.@  Between complex III and IV is a final carrier called Cytochrome c.  As electrons are passed between electron carriers, complexes I, III and IV result in proton ions being pumped out of the mitochondrial cristae, resulting in a gradient of protons.  The final step at complex IV reduces oxygen into water.  Oxygen is the final electron carrier and is essential for the complete oxidation of the electron carrier molecules.
 
 \begin{margintable}
 \centering
-\caption{ATP producing equivalents.}
-\label{tab:atp-equivalents}
+\caption{ATP producing equivalents.}\label{tab:atp-equivalents}
 \begin{tabular}{ccc}
 \hline
 \textbf {Molecule} & $\rightarrow$ & \textbf{ATP}\\
@@ -198,14 +207,13 @@ Once Acetyl-CoA is generated by PDH, or by the breadown of amino or fatty acids,
 
 \subsection{The Electron Transport Chain is Coupled to ATP Production}
 
-As a result of the reactions in Complex I, III and IV, protons are pumped from the inside of the mitochondria to the inner-membrane space\sidenote{Mitochondria have two membranes an inner membrane and an outer membrane.}.  This generates a proton gradient with more protons on the outside of the inner membrane than on the inside.  This gradient drives a proton-coupled pump called ATP Synthase.  If the proton gradient is established, and sufficient ADP levels are present inside the mitochondria, ATP Synthase catalyzes the production of ATP from ADP.
+As a result of the reactions in Complex I, III and IV, protons are pumped from the inside of the mitochondria to the inner-membrane space\sidenote{Mitochondria have two membranes an inner membrane and an outer membrane.}.  This generates a proton gradient with more protons on the outside of the inner membrane than on the inside.  This gradient drives a proton-coupled pump called ATP Synthase.  If the proton gradient is established, and sufficient ADP levels are present inside the mitochondria, ATP Synthase catalyzes the production of ATP from ADP.@
 
-\newthought{The three electron carrier molecules we have described are FAD, NAD and CoQ\sidenote{Cytochrome c is a protein not a small molecule.}.} These all need to be available in the mitochondria to allow electrons to flow from the TCA cyle through the ETC.  These molecules are reduced by the actions of the TCA cycle then oxidized back to their original form by the ETC.  All three of these can be generated endogenously, but NAD and FAD are usually generated from vitamins (see Table \ref{tab:etc-carriers}).  It has been suggested that as we age, we are less able to generate NAD, and several preclinical trials are underway to test whether NAD supplementation may slow aging in humans (reviewed in \citet{Rajman2018})  .Coenzyme Q is generated endogenously using some enzymes of the steroid biosynthesis pathway, and inhibitors of this pathway (such as statins) have been suggested to result in CoQ deficiency (reviewed in \citet{Quinzii2007}).  
+\newthought{The three electron carrier molecules we have described are FAD, NAD and CoQ\sidenote{Cytochrome c is a protein not a small molecule.}.} These all need to be available in the mitochondria to allow electrons to flow from the TCA cyle through the ETC.@  These molecules are reduced by the actions of the TCA cycle then oxidized back to their original form by the ETC.@  All three of these can be generated endogenously, but NAD and FAD are usually generated from vitamins (see Table~\ref{tab:etc-carriers}).  It has been suggested that as we age, we are less able to generate NAD, and several preclinical trials are underway to test whether NAD supplementation may slow aging in humans (reviewed in \citet{Rajman2018})  .Coenzyme Q is generated endogenously using some enzymes of the steroid biosynthesis pathway, and inhibitors of this pathway (such as statins) have been suggested to result in CoQ deficiency (reviewed in \citet{Quinzii2007}).  
 
 \begin{margintable}
 \centering
-\caption{Electron carrier molecules in the ETC}
-\label{tab:etc-carriers}
+\caption{Electron carrier molecules in the ETC}\label{tab:etc-carriers}
 \begin{tabular}{cc}
 \hline
 \textbf {Carrier} & \textbf{Source}\\
@@ -217,6 +225,7 @@ CoQ & Not Considered a Vitamin \\
 \end{tabular}
 \end{margintable}
 
+\newthought{The TCA cycle is both anabolic and catabolic.}  While the TCA cycle is primarily thought of as a catabolic pathway, it is also a source of many biosynthetic precursors.  For example, Citrate can be exported from the mitochondria and converted into Acetyl-CoA for fatty acid synthesis.  Other TCA cycle intermediates are used to generate amino acids, heme and nucleotides.  We will discuss this in more detail in the section on anaplerosis and cataplerosis below.
 
 \section{Regulation of the TCA Cycle}
 
@@ -236,16 +245,15 @@ Many metabolic pathways are driven by the nutrients that flow in.  An example of
 Pyruvate + Bicarbonate + ATP \rightarrow Oxaloacetate + ADP + Pi
 \end{equation}
 
-There are two important roles of Pyruvate Carboxylase, one of which is to increase TCA Cycle intermediates.  The second is to generate Oxaloacetate for gluconeogenesis\sidenote{We will discuss this in a couple of lectures.}.  The activity of Pyruvate Carboxylase is positively regulated by Acetyl-CoA.  Since Acetyl-CoA is not directly anaplerotic, this mechanism balances flow of "passengers" (Acetyl-CoA) to the number of "trains" (Oxaloacetate).  Extending the metaphor, if there are too many passengers, Pyruvate Carboxylase results in more trains being put into service.  As we will discuss later in the section on gluconeogenesis, Acetyl-CoA (the major metabolite of fatty acid oxidation) is \emph{unable} to become glucose, meaning that while fatty acids can promote gluconeogenesis, the process is still reliant on other precursors such as lactate, alanine and glycerol.
+There are two important roles of Pyruvate Carboxylase, one of which is to increase TCA Cycle intermediates.  The second is to generate Oxaloacetate for gluconeogenesis\sidenote{We will discuss this in a couple of lectures.}.  The activity of Pyruvate Carboxylase is positively regulated by Acetyl-CoA.  Since Acetyl-CoA is not directly anaplerotic, this mechanism balances flow of ``passengers'' (Acetyl-CoA) to the number of ``trains'' (Oxaloacetate).  Extending the metaphor, if there are too many passengers, Pyruvate Carboxylase results in more trains being put into service.  As we will discuss later in the section on gluconeogenesis, Acetyl-CoA (the major metabolite of fatty acid oxidation) is \emph{unable} to become glucose, meaning that while fatty acids can promote gluconeogenesis, the process is still reliant on other precursors such as lactate, alanine and glycerol.
 
 \subsection{Allosteric Regulation of the TCA Cycle}
 
-As we discussed above, the ETC is inactive unless there is ATP demand.  It is therefore imperative that the ETC can feed back to the TCA cycle and stop NADH/FADH$_2$ production if these activated electron carriers are not needed.  The primary mechanism by which this occurs is negative allosteric regulation described in Table \ref{tab:tca-allosteric}.  The signals of high energy availability are ATP, NADH and FADH$_2$.
+As we discussed above, the ETC is inactive unless there is ATP demand.  It is therefore imperative that the ETC can feed back to the TCA cycle and stop NADH/FADH$_2$ production if these activated electron carriers are not needed.  The primary mechanism by which this occurs is negative allosteric regulation described in Table~\ref{tab:tca-allosteric}.  The signals of high energy availability are ATP, NADH and FADH$_2$.
 
 \begin{table}
 \centering
-\caption{Key regulated steps of the TCA cycle.  The step in paranthesis indicates where the enzyme is in the cycle.}
-\label{tab:tca-allosteric}
+\caption{Key regulated steps of the TCA cycle.  The step in paranthesis indicates where the enzyme is in the cycle.}\label{tab:tca-allosteric}
 \begin{tabular}{lll}
 \hline
 \textbf {Enzyme (step)} & \textbf{Activators} & \textbf{Inhibitors}\\
@@ -257,17 +265,17 @@ $\alpha$-ketoglutarate dehydrogenase (4) & Ca$^{2+}$ &  NADH\\
 \end{tabular}
 \end{table}
 
-You should note from Table \ref{tab:tca-allosteric} that these enzymes are broadly activated by two things, low energy levels (AMP or ADP) and Calcium increases.  Calcium plays a key role here, because in skeletal muscle Calcium release causes muscle contraction.  By activating the TCA cycle, Calcium couples the initiation of muscle contraction to the replenishment of ATP levels.  By the same token, the TCA cycle is inhibited when there is a buildup of high energy molecues (NADH, FADH$_2$, ATP) either when there is a lack of oxygen or sufficient energy stores.
+You should note from Table~\ref{tab:tca-allosteric} that these enzymes are broadly activated by two things, low energy levels (AMP or ADP) and Calcium increases.  Calcium plays a key role here, because in skeletal muscle Calcium release causes muscle contraction.  By activating the TCA cycle, Calcium couples the initiation of muscle contraction to the replenishment of ATP levels.  By the same token, the TCA cycle is inhibited when there is a buildup of high energy molecues (NADH, FADH$_2$, ATP) either when there is a lack of oxygen or sufficient energy stores.\sidenote{A high NADH/NAD\textsuperscript{+} ratio, such as that as seen in hypoxia or ischemia, inhibits isocitrate dehydrogenase and $\alpha$-ketoglutarate dehydrogenase. This slows the TCA cycle, reducing NADH generation when the electron transport chain is backed up. The result is accumulation of upstream intermediates and diversion toward anaerobic metabolism (lactate production). In severe ischemia, for example after an ischemic heart attack, this contributes to cytosolic acidification and impaired ATP synthesis.}
 
 \section{Oxidative Damage Can Result from Superoxide Production}
 
-The terminal electron acceptor of the TCA cycle and electron transport chain is oxygen.  This is the reason why aerobic metabolism requires a supply of oxygen.  The oxygen is converted to water by Complex IV of the ETC.  
+The terminal electron acceptor of the TCA cycle and electron transport chain is oxygen.  This is the reason why aerobic metabolism requires a supply of oxygen.  The oxygen is converted to water by Complex IV of the ETC.@  
 
 \begin{equation}\label{eq:civ}
 4 CytC_{red} + 4H^+ + O_2 \rightarrow 4 CytC_{ox} + 2 H_2O 
 \end{equation}
 
-While this process is efficient most of the time, due to the high reactivity of oxygen, approximately 2-4\% of the time, rather than being reduced to water, oxygen can be partially reduced into a superoxide or peroxide molecule.  These \emph{reactive oxygen species} such as $HO_2^-$ can cause cellular damage by reacting with proteins and lipids in the cell.  To defend against this, mitochondria express an enzyme known as superoxide dismutate (SOD) which scavenges these superoxides and converts them to hydrogen peroxide and then via an enzyme known as catalase back into water.  These reactions are described in reactions \ref{eq:sod} and \ref{eq:catalase} below:
+While this process is efficient most of the time, due to the high reactivity of oxygen, approximately 2-4\% of the time, rather than being reduced to water, oxygen can be partially reduced into a superoxide or peroxide molecule.  These \emph{reactive oxygen species} such as $HO_2^-$ can cause cellular damage by reacting with proteins and lipids in the cell.  This process can also be accelerated when NADH or FADH\textsubscript{2} build up.  To defend against this, mitochondria express an enzyme known as superoxide dismutate (SOD) which scavenges these superoxides and converts them to hydrogen peroxide and then via an enzyme known as catalase back into water.  These reactions are described in reactions~\ref{eq:sod} and~\ref{eq:catalase} below:
 
 \begin{equation}\label{eq:sod}
 2 HO_2^- \rightarrow O_2 + H_2O_2
@@ -278,7 +286,7 @@ While this process is efficient most of the time, due to the high reactivity of 
 \end{equation}
 
 
-Overwhelming this system has been linked to a wide variety of chronic diseases including Alzheimer's, Parkinson's disease, Cancer and Diabetes.  One of the benefits of chronic physical activity is to increase the expression of SOD and catalase.  By the same token, antioxidant vitamins such as Vitamins C and E can also reduce the potential damage of reactive oxygen species generated by the mitochondria.  For more information about reactive oxygen species see \citet{Turrens2003}.
+Overwhelming this system has been linked to a wide variety of chronic diseases including Alzheimer's, Parkinson's disease, Cancer and Diabetes.  One of the benefits of chronic physical activity is to increase the expression of SOD and catalase\sidenote{For those interested in micronutrients, catalase is an iron-dependent enzyme and SOD is either a mangangese or copper dependent enzyme, and deficiencies in any of these minerals can enhance oxidative damage.}.  By the same token, antioxidant vitamins such as Vitamins C and E can also reduce the potential damage of reactive oxygen species generated by the mitochondria.  For more information about reactive oxygen species see \citet{Turrens2003}.
 
 
 \bibliography{library}
