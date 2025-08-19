@@ -10,8 +10,8 @@
 \graphicspath{{graphics/}}
 
 \title{Protein and Amino Acid Catabolism}
-\author{}
-\date{}  % if the \date{} command is left out, the current date will be used
+\author{Dave Bridges}
+%\date{}  % if the \date{} command is left out, the current date will be used
 
 % The following package makes prettier tables.  We're all about the bling!
 \usepackage{booktabs}
@@ -41,6 +41,17 @@
 \newcommand{\doccls}[1]{\texttt{#1}}% document class name
 \newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
 
+% Conditionally redefine Tufte-style macros for HTML output
+\ifdefined\htmlversion
+  \def\newthought#1{@@newthought:#1@@}
+  \def\marginnote#1{@@marginnote:#1@@}
+  \def\sidenote#1{@@sidenote:#1@@}
+\else
+  \newcommand{\newthought}[1]{\textsc{#1}}
+  \newcommand{\marginnote}[1]{\marginpar{#1}}
+  \newcommand{\sidenote}[1]{\footnote{#1}}
+\fi
+
 \begin{document}
 
 \maketitle% this prints the handout title, author, and date
@@ -69,7 +80,7 @@ As we discussed in the last unit, whereas glycogen serves as a store of glucose 
 
 \subsection{Mechanisms of Protein Degradation}
 
-There are two main organelles in which proteins are broken down: the proteasome or the lysosome.  The proteasome is a large multi-subunit complex which is the site of protein degradation when the cell requires specific proteins to be catabolized \citep{Finley2009}.  Individual proteins are tagged, usually by the addition of ubiquitin\sidenote{itself a small protein}. Once targeted these proteins move to the proteasome and degraded into individual amino acids.  For example a protein that the cell wants to get rid of can be very specifically targeted and removed which leaves other untageged proteins alone. The specificity of this targeting is mediated via a class of enzymes called E3 Ubiquitin Ligase.  These proteins recognize a specific protein, and target it for ubiquitinylation. An example of this in muscle tissue is an E3 ligase called MuRF1\sidenote{Muscle ring finger 1}.  During muscle atrophy, MuRF1 activity is increased, which targets myofibrillar proteins for ubiquitinylation and degradation \citep{Bodine2014}.  
+There are two main organelles in which proteins are broken down: the proteasome or the lysosome.  The proteasome is a large multi-subunit complex which is the site of protein degradation when the cell requires specific proteins to be catabolized \citep{Finley2009}.  Individual proteins are tagged, usually by the addition of ubiquitin\sidenote{itself a small protein}. Once targeted these proteins move to the proteasome and degraded into individual amino acids.  For example a protein that the cell wants to get rid of can be very specifically targeted and removed which leaves other untagged proteins alone. The specificity of this targeting is mediated via a class of enzymes called E3 Ubiquitin Ligase.  These proteins recognize a specific protein, and target it for ubiquitinylation. An example of this in muscle tissue is an E3 ligase called MuRF1\sidenote{Muscle ring finger 1}.  During muscle atrophy, MuRF1 activity is increased, which targets myofibrillar proteins for ubiquitinylation and degradation \citep{Bodine2014}.  
 
 \newthought{The other main organelle of protein degradation is the lysosome, which catabolizes macromolecules in a process called autophagy.}  In autophagy, instead of targeting individual proteins entire organelles (like a mitochondrion) can be engulfed to be broken down within lysosomes.  The lipids (via lipases) and proteins (via proteases) are broken down within the lysosomes\sidenote{For more information see \url{https://www.ncbi.nlm.nih.gov/books/NBK9953/}}.  Compared to the proteasome, autophagy is much less specific but has a much higher capacity\sidenote{The discovery of which led to the 2016 Nobel Prize in Medicine and Physiology, see \url{https://www.nobelprize.org/nobel_prizes/medicine/laureates/2016/press.html}}.  Autophagy is often upregulated during times of amino acid starvation.  As such, mTORC1 activity\sidenote{which is decreased during amino acid or energy deprivation} is a potent \emph{inhibitor} of autophagy \citep{Noda1998}.
 
@@ -132,7 +143,7 @@ This reaction replenishes the $\alpha$-Ketoglutarate consumed in the previous tr
 
 If your thoughts were \emph{energy needs} and \emph{amino acid surplus} you are on the right track!  The main positive regulators of GDH are ADP, GDP, NAD$^+$ and branched chain amino acids (especially Leucine).  The main inhibitors include GTP, NADH and Palmitoyl-CoA\sidenote{This is the first step in the degradation of the fatty acid palmitate, and indicates that there are sufficient fatty acids to use as fuel, rather than breaking down proteins}.  In general that means that Glutamate will be irreversibly broken down only when energy needs are high, essential amino acids are high and fatty acids are low.  More details on the allosteric regulation of GDH can be found in \citet{Smith2008}'s review article.  
 
-At a post-translational level, GDH is also under the control of mTORC1 signaling.  mTORC1\sidenote{Which as you may recall is activated by some amino acids, insulin and high energy levels.} is thought to work through an enzyme called SIRT4.  SIRT4 adds an ADP-ribose group to GDH, thus inactivating this enzyme.  Therefore when mTORC1 is active, GDH becomes active \citep{Csibi2013}.  One hypothesis is that this could be a pathway by which nutrient excess leads to the oxidation of un-needed amino acids, especially Glutamine and Glutamate.
+At a post-translational level, GDH is also under the control of mTORC1 signaling.  mTORC1\sidenote{Which as you may recall is activated by some amino acids, insulin and high energy levels.} is thought to activate GDH \citep{Csibi2013}.  One hypothesis is that this could be a pathway by which nutrient excess leads to the oxidation of un-needed amino acids, especially Glutamine and Glutamate.
 
 \subsection{The Urea Cycle}
 
