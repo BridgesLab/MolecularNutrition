@@ -28,15 +28,34 @@ jobs:
       with:
         root_file: nutr630-notes.tex
         compiler: latexmk
-        args: -pdf -file-line-error -interaction=nonstopmode
+        args: -pdf -f -file-line-error -interaction=nonstopmode -latexoption="-shell-escape" -latexoption="-synctex=1"
         extra_system_packages: |
           inkscape
           ghostscript
+          makeindex
         texlive_version: 2025
-        post_compile: "bibtex nutr630-notes"
+        post_compile: |
+          bibtex nutr630-notes
+          makeindex nutr630-notes.idx
+          makeindex nutr630-notes.nlo -s nomencl.ist -o nutr630-notes.nls
 
-    - name: Upload PDF artifact
-      uses: actions/upload-artifact@v4
+    - name: Check for PDF and Upload Artifact
+      run: |
+        if [ -f "nutr630-notes.pdf" ]; then
+          echo "PDF generated successfully"
+          actions/upload-artifact@v4
+        else
+          echo "PDF not generated, uploading log for debugging"
+          actions/upload-artifact@v4
+        fi
       with:
         name: principles-of-nutrition-science
         path: nutr630-notes.pdf
+      if: always()  # Run even if previous steps fail
+
+    - name: Upload log file for debugging
+      uses: actions/upload-artifact@v4
+      with:
+        name: latex-log
+        path: nutr630-notes.log
+      if: always()  # Upload log regardless of success/failure
