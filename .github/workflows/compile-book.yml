@@ -24,6 +24,7 @@ jobs:
         ./scripts/process-tex-files.sh
 
     - name: Compile LaTeX document
+      id: compile
       uses: xu-cheng/latex-action@v4
       with:
         root_file: nutr630-notes.tex
@@ -39,23 +40,27 @@ jobs:
           makeindex nutr630-notes.idx
           makeindex nutr630-notes.nlo -s nomencl.ist -o nutr630-notes.nls
 
-    - name: Check for PDF and Upload Artifact
+    - name: Check PDF existence
+      id: check-pdf
       run: |
         if [ -f "nutr630-notes.pdf" ]; then
+          echo "pdf_exists=true" >> $GITHUB_OUTPUT
           echo "PDF generated successfully"
-          actions/upload-artifact@v4
         else
+          echo "pdf_exists=false" >> $GITHUB_OUTPUT
           echo "PDF not generated, uploading log for debugging"
-          actions/upload-artifact@v4
         fi
+
+    - name: Upload PDF Artifact
+      uses: actions/upload-artifact@v4
+      if: steps.check-pdf.outputs.pdf_exists == 'true' && always()
       with:
         name: principles-of-nutrition-science
         path: nutr630-notes.pdf
-      if: always()  # Run even if previous steps fail
 
-    - name: Upload log file for debugging
+    - name: Upload Log Artifact
       uses: actions/upload-artifact@v4
+      if: always()
       with:
         name: latex-log
         path: nutr630-notes.log
-      if: always()  # Upload log regardless of success/failure
