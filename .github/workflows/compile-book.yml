@@ -7,7 +7,6 @@ on:
     paths:
       - 'tex/*.tex'
       - 'tex/library.bib'
-      - 'tex/*/pdf'
   workflow_dispatch:
 
 jobs:
@@ -18,13 +17,12 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Run LaTeX processing script
+    - name: Run preprocessing script
       run: |
         chmod +x scripts/process-tex-files.sh
         ./scripts/process-tex-files.sh
 
-    - name: Compile LaTeX document
-      id: compile
+    - name: First LaTeX compile
       uses: xu-cheng/latex-action@v4
       with:
         root_file: nutr630-notes.tex
@@ -35,32 +33,30 @@ jobs:
           ghostscript
           makeindex
         texlive_version: 2025
-        post_compile: |
-          bibtex nutr630-notes
-          makeindex nutr630-notes.idx
-          makeindex nutr630-notes.nlo -s nomencl.ist -o nutr630-notes.nls
 
-    - name: Check PDF existence
-      id: check-pdf
+    - name: Run BibTeX and makeindex
       run: |
-        if [ -f "nutr630-notes.pdf" ]; then
-          echo "pdf_exists=true" >> $GITHUB_OUTPUT
-          echo "PDF generated successfully"
-        else
-          echo "pdf_exists=false" >> $GITHUB_OUTPUT
-          echo "PDF not generated, uploading log for debugging"
-        fi
+        bibtex nutr630-notes || true
+        makeindex nutr630-notes.idx || true
+        makeindex nutr630-notes.nlo -s nomencl.ist -o nutr630-notes.nls || true
 
-    - name: Upload PDF Artifact
-      uses: actions/upload-artifact@v4
-      if: steps.check-pdf.outputs.pdf_exists == 'true' && always()
+    - name: Recompile to resolve references
+      uses: xu-cheng/latex-action@v4
       with:
-        name: principles-of-nutrition-science
+        root_file: nutr630-notes.tex
+        compiler: latexmk
+        args: -pdf -f -interaction=nonstopmode
+
+    - name: Upload PDF
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: nutr630-notes-pdf
         path: nutr630-notes.pdf
 
-    - name: Upload Log Artifact
-      uses: actions/upload-artifact@v4
+    - name: Upload LaTeX log
       if: always()
+      uses: actions/upload-artifact@v4
       with:
         name: latex-log
         path: nutr630-notes.log
