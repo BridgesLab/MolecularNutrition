@@ -22,7 +22,7 @@ jobs:
         chmod +x scripts/process-tex-files.sh
         ./scripts/process-tex-files.sh
 
-    - name: First LaTeX compile
+    - name: Compile LaTeX document
       uses: xu-cheng/latex-action@v4
       with:
         root_file: nutr630-notes.tex
@@ -31,7 +31,6 @@ jobs:
         extra_system_packages: |
           inkscape
           ghostscript
-          makeindex
         texlive_version: 2025
 
     - name: Run BibTeX and makeindex
