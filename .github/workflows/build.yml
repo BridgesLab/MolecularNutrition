@@ -5,6 +5,9 @@ on:
     branches: ["main"]
     paths:
       - 'tex/*.tex'
+      - 'tex/*.bib'
+      - 'tex/figures/**'
+      - 'html/**'
   workflow_dispatch:
 
 permissions:
@@ -23,7 +26,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
        
-      - name: Create output directory
+      - name: Create output directories
         run: mkdir -p output/pdf output/figures  
       
       - name: Set up Conda environment
@@ -56,18 +59,22 @@ jobs:
           done
 
       - name: Copy PDFs
-        run: cp tex/*.pdf output/pdf/
+        run: cp tex/*.pdf output/pdf/ || true
 
       - name: Copy figures
-        run: cp -r tex/figures/* output/figures/ || true
+        run: |
+          mkdir -p output/figures
+          if [ -d tex/figures ]; then
+            cp -r tex/figures/* output/figures/
+          fi
 
       - name: Copy CSS files
         run: |
-          cp html/tufte.css output/
+          cp html/tufte.css output/ || true
           cp html/custom.css output/ || true
 
       - name: Copy custom index.html
-        run: cp html/index.html output/
+        run: cp html/index.html output/ || true
 
       - name: Upload site content
         uses: actions/upload-pages-artifact@v3
