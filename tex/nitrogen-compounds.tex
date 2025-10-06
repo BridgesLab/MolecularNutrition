@@ -31,6 +31,10 @@
 % Provides paragraphs of dummy text
 \usepackage{lipsum}
 
+% Nomenclature package
+\usepackage[intoc]{nomencl}
+\makenomenclature
+
 % These commands are used to pretty-print LaTeX commands
 \newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
 \newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
@@ -74,78 +78,34 @@ An amino acid contains nitrogen through its amino group. Beyond an amino acid’
 \end{itemize}
 
 \section{Review of Amino Acid Structure and Role in the Body}
-An amino acid consists of four distinct functional groups, a carboxyl, a hydrogen, an amino, and a side (R) group (Figure~\ref{fig:aa-figure}). The amino group makes the amino acid a nitrogen-containing structure within our body. Amino acids are the building blocks of proteins but they can also be used for the synthesis of other compounds within our body. Nitrogen-containing non-protein compounds are found in dietary sources but can also be biosynthesized. Once synthesized, they have varying roles in the body such as an antioxidant, a methyl donor, a transporter, or a neurotransmitter. In the following sections, we will discuss the constituents, biosynthesis, and main roles of glutathione, carnitine, choline, creatine, and serotonin, all nitrogen-containing compounds.
-
-\begin{marginfigure}
-\caption{Basic Structure of an Amino Acid}\label{fig:aa-figure}
-\chemfig{H_3N^+ -[1]C(-[7]R)(-[5]H)-[1]C(=[2]O)-[6]O^-}
-\end{marginfigure}
+An amino acid consists of four distinct functional groups, a carboxyl, a hydrogen, an amino, and a side (R) group. The amino group makes the amino acid a nitrogen-containing structure within our body. Amino acids are the building blocks of proteins but they can also be used for the synthesis of other compounds within our body. Nitrogen-containing non-protein compounds are found in dietary sources but can also be biosynthesized. Once synthesized, they have varying roles in the body such as an antioxidant, a methyl donor, a transporter, or a neurotransmitter. In the following sections, we will discuss the constituents, biosynthesis, and main roles of glutathione, carnitine, choline, creatine\index{Creatine}, and serotonin\index{Serotonin}, all nitrogen-containing compounds.
 
 \section{Glutathione}
-Glutathione is synthesized in the liver from glutamate, cysteine and glycine. It plays an important role as an antioxidant, thus it is found in the majority of cells in our body. The cysteine of glutathione provides the structure with a thiol (-SH) group. The majority of glutathione present in our cells is in the reduced form, but it can be oxidized in the presence of free radicals and lipid peroxides. The glutathione donates its hydrogen group to stabilize free radicals and lipid peroxides. Following oxidation, NADPH, from the pentose phosphate shunt, quickly reduces glutathione again. The ratio of reduced glutathione (GSH) to oxidized glutathione (GSSG) is commonly used as a biomarker for disease and inflammation. For example, if the hepatocyte cells have undergone stress or become damaged, the tissue GSH:GSSG would be low (1,2). Depending on the tissue and purposes of measuring GSH:GSSG, varying analytical techniques are utilized which include high performance liquid chromatography, ultraviolet absorbance and fluorescence detection, mass spectrometry or electrochemical detection.
+Glutathione is synthesized in the liver from glutamate, cysteine and glycine. It plays an important role as an antioxidant, thus it is found in the majority of cells in our body. The cysteine of glutathione provides the structure with a thiol (-SH) group. The majority of glutathione present in our cells is in the reduced form, but it can be oxidized in the presence of free radicals and lipid peroxides. The glutathione donates its hydrogen group to stabilize free radicals and lipid peroxides. Following oxidation, NADPH\index{NADPH}, from the pentose phosphate shunt, quickly reduces glutathione again. The ratio of reduced glutathione (GSH)\index{Glutathione} to oxidized glutathione (GSSG) is commonly used as a biomarker for disease and inflammation\index{Inflammation}. For example, if the hepatocyte cells have undergone stress or become damaged, the tissue GSH:GSSG would be low \citep{zitkaRedoxStatusExpressed2012,sentellasGSSGGSHRatios2014}. Depending on the tissue and purposes of measuring GSH:GSSG, varying analytical techniques are utilized which include high performance liquid chromatography, ultraviolet absorbance and fluorescence detection, mass spectrometry or electrochemical detection.
 
 \section{Carnitine}
-Carnitine is made in the liver and to some extent the kidneys. Three methyl groups are added to lysine by the universal methyl donor S-adenosyl methionine (SAM)\nomenclature{SAM}{S-Adenosyl Methionine} via one-carbon metabolism (Figure~\ref{fig:1cm}). Methylated lysine is hydroxylated to form carnitine. Once synthesized, carnitine is stored in muscle. Because muscle is the reservoir of carnitine, we can also obtain carnitine through dietary sources, specifically animal sources such as meats and fish. Carnitine is also made in supplemental form. About 60--80\% of carnitine is absorbed with intake levels of 0.5--0.6 grams (3). One of the primary roles of carnitine is to transport long chain fatty acids through the inner mitochondrial membrane. The fatty acid is covalently joined to carnitine through a reaction catalyzed by carnitine palmitoyltransferase 1 (CPT 1)\sidenote{Sometimes you may find that this is refered to as CAT (carnitine acyltransferase).}\nomenclature{CPT1}{Carnitine palmitoyltransferase 1}. Once bound, the fatty acid-carnitine complex moves across the inner membrane and is released by carnitine pamitoyltransferase II (CAT II). The long chain fatty acid can then undergo oxidation. This process was discussed in detail in the Lipid Unit.
-
-\begin{marginfigure}
-\caption{Depiction of One-Carbon Metabolism. Note SAM as the universal methyl donor and highlighted in yellow are nutrients significant for the cycle to function properly.}
-\label{fig:1cm}
-\begin{tikzpicture}[scale=0.7]
-\node at (0,0) {Note: Use \includegraphics{one_carbon_metabolism} for actual figure.};
-\end{tikzpicture}
-\end{marginfigure}
+Carnitine is made in the liver and to some extent the kidneys. Three methyl groups are added to lysine by the universal methyl donor S-adenosyl methionine (SAM)\nomenclature{SAM}{S-Adenosyl Methionine}\index{S-Adenomethionine} via one-carbon metabolism\index{One Carbon Metabolism}. Methylated lysine is hydroxylated to form carnitine. Once synthesized, carnitine is stored in muscle. Because muscle is the reservoir of carnitine, we can also obtain carnitine through dietary sources, specifically animal sources such as meats and fish. Carnitine is also made in supplemental form. About 60--80\% of carnitine\index{Carnitine} is absorbed with intake levels of 0.5--0.6 grams \citep{reboucheKineticsPharmacokineticsRegulation2004}. One of the primary roles of carnitine is to transport long chain fatty acids through the inner mitochondrial membrane. The fatty acid is covalently joined to carnitine through a reaction catalyzed by carnitine palmitoyltransferase 1 (CPT 1)\sidenote{Sometimes you may find that this is refered to as CAT (carnitine acyltransferase).}\nomenclature{CPT1}{Carnitine palmitoyltransferase 1}. Once bound, the fatty acid-carnitine complex moves across the inner membrane and is released by carnitine pamitoyltransferase II (CAT II). The long chain fatty acid can then undergo oxidation. This process was discussed in detail in the Lipid Unit.
 
 \section{Choline}
-Choline is synthesized in the liver and to some extent the kidneys. Serine is decarboxylated until it forms phosphatidylethanolamine (PE). Three methyl groups are donated by SAM to PE via one-carbon metabolism to form phosphatidylcholine, which is the body’s internal source of choline (Figure 2 and 3A). Choline is also abundant in dietary sources like eggs, wheat germ, legumes, salmon and liver. In can be in the free form or bound to lecithin.
+Choline is synthesized in the liver and to some extent the kidneys. Serine is decarboxylated until it forms phosphatidylethanolamine (PE)\nomenclature{PE}{Phosphatidylethanolamine}\index{Phospholipids!Phosphatidylethanolamine}. Three methyl groups are donated by SAM to PE via one-carbon metabolism to form phosphatidylcholine, which is the body’s internal source of choline. Choline\index{Choline}\index{Phospholipids!Phosphatidylcholine} is also abundant in dietary sources like eggs, wheat germ, legumes, salmon and liver. In can be in the free form or bound to lecithin.
 
 \subsection{Role in One-carbon Metabolism}
-Choline is formed from the addition of methyl groups from SAM, but it can also serve as a methyl donor (Figure 3B) by feeding methyl groups into one-carbon metabolism. Thus, adequate levels of choline are required for one-carbon metabolism to run efficiently, a concept that has been studied and manipulated extensively. Altered functioning of one-carbon metabolism can result in homocysteine build-up and altered nucleic acid synthesis and cell division. Homocystinuria is a condition of high blood homocysteine levels. Build up of homocysteine in the blood can cause vascular wall damage leading to atherosclerosis associated with stroke and heart disease (5). Altered cell division can increase risk of neural tube defects like spina bifida (4).
-
-\begin{marginfigure}
-\caption{Choline in One-Carbon Metabolism. Please note that PE can be methylated to form phosphatidylcholine (A) and choline can provide its methyl groups to one-carbon metabolism (B)}
-\label{fig:figure3}
-\begin{tikzpicture}[scale=0.7]
-\node at (0,0) {A: Serine & Ethanolamine & Decarboxylase};
-\node at (0,-1) {B: ...};
-\end{tikzpicture}
-\end{marginfigure}
+Choline is formed from the addition of methyl groups from SAM, but it can also serve as a methyl donor (Figure 3B) by feeding methyl groups into one-carbon metabolism. Thus, adequate levels of choline are required for one-carbon metabolism to run efficiently, a concept that has been studied and manipulated extensively. Altered functioning of one-carbon metabolism can result in homocysteine build-up and altered nucleic acid synthesis and cell division. Homocystinuria is a condition of high blood homocysteine levels. Build up of homocysteine in the blood can cause vascular wall damage leading to atherosclerosis associated with stroke and heart disease \citep{millardDietaryCholineBetaine2018}. Altered cell division can increase risk of neural tube defects like spina bifida \citep{zeiselCholineCriticalRole2006}.
 
 \subsection{Role in Neurotransmission}
-Choline is necessary for the synthesis of a neurotransmitter called acetylcholine. Choline crosses the blood brain barrier and acetylcholine is formed by the transfer of acetyl (from acetylCoA) to choline – this reaction is catalyzed by choline acetyltransferase. Acetylcholine is important in long-term memory, muscle control and motor skill development. Choline deficiency during pregnancy and the effects of offspring has been studied extensively. Mothers deficient in choline result in offspring with neural tube defects and structural abnormalities in brain resulting in impaired long-term memory (6).
+Choline is necessary for the synthesis of a neurotransmitter called acetylcholine. Choline crosses the blood brain barrier and acetylcholine is formed by the transfer of acetyl (from acetylCoA) to choline -- this reaction is catalyzed by choline acetyltransferase. Acetylcholine is important in long-term memory, muscle control and motor skill development. Choline deficiency during pregnancy and the effects of offspring has been studied extensively. Mothers deficient in choline result in offspring with neural tube defects and structural abnormalities in brain resulting in impaired long-term memory \citep{craciunescuDietaryCholineReverses2010}.
 
 \subsection{Role in Fatty Acid Transport}
 Choline is structurally part of very low-density lipoprotein (VLDL). Thus, a deficiency of choline directly affects the transport of fat and cholesterol out of the liver by VLDL. This results in an accumulation of fat in the liver leading to a fatty liver, a topic also heavily discussed in the Lipid Unit.
 
 \section{Creatine}
 In the kidney, glycine and arginine react to form guanidoacetate. Guanidoacetate is then methylated via SAM from one-carbon metabolism mainly in the liver. Following methylation, creatine is transported out of the liver to muscle where about 95\% of resides within the body. Creatine can also be taken in through diet. It is found in meat, fish products and is commonly used as a performance enhancement supplement.
-The main role of creatine in our body is that it acts as a storehouse for high-energy phosphate because it can exist in a phosphorylated form, phosphocreatine. More than half of the creatine in resting muscles is in the form of phosphocreatine. When the muscle contracts the phosphocreatine can phosphorylate ADP producing a quick source of ATP for the muscle. The ATP then phosphorylates creatine making it a coupled reaction. This cyclic reaction is catalyzed by creatine kinase (Figure 4). This process acts as a buffer of ATP during contractions from anywhere to 8-30 seconds resulting in the delay of the breakdown of muscle glycogen. Over time creatine and phosphocreatine do get eliminated from the muscle in the form of creatinine. Creatinine is transferred from the muscle to the kidney where it is excreted from the body through urine. Urinary creatinine levels are often used as a biomarker of muscle mass and kidney function. Because creatine plays a critical role in energy availability in the muscle, it has been used as a supplement for performance enhancement especially in short-duration maximal exercise like sprinting and weight lifting (7).
+The main role of creatine in our body is that it acts as a storehouse for high-energy phosphate because it can exist in a phosphorylated form, phosphocreatine. More than half of the creatine in resting muscles is in the form of phosphocreatine. When the muscle contracts the phosphocreatine can phosphorylate ADP producing a quick source of ATP for the muscle. The ATP then phosphorylates creatine making it a coupled reaction. This cyclic reaction is catalyzed by creatine kinase (Figure 4). This process acts as a buffer of ATP during contractions from anywhere to 8-30 seconds resulting in the delay of the breakdown of muscle glycogen. Over time creatine and phosphocreatine do get eliminated from the muscle in the form of creatinine. Creatinine is transferred from the muscle to the kidney where it is excreted from the body through urine. Urinary creatinine levels are often used as a biomarker of muscle mass and kidney function. Because creatine plays a critical role in energy availability in the muscle, it has been used as a supplement for performance enhancement especially in short-duration maximal exercise like sprinting and weight lifting \citep{kreiderInternationalSocietySports2017}.
 
-\begin{marginfigure}
-\caption{Creatine Phosphorylation}\label{fig:figure4}
-\begin{tikzpicture}
-\node (creatine) at (0,2) {Creatine};
-\node (pc) at (0,0) {Phosphocreatine};
-\node (adp) at (-2,1) {ADP};
-\node (atp) at (2,1) {ATP};
-\draw[->] (creatine) -- (pc) node[midway,left] {Creatine Kinase (phosphorylates creatine)};
-\draw[->] (pc) -- (creatine) node[midway,right] {Creatine Kinase (phosphorylates ADP)};
-\draw[->] (adp) -- (pc);
-\draw[->] (pc) -- (atp);
-\end{tikzpicture}
-\end{marginfigure}
+\section{Neurotransmitter Synthesis}\index{Neurotransmitters}
+There are active transport systems for amino acids present at the blood brain barrier. Thus amino acids can enter the brain and biosynthesis of neurotransmitters can occur locally. Tryptophan is needed for the synthesis of serotonin. Serotonin\index{Serotonin} is a neurotransmitter that can affect mood and appetite. Serotonin levels have been widely studied with the association of depressive disorders. Nitrogen groups are removed from serotonin by monoamine oxidase (MAO). MAO\nomenclature{MAO}{Monoamine oxidase} also plays a role in breaking down tyramine, which is a compound found in cheeses, alcohol\index{Alcohol}, meats and fish. If not broken down properly, tyramine can build up in the brain causing neural dysfunction. Monoamine oxidase inhibitors are a common class of antidepressants that block the action of MAO to increase levels of serotonin in people with mild to moderate depressive disorders. Thus individuals taking MAOs must take dietary precautions by eliminating tyramine-containing foods.
 
-\section{Neurotransmitter Synthesis}
-There are active transport systems for amino acids present at the blood brain barrier. Thus amino acids can enter the brain and biosynthesis of neurotransmitters can occur locally. Tryptophan is needed for the synthesis of serotonin. Serotonin is a neurotransmitter that can affect mood and appetite. Serotonin levels have been widely studied with the association of depressive disorders. Nitrogen groups are removed from serotonin by monoamine oxidase (MO). MO also plays a role in breaking down tyramine, which is a compound found in cheeses, alcohol, meats and fish. If not broken down properly, tyramine can build up in the brain causing neural dysfunction. Monoamine oxidase inhibitors are a common class of antidepressants that block the action of MO to increase levels of serotonin in people with mild to moderate depressive disorders. Thus individuals taking MOs must take dietary precautions by eliminating tyramine-containing foods.
-
-\section{References}
-\begin{enumerate}
-\item Sentellas S. et al. GSSG/GSH ratios in cryopreserved rat and human hepatocytes as a biomarker for drug induced oxidative stress. Toxicol In Vitro. 2014 Aug;28(5):1006-15. doi: 10.1016/j.tiv.2014.04.017.
-\item Zitka O, et al. Redox status expressed as GSH:GSSG ratio as a marker for oxidative stress in paediatric tumour patients. Oncology Letters. 2012;4(6):1247-1253. doi:10.3892/ol.2012.931.
-\item Rebouche, C. J. Kinetics, Pharmacokinetics, and Regulation of l-Carnitine and Acetyl-l-carnitine Metabolism. Annals of the New York Academy of Sciences. 2004. 1033: 30–41. doi:10.1196/annals.1320.003
-\item Zeisel SH. Choline: Critical Role During Fetal Development and Dietary Requirements in Adults. Annual review of nutrition. 2006;26:229-250. doi:10.1146/annurev.nutr.26.061505.111156.
-\item Millard HR, Musani SK, Dibaba DT, Talegawkar SA, Taylor HA, Tucker KL, Bidulescu A (2016) Dietary choline and betaine; associations with subclinical markers of cardiovascular disease risk and incidence of CVD, coronary heart disease and stroke: the Jackson Heart Study. Eur J Nutr. doi: 10.1007/s00394-016-1296-8
-\item Craciunescu CN, Johnson AR, Zeisel SH. Dietary Choline Reverses Some, but Not All, Effects of Folate Deficiency on Neurogenesis and Apoptosis in Fetal Mouse Brain. The Journal of Nutrition. 2010; 140(6):1162–1166.
-\item Kreider RB, Kalman DS, Antonio J, et al. International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation in exercise, sport, and medicine. Journal of the International Society of Sports Nutrition. 2017;14:18. doi:10.1186/s12970-017-0173-z.
-\end{enumerate}
+\bibliography{library}
+\bibliographystyle{plainnat}
 
 \end{document}
