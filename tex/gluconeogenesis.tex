@@ -86,7 +86,7 @@ Glucose is not an essential macronutrient.  Unlike vitamins, minerals, essential
 The primary glucose producing tissues are the liver and the kidneys, though in terms of circulating glucose the liver predominates.  The molecular determinant of this is the presence of the enzyme Glucose-6-Phosphatase which catalyzes the removal of phosphate from Glucose-6-Phosphate, allowing it to be exported from the cell.  While gluconeogenic substrates can become converted to Glucose-6-Phosphate through similar pathways described below, the final phosphate removal and release of glucose only occurs in cells with this enzyme.
 
 \begin{marginfigure}
-\includegraphics{figures/gk-hk-kinetics.pdf}
+\includegraphics{figures/gk-hk-kinetics.png}
 \caption{Schematic of the kinetics of glucokinase (GK) and hexokinase (HK).  Not the differences in K$_m$, V$_{max}$ and co-operativity between these enzymes.}
 \label{fig:gk-hk-kinetics}
 \end{marginfigure}
@@ -98,9 +98,8 @@ The primary glucose producing tissues are the liver and the kidneys, though in t
 There are several substrates that can be converted into glucose as illustrated in Figure \ref{fig:gluconeogenic-substrates}.  The main substrates are glycerol, lactate and alanine.  The first thing to note is how similar the overlap of this pathway is to glycolysis.  Most of the reactions in glycolysis are reversed in gluconeogenesis, and are catalyzed by the same enzymes, with only a few exceptions.  One is that the Pyruvate Kinase step (from PEP to Pyruvate) is not reversible, and the other is that instead of PFK1, a different enzyme known as Fructose bisphosphatase (FBPase1) is used to generate Fructose-6-Phosphate.  As you may have guessed, both of these are key sites of regulation.  As you read about these reactions, consider that the biochemical steps where glycerol, lactate, or alanine enters the pathway, and see how that dictates what sites of regulation are important to the control its flow to glucose.  
 
 \begin{marginfigure}
-\includegraphics{figures/gluconeogenic-substrates.pdf}
-\caption{Schematic of gluconeogenesis.  Red indicates key gluconeogenic substrates while green indicates energy consuming or generating steps.}
-\label{fig:gluconeogenic-substrates}
+\includegraphics{figures/gluconeogenic-substrates.png}
+\caption{Schematic of gluconeogenesis.  Red indicates key gluconeogenic substrates while green indicates energy consuming or generating steps.}\label{fig:gluconeogenic-substrates}
 \end{marginfigure}
 
 \subsection{Glycerol}
@@ -108,7 +107,7 @@ There are several substrates that can be converted into glucose as illustrated i
 Glycerol is derived from the breakdown of triglycerides and is increased during lipolysis.  That process releases both glycerol and free fatty acids, both of which traffic to the liver.  While fatty acids (shown in blue in Figure \ref{fig:gluconeogenic-substrates}) are \emph{unable} to be converted to glucose, they play a role in activating Pyruvate Carboxylase via Acetyl-CoA and providing energy to drive gluconeogenesis.  Glycerol on the other hand becomes activated by phosphorylation, then is converted into DHAP.  DHAP and GA3P are combined by Aldolase into Fructose-1,6-bisphosphate, which is then dephosphorylated by FBPase1.  Figure \ref{fig:gluconeogenic-substrates-glycerol} shows how glycerol flows into glucose.
 
 \begin{figure}
-\includegraphics{figures/gluconeogenic-substrates-glycerol.pdf}
+\includegraphics{figures/gluconeogenic-substrates-glycerol.png}
 \caption{Schematic of gluconeogenesis from glycerol.  Red indicates key gluconeogenic substrates while green indicates energy consuming or generating steps.  Based on this diagram, you can see that per glycerol 1 ATP is used, and 1 FADH\textsubscript{2} is generated.  This is a net of +0.5 ATP/glycerol, or since two glycerol molecules are needed to make a glucose, a net ATP increase of 1 ATP/glucose generated.}
 \label{fig:gluconeogenic-substrates-glycerol}
 \end{figure}
@@ -118,14 +117,14 @@ Glycerol is derived from the breakdown of triglycerides and is increased during 
 Lactate, the product of anaerobic glycolysis can be inter-converted back to pyruvate via the reversible actions of Lactate Dehydrogenase.  This is an important inter-organ cycle called the Cori Cycle\sidenote{Or the Lactic Acid Cycle.  This is named after Carl and Gerty Cori who won the Nobel Prize in Medicine or Physiology for this and her work on glycogen metabolism.  Gerty Cori was the first woman to win the Nobel Prize in Medicine or Physiology.}.  This cycle involves the anaerobic breakdown of glucose to lactate in the muscle, followed by its re-synthesis back to glucose in the liver.  This re-formed glucose now travels back to the muscle (see Figure \ref{fig:cori-cycle}).  Overall this cycle consumes four ATP molecules, but is an important way to ensure that the muscle has sufficient glucose available for anaerobic metabolism.  We discussed this previously, with respect to metabolic efficiency and the basal metabolic rate.  If you go through a round of the Cori Cycle, you end up with exactly the same glucose molecule, but you have had to burn four ATP molecules.  This is \emph{inefficient} and would increase the basal metabolic rate.  The route by which lactate becomes glucose is shown in Figure \ref{fig:gluconeogenic-substrates-lactate}.
 
 \begin{marginfigure}
-\includegraphics{figures/cori-cycle.pdf}
+\includegraphics{figures/cori-cycle.png}
 \caption{Schematic of the Cori Cycle.  Each turn through this cycle uses up 4 ATP (6 ATP used in the liver, 2 generated in the muscle).}
 \label{fig:cori-cycle}
 \end{marginfigure}
 
 
 \begin{marginfigure}
-\includegraphics{figures/gluconeogenic-substrates-lactate.pdf}
+\includegraphics{figures/gluconeogenic-substrates-lactate.png}
 \caption{Schematic of gluconeogenesis from lactate.  Based on this diagram, you can see that per lactate 2 ATPs and 1 GTP are used, and one NADH is generated and then consumed.  This is a net of -3 ATP/lactate, or since two lactate molecules are needed to make a glucose, a net ATP use of 6 ATP/glucose generated.}
 \label{fig:gluconeogenic-substrates-lactate}
 \end{marginfigure}
@@ -144,14 +143,14 @@ This enzyme is important for making Alanine (for example when levels are low and
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=1.5in]{figures/gluconeogenic-substrates-alanine.pdf}
+\includegraphics[width=1.5in]{figures/gluconeogenic-substrates-alanine.png}
 \caption{Schematic of gluconeogenesis from alanine.  Based on this diagram, you can see that per alanine 2 ATPs and 1 GTP are used, and one NADH is consumed.  This is a net of -5.5 ATP/alanine, or since two alanine molecules are needed to make a glucose, a net ATP use of 11 ATP/glucose generated.  As we will discuss later in the semester, disposal of the amino group on alanine (which is now on Glutamate) requires the Urea cycle, which comes at a cost of an additional 4 ATP's.  Therefore in total gluconeogenesis from alanine costs 15 ATP/alanine.}
 \label{fig:gluconeogenic-substrates-alanine}
 \end{center}
 \end{figure}
 
 \begin{marginfigure}
-\includegraphics{figures/cahill-cycle.pdf}
+\includegraphics{figures/cahill-cycle.png}
 \caption{Schematic of the Cahill Cycle.  Each turn through this cycle uses up 13 ATP (15 ATP used in the liver, 2 generated in the muscle).}
 \label{fig:cahill-cycle}
 \end{marginfigure}
@@ -190,7 +189,7 @@ As we discussed in the TCA cycle lecture, Pyruvate Carboxylase (PC) is an import
 \newthought{The second major site of acute control is at the FBPase1 step.}  Similar to PFK1, FBP1 is regulated by AMP, and F26bP though in this case the regulation is in the opposite direction (see Table \ref{tab:fbpase-pfk}).  The levels of F26bP are controlled by the activities of PFK2\sidenote{As we discussed in detail in the glycolysis lecture} and FBPase2. In fact, these two activities are the same polypeptide, which comprises a bifunctional enzyme.  FBPase2 will remove the phosphate from F26bP, depleting that important allosteric activator of PFK1.  F26bP is a potent inhibitor of FBPase1, so its removal activates gluconeogenesis while stopping glycolysis. The same PKA-dependent phosphorylation that that reduced PFK2 activity activates FBPase2 activity resulting in less F26bP and F16bP will be directed towards glucose.  In addition to the effects of F26bP, FBPase1 is inhibited by AMP.  Since gluconeogenesis is so energy consuming, this regulatory step ensures that ATP is sufficient for gluconeogneesis to occur.  A comparison of the regulation of FBPase1 and PFK1 is shown in Table \ref{tab:fbpase-pfk} and more details about FBPase regulation can be found in this review: \citet{Okar2001}. 
 
 \begin{figure}
-\includegraphics{figures/PFK2-FBPase2.pdf}
+\includegraphics{figures/PFK2-FBPase2.png}
 \caption{Co-ordinate regulation of PFK2/FBPase2 by protein phosphorylation.  This is a bifunctional enzyme, and regulated \emph{in the liver} such that either the phosphatase or kinase activity is activated, while the other activity is suppressed.}
 \label{fig:gluconeogenic-substrates-lactate}
 \end{figure}
@@ -219,7 +218,7 @@ PKA & Inactivates & Activates\\
 In contrast to PKA's effects activating gluconeogenesis, insulin potently suppresses the production of glucose.  Since insulin is elevated in response to elevations in glucose, this suppression is a major part by which insulin reduces blood glucose\sidenote{The others being stimulation of glucose uptake and glycogenesis}.  One mechanism by which this is thought to occur is through transcriptional regulation, largely through the transcription factor FOXO.  Insulin promotes the Akt-dependent phosphorylation of FOXO, which removes it from the nucleus, rendering it inactive.  Several key gluconeogenic genes are FOXO targets including PEPCK and G6Pase.  This means that when insulin inhibits FOXO function, the transcription of those genes is markedly reduced (see Figure \ref{fig:foxo-gluconeogenesis}).  More information about the role of FOXO can be found in \citet{Barthel2005}.
 
 \begin{marginfigure}
-\includegraphics{figures/foxo-gluconeogenesis.pdf}
+\includegraphics{figures/foxo-gluconeogenesis.png}
 \caption{Glucocorticoid- and insulin-dependent regulation of FOXO and its relationship to gluconeogenesis and proteolysis.}
 \label{fig:foxo-gluconeogenesis}
 \end{marginfigure}
@@ -229,8 +228,6 @@ In contrast to PKA's effects activating gluconeogenesis, insulin potently suppre
 \section{Consequences of Unrestrained Gluconeogenesis}
 
 While gluconeogenesis is essential to maintaining blood glucose levels in times of glucose deprivation, activation of gluconeogenesis is a hallmark of both Type 1 and Type 2 diabetes.  Insulin's ability to suppress gluconeogenesis is either absent (in type 1) or impaired (in type 2 diabetes).  Diabetics therefore tend to have over-active gluconeogenesis, which results in elevated blood glucose.  Insulin resistance promotes both direct (hepatic) and indirect activation of gluconeogenesis, and the rates of gluconeogenesis in diabetics are nearly double than in controls \citep{Magnusson1992}.  Even in the absence of dietary glucose, elevated glucose means that hyperglycemia may be present due to increased gluconeogenesis.  Gluconeogenesis is therefore an active target for controlling blood glucose in diabetes, which now affects more than 29 million Americans, with another 86 million considered at risk\cite{CentersforDiseaseControl2016}.
-
-
 
 
 \bibliography{library}
