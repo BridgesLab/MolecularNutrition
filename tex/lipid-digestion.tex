@@ -41,6 +41,17 @@
 \newcommand{\doccls}[1]{\texttt{#1}}% document class name
 \newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
 
+% Conditionally redefine Tufte-style macros for HTML output
+\ifdefined\htmlversion
+  \def\newthought#1{@@newthought:#1@@}
+  \def\marginnote#1{@@marginnote:#1@@}
+  \def\sidenote#1{@@sidenote:#1@@}
+\else
+  \newcommand{\newthought}[1]{\textsc{#1}}
+  \newcommand{\marginnote}[1]{\marginpar{#1}}
+  \newcommand{\sidenote}[1]{\footnote{#1}}
+\fi
+
 \begin{document}
 
 \maketitle% this prints the handout title, author, and date
@@ -97,7 +108,7 @@ Bile salts are cholesterol-derived compounds that are generated initially in the
 
 \newthought{Conjugated bile acids\sidenote{A third class of bile acids, known as secondary bile acids are generated in the large intestine by bacterial modification of secreted bile acids.  Since these are reabsorbed and sent back the liver, the secondary bile acids, known as deoxycholic acid and lithocholic acid can then also be conjugated in the liver.  Secondary bile acids comprise of about 20-40\% of the total bile acid pool.  Interestingly changes in bile acids are thought to play a role in the metabolic benefits of bariatric surgery \citep{Evers2017a}.} are generated from primary bile acids.}  while still in the liver, bile acids have either a glycine or a taurine\sidenote{Taurine is an amino acid, derived from cysteine that is not used in proteins.} amino acid group added to them.  This yields a conjugated bile acid, of which there are several species.  This new bile acid is very amphipathic, with a charged group from the amino acid on one end and the modified cholesterol on the other end.  This makes bile acids very effective in interacting with and solubilizing dietary lipids.
 
-\newthought{Bile salts are efficiently reabsorbed}, after their lipid cargo has been absorbed with up to 95\% of bile salts being reabsorbed via a sodium co-transporter in the terminal illeum.  One approach therefore to remove cholesterol from the blood stream is bile acid sequestrants that impair the uptake of bile salts, and thus the release of cholesterol.
+\newthought{Bile salts are efficiently reabsorbed}, after their lipid cargo has been absorbed with up to 95\% of bile salts being reabsorbed via a sodium co-transporter in the terminal illeum.  One approach therefore to remove cholesterol from the blood stream is bile acid sequestrants that impair the uptake of bile salts, and thus (indirectly) the excretion of cholesterol.
 
 \subsection{Uptake of Lipids in the Small Intestine}
 
