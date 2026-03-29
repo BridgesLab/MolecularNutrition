@@ -8,11 +8,9 @@ Need to add this to the top of all tex files
   \def\newthought#1{@@newthought:#1@@}
   \def\marginnote#1{@@marginnote:#1@@}
   \def\sidenote#1{@@sidenote:#1@@}
-\else
-  \newcommand{\newthought}[1]{\textsc{#1}}
-  \newcommand{\marginnote}[1]{\marginpar{#1}}
-  \newcommand{\sidenote}[1]{\footnote{#1}}
+  \def\alttext#1{@@alttext:#1@@}
 \fi
+\providecommand{\alttext}[1]{}
 
 Local usage:
     pandoc test.tex \
@@ -39,7 +37,7 @@ def extract_text_from_elem(elem):
     elif isinstance(elem, pf.SoftBreak):
         return '\n', None
     else:
-        # For non-text elements (like citations), return placeholder and store the element
+        # For non-text elements (like citations, images), return placeholder and store the element
         return f"__ELEM_{id(elem)}__", elem
 
 def replace_macros_in_para(elem, doc):
@@ -49,7 +47,7 @@ def replace_macros_in_para(elem, doc):
     # Extract text and preserve non-text elements
     text_parts = []
     preserved_elems = {}
-    
+
     for item in elem.content:
         text, preserved_elem = extract_text_from_elem(item)
         text_parts.append(text)
@@ -58,23 +56,35 @@ def replace_macros_in_para(elem, doc):
 
     full_text = ''.join(text_parts)
 
-    # If no tufte macros, return unchanged
+    # If no tufte macros or alttext tokens, return unchanged
     if '@@' not in full_text:
         return None
+
+    # Extract @@alttext:...@@ tokens: store pending alt text and remove from text.
+    # \alttext{} is typically on the line immediately before \includegraphics{},
+    # so both end up in the same paragraph and the image is in preserved_elems.
+    alttext_pattern = r'@@alttext:(.*?)@@'
+    for m in re.finditer(alttext_pattern, full_text):
+        doc._pending_alt = m.group(1).strip()
+    full_text = re.sub(alttext_pattern, '', full_text)
+
+    # If nothing remains after stripping alttext, suppress the paragraph entirely
+    if not full_text.strip() and not re.search(r'__ELEM_\d+__', full_text):
+        return []
 
     pattern = r'@@(newthought|marginnote|sidenote):(.*?)@@'
 
     # Process the text and build new elements
     new_elems = []
     pos = 0
-    
+
     for m in re.finditer(pattern, full_text):
         start, end = m.span()
         macro_type, macro_content = m.groups()
 
         # Handle text before the macro
         before_text = full_text[pos:start]
-        new_elems.extend(process_text_with_preserved_elems(before_text, preserved_elems))
+        new_elems.extend(process_text_with_preserved_elems(before_text, preserved_elems, doc))
 
         # Add the macro
         if macro_type in ['marginnote', 'sidenote']:
@@ -98,21 +108,32 @@ def replace_macros_in_para(elem, doc):
 
     # Handle remaining text after last macro
     after_text = full_text[pos:]
-    new_elems.extend(process_text_with_preserved_elems(after_text, preserved_elems))
+    new_elems.extend(process_text_with_preserved_elems(after_text, preserved_elems, doc))
 
     return pf.Para(*new_elems)
 
-def process_text_with_preserved_elems(text, preserved_elems):
-    """Process text string and restore preserved elements."""
+def process_text_with_preserved_elems(text, preserved_elems, doc=None):
+    """Process text string and restore preserved elements.
+
+    If doc has a _pending_alt attribute, applies it to the first Image encountered.
+    """
     elems = []
-    
+
     # Split by preserved element placeholders
     parts = re.split(r'(__ELEM_\d+__)', text)
-    
+
     for part in parts:
         if part in preserved_elems:
-            # Restore preserved element
-            elems.append(preserved_elems[part])
+            elem = preserved_elems[part]
+            # Apply pending alt text to the first Image that has none (SC 1.1.1)
+            if (doc is not None
+                    and isinstance(elem, pf.Image)
+                    and not elem.content):
+                pending = getattr(doc, '_pending_alt', None)
+                if pending:
+                    elem.content = [pf.Str(pending)]
+                    doc._pending_alt = None
+            elems.append(elem)
         elif part:
             # Process regular text, preserving spaces
             tokens = split_text_with_spaces(part)
@@ -121,7 +142,7 @@ def process_text_with_preserved_elems(text, preserved_elems):
                     elems.append(pf.Space())
                 else:
                     elems.append(pf.Str(token))
-    
+
     return elems
 
 def split_text_with_spaces(text):
@@ -136,6 +157,23 @@ def split_text_with_spaces(text):
     if pos < len(text):
         tokens.append(text[pos:])
     return tokens
+
+def apply_alt_to_image(elem, doc):
+    """Apply pending alt text to an Image element (SC 1.1.1).
+
+    Handles the case where \alttext{} and \includegraphics{} are in separate
+    paragraphs (e.g. a blank line between them, or different figure structure).
+    """
+    if not isinstance(elem, pf.Image):
+        return None
+    if doc.format not in ['html', 'html5']:
+        return None
+    pending = getattr(doc, '_pending_alt', None)
+    if pending and not elem.content:
+        elem.content = [pf.Str(pending)]
+        doc._pending_alt = None
+        return elem
+    return None
 
 def add_table_scope(elem, doc):
     """Add scope='col' to header cells for screen reader table navigation (SC 1.3.1)."""
@@ -153,6 +191,8 @@ def add_table_scope(elem, doc):
 def action(elem, doc):
     if isinstance(elem, pf.Para):
         return replace_macros_in_para(elem, doc)
+    if isinstance(elem, pf.Image):
+        return apply_alt_to_image(elem, doc)
     if isinstance(elem, pf.Table):
         return add_table_scope(elem, doc)
     return None
