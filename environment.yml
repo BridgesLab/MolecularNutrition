@@ -18,7 +18,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3.11
-  - pandoc>=2.11  # Includes built-in citeproc; adjust if using older
+  - pandoc>=3.1,<4  # Built-in citeproc; 3.x verified working
   - pip
   - pip:
       - panflute
