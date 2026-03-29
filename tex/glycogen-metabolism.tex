@@ -5,6 +5,10 @@
 
 \usepackage{amsmath}
 
+% Nomenclature package
+\usepackage[intoc]{nomencl}
+\makenomenclature
+
 % Set up the images/graphics package
 \usepackage{graphicx}
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
@@ -59,7 +63,7 @@
 \end{abstract}
 
 \tableofcontents
-\pagebreak
+\pagebreak\index{Glycogen Metabolism|(}
 \section{Learning Objectives}
 
 \begin{itemize}
@@ -85,7 +89,7 @@
 
 \section{Structure and function of glycogen}
 
-Glycogen is a homopolymer of glucose units connected to each other by $\alpha$1-4 or $\alpha$1-6 glycosidic linkages\sidenote{This nomenclature refers to a link between the \#1 position of one molecule of glucose (the anomeric carbon) and either the \#4 or the \#6 position on the next glucose.}.  This allows for many molecules of glucose to be compactly stored in the cell, and then made available upon energy or glucose demand.  A series of $\alpha$1-4 bonds result in a more or less straight chain of glucose molecules, while a $\alpha$1-6 linkage results in a branch point.  A single glucose monomer can have both an $\alpha$1-4 and $\alpha$1-6 linkage, and in glycogen these are typically spaced 8-12 glucose molecules apart (see Figure \ref{fig:glycogen-structure}).  Compare this to the structure of the major dietary polysaccharides we discussed earlier in this unit (Table \ref{tab:polysaccharides}).
+Glycogen\index{Carbohydrates!Glycogen} is a homopolymer of glucose units connected to each other by $\alpha$1-4 or $\alpha$1-6 glycosidic linkages\sidenote{This nomenclature refers to a link between the \#1 position of one molecule of glucose (the anomeric carbon) and either the \#4 or the \#6 position on the next glucose.}.  This allows for many molecules of glucose to be compactly stored in the cell, and then made available upon energy or glucose demand.  A series of $\alpha$1-4 bonds result in a more or less straight chain of glucose molecules, while a $\alpha$1-6 linkage results in a branch point.  A single glucose monomer can have both an $\alpha$1-4 and $\alpha$1-6 linkage, and in glycogen these are typically spaced 8-12 glucose molecules apart (see Figure \ref{fig:glycogen-structure}).  Compare this to the structure of the major dietary polysaccharides we discussed earlier in this unit (Table \ref{tab:polysaccharides}).
 
 \begin{margintable}
 \centering
@@ -120,7 +124,7 @@ The branched structure of glycogen means that a single macromolecule can be both
 
 Glycogen is an easily accessible source of glucose for many tissues.  The content of glycogen ranges from 1-3\% of total weight in muscle tissue to up to 10\% of total mass in a well fed liver.  Since glycogen is very hydrophilic, it is estimated that approximately 3g of water are bound for every gram of glycogen \citep{Olsson1970,Fernandez-Elias2015}.  This is one reason why very low carbohydrate diets can result in rapid, initial weight loss, as glycogen is rapidly depleted. Based on what we have already learned about how glucose and phosphorylation differs between cells, different tissues use glycogen for slightly different reasons.  In general, muscle cells use glycogen when energy is needed, for example during exercise.  Liver cells on the other hand store glycogen to make glucose available for itself and other tissues, rather than for energy.
 
-\newthought{Glycogen is an important energy source.}   Muscle tissue can have dramatic and rapid depletions of ATP in response to exercise.  The initial resource to replenish ATP is the creatine phosphate system described in Figure \ref{fig:creatine-kinase}.  Think of creatine phosphate like the battery on your laptop, and can supply (or store) excess ATP\sidenote{We will discuss this in the unit on non-protein compounds derived from amino acids later in the semester.}.  The amount of creatine phosphate can be quickly depleted, so muscle cells next turn to glycogen for glucose.  These glucose molecules typically undergo glycolysis (depending on the muscle fiber type) then the TCA cycle and electron transport chain to make ATP\sidenote{Recall, the absence of glucose-6-phosphatase means that liberated glucose-6-phosphate will not be dephosphoryated for extracellular release.}. As we will describe below, the primary signals for glycogen metabolism in muscle are energy dependent.
+\newthought{Glycogen is an important energy source.}   Muscle tissue can have dramatic and rapid depletions of ATP in response to exercise.  The initial resource to replenish ATP is the creatine phosphate system described in Figure \ref{fig:creatine-kinase}.  Think of creatine phosphate like the battery on your laptop, and can supply (or store) excess ATP\sidenote{We will discuss this in the unit on non-protein compounds derived from amino acids later in the semester.}.  The amount of creatine phosphate can be quickly depleted, so muscle cells next turn to glycogen for glucose.  These glucose molecules typically undergo glycolysis (depending on the muscle fiber type) then the TCA cycle\nomenclature{TCA}{Tricarboxylic Acid Cycle} and electron transport chain to make ATP\nomenclature{ATP}{Adenosine Triphosphate}\sidenote{Recall, the absence of glucose-6-phosphatase means that liberated glucose-6-phosphate will not be dephosphoryated for extracellular release.}. As we will describe below, the primary signals for glycogen metabolism in muscle are energy dependent.
 
 \begin{marginfigure}
 \includegraphics{figures/creatine-kinase.png}
@@ -148,7 +152,7 @@ Glucose-1-phosphate + UTP \rightleftharpoons UDP-Glucose + PPi
 UDP-Glucose + Glycogen_n \rightarrow Glycogen_{n+1}
 \end{equation}
 
-There are two important things to note about this process, one is that the first two reversible steps mean that the levels of G6P are extremely important in this process\sidenote{Recall from the lecture on glycolysis that G6P levels are controlled by the levels of glucose in the cell, the activity of hexokinase/glucokinase and the activity of PFK1, the rate limiting step in glycolysis.}.  The second is that by using UTP to activate glucose, this is an \emph{energy consuming process}.  This means that there is an energetic cost (the equivalent of one ATP phosphodiester bond) to storing glycogen\sidenote{Put another way, this means that to store and then release 1000 molecules of glycogen, you will use up the equivalent of 1000 ATP molecules.  In the end, you have used up 1000 ATP molecules but end up where you started, with available glucose.  This is another example of metabolic inefficiency, and is measured as part of the energy released during diet-induced thermogenesis.}.  The third reaction is catalyzed by the enzyme Glycogen Synthase\sidenote{There are two isoforms of Glycogen Synthase, one expressed in muscle and brain (\textit{GYS1}) and one expressed in the liver and fat, encoded by the \textit{GYS2} gene.} and that is the main point of regulatory control in glycogen synthesis.
+There are two important things to note about this process, one is that the first two reversible steps mean that the levels of G6P are extremely important in this process\sidenote{Recall from the lecture on glycolysis that G6P levels are controlled by the levels of glucose in the cell, the activity of hexokinase/glucokinase and the activity of PFK1, the rate limiting step in glycolysis.}.  The second is that by using UTP\nomenclature{UTP}{Uridine Triphosphate}\nomenclature{UDP}{Uridine Diphosphate} to activate glucose, this is an \emph{energy consuming process}.  This means that there is an energetic cost (the equivalent of one ATP phosphodiester bond) to storing glycogen\sidenote{Put another way, this means that to store and then release 1000 molecules of glycogen, you will use up the equivalent of 1000 ATP molecules.  In the end, you have used up 1000 ATP molecules but end up where you started, with available glucose.  This is another example of metabolic inefficiency, and is measured as part of the energy released during diet-induced thermogenesis.}.  The third reaction is catalyzed by the enzyme Glycogen Synthase\index{Enzymes!Glycogen Synthase}\sidenote{There are two isoforms of Glycogen Synthase, one expressed in muscle and brain (\textit{GYS1}) and one expressed in the liver and fat, encoded by the \textit{GYS2} gene.} and that is the main point of regulatory control in glycogen synthesis.
 
 \subsection{Glycogen Synthase is activated by Glucose-6-phosphate}
 
@@ -164,14 +168,14 @@ Both isoforms of Glycogen Synthase are allosterically activated by glucose-6-pho
 \hline
 PKA & Adrenaline/Glucagon \\
 GSK3 & Insulin (inactivates) \\
-AMPK & Energy Stress \\
+AMPK\nomenclature{AMPK}{AMP-Activated Protein Kinase}\index{Regulators!AMPK} & Energy Stress \\
 \hline
 \end{tabular}
 \end{table}
 
 \subsection{Extracellular control and signaling}
 
-In addition to this metabolite-level control, Glycogen Synthase is also regulated by reversible protein phosphorylation \citep{Larner1960}\sidenote{This was one of the earliest described examples of metabolic control by protein phosphorylation.}.  There are several protein kinases that regulate Glycogen Synthase, and as a general rule they result in the \emph{inactivation} of the enzyme.  These kinases are summarized in Table \ref{tab:gs-sites}.  Insulin \emph{activates} Glycogen Synthase, and it does so by \emph{dephosphorylating} these sites (see Figure \ref{fig:glycogen-phosphorylation}).  Part of this mechanism is by reducing the activity of the kinases (especially GSK3 \sidenote{GSK3 is Glycogen Synthase Kinase that phosphorylates Glycogen Synthase and inactivates it thus decreasing the rate at which glycogen is produced. Think of why insulin may deactivate GSK3.} and PKA) but insulin also functions by activating protein phosphatase activity towards Glycogen Synthase.  This is accomplished via a series of proteins that specifically target a protein phosphatase on the glycogen particle.  The precise mechanisms by which insulin promotes this dephosphorylation are still unclear.  At the same time that Glycogen Synthase is being dephosphorylated (and activated), Glycogen Phosphorylase\sidenote{The enzyme that cleaves glucose from an existing glycogen molecule} is also dephosphorylated and inactivated.
+In addition to this metabolite-level control, Glycogen Synthase is also regulated by reversible protein phosphorylation \citep{Larner1960}\sidenote{This was one of the earliest described examples of metabolic control by protein phosphorylation.}.  There are several protein kinases that regulate Glycogen Synthase, and as a general rule they result in the \emph{inactivation} of the enzyme.  These kinases are summarized in Table \ref{tab:gs-sites}.  Insulin\index{Hormones!Insulin} \emph{activates} Glycogen Synthase, and it does so by \emph{dephosphorylating} these sites (see Figure \ref{fig:glycogen-phosphorylation}).  Part of this mechanism is by reducing the activity of the kinases (especially GSK3\nomenclature{GSK3}{Glycogen Synthase Kinase 3}\index{Enzymes!Glycogen Synthase Kinase 3} \sidenote{GSK3 is Glycogen Synthase Kinase that phosphorylates Glycogen Synthase and inactivates it thus decreasing the rate at which glycogen is produced. Think of why insulin may deactivate GSK3.} and PKA\nomenclature{PKA}{Protein Kinase A}) but insulin also functions by activating protein phosphatase activity towards Glycogen Synthase.  This is accomplished via a series of proteins that specifically target a protein phosphatase on the glycogen particle.  The precise mechanisms by which insulin promotes this dephosphorylation are still unclear.  At the same time that Glycogen Synthase is being dephosphorylated (and activated), Glycogen Phosphorylase\sidenote{The enzyme that cleaves glucose from an existing glycogen molecule} is also dephosphorylated and inactivated.
 
 \begin{figure}
 \includegraphics{figures/glycogen-phosphorylation.png}
@@ -193,11 +197,11 @@ Glycogen_{n} \rightarrow Glycogen_{n-1} + Glucose-1-phosphate
 Glucose-1-phosphate \leftrightarrow Glucose-6-phosphate
 \end{equation}
 
-The fate of Glucose-6-phosphate depends on the relative activities of PFK1, Glucose-6-phosphate dehydrogenase\sidenote{Leading towards the pentose phosphate pathway.} and, in the case of liver cells Glucose-6-phosphatase.  Generally, in the muscle the liberated Glucose-6-phosphate enters glycolysis whereas in the liver it is dephosphorylated and released as glucose when energy is needed in the body.
+The fate of Glucose-6-phosphate\index{Metabolites!Glucose-6-Phosphate} depends on the relative activities of PFK1\nomenclature{PFK1}{Phosphofructokinase 1}, Glucose-6-phosphate dehydrogenase\sidenote{Leading towards the pentose phosphate pathway.} and, in the case of liver cells Glucose-6-phosphatase.  Generally, in the muscle the liberated Glucose-6-phosphate enters glycolysis whereas in the liver it is dephosphorylated and released as glucose when energy is needed in the body.
 
 \subsection{Intracellular control}
 
-The first, and rate limiting step of glycogenolysis is catalyzed by an enzyme named Glycogen Phosphorylase\sidenote{There are three isoforms of this gene, \textit{PYGL}, \textit{PYGM} and \textit{PYGB} which are expressed in the liver, muscle and brain, respectively.}.  Glycogen Phosphorylase is allosterically activated by AMP.  This activation by AMP is blocked by the presence of ATP or Glucose-6-phosphate.  AMP is increased when there is energy demand, so if there is a need for energy, Glycogen Phosphorylase gets activated.  This can be over-ridden when ATP is plentiful (indicating a lack of energy stress) or Glucose-6-phosphate is elevated (indicating sufficient glucose levels).  While all three isoforms respond similarly in direction, the muscle enzyme is much more sensitive to activation by AMP than the liver enzyme.  This is due to structural differences in the AMP-binding pocket between the muscle and liver isoforms \citep{Rath2000}.  As part of its reaction mechanism, Glycogen Phosphorylase also uses Vitamin B$_6$-derived Pyridoxal phosphate as a prosthetic group\sidenote{Vitamin B$_6$ has many other roles, but has been shown to be effective in treating McArdle's disease, a genetic deficiency in \textit{PYGM}.}.
+The first, and rate limiting step of glycogenolysis is catalyzed by an enzyme named Glycogen Phosphorylase\index{Enzymes!Glycogen Phosphorylase}\sidenote{There are three isoforms of this gene, \textit{PYGL}, \textit{PYGM} and \textit{PYGB} which are expressed in the liver, muscle and brain, respectively.}.  Glycogen Phosphorylase is allosterically activated by AMP\nomenclature{AMP}{Adenosine Monophosphate}\index{Metabolites!AMP}.  This activation by AMP is blocked by the presence of ATP or Glucose-6-phosphate.  AMP is increased when there is energy demand, so if there is a need for energy, Glycogen Phosphorylase gets activated.  This can be over-ridden when ATP is plentiful (indicating a lack of energy stress) or Glucose-6-phosphate is elevated (indicating sufficient glucose levels).  While all three isoforms respond similarly in direction, the muscle enzyme is much more sensitive to activation by AMP than the liver enzyme.  This is due to structural differences in the AMP-binding pocket between the muscle and liver isoforms \citep{Rath2000}.  As part of its reaction mechanism, Glycogen Phosphorylase also uses Vitamin B$_6$-derived Pyridoxal phosphate as a prosthetic group\sidenote{Vitamin B$_6$ has many other roles, but has been shown to be effective in treating McArdle's disease, a genetic deficiency in \textit{PYGM}.}.
 
 \begin{marginfigure}
 \includegraphics{figures/gp-activation.png}
@@ -207,11 +211,11 @@ The first, and rate limiting step of glycogenolysis is catalyzed by an enzyme na
 
 \subsection{Extracellular control and signaling}
 
-The activation of Glycogen Phosphorylase by AMP can be over-ridden by protein phosphorylation by an enzyme named Phosphorylase Kinase (see Figure \ref{fig:gp-activation}).  Once phosphorylated, the enzyme functions as if it is in the AMP-activated state.  The phosphorylation of Glycogen Phosphorylase is activated by PKA dependent signaling, induced by either glucagon in the liver or adrenaline in liver, muscle and other tissues.  Similarly, PKA-dependent signaling phosphorylates and inactivates Glycogen synthase.  This means that adrenergic signaling turns Glycogen Phosphorylase on, and Glycogen Synthase off simultaneously\sidenote{Also, insulin turns Glycogen Phosphorylase off, and Glycogen Synthase on.}. This makes sense since adrenergic signals would want to increase release of glucose and reduce glycogen storage. A summary of the effects of reversible protein phosphorylation on the enzymes of glycogen metabolism is shown in Table \ref{tab:gs-gp-phosphorylation}.
+The activation of Glycogen Phosphorylase by AMP can be over-ridden by protein phosphorylation by an enzyme named Phosphorylase Kinase (see Figure \ref{fig:gp-activation}).  Once phosphorylated, the enzyme functions as if it is in the AMP-activated state.  The phosphorylation of Glycogen Phosphorylase is activated by PKA dependent signaling, induced by either glucagon\index{Hormones!Glucagon} in the liver or adrenaline\index{Hormones!Adrenaline} in liver, muscle and other tissues.  Similarly, PKA-dependent signaling phosphorylates and inactivates Glycogen synthase.  This means that adrenergic signaling turns Glycogen Phosphorylase on, and Glycogen Synthase off simultaneously\sidenote{Also, insulin turns Glycogen Phosphorylase off, and Glycogen Synthase on.}. This makes sense since adrenergic signals would want to increase release of glucose and reduce glycogen storage. A summary of the effects of reversible protein phosphorylation on the enzymes of glycogen metabolism is shown in Table \ref{tab:gs-gp-phosphorylation}.
 
 \subsection{Regulation of glycogen branching and removal of branch points}
 
-The generation and removal of glycogen branch points is an important part of glycogen metabolism.  Glycogen Phosphorylase can only cleave at $\alpha$1-4 bonds and cannot proceed past $\alpha$1-6 linkages.  Whenever an $\alpha$1-6 linkage is encountered, the Glycogen Debranching Enzyme is recruited, which removes the $\alpha$1-6 link and allows for Glycogen Phosphorylase to proceed.  Currently, there is no strong data suggesting that either Glycogen Branching or Debranching Enzymes are regulated by metabolites, or hormonal signals, but inappropriate activity can result in under- or over-branched glycogen.
+The generation and removal of glycogen branch points is an important part of glycogen metabolism.  Glycogen Phosphorylase can only cleave at $\alpha$1-4 bonds and cannot proceed past $\alpha$1-6 linkages.  Whenever an $\alpha$1-6 linkage is encountered, the Glycogen Debranching Enzyme\index{Enzymes!Glycogen Debranching Enzyme} is recruited, which removes the $\alpha$1-6 link and allows for Glycogen Phosphorylase to proceed.  Currently, there is no strong data suggesting that either Glycogen Branching or Debranching Enzymes are regulated by metabolites, or hormonal signals, but inappropriate activity can result in under- or over-branched glycogen.
 
 
 \begin{table}
@@ -230,7 +234,7 @@ Glycogen Phosphorylase & Activates - More Breakdown\\
 
 \section{Glycogen storage diseases}
 
-There are a variety of rare, heritable defects which result in abberant glycogen metabolism (see Table \ref{tab:glycogen-storage-diseases}).  Some of these result in an inability to synthesize glycogen, while others prevent glycogenolysis, resulting in pathologically large particles of glycogen resulting in cell death.  Some common glycogen storage diseases, and the affected enzymes are below.   
+There are a variety of rare, heritable defects which result in abberant glycogen metabolism\index{Diseases!Glycogen Storage Diseases} (see Table \ref{tab:glycogen-storage-diseases}).\nomenclature{GSD}{Glycogen Storage Disease}  Some of these result in an inability to synthesize glycogen, while others prevent glycogenolysis, resulting in pathologically large particles of glycogen resulting in cell death.  Some common glycogen storage diseases, and the affected enzymes are below.   
 
 \begin{table}
 \centering
@@ -254,6 +258,7 @@ GSD type IX & \textit{PHKA1/2} & \\
 \end{table}
 
 
+\index{Glycogen Metabolism|)}
 \bibliography{library}
 \bibliographystyle{plainnat}
 
