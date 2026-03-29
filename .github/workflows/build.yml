@@ -27,8 +27,22 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
        
+      - name: Check for Tufte macro bridge in all .tex files
+        run: |
+          missing=()
+          for f in tex/*.tex; do
+            if ! grep -q 'ifdefined\\htmlversion' "$f"; then
+              missing+=("$f")
+            fi
+          done
+          if [ ${#missing[@]} -gt 0 ]; then
+            echo "ERROR: The following .tex files are missing the Tufte macro bridge (\ifdefined\htmlversion block):"
+            for f in "${missing[@]}"; do echo "  $f"; done
+            exit 1
+          fi
+
       - name: Create output directories
-        run: mkdir -p output/pdf output/figures  
+        run: mkdir -p output/pdf output/figures
       
       - name: Set up Conda environment
         uses: conda-incubator/setup-miniconda@v3
@@ -74,8 +88,8 @@ jobs:
           cp html/tufte.css output/ || true
           cp html/custom.css output/ || true
 
-      - name: Copy custom index.html
-        run: cp html/index.html output/ || true
+      - name: Generate index.html from chapter list
+        run: python scripts/generate_index.py
 
       - name: Upload site content
         uses: actions/upload-pages-artifact@v3
