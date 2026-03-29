@@ -97,12 +97,10 @@ Each `.tex` file must include this block near the top to work with both PDF and 
   \def\newthought#1{@@newthought:#1@@}
   \def\marginnote#1{@@marginnote:#1@@}
   \def\sidenote#1{@@sidenote:#1@@}
-\else
-  \newcommand{\newthought}[1]{\textsc{#1}}
-  \newcommand{\marginnote}[1]{\marginpar{#1}}
-  \newcommand{\sidenote}[1]{\footnote{#1}}
 \fi
 ```
+
+The `\else` branch is intentionally omitted — `tufte-handout` already defines these macros correctly for PDF output. Adding `\newcommand` definitions would conflict with the class and cause pdflatex to error.
 
 `tufte_filter.py` (a panflute pandoc filter) converts the `@@...@@` tokens into styled HTML `<span>` elements. Without this filter, the HTML output will be broken.
 

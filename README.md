@@ -35,10 +35,6 @@ Every `.tex` file must include this block near the top (after `\usepackage` decl
   \def\newthought#1{@@newthought:#1@@}
   \def\marginnote#1{@@marginnote:#1@@}
   \def\sidenote#1{@@sidenote:#1@@}
-\else
-  \newcommand{\newthought}[1]{\textsc{#1}}
-  \newcommand{\marginnote}[1]{\marginpar{#1}}
-  \newcommand{\sidenote}[1]{\footnote{#1}}
 \fi
 ```
 
