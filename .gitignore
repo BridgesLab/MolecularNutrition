@@ -2,6 +2,7 @@
 html/index.html
 output/
 tex/*.pdf
+nutr630-notes.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
