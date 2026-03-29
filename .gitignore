@@ -1,6 +1,7 @@
 ## Auto-generated files:
 html/index.html
 output/
+tex/*.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

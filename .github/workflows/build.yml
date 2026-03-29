@@ -73,8 +73,20 @@ jobs:
               -o "output/${fname}.html"
           done
 
+      - name: Compile chapter PDFs
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: "tex/*.tex"
+          work_in_root_file_dir: true
+          compiler: latexmk
+          args: -pdf -f -interaction=nonstopmode -latexoption="-shell-escape"
+          extra_system_packages: |
+            inkscape
+            ghostscript
+          texlive_version: 2025
+
       - name: Copy PDFs
-        run: cp tex/*.pdf output/pdf/ || true
+        run: cp tex/*.pdf output/pdf/
 
       - name: Copy figures
         run: |
