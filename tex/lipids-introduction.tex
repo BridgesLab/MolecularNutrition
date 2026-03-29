@@ -45,7 +45,9 @@
   \def\newthought#1{@@newthought:#1@@}
   \def\marginnote#1{@@marginnote:#1@@}
   \def\sidenote#1{@@sidenote:#1@@}
+  \def\alttext#1{@@alttext:#1@@}
 \fi
+\providecommand{\alttext}[1]{}
 
 \begin{document}
 
@@ -93,7 +95,7 @@ The defining characteristic of lipids is their poor water solubility.  Since the
 Lipids can be considered neutral, or amphipathic.  Neutral lipids have little to no charge, this means that they are not soluble at all in water, and generally separate into different layers when mixed.  This can be an advantage in terms of storage.  For example in adipocytes neutral lipids are packed in water-free organelles called lipid droplets (see Figure \ref{fig:lipid-droplets}).  This is a very efficient way of storing energy because lipids have a very high energy content.  This also sequesters triglycerides  and cholesterol esters away from normal cellular machinery.  A review on the role of lipid droplets in the storage and release of triglycerides can be found in \citet{Walther2009}.  Neutral lipids include triglycerides and cholesterol esters\sidenote{Both of these will be described in the next section.}.  
 
 \begin{marginfigure}
-\includegraphics[width=3cm]{figures/lipid-droplets.pdf}
+\includegraphics[width=3cm]{figures/lipid-droplets.png}
 \caption{Schematic of a lipid droplet.  Amphipathic phospholipids are shown in green, while neutral lipids such as cholesterol esters and triglycerides are shown in blue.  The outside of the droplet allows it to be soluble in water, while the inside is hydrophobic.}
 \label{fig:lipid-droplets}
 \end{marginfigure}

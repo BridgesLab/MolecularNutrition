@@ -46,7 +46,9 @@
   \def\newthought#1{@@newthought:#1@@}
   \def\marginnote#1{@@marginnote:#1@@}
   \def\sidenote#1{@@sidenote:#1@@}
+  \def\alttext#1{@@alttext:#1@@}
 \fi
+\providecommand{\alttext}[1]{}
 
 \begin{document}
 
@@ -85,7 +87,7 @@
 
 \section{Glycolysis converts glucose to pyruvate}\index{Carbohydrates!Glucose|(}\index{Metbolites!Pyruvate}
 
-Glycolysis is the process by which glucose is catabolized to pyruvate.  The conversion of glucose to pyruvate can be the first step to full oxidation of glucose to carbon dioxide, or it can end with pyruvate being released as lactate.  This is the backbone of metabolism, as most carboydrate, amino acid and lipid metabolic pathways involve glycolysis in one way or another.  For a refresher on glycolysis, we recommend the textbooks on reserve at the Shapiro library \citep{Berg2013,Ferrier2017}\sidenote{The relevant chapter of Berg is also available free here: \url{https://www.ncbi.nlm.nih.gov/books/NBK22395/}.}.  We start with glucose, because under most conditions, it is the preferred fuel for most tissues\sidenote{There are several examples of tissues that prefer other fuels, for example cardiomyocytes tend to use fatty acids and colonocytes tend to use the short-chain fatty acid butyrate.}.  There are three stages to glycolysis, an energy consuming ``charging'' steps, a ``splitting step'', and ``energy producing steps'' resulting in two molecules of pyruvate for each molecule of glucose.  Overall glycolysis to the point of pyruvate follows this stoichiometry:
+Glycolysis is the process by which glucose is catabolized to pyruvate.  The conversion of glucose to pyruvate can be the first step to full oxidation of glucose to carbon dioxide, or it can end with pyruvate being released as lactate.  This is the backbone of metabolism, as most carboydrate, amino acid and lipid metabolic pathways involve glycolysis in one way or another.  For a refresher on glycolysis, we recommend the textbooks on reserve at the Shapiro library \citep{Berg2013,Ferrier2017}.  We start with glucose, because under most conditions, it is the preferred fuel for most tissues\sidenote{There are several examples of tissues that prefer other fuels, for example cardiomyocytes tend to use fatty acids and colonocytes tend to use the short-chain fatty acid butyrate.}.  There are three stages to glycolysis, an energy consuming ``charging'' steps, a ``splitting step'', and ``energy producing steps'' resulting in two molecules of pyruvate for each molecule of glucose.  Overall glycolysis to the point of pyruvate follows this stoichiometry:
 
 \begin{equation}\label{eq:overall}
 Glucose + 2NAD^+ + 2ADP + 2Pi \rightarrow 2Pyruvate + 2NADH + 2ATP + 2H^+ +2H_2O

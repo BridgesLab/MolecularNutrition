@@ -41,7 +41,7 @@
 
 /* Tufte CSS styles */
 html {
-    font-size: 15px;
+    font-size: 100%;
 }
 
 body {
@@ -114,7 +114,7 @@ p.subtitle {
 }
 
 .danger {
-    color: red;
+    color: #c00000;
 }
 
 article {

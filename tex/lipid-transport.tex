@@ -50,7 +50,9 @@
   \def\newthought#1{@@newthought:#1@@}
   \def\marginnote#1{@@marginnote:#1@@}
   \def\sidenote#1{@@sidenote:#1@@}
+  \def\alttext#1{@@alttext:#1@@}
 \fi
+\providecommand{\alttext}[1]{}
 
 \begin{document}
 
@@ -149,7 +151,7 @@ Both VLDL and chylomicrons are targeted to peripheral tissues.  This specificity
 \newthought{LPL is inactivated by diets high in saturated fats.}  This means that when saturated fat levels are increased, LPL activity is reduced. You can imagine how this is no beneficial to the body, as the lipids in the blood cannot be taken up into the muscles or adipose tissue, therefore remaining in the blood and circulation.  This is a negative feedback mechanism wherein intracellular lipids can signal to the LPL\index{Enzymes!Lipoprotein Lipase} on the extracellular surface to prevent additional fat uptake (see Figure~\ref{fig:angptl4}).  The molecular underpinnings of this phenomena have recently been determined and involve the transcriptional activation of a protein called ANGPTL4\nomenclature{ANGPTL4}{Angiopoietin-like 4}\sidenote{Unhelpfully, an abbreviation for Angiopoietin-like 4.}.  ANGPTL4\index{ANTPTL4} is induced when excess fatty acid levels in the cell activate the transcription factor PPAR\nomenclature{PPAR}{Peroxisome Proliferator-Activated Receptors}$\alpha$.  ANGPTL4 is then secreted where it binds to and inhibits the activity of LPL (more details about this can be found in the recent review by \citet{Dijk2014}).  Mutations in either the \textit{LPL} or \textit{ANGPTL4} genes result in either impaired, or enhanced blood lipid clearance, respectively and as a result either lead to an increased or decreased risk of cardiovascular disease\index{Cardiovascular disease} \citep{Article2016b}.
 
 \begin{marginfigure}
-\includegraphics{figures/Angptl4-PPARa.pdf}
+\includegraphics{figures/Angptl4-PPARa.png}
 \caption{Regulation of Lipoprotein Lipase (LPL) by ANGPTL4.}\label{fig:angptl4}
 \end{marginfigure}
 
