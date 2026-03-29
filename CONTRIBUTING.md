@@ -1,6 +1,6 @@
 # Contributing to Molecular Nutrition Notes
 
-Thank you for your interest in contributing to the **Metabolic Control Systems** notes! We welcome improvements, corrections, and new content from the community.
+Thank you for your interest in contributing to the **Molecular Nutrition** notes! We welcome improvements, corrections, and new content from the community.
 
 ## How to Contribute
 
