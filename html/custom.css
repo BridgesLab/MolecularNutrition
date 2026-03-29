@@ -1,48 +1,104 @@
-.sidenote {
-  display: none;
+/* Skip navigation link (SC 2.4.1) */
+.skip-link {
   position: absolute;
-  top: 1.5em;
-  left: 100%;  /* Position to the right of the wrapper */
-  margin-left: 0.5em;  /* Small gap from the icon */
-  width: 200px;
-  background: #f8f8f8;
-  border: 1px solid #ccc;
-  padding: 0.5em;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  z-index: 1000;
-  font-size: 0.9em;
+  top: -3rem;
+  left: 0.5rem;
+  background: #005fcc;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-size: 1rem;
+  z-index: 10000;
+  border-radius: 0 0 4px 4px;
+  transition: top 0.1s;
 }
 
+.skip-link:focus {
+  top: 0;
+}
+
+/* Explicit focus indicators (SC 2.4.7) */
+a:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.sidenote[tabindex]:focus-visible,
+.marginnote[tabindex]:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Dark mode focus colours */
+@media (prefers-color-scheme: dark) {
+  .skip-link {
+    background: #4d9fff;
+    color: #000000;
+  }
+
+  a:focus-visible,
+  .sidenote[tabindex]:focus-visible,
+  .marginnote[tabindex]:focus-visible {
+    outline-color: #4d9fff;
+  }
+}
+
+/* Sidenote / marginnote wrappers */
+.sidenote-wrapper,
+.marginnote-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Default: visually hidden but readable by screen readers (SC 2.1.1, 4.1.2).
+   Uses clip/clip-path rather than display:none so the content is
+   available in the accessibility tree. */
+.sidenote,
 .marginnote {
-  display: none;
   position: absolute;
-  top: 1.5em;
-  left: 100%;  /* Same fix for marginnotes */
-  margin-left: 0.5em;
-  width: 200px;
-  background: #f8f8f8;
-  border: 1px solid #ccc;
-  padding: 0.5em;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  z-index: 1000;
-  font-size: 0.9em;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
+/* Reveal visually on hover or when anything inside the wrapper has focus */
+.sidenote-wrapper:hover .sidenote,
+.sidenote-wrapper:focus-within .sidenote,
 .marginnote-wrapper:hover .marginnote,
 .marginnote-wrapper:focus-within .marginnote {
-  display: block;
+  position: absolute;
+  top: 1.5em;
+  left: 100%;
+  margin-left: 0.5em;
+  width: 200px;
+  height: auto;
+  padding: 0.5em;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
+  white-space: normal;
+  background: #f8f8f8;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  font-size: 0.9em;
   cursor: default;
 }
 
-
-.sidenote-wrapper {
-  position: relative;
-  display: inline-block; /* so it wraps the icon and text nicely */
+@media (prefers-color-scheme: dark) {
+  .sidenote-wrapper:hover .sidenote,
+  .sidenote-wrapper:focus-within .sidenote,
+  .marginnote-wrapper:hover .marginnote,
+  .marginnote-wrapper:focus-within .marginnote {
+    background: #2a2a2a;
+    border-color: #555;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  }
 }
-
-.sidenote-wrapper:hover .sidenote,
-.sidenote-wrapper:focus-within .sidenote {
-  display: block;
-  cursor: default;
-}
-

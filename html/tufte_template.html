@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>$if(title)$ $title$ $endif$</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>$if(title)$$title$$endif$</title>
   <link rel="stylesheet" href="tufte.css">
   <link rel="stylesheet" href="custom.css">
   $for(header-includes)$
     $header-includes$
   $endfor$
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </head>
 <body>
-  <article>
-    $if(title)$
-      <h1>$title$</h1>
-    $endif$
-    $body$
-  </article>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <main id="main-content">
+    <article>
+      $if(title)$
+        <h1>$title$</h1>
+      $endif$
+      $body$
+    </article>
+  </main>
 </body>
 </html>

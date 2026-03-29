@@ -79,8 +79,15 @@ def replace_macros_in_para(elem, doc):
         # Add the macro
         if macro_type in ['marginnote', 'sidenote']:
             wrapper = pf.Span(
-                pf.Span(pf.Str('‡'), classes=['margin-icon']),
-                pf.Span(pf.Str(macro_content), classes=[macro_type]),
+                # aria-hidden: icon is visual only; screen readers read the
+                # note content directly from the DOM (SC 4.1.2)
+                pf.Span(pf.Str('‡'), classes=['margin-icon'],
+                        attributes={'aria-hidden': 'true'}),
+                # role="note" marks the content semantically; tabindex="0"
+                # makes it keyboard-reachable so :focus-within shows the
+                # visual tooltip (SC 2.1.1)
+                pf.Span(pf.Str(macro_content), classes=[macro_type],
+                        attributes={'role': 'note', 'tabindex': '0'}),
                 classes=[f"{macro_type}-wrapper"]
             )
             new_elems.append(wrapper)
@@ -130,9 +137,24 @@ def split_text_with_spaces(text):
         tokens.append(text[pos:])
     return tokens
 
+def add_table_scope(elem, doc):
+    """Add scope='col' to header cells for screen reader table navigation (SC 1.3.1)."""
+    if not isinstance(elem, pf.Table):
+        return None
+    if doc.format not in ['html', 'html5']:
+        return None
+    for row in elem.head.content:
+        for cell in row.content:
+            if 'scope' not in cell.attributes:
+                cell.attributes['scope'] = 'col'
+    return elem
+
+
 def action(elem, doc):
     if isinstance(elem, pf.Para):
         return replace_macros_in_para(elem, doc)
+    if isinstance(elem, pf.Table):
+        return add_table_scope(elem, doc)
     return None
 
 def main(doc=None):
