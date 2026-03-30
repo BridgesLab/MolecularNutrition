@@ -25,8 +25,66 @@ Local usage:
         --standalone \
         -o test.html
 """
+import html as html_module
 import panflute as pf
 import re
+
+
+# ---------------------------------------------------------------------------
+# Helpers for LaTeX figure environment conversion
+# ---------------------------------------------------------------------------
+
+def extract_braced_content(text, cmd):
+    r"""Return content of \cmd{...} in text, handling nested braces.
+
+    cmd should include the leading backslash, e.g. '\\caption'.
+    Returns None if cmd is not found.
+    """
+    marker = cmd + '{'
+    start = text.find(marker)
+    if start == -1:
+        return None
+    pos = start + len(marker)
+    depth = 1
+    while pos < len(text) and depth > 0:
+        if text[pos] == '{':
+            depth += 1
+        elif text[pos] == '}':
+            depth -= 1
+        if depth > 0:
+            pos += 1
+    return text[start + len(marker):pos] if depth == 0 else None
+
+
+def caption_latex_to_html(text):
+    """Convert LaTeX caption text to basic HTML suitable for <figcaption>."""
+    if not text:
+        return ''
+    # Citations → [key]
+    text = re.sub(r'\\cite[tp]?\*?\{([^}]+)\}', r'[\1]', text)
+    # Inline math $...$ → \(...\) for MathJax
+    text = re.sub(r'\$([^$]+)\$', r'\\(\1\\)', text)
+    # sub/sup
+    text = re.sub(r'\\textsubscript\{([^}]*)\}', r'<sub>\1</sub>', text)
+    text = re.sub(r'\\textsuperscript\{([^}]*)\}', r'<sup>\1</sup>', text)
+    # emphasis
+    text = re.sub(r'\\emph\{([^}]*)\}', r'<em>\1</em>', text)
+    text = re.sub(r'\\textit\{([^}]*)\}', r'<em>\1</em>', text)
+    text = re.sub(r'\\textbf\{([^}]*)\}', r'<strong>\1</strong>', text)
+    # strip remaining \cmd{arg} → arg
+    text = re.sub(r'\\[a-zA-Z]+\{([^}]*)\}', r'\1', text)
+    # strip standalone \cmd
+    text = re.sub(r'\\[a-zA-Z]+\*?\s*', '', text)
+    # strip stray braces and backslashes
+    text = re.sub(r'[{}\\]', '', text)
+    # normalise whitespace
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
+
+
+# ---------------------------------------------------------------------------
+# Para-level @@token:content@@ substitutions
+# ---------------------------------------------------------------------------
 
 def extract_text_from_elem(elem):
     """Extract text from an element, preserving non-text elements."""
@@ -106,9 +164,22 @@ def replace_macros_in_para(elem, doc):
 
         pos = end
 
-    # Handle remaining text after last macro
+    # Handle remaining text after last macro.
+    # Strip orphaned @@ tokens that arise when sidenote content spans multiple
+    # paragraphs or block elements (e.g. sidenotes containing \begin{enumerate}).
     after_text = full_text[pos:]
+    # Remove incomplete opening tokens (@@type:... with no closing @@)
+    after_text = re.sub(
+        r'@@(?:newthought|marginnote|sidenote|alttext):[^@]*$', '', after_text, flags=re.DOTALL
+    )
+    # Remove orphaned lone @@ at start (leftover closing token from a split block)
+    after_text = re.sub(r'^@@', '', after_text)
+    after_text = after_text.strip()
     new_elems.extend(process_text_with_preserved_elems(after_text, preserved_elems, doc))
+
+    # Suppress the paragraph entirely if nothing substantive remains
+    if not new_elems:
+        return []
 
     return pf.Para(*new_elems)
 
@@ -158,10 +229,15 @@ def split_text_with_spaces(text):
         tokens.append(text[pos:])
     return tokens
 
+
+# ---------------------------------------------------------------------------
+# Image alt text (standalone <img> not inside a figure environment)
+# ---------------------------------------------------------------------------
+
 def apply_alt_to_image(elem, doc):
     """Apply pending alt text to an Image element (SC 1.1.1).
 
-    Handles the case where \alttext{} and \includegraphics{} are in separate
+    Handles the case where \\alttext{} and \\includegraphics{} are in separate
     paragraphs (e.g. a blank line between them, or different figure structure).
     """
     if not isinstance(elem, pf.Image):
@@ -174,6 +250,11 @@ def apply_alt_to_image(elem, doc):
         doc._pending_alt = None
         return elem
     return None
+
+
+# ---------------------------------------------------------------------------
+# Table accessibility
+# ---------------------------------------------------------------------------
 
 def add_table_scope(elem, doc):
     """Add scope='col' to header cells for screen reader table navigation (SC 1.3.1)."""
@@ -188,6 +269,92 @@ def add_table_scope(elem, doc):
     return elem
 
 
+# ---------------------------------------------------------------------------
+# RawBlock handler: marginfigure / figure → <figure>
+# ---------------------------------------------------------------------------
+
+def handle_raw_block(elem, doc):
+    r"""Convert \begin{marginfigure} and \begin{figure} environments to HTML."""
+    if not isinstance(elem, pf.RawBlock):
+        return None
+    if doc.format not in ['html', 'html5']:
+        return None
+    if elem.format != 'latex':
+        return None
+
+    text = elem.text.strip()
+
+    env_re = re.compile(
+        r'\\begin\{(marginfigure|figure\*?)\}(.*?)\\end\{(?:marginfigure|figure\*?)\}',
+        re.DOTALL
+    )
+    m = env_re.match(text)
+    if not m:
+        return None
+
+    env_type = m.group(1)
+    content = m.group(2)
+
+    # Image path
+    img_m = re.search(r'\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}', content)
+    if not img_m:
+        return None
+    img_src = img_m.group(1)
+
+    # Label → id attribute
+    label_m = re.search(r'\\label\{([^}]+)\}', content)
+    label = label_m.group(1) if label_m else ''
+
+    # Alt text: prefer \alttext{} inside the environment, then pending alt
+    alt_m = re.search(r'\\alttext\{([^}]+)\}', content)
+    if alt_m:
+        alt = alt_m.group(1).strip()
+        doc._pending_alt = None
+    else:
+        alt = getattr(doc, '_pending_alt', '') or ''
+        if alt:
+            doc._pending_alt = None
+
+    # Caption with nested-brace-aware extraction
+    caption_latex = extract_braced_content(content, '\\caption')
+    caption_html = caption_latex_to_html(caption_latex) if caption_latex else ''
+
+    # Build HTML
+    css_class = 'marginfigure' if env_type == 'marginfigure' else 'figure'
+    id_attr = f' id="{html_module.escape(label)}"' if label else ''
+    alt_escaped = html_module.escape(alt) if alt else ''
+    img_tag = f'<img src="{html_module.escape(img_src)}" alt="{alt_escaped}">'
+    cap_tag = f'<figcaption>{caption_html}</figcaption>' if caption_html else ''
+    figure_html = f'<figure class="{css_class}"{id_attr}>{img_tag}{cap_tag}</figure>'
+
+    return pf.RawBlock('html', figure_html)
+
+
+# ---------------------------------------------------------------------------
+# RawInline handler: \ref{} and \eqref{} cross-references → anchor links
+# ---------------------------------------------------------------------------
+
+def handle_raw_inline(elem, doc):
+    r"""Convert \ref{label} RawInline elements to HTML anchor links."""
+    if not isinstance(elem, pf.RawInline):
+        return None
+    if doc.format not in ['html', 'html5']:
+        return None
+    if elem.format != 'latex':
+        return None
+
+    m = re.match(r'\\e?ref\{([^}]+)\}', elem.text.strip())
+    if m:
+        label = m.group(1)
+        return pf.Link(pf.Str('↑'), url=f'#{label}', title=f'See {label}')
+
+    return None
+
+
+# ---------------------------------------------------------------------------
+# Main action dispatcher
+# ---------------------------------------------------------------------------
+
 def action(elem, doc):
     if isinstance(elem, pf.Para):
         return replace_macros_in_para(elem, doc)
@@ -195,6 +362,10 @@ def action(elem, doc):
         return apply_alt_to_image(elem, doc)
     if isinstance(elem, pf.Table):
         return add_table_scope(elem, doc)
+    if isinstance(elem, pf.RawBlock):
+        return handle_raw_block(elem, doc)
+    if isinstance(elem, pf.RawInline):
+        return handle_raw_inline(elem, doc)
     return None
 
 def main(doc=None):
