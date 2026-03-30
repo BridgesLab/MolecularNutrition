@@ -327,7 +327,7 @@ def handle_raw_block(elem, doc):
     cap_tag = f'<figcaption>{caption_html}</figcaption>' if caption_html else ''
     figure_html = f'<figure class="{css_class}"{id_attr}>{img_tag}{cap_tag}</figure>'
 
-    return pf.RawBlock('html', figure_html)
+    return pf.RawBlock(figure_html, 'html')
 
 
 # ---------------------------------------------------------------------------
