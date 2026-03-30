@@ -37,11 +37,9 @@ jobs:
           ghostscript
         texlive_version: 2025
 
-    - name: Run BibTeX and makeindex
+    - name: Run makeindex for regular index
       run: |
-        bibtex nutr630-notes || true
         makeindex nutr630-notes.idx || true
-        makeindex nutr630-notes.nlo -s nomencl.ist -o nutr630-notes.nls || true
 
     - name: Recompile to resolve references
       uses: xu-cheng/latex-action@v4
