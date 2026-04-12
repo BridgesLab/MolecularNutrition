@@ -328,6 +328,15 @@ These chapters are the lecture notes from NUTR630: Principles of Nutritional Sci
 \bibliographystyle{plainnat}
 
 \renewcommand{\nomname}{List of Abbreviations}
+% tufte-book redefines \list in a way that breaks nomencl's default output.
+% Redefine the thenomenclature environment to use description inside fullwidth.
+\renewcommand{\thenomenclature}{%
+  \chapter*{\nomname}%
+  \addcontentsline{toc}{chapter}{\nomname}%
+  \nompreamble
+  \begin{fullwidth}\begin{description}}
+\renewcommand{\endthenomenclature}{\end{description}\end{fullwidth}\nompostamble}
+\renewcommand{\nomlabel}[1]{\textbf{#1}\hfil}
 \printnomenclature
 
 \printindex
