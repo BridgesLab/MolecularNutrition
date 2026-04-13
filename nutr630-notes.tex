@@ -328,23 +328,41 @@ These chapters are the lecture notes from NUTR630: Principles of Nutritional Sci
 \bibliographystyle{plainnat}
 
 \renewcommand{\nomname}{List of Abbreviations}
-% tufte-book's margin-note output routine globally resets \@listdepth during
-% page breaks, which causes "Lonely \item" in any \list-based environment
-% (including description, itemize, enumerate).  Work around this by redefining
-% thenomenclature to avoid \list entirely: instead redefine \item locally to
-% produce hanging-indent paragraphs.
+% tufte-book's group manipulation during \chapter* output prevents a locally-
+% defined \item from being visible when the .nls items are processed.  Fix:
+% globally redirect \item through a flag so group scope is irrelevant.
 \makeatletter
 \newlength{\@nom@labelwidth}
 \setlength{\@nom@labelwidth}{3.5cm}
-\renewcommand{\thenomenclature}{%
-  \par
-  \def\item[##1]{%
-    \par\noindent
-    \hangindent\@nom@labelwidth
-    \makebox[\@nom@labelwidth][l]{\textbf{##1}}\ignorespaces
-  }%
+
+% Flag: are we inside the nomenclature list?
+\newif\if@innomenclature
+\@innomenclaturefalse
+
+% Nomenclature item handler -- delimited [#1] matches \item [{KEY}] in .nls
+\def\@nom@nomitem[#1]{%
+  \par\noindent
+  \hangindent\@nom@labelwidth
+  \makebox[\@nom@labelwidth][l]{\textbf{#1}}\ignorespaces
 }
-\renewcommand{\endthenomenclature}{\par}
+
+% Save the original \item and replace it globally with a flag-checking wrapper.
+% When outside nomenclature the original behaviour is preserved exactly.
+% Must use \gdef (global) because tufte-book's \chapter* creates groups that
+% would otherwise restore \item to the original list definition before the
+% .nls items are processed, causing "Lonely \item" errors.
+\let\@nom@origitem\item
+\gdef\item{%
+  \if@innomenclature
+    \expandafter\@nom@nomitem
+  \else
+    \expandafter\@nom@origitem
+  \fi
+}
+
+% Set/clear the flag globally so it survives any group boundaries.
+\renewcommand{\thenomenclature}{\global\@innomenclaturetrue}
+\renewcommand{\endthenomenclature}{\global\@innomenclaturefalse\par}
 \makeatother
 \printnomenclature
 
