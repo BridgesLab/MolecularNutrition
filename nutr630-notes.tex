@@ -328,15 +328,24 @@ These chapters are the lecture notes from NUTR630: Principles of Nutritional Sci
 \bibliographystyle{plainnat}
 
 \renewcommand{\nomname}{List of Abbreviations}
-% tufte-book redefines \list in a way that breaks nomencl's default output.
-% Redefine the thenomenclature environment to use description inside fullwidth.
+% tufte-book's margin-note output routine globally resets \@listdepth during
+% page breaks, which causes "Lonely \item" in any \list-based environment
+% (including description, itemize, enumerate).  Work around this by redefining
+% thenomenclature to avoid \list entirely: instead redefine \item locally to
+% produce hanging-indent paragraphs.
+\makeatletter
+\newlength{\@nom@labelwidth}
+\setlength{\@nom@labelwidth}{3.5cm}
 \renewcommand{\thenomenclature}{%
-  \chapter*{\nomname}%
-  \addcontentsline{toc}{chapter}{\nomname}%
-  \nompreamble
-  \begin{fullwidth}\begin{description}}
-\renewcommand{\endthenomenclature}{\end{description}\end{fullwidth}\nompostamble}
-\renewcommand{\nomlabel}[1]{\textbf{#1}\hfil}
+  \par
+  \def\item[##1]{%
+    \par\noindent
+    \hangindent\@nom@labelwidth
+    \makebox[\@nom@labelwidth][l]{\textbf{##1}}\ignorespaces
+  }%
+}
+\renewcommand{\endthenomenclature}{\par}
+\makeatother
 \printnomenclature
 
 \printindex

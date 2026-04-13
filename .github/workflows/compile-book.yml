@@ -41,6 +41,10 @@ jobs:
       run: |
         makeindex nutr630-notes.idx || true
 
+    - name: Run makeindex for nomenclature
+      run: |
+        makeindex nutr630-notes.nlo -s nomencl.ist -o nutr630-notes.nls || true
+
     - name: Recompile to resolve references
       uses: xu-cheng/latex-action@v4
       with:
