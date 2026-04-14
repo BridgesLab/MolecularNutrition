@@ -6,7 +6,8 @@
       "Bash(perl -0777 -i -pe 's/\\\\\\\\else\\\\n  \\\\\\\\newcommand\\\\{\\\\\\\\newthought\\\\}\\\\[1\\\\]\\\\{\\\\\\\\textsc\\\\{#1\\\\}\\\\}\\\\n  \\\\\\\\newcommand\\\\{\\\\\\\\marginnote\\\\}\\\\[1\\\\]\\\\{\\\\\\\\marginpar\\\\{#1\\\\}\\\\}\\\\n  \\\\\\\\newcommand\\\\{\\\\\\\\sidenote\\\\}\\\\[1\\\\]\\\\{\\\\\\\\footnote\\\\{#1\\\\}\\\\}\\\\n//g' \"$f\")",
       "Bash(done)",
       "Bash(grep:*)",
-      "WebFetch(domain:pubmed.ncbi.nlm.nih.gov)"
+      "WebFetch(domain:pubmed.ncbi.nlm.nih.gov)",
+      "Bash(latexmk -pdf -f -interaction=nonstopmode -quiet tex/endocrine-handout.tex)"
     ]
   }
 }
