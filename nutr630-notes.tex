@@ -152,8 +152,24 @@
 \makeindex
 
 \usepackage{subfiles}
-\usepackage[intoc]{nomencl}
+\usepackage[intoc,norefeq]{nomencl}
 \makenomenclature
+% Each chapter has its own equation counter, so \nomeqref{\theequation}
+% writes a different number per chapter.  Identical abbreviations from
+% different chapters therefore produce different display strings, preventing
+% makeindex from merging them into a single entry.  Fix: patch the internal
+% writer to always use \nomeqref{0} so all copies of the same abbreviation
+% are byte-for-byte identical and makeindex collapses them into one entry.
+\makeatletter
+\def\@@@nomenclature[#1]#2#3{%
+  \def\@tempa{#2}\def\@tempb{#3}%
+  \protected@write\@nomenclaturefile{}%
+  {\string\nomenclatureentry{#1\nom@verb\@tempa @[{\nom@verb\@tempa}]%
+      \begingroup\nom@verb\@tempb\protect\nomeqref{0}%
+      |nompageref}{\thepage}}%
+  \endgroup
+  \@esphack}
+\makeatother
 
 \begin{document}
 
@@ -328,6 +344,86 @@ These chapters are the lecture notes from NUTR630: Principles of Nutritional Sci
 \bibliographystyle{plainnat}
 
 \renewcommand{\nomname}{List of Abbreviations}
+% Nomenclature printing for tufte-book has two problems:
+%
+% 1. "Lonely \item": tufte-book's \chapter* (called inside \thenomenclature)
+%    creates TeX groups; \item defined with \def would be restored to the
+%    original list \item inside those groups.  Fix: use \gdef.
+%
+% 2. "Extra \endgroup": \nompageref always ends with \endgroup (closing the
+%    \begingroup that .nls entries open before the term text).  When an
+%    abbreviation appears on multiple pages, makeindex emits multiple
+%    \nompageref calls per entry but only one \begingroup -- every call after
+%    the first has an unmatched \endgroup that unwinds outer groups, eventually
+%    causing "\begin{document} ended by \end{thenomenclature}".
+%    Fix: redefine \nompageref inside the environment to omit \endgroup, and
+%    instead close each entry's \begingroup lazily at the start of the next
+%    \item (or at \endthenomenclature for the last entry).
+\makeatletter
+\newlength{\@nom@labelwidth}
+\setlength{\@nom@labelwidth}{3.5cm}
+
+% Flag: are we inside the nomenclature list?
+\newif\if@innomenclature
+\@innomenclaturefalse
+
+% Flag: does the preceding .nls entry have an unclosed \begingroup?
+\newif\if@nom@entryopen
+\@nom@entryopenfalse
+
+% Nomenclature item handler -- [#1] matches \item [{KEY}] in .nls.
+% Closes the previous entry's \begingroup before starting a new entry.
+\def\@nom@nomitem[#1]{%
+  \if@nom@entryopen
+    \endgroup
+    \global\@nom@entryopenfalse
+  \fi
+  \global\@nom@entryopentrue   % the .nls \begingroup for this entry follows
+  \par\noindent
+  \hangindent\@nom@labelwidth
+  \makebox[\@nom@labelwidth][l]{\textbf{#1}}\ignorespaces
+}
+
+% Save the original \item and replace it globally with a flag-checking wrapper.
+% Must use \gdef so the definition survives tufte-book's group boundaries.
+\let\@nom@origitem\item
+\gdef\item{%
+  \if@innomenclature
+    \expandafter\@nom@nomitem
+  \else
+    \expandafter\@nom@origitem
+  \fi
+}
+
+% Save original \nompageref so we can restore it afterwards.
+\let\@nom@origpageref\nompageref
+
+% thenomenclature: add chapter heading, THEN set flag and patch \nompageref.
+% The flag must be set AFTER \chapter* returns: titlesec's chapter formatting
+% calls \item internally, and if our override is active during that call it
+% injects \noindent/\makebox into the format argument, causing a titlesec
+% "Entered in horizontal mode" error.
+\renewcommand{\thenomenclature}{%
+  \chapter*{\nomname}%        % chapter heading while flag is still false
+  \global\@innomenclaturetrue % set AFTER \chapter* so its \item calls are unaffected
+  \gdef\nompageref##1{%
+    \if@printpageref\pagedeclaration{##1}\fi
+    \nomentryend
+    % \endgroup intentionally omitted -- see \@nom@nomitem / \endthenomenclature
+  }%
+}
+
+\renewcommand{\endthenomenclature}{%
+  % Close the last entry's \begingroup (no following \item to do it).
+  \if@nom@entryopen
+    \endgroup
+    \global\@nom@entryopenfalse
+  \fi
+  \global\@innomenclaturefalse
+  \global\let\nompageref\@nom@origpageref
+  \par
+}
+\makeatother
 \printnomenclature
 
 \printindex
