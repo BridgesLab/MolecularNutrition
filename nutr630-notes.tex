@@ -152,8 +152,24 @@
 \makeindex
 
 \usepackage{subfiles}
-\usepackage[intoc]{nomencl}
+\usepackage[intoc,norefeq]{nomencl}
 \makenomenclature
+% Each chapter has its own equation counter, so \nomeqref{\theequation}
+% writes a different number per chapter.  Identical abbreviations from
+% different chapters therefore produce different display strings, preventing
+% makeindex from merging them into a single entry.  Fix: patch the internal
+% writer to always use \nomeqref{0} so all copies of the same abbreviation
+% are byte-for-byte identical and makeindex collapses them into one entry.
+\makeatletter
+\def\@@@nomenclature[#1]#2#3{%
+  \def\@tempa{#2}\def\@tempb{#3}%
+  \protected@write\@nomenclaturefile{}%
+  {\string\nomenclatureentry{#1\nom@verb\@tempa @[{\nom@verb\@tempa}]%
+      \begingroup\nom@verb\@tempb\protect\nomeqref{0}%
+      |nompageref}{\thepage}}%
+  \endgroup
+  \@esphack}
+\makeatother
 
 \begin{document}
 
