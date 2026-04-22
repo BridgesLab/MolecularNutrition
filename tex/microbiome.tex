@@ -1,0 +1,374 @@
+\documentclass{tufte-handout}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{The Gut Microbiome}
+\author{Dave Bridges}
+
+\usepackage{booktabs}
+\usepackage{units}
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+\usepackage{multicol}
+\usepackage{nomencl}
+\makenomenclature
+
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}
+\newcommand{\docenv}[1]{\textsf{#1}}
+\newcommand{\docpkg}[1]{\texttt{#1}}
+\newcommand{\doccls}[1]{\texttt{#1}}
+\newcommand{\docclsopt}[1]{\texttt{#1}}
+
+% Conditionally redefine Tufte-style macros for HTML output
+\ifdefined\htmlversion
+  \def\newthought#1{@@newthought:#1@@}
+  \def\marginnote#1{@@marginnote:#1@@}
+  \def\sidenote#1{@@sidenote:#1@@}
+  \def\alttext#1{@@alttext:#1@@}
+\fi
+\providecommand{\alttext}[1]{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The human body harbors a vast community of microorganisms (collectively the microbiome) that profoundly influence digestion, immunity, and overall health. In this lecture we introduce the concept of the human microbiome, survey its distribution across body sites, characterize the composition of the gut microbiome in particular, and critically examine the methods used to study it.
+\end{abstract}
+
+\tableofcontents
+
+\pagebreak
+
+\section{Learning Objectives}
+
+\begin{itemize}
+  \item Describe the commensal relationship between humans and microbes, including major location-dependent microbiomes on the human body.
+  \item Evaluate the stability and malleability of the microbiome, in relationship to genetic or life-course dependent changes.
+  \item Consider the environmental factors that shape the gut microbial niche, and how that affects the kinds of bacterial species that flourish. Use this information to predict how bacterial species may be altered by diet.
+  \item Evaluate the role of fiber in providing fuel to the microbiome. Using the physical properties of polysaccharides in fiber, explain why these nutrients are particularly important for microbial function.
+  \item Explain the methods by which the microbiome is assessed, including the strengths and weaknesses of each methodology.
+  \item Describe the relationship between the gut microbiome and the immune system.
+  \item Compare descriptive and interventional studies of microbiota-disease relationships and use this information to consider the strength of the relationship.
+\end{itemize}
+
+%% ============================================================
+\section{What Is the Microbiome?}\index{Microbiome!Definition}
+%% ============================================================
+
+\newthought{The human body is not a solo organism.} Every surface exposed to the external environment including skin, mouth, respiratory tract, gastrointestinal tract, and urogenital tract is colonized by a dense community of microorganisms including bacteria, archaea, fungi, and viruses. The term \textbf{microbiota}\index{Microbiota} refers to the collection of microorganisms themselves, while \textbf{microbiome}\index{Microbiome} more precisely encompasses the microorganisms \emph{and} their collective genetic material and metabolic activity though the two terms are used interchangeably.
+
+For perspective on scale: a landmark re-estimation placed the number of bacteria in and on the human body at approximately $3.8 \times 10^{13}$, roughly equal to the number of human cells ($3.7 \times 10^{13}$), overturning the older ``10:1'' ratio that appeared in textbooks for decades \citep{senderRevisedEstimatesNumber2016}.\sidenote{Most of those bacteria reside in the colon, the rest of the body's surfaces are comparatively sparsely colonized.} The collective genome of the gut microbiota alone encodes roughly 150 times more genes than the human genome \citep{qinHumanGutMicrobial2010}.
+\nomenclature{HMP}{Human Microbiome Project}
+
+\subsection{A Commensal (and Mutualistic) Relationship}\index{Microbiome!Commensal relationship}
+
+The relationship between host and microbiota is not parasitic. The host provides a stable, nutrient-rich environment, and the microbiota provide services the host cannot perform alone. some of these include:
+
+\begin{itemize}
+  \item Fermentation of indigestible dietary fibers to produce short-chain fatty acids\index{Short-Chain Fatty Acids} (SCFAs\nomenclature{SCFA}{short-chain fatty acid}) that fuel colonocytes and other tissues
+  \item Synthesis of vitamins, particularly vitamin K\index{Vitamins!Vitamin K} and several B vitamins\index{Vitamins!B Vitamins} (the enzymes required for vitamin B\textsubscript{12} biosynthesis are found exclusively in bacteria)
+  \item Competitive exclusion of pathogens by occupying binding sites and depleting nutrients
+  \item Maturation and ongoing calibration of the immune system\index{Immune System}
+  \item Biotransformation of bile acids\index{Bile Salts} and xenobiotics
+\end{itemize}
+
+This is best described as a \textit{mutualistic} relationship: both partners benefit. The word \textit{commensal} (``eating at the same table'') is often used for microbes that neither help nor harm, but the gut microbiota clearly crosses into mutualism for the functions above. Disruption of the normal microbial community (termed \textbf{dysbiosis}\index{Dysbiosis}) is associated with a range of diseases discussed later in the course.
+
+%% ============================================================
+\subsection{The Human Microbiome Project}\index{Microbiome!Human Microbiome Project}
+
+The scale and diversity of human-associated microbiota were systematically catalogued by the \textbf{Human Microbiome Project} (HMP), a NIH-funded initiative that characterized microbial communities from 18 body sites in 242 healthy adults \citep{humanmicrobiomeprojectconsortiumStructureFunctionHuman2012}. A key finding was that microbial communities are highly \textit{site-specific}: the microbiota of the skin differs dramatically from that of the oral cavity, which differs again from the gut. Importantly, healthy individuals showed substantial variation in the \textit{identity} of their microbial species while maintaining similar \textit{functional} gene repertoires.  This suggests that functional redundancy across different species may matter more than species identity \textit{per se}.
+
+%% ============================================================
+\section{Body-Site Microbiomes}\index{Microbiome!Body sites}
+%% ============================================================
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figures/microbiome-body-sites}
+  \alttext{Schematic diagram of the human body indicating the major microbiome compartments: oral cavity, skin, respiratory tract, gut (stomach, small intestine, large intestine), and urogenital tract, with representative dominant genera labeled at each site.}
+  \caption{Major body-site microbiomes and representative dominant genera. Microbial density and diversity increase dramatically from the stomach to the colon.}\label{fig:body-sites}
+\end{figure}
+%% FIGURE NOTE: placeholder suggest a simple schematic body outline with labeled callouts for each major site and characteristic genera (e.g., Streptococcus in oral; Staphylococcus on skin; Lactobacillus in vagina; gradient from sparse stomach to dense colon)
+
+\newthought{Different body sites support distinct microbial communities} shaped by local conditions such as pH, oxygen tension, nutrient availability, host secretions, and immune activity (Figure~\ref{fig:body-sites}). Table~\ref{tab:body-sites} summarizes key features of the major body-site microbiomes.
+
+\begin{table}[ht]
+\caption{Major body-site microbiomes and their dominant taxa.}\label{tab:body-sites}
+\begin{tabular}{p{2.2cm}p{3cm}p{3.5cm}}
+\toprule
+\textbf{Site} & \textbf{Dominant taxa} & \textbf{Key features} \\ \midrule
+Oral cavity & \textit{Streptococcus}, \textit{Prevotella}, \textit{Veillonella} & Biofilm (dental plaque); anaerobic niches in gingival sulcus \\
+Skin & \textit{Staphylococcus}, \textit{Corynebacterium}, \textit{Cutibacterium} & Varies by moisture; sebaceous vs.\ dry sites differ \\
+Stomach & \textit{Helicobacter}, sparse acid-tolerant taxa & Low pH (\textasciitilde2) limits density \\
+Small intestine & \textit{Lactobacillus}, \textit{Streptococcus} & Short transit time; increasing density distal to proximal \\
+Large intestine & \textit{Bacteroides}, \textit{Faecalibacterium}, \textit{Bifidobacterium}, \textit{Ruminococcus} & Highest density ($10^{11}$--$10^{12}$ cells/mL); anaerobic; primary fermentation site \\
+Vagina & \textit{Lactobacillus} (dominant) & Low pH from lactic acid; highly variable across life stages \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\newthought{The colon is the most densely colonized site}, harboring an estimated $10^{11}$--$10^{12}$ bacteria per milliliter of luminal content (roughly the density of a bacterial culture at stationary phase). The low-oxygen environment\sidenote{Oxygen tension decreases from the mucosa outward; obligate anaerobes dominate the lumen while aerotolerant species can persist near the epithelial surface.} selects for obligate anaerobes, which comprise the vast majority of gut bacteria. These are the organisms responsible for fiber fermentation and SCFA production discussed in later sections.
+
+%% ============================================================
+\section{Composition of the Gut Microbiome}\index{Microbiome!Composition}
+%% ============================================================
+
+\subsection{Major Phyla}\index{Microbiome!Phyla}
+
+At the broadest taxonomic level, two phyla dominate the healthy adult gut microbiome: \textbf{\textit{Firmicutes}}\index{Microbiome!Firmicutes} and \textbf{\textit{Bacteroidetes}}\index{Microbiome!Bacteroidetes}, together accounting for roughly 90\% of gut bacteria in most healthy adults \citep{eckburgDiversityHumanIntestinal2005}. \textit{Actinobacteria} (including the genus \textit{Bifidobacterium}) and \textit{Proteobacteria} are present at lower abundances. The ratio of \textit{Firmicutes} to \textit{Bacteroidetes} (sometimes called the F:B ratio) has attracted attention as a potential marker of metabolic health, though its utility as a biomarker is debated.\marginnote{\textbf{Taxonomic hierarchy:} Domain $\to$ Phylum $\to$ Class $\to$ Order $\to$ Family $\to$ Genus $\to$ Species $\to$ Strain. Microbiome studies typically report at the phylum, genus, or species level depending on the resolution of the method used.}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figures/microbiome-phyla-composition}
+  \alttext{Pie chart or stacked bar chart showing the approximate proportional abundance of major bacterial phyla in the healthy adult human gut: Firmicutes approximately 60 percent, Bacteroidetes approximately 25 percent, Actinobacteria approximately 5 percent, Proteobacteria approximately 5 percent, other phyla making up the remainder.}
+  \caption{Approximate phylum-level composition of the healthy adult gut microbiome. Exact proportions vary substantially between individuals and between studies.}\label{fig:phyla}
+\end{figure}
+%% FIGURE NOTE: placeholder a simple pie or stacked bar would work; emphasize that inter-individual variation is large
+
+\subsection{Inter-individual Variation and Core Microbiome}\index{Microbiome!Inter-individual variation}
+
+Despite a shared set of dominant phyla, the specific species-level composition of the gut microbiome varies enormously between individuals almost certainly more than any other organ system. No single species is universally present across all healthy individuals. This has led to the concept of a \textbf{functional core microbiome}: a conserved set of metabolic functions (e.g., SCFA production, bile acid transformation) maintained by different species in different people \citep{humanmicrobiomeprojectconsortiumStructureFunctionHuman2012}. The implication is that functional capacity, rather than species identity, may be the more relevant measure of microbiome ``health.''\sidenote{\textbf{Quantifying diversity the Shannon index.}\index{Microbiome!Shannon diversity index} Microbial diversity is commonly summarized by the \textbf{Shannon diversity index} $H' = -\sum_{i} p_i \ln p_i$, where $p_i$ is the relative abundance of species $i$. $H'$ captures both \textit{richness} (number of species present) and \textit{evenness} (how equally abundant they are). A community dominated by one species has a low $H'$; a community with many equally abundant species has a high $H'$. Higher diversity is generally associated with a more resilient, functionally redundant microbiome, and reduced diversity is a consistent feature of dysbiotic states such as \textit{Clostridioides difficile} infection.}
+
+%% ============================================================
+\section{How Is the Microbiome Measured?}\index{Microbiome!Measurement methods}
+%% ============================================================
+
+\newthought{Studying the microbiome requires methods that can characterize} microbial communities without necessarily growing each organism in the laboratory. Historically, microbiology relied on culture systems such as growing bacteria on selective media.  However it is estimated that fewer than 30\% of gut bacterial species can be readily cultured under standard laboratory conditions, because most are obligate anaerobes with complex nutritional requirements. The development of molecular methods has transformed our understanding of microbial diversity.
+
+\subsection{16S rRNA Gene Sequencing}\index{Microbiome!16S rRNA sequencing}
+\nomenclature{rRNA}{ribosomal RNA}
+
+The \textbf{16S ribosomal RNA (rRNA) gene} is present in all bacteria and archaea. It contains both highly conserved regions (used for primer design) and hypervariable regions (V1--V9) that differ between taxa and serve as a ``barcode'' to identify organisms \citep{woesePhylogeneticStructureProkaryotic1977}. The standard workflow is:
+
+\begin{enumerate}
+  \item Extract DNA from a fecal or mucosal sample
+  \item Amplify the 16S gene (or a hypervariable region thereof) by PCR using universal primers
+  \item Sequence the amplicons using high-throughput sequencing (e.g., Illumina)
+  \item Assign sequences to \textbf{operational taxonomic units} (OTUs\nomenclature{OTU}{operational taxonomic unit}) or amplicon sequence variants (ASVs\nomenclature{ASV}{amplicon sequence variant}) by comparison to reference databases
+\end{enumerate}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figures/microbiome-16S-workflow}
+  \alttext{Schematic of the 16S rRNA sequencing workflow: DNA extraction from stool sample, PCR amplification of 16S hypervariable region, high-throughput sequencing, OTU clustering, and taxonomic assignment with a resulting bar chart showing relative abundance of taxa.}
+  \caption{Workflow for 16S rRNA amplicon sequencing. Hypervariable regions (V1--V9) provide taxonomic resolution while conserved flanking regions allow universal primer binding.}\label{fig:16S-workflow}
+\end{figure}
+%% FIGURE NOTE: placeholder a linear workflow diagram with the 16S gene structure showing conserved/variable regions at the top, then arrows through the steps to a final bar chart output
+
+\textbf{Strengths:} inexpensive, high-throughput, well-established pipelines, large reference databases. \textbf{Weaknesses:} PCR amplification introduces biases; typically only resolves to genus level; provides no direct information about metabolic function; does not distinguish live from dead cells.
+
+\subsection{Shotgun Metagenomics}\index{Microbiome!Metagenomics}
+\nomenclature{WGS}{whole genome shotgun sequencing}
+
+\textbf{Shotgun metagenomics} (also called whole-genome shotgun, WGS) sequences \textit{all} DNA in a sample (both host and microbial) without prior amplification. Reads are assembled or mapped against reference databases to identify organisms and, crucially, to catalog the functional gene content of the community.
+
+\textbf{Strengths:} species- and even strain-level resolution; reveals metabolic potential; no PCR bias; detects viruses and fungi. \textbf{Weaknesses:} expensive; computationally intensive; host DNA contamination requires depletion steps; sequencing of DNA does not confirm gene expression.
+
+\subsection{Metatranscriptomics, Metaproteomics, and Metabolomics}\index{Microbiome!Metabolomics}
+
+To move from what organisms are \textit{present} to what they are \textit{doing}, complementary approaches are used:
+
+\begin{itemize}
+  \item \textbf{Metatranscriptomics}: sequences community RNA (after rRNA depletion) to reveal actively transcribed genes
+  \item \textbf{Metaproteomics}: identifies proteins expressed by the community via mass spectrometry
+  \item \textbf{Metabolomics}: profiles small-molecule metabolites (e.g., SCFAs, bile acids, tryptophan metabolites) in stool, urine, or plasma, reflecting the net metabolic output of the microbiome
+\end{itemize}
+
+Each layer adds functional resolution but also cost and analytical complexity. Most large epidemiological studies use 16S sequencing; mechanistic studies increasingly combine multiple ``-omics'' layers.
+
+\begin{table}[ht]
+\caption{Comparison of microbiome measurement approaches.}\label{tab:methods}
+\begin{tabular}{lllll}
+\toprule
+\textbf{Method} & \textbf{Taxa ID} & \textbf{Functional info} & \textbf{Cost} & \textbf{Key limitation} \\ \midrule
+Culture & Low & Limited & Low & Most gut bacteria unculturable \\
+16S rRNA & Genus & No & Low & PCR bias; no functional data \\
+Metagenomics & Species/strain & Gene content & High & DNA only; no expression data \\
+Metatranscriptomics & Species & Active genes & High & RNA unstable; complex analysis \\
+Metabolomics & No & Yes & Medium & Does not identify organisms \\ \bottomrule
+\end{tabular}
+\end{table}
+
+%% ============================================================
+\section{Stability and Malleability of the Microbiome}\index{Microbiome!Stability}
+%% ============================================================
+
+\newthought{The gut microbiome is simultaneously stable and surprisingly plastic.} In healthy adults the broad community structure (\textit{i.e} dominant phyla, core functional genes) is relatively consistent from month to month \citep{costelloHumanlyDefinedMicrobial2009}. Yet the microbiome is also continuously shaped by genetics, the events of early life, diet, medications, and environmental exposures. Understanding which features are fixed and which are malleable is central to evaluating interventions.
+
+\subsection{Establishment in Early Life}\index{Microbiome!Early life}
+
+The gut of a healthy fetus is largely sterile. Colonization begins at birth and the mode of delivery has a marked effect on the founding community. Vaginally born infants acquire microbiota resembling the maternal vaginal microbiome (dominated by \textit{Lactobacillus}), while infants delivered by cesarean section are instead colonized by skin- and hospital-associated bacteria such as \textit{Staphylococcus} and \textit{Clostridium} \citep{dominguezBelloDeliveryModeShapes2010}.\marginnote{C-section delivery has been associated with altered immune development and modestly elevated rates of asthma, allergic disease, and obesity in some cohort studies --- though these relationships are confounded by the indications for cesarean delivery.} Breastfeeding further shapes the infant microbiome: human milk oligosaccharides\index{Human Milk Oligosaccharides} (indigestible by the infant but selectively fermented by \textit{Bifidobacterium}) drive enrichment of bifidobacteria in breastfed compared with formula-fed infants.
+
+Over the first two to three years of life, as solid food is introduced, the microbiome increases in diversity and transitions toward an adult-like composition \citep{backhedDynamicsInfantGut2015}. This period of assembly is considered a critical window: perturbations such as antibiotic use during infancy may have disproportionate and lasting effects compared with equivalent exposures in adulthood.
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figures/microbiome-life-course}
+  \alttext{Line graph showing gut microbiome diversity over the human lifespan: low diversity at birth, rapid increase through infancy and childhood as solid foods are introduced, a stable plateau through adulthood, and a modest decline in diversity in old age. Key events labeled include mode of delivery, introduction of solid foods, antibiotic exposures, and aging.}
+  \caption{Schematic of gut microbiome diversity across the lifespan. The first years of life represent a critical establishment window; diversity generally stabilizes in adulthood and may decline in old age.}\label{fig:life-course}
+\end{figure}
+%% FIGURE NOTE: placeholder --- a simple schematic line graph of diversity (y-axis) vs age (x-axis) with labeled annotations at key life events
+
+\subsection{Genetic Influences}\index{Microbiome!Host genetics}
+
+Twin studies have revealed that host genetics contributes to microbiome composition, but that the effect is modest relative to environmental factors. A large study of over 1,000 twin pairs found that roughly one-third of the variation in abundance of certain taxa (notably \textit{Christensenellaceae}) was heritable, while the majority of variation was explained by shared and non-shared environmental factors \citep{goodrichHumanGeneticsShape2014}. Importantly, the heritable microbial taxa tended to be those associated with leanness, suggesting a pathway by which genetic predisposition to metabolic phenotypes could be partly mediated through the microbiome.
+
+Genes involved in immunity, mucin production, and bile acid metabolism are among the host genetic factors thought to shape the microbial niche. However, because identical twins share both genes \textit{and} early environments, twin studies likely overestimate purely genetic effects.
+
+\subsection{Antibiotics and Perturbation}\index{Microbiome!Antibiotics|(}
+
+Antibiotics are the most potent acute disruptors of the gut microbiome. Broad-spectrum antibiotics can deplete a large fraction of gut bacteria within days, with a characteristic reduction in diversity and expansion of resistant taxa.\sidenote{Antibiotic-associated diarrhea, affecting 5--35\% of patients depending on antibiotic class, reflects this disruption. In severe cases, depletion of the normal flora allows \textit{Clostridioides difficile}\index{Clostridioides difficile} to proliferate and produce toxins, causing potentially life-threatening colitis.} Recovery occurs over weeks to months but may be incomplete, with some species failing to recolonize at their pre-treatment abundances \citep{dethlefsenIncompleteRecoveryGut2011}. Repeated antibiotic courses during childhood have been associated with lasting shifts in microbiome composition and with increased risk of inflammatory and metabolic disease in some epidemiological studies, though establishing causality is difficult.
+\index{Microbiome!Antibiotics|)}
+
+%% ============================================================
+\section{Modifying the Microbiome: Probiotics and Prebiotics}\index{Microbiome!Modification}
+%% ============================================================
+
+\subsection{Probiotics}\index{Probiotics|(}
+
+\textbf{Probiotics} are defined as ``live microorganisms that, when administered in adequate amounts, confer a health benefit on the host'' \citep{hillExpertConsensusDocument2014}.\nomenclature{CFU}{colony-forming unit} The most commonly used probiotic genera are \textit{Lactobacillus} and \textit{Bifidobacterium}, though \textit{Saccharomyces boulardii} (a yeast) and certain strains of \textit{Enterococcus} and \textit{Bacillus} are also used. Probiotic products are measured in colony-forming units (CFUs); effective doses in clinical trials typically range from $10^8$ to $10^{11}$ CFU per day.
+
+\newthought{The evidence base for probiotics is strain- and condition-specific.} Strong evidence supports the use of specific strains for prevention of antibiotic-associated diarrhea and for reducing the duration and severity of acute infectious diarrhea, particularly in children \citep{hillExpertConsensusDocument2014}. Evidence for other claimed benefits (including irritable bowel syndrome, inflammatory bowel disease, and immune modulation) is more mixed, and many trials are limited by small sample sizes, inconsistent strain selection, and short follow-up. A critical limitation is that most orally ingested probiotic bacteria do not permanently colonize the gut; they transit through and their benefits may depend on transient metabolic activity rather than stable engraftment.
+
+Common food sources of probiotics include yogurt, kefir, kimchi, sauerkraut, miso, and tempeh.\marginnote{Heating or pasteurization kills live cultures, so the probiotic content of fermented foods varies widely by product and processing method.} Probiotic supplements are regulated as food products rather than drugs in the United States, so strain identity, viability, and dose are not guaranteed on the label.
+\index{Probiotics|)}
+
+\subsection{Prebiotics}\index{Prebiotics|(}
+
+\textbf{Prebiotics} are substrates selectively utilized by host microorganisms to confer a health benefit \citep{gibsonExpertConsensusDocument2017}. In practice, most established prebiotics are non-digestible carbohydrates and fibers \sidenote{Such as inulin, fructooligosaccharides (FOS\nomenclature{FOS}{fructooligosaccharides}), galactooligosaccharides (GOS\nomenclature{GOS}{galactooligosaccharides}), and resistant starch} which were covered in detail in the Fiber lecture. The key distinction from general dietary fiber is selectivity: a prebiotic must demonstrably enrich beneficial taxa (\textit{e.g.}, \textit{Bifidobacterium}, \textit{Lactobacillus}) rather than simply being fermented by any available organism.
+
+Prebiotic supplementation reliably increases the abundance of \textit{Bifidobacterium} and raises fecal SCFA concentrations, but whether these changes translate into clinically meaningful outcomes depends heavily on the baseline microbiome composition of the individual, a concept sometimes called \textbf{microbiome responsiveness}.\sidenote{Individuals with low baseline \textit{Bifidobacterium} abundance tend to show larger bifidogenic responses to prebiotic supplementation than those already highly colonized, suggesting a ceiling effect.}
+\index{Prebiotics|)}
+
+%% ============================================================
+\section{Microbial Metabolites and Their Biological Activities}\index{Microbiome!Metabolites}
+%% ============================================================
+
+\newthought{Gut bacteria do not simply consume dietary substrates and disappear.} They produce a rich array of small molecules that enter host circulation and exert systemic effects far beyond the colon. The most nutritionally important of these are the short-chain fatty acids, but bile acid transformation products and other microbial metabolites also have significant physiological consequences.
+
+\subsection{Short-Chain Fatty Acids}\index{Short-Chain Fatty Acids|(}
+
+When anaerobic bacteria in the colon ferment\index{Fermentation} non-digestible polysaccharides cellulose, hemicellulose, pectin, inulin, resistant starch, and other fermentable oligosaccharides\index{Fermentable Oligosaccharides} the principal end-products are three short-chain fatty acids: \textbf{acetate} (C2), \textbf{propionate} (C3), and \textbf{butyrate} (C4), produced in an approximate molar ratio of 60:20:20 \citep{cummingsShortChainFatty1981}. Total luminal SCFA concentrations reach 70--140\,mmol/L in the proximal colon, making them quantitatively significant metabolic substrates.
+
+Each SCFA has a distinct metabolic fate:
+
+\begin{itemize}
+  \item \textbf{Butyrate}\index{Short-Chain Fatty Acids!Butyrate} is the preferred energy substrate of colonocytes\index{Colonocytes}, supplying roughly 70\% of their energy needs via $\beta$-oxidation. Very little butyrate escapes the colonic epithelium into portal circulation. Beyond energetics, butyrate is a potent inhibitor of histone deacetylases\index{Histone Deacetylases} (HDACs\nomenclature{HDAC}{histone deacetylase}), giving it gene-regulatory and anti-inflammatory properties. Butyrate induces differentiation of colonic regulatory T cells\index{Regulatory T Cells} and suppresses pro-inflammatory cytokine production.\sidenote{The anti-neoplastic properties of butyrate (\textit{e.g.} cell cycle arrest, pro-apoptotic gene expression, reduced proliferation in colorectal cancer cell lines) have generated interest in whether a fiber-rich diet might protect against colorectal cancer partly through butyrate-mediated epigenetic effects. This is an active research area.}
+  \item \textbf{Propionate}\index{Short-Chain Fatty Acids!Propionate} is absorbed and transported to the liver, where it serves as a gluconeogenic precursor. It also acts on free fatty acid receptors (FFAR2/FFAR3) in enteroendocrine cells to stimulate release of PYY and GLP-1\index{GLP-1}, gut hormones that promote satiety\index{Satiety} and regulate glucose homeostasis\index{Blood Glucose}.
+  \item \textbf{Acetate}\index{Short-Chain Fatty Acids!Acetate} reaches the peripheral circulation and is taken up by muscle, heart, and brain. It is the most abundant SCFA in blood and serves as a carbon source for lipogenesis and cholesterol synthesis in peripheral tissues.
+\end{itemize}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figures/microbiome-scfa-metabolism}
+  \alttext{Diagram showing the production of short-chain fatty acids (acetate, propionate, butyrate) by colonic bacteria fermenting dietary fiber, and the distinct metabolic fates of each: butyrate consumed by colonocytes and inhibiting HDACs; propionate transported to liver for gluconeogenesis and stimulating gut hormone release; acetate entering systemic circulation and taken up by peripheral tissues.}
+  \caption{Production and metabolic fates of the three major short-chain fatty acids. Butyrate is largely consumed by colonocytes; propionate reaches the liver; acetate enters systemic circulation.}\label{fig:scfa}
+\end{figure}
+%% FIGURE NOTE: placeholder --- a schematic of the colon lumen with bacteria fermenting fiber, arrows leading to the three SCFAs with diverging metabolic destinations labeled
+
+\subsection{Bile Acid Transformation}\index{Bile Salts!Microbial transformation}
+
+Primary bile acids (cholic acid, chenodeoxycholic acid) synthesized in the liver are secreted into the small intestine, where they facilitate fat absorption. The fraction that escapes enterohepatic reabsorption reaches the colon, where gut bacteria enzymatically dehydroxylate them to produce \textbf{secondary bile acids} (deoxycholic acid, lithocholic acid). Secondary bile acids re-enter circulation and act as signaling molecules at nuclear receptors (FXR) and G-protein coupled receptors (TGR5) that regulate bile synthesis, glucose metabolism, and energy expenditure. Altered microbial bile acid metabolism is implicated in colorectal cancer risk and metabolic disease.
+
+\subsection{Other Microbial Metabolites}\index{Microbiome!Metabolites!TMAO}
+
+\textbf{Trimethylamine N-oxide} (TMAO\nomenclature{TMAO}{trimethylamine N-oxide}) illustrates how microbial metabolism can produce harmful products. Dietary choline and carnitine (abundant in red meat and eggs) are converted by gut bacteria to trimethylamine (TMA), which is absorbed and oxidized in the liver to TMAO. Elevated plasma TMAO has been associated with increased cardiovascular disease risk in observational studies, and germ-free mice fed choline do not produce TMAO --- demonstrating that the microbiome is required for this pathway.\marginnote{The TMAO story is an important example of a microbiome-mediated diet--disease relationship, but causality in humans remains debated: TMAO may be a marker of the dietary pattern rather than a direct mediator of cardiovascular risk.}
+\index{Short-Chain Fatty Acids|)}
+
+%% ============================================================
+\section{The Microbiome and the Immune System}\index{Microbiome!Immune system}
+%% ============================================================
+
+\newthought{The gut is the largest immune organ in the body}, containing approximately 70\% of the body's immune cells. The intestinal immune system faces a continuous challenge: it must tolerate the trillions of commensal bacteria (and dietary antigens) while remaining capable of mounting a response against genuine pathogens. As such, the microbiome is not just a target of immune surveillance, this recognition actively shapes the development and calibration of the immune system.
+
+\subsection{Immune Surveillance and Pattern Recognition}\index{Immune System!Pattern recognition}
+
+Intestinal epithelial cells and resident immune cells express \textbf{pattern recognition receptors} (PRRs\nomenclature{PRR}{pattern recognition receptor}), including Toll-like receptors\index{Toll-like Receptors} (TLRs\nomenclature{TLR}{Toll-like receptor}) and NOD-like receptors, that detect conserved microbial structures such as lipopolysaccharide (LPS\nomenclature{LPS}{lipopolysaccharide}), peptidoglycan, and flagellin. In a healthy gut, the mucus layer and epithelial barrier physically separate luminal bacteria from PRR-bearing immune cells, maintaining a state of \textit{immune tolerance} rather than chronic activation. Disruption of this separation (as occurs in barrier dysfunction) allows microbial ligands to contact immune cells and trigger inflammatory responses.
+
+Dendritic cells in the lamina propria can extend processes through tight junctions to sample luminal antigens directly, and specialized epithelial M cells in Peyer's patches\index{Peyer's Patches} transport antigens to underlying lymphoid tissue. These mechanisms allow the immune system to ``see'' commensals without activating a destructive response.
+
+\subsection{Immune Entrainment: How the Microbiome Educates Immunity}\index{Microbiome!Immune entrainment}
+
+Studies in germ-free animals demonstrate starkly that a microbiome is required for normal immune development: germ-free mice have underdeveloped Peyer's patches, reduced IgA production, fewer intestinal regulatory T cells (Tregs\nomenclature{Treg}{regulatory T cell}\index{Regulatory T Cells}), and dysregulated systemic immune responses \citep{hooperInteractionsMicrobiotaImmune2012}. Colonization of germ-free mice with a normal microbiome corrects most of these defects, but the timing matters. Some immune defects induced by germ-free conditions early in life are not fully reversible by later colonization \citep{olszakMicrobialExposureEarly2012}.
+
+\textit{Specific} microbial taxa drive specific immune outcomes. Members of the \textit{Clostridia} class colonizing the mouse colon are sufficient to induce Foxp3$^+$ regulatory T cells in the colonic lamina propria, promoting tolerance \citep{atarashhiInductionColonic2011}. Conversely, segmented filamentous bacteria (SFB) drive Th17 cell differentiation. The balance between regulatory and effector T cell populations is thus partly determined by which bacteria colonize the gut.
+
+\subsection{The Hygiene Hypothesis and Allergic Disease}\index{Hygiene Hypothesis|(}
+
+The \textbf{hygiene hypothesis} proposes that reduced microbial exposure in early childhood due to smaller family sizes, antibiotic use, formula feeding, urban environments, and reduced contact with soil and animals leads to inadequate immune education and a consequent increase in allergic and autoimmune diseases \citep{strachanHayFeverHygiene1989}.\sidenote{The term \emph{hygiene hypothesis} is increasingly considered a misnomer the relevant factor is not personal cleanliness but microbial \textit{diversity} of exposure. The \emph{old friends} hypothesis frames it more precisely: humans co-evolved with specific microorganisms, and their absence disrupts immune regulation.} Epidemiological evidence supporting this hypothesis includes:
+
+\begin{itemize}
+  \item Higher rates of asthma, eczema, and food allergy in industrialized compared to rural populations
+  \item Protective effects of farm exposure, pet ownership, and older sibling order on atopic disease
+  \item Lower rates of allergic disease in children with greater early-life microbiome diversity
+\end{itemize}
+
+\newthought{Food allergies and intolerances may have microbial roots.} Children who develop cow's milk or peanut allergy have measurably different gut microbiome compositions in the first year of life compared to tolerant children, with lower abundance of \textit{Clostridia} and \textit{Bacteroidetes} \citep{cahenzliIntestinalMicrobialDiversity2013}.\marginnote{\textbf{Allergy vs intolerance:} Food \textit{allergy} is IgE-mediated and involves the adaptive immune system; food \textit{intolerance} (e.g., lactose intolerance, non-celiac gluten sensitivity) is typically non-immunological. The microbiome is most clearly implicated in allergy development, though dysbiosis can also affect fermentation-based intolerances.} Mouse models show that germ-free animals are hyper-susceptible to food allergy, and that colonization with \textit{Clostridia} restores tolerance by inducing IL-22 production and reinforcing barrier function, suggesting a mechanistic link between microbiome composition, barrier integrity, and allergic sensitization.
+\index{Hygiene Hypothesis|)}
+
+%% ============================================================
+\section{Gut Barrier Function}\index{Gut Barrier|(}
+%% ============================================================
+
+\newthought{The intestinal epithelium is a single-cell-thick barrier} separating a lumen containing trillions of bacteria from a sterile internal environment. Maintaining this barrier is essential: its failure is implicated in inflammatory bowel disease, colorectal cancer, and systemic inflammatory conditions. The barrier has several interdependent layers.
+
+\subsection{The Mucus Layer}\index{Mucins|(}
+
+The innermost physical defense is a two-layer mucus gel secreted by \textbf{goblet cells}\index{Goblet Cells}. The principal structural component is the glycoprotein \textbf{MUC2 mucin}\index{Mucins!MUC2}, a heavily O-glycosylated polymer that forms a cross-linked gel. In the colon, the inner mucus layer is dense and largely sterile; the outer layer is looser and constitutes the habitat of many luminal bacteria, which use mucin glycans as a carbon source \citep{johanssonInnerMucusLayer2008}. \textit{Akkermansia muciniphila}\index{Akkermansia muciniphila} is a specialist mucin-degrading species whose abundance is associated with metabolic health; it illustrates how the host mucus layer itself shapes microbial community composition.
+
+Inflammatory conditions and dietary fiber deficiency both reduce mucus layer thickness, allowing bacteria to contact the epithelial surface. Interestingly, SCFAs (particularly butyrate) stimulate goblet cell differentiation and MUC2 expression, creating a feedback loop in which a fiber-rich diet supports mucus barrier integrity.
+
+\subsection{Tight Junctions and Epithelial Integrity}\index{Tight Junctions|(}
+
+Adjacent epithelial cells are sealed by \textbf{tight junction} protein complexes (claudins, occludin, ZO-1) that restrict paracellular passage of luminal contents. Inflammatory cytokines such as TNF-$\alpha$ and IFN-$\gamma$ downregulate tight junction proteins and increase paracellular permeability a state colloquially termed \textbf{leaky gut}\index{Leaky Gut}. Once permeability increases, bacterial products such as LPS enter the lamina propria, activating TLR4 and driving further inflammation in a self-amplifying cycle.\sidenote{Circulating LPS or its binding protein (LBP) are sometimes used as indirect biomarkers of intestinal permeability in clinical research, though they are imperfect measures.}
+
+Butyrate supports tight junction integrity directly: it increases expression of claudin-1 and occludin and reduces epithelial apoptosis, providing another mechanistic link between dietary fiber, SCFA production, and barrier health.
+\index{Tight Junctions|)}
+
+\subsection{Antimicrobial Peptides and Paneth Cells}\index{Paneth Cells}
+
+\textbf{Paneth cells}, located at the base of small intestinal crypts, secrete \textbf{antimicrobial peptides} (AMPs\nomenclature{AMP}{antimicrobial peptide}) including $\alpha$-defensins and lysozyme. These peptides create an antimicrobial gradient in the crypt, protecting intestinal stem cells from bacterial invasion. Colonic goblet cells and surface enterocytes produce additional AMPs. Dysregulation of Paneth cell function is a feature of Crohn's disease\index{Diseases!Crohn's Disease}, particularly ileal disease, and may contribute to loss of colonization resistance against pathobionts.
+
+\subsection{Barrier Dysfunction in IBD and Colorectal Cancer}\index{Inflammatory Bowel Disease|(}\index{Diseases!Colorectal Cancer|(}
+
+\textbf{Inflammatory bowel disease} (IBD\nomenclature{IBD}{inflammatory bowel disease}) encompassing Crohn's disease and ulcerative colitis\index{Diseases!Ulcerative Colitis} is characterized by chronic, relapsing intestinal inflammation. Both forms show consistent evidence of dysbiosis: reduced microbial diversity, depletion of butyrate-producing \textit{Faecalibacterium prausnitzii}\index{Faecalibacterium prausnitzii} (a key anti-inflammatory commensal), and expansion of adherent-invasive \textit{E. coli} strains. Whether dysbiosis is a cause or consequence of inflammation is difficult to determine from cross-sectional studies, but prospective studies in individuals prior to IBD diagnosis show microbiome alterations preceding clinical disease onset, supporting a contributory rather than purely reactive role.
+
+\textbf{Colorectal cancer} (CRC\nomenclature{CRC}{colorectal cancer}) risk is consistently reduced in populations consuming high-fiber diets. Mechanistic hypotheses include:
+
+\begin{itemize}
+  \item Butyrate-mediated induction of apoptosis and cell cycle arrest in neoplastic colonocytes
+  \item Dilution and accelerated transit of potential carcinogens in bulky fecal matter
+  \item Reduced secondary bile acid production (less substrate reaching the colon)
+  \item Anti-inflammatory effects of a diverse, fiber-fed microbiome
+\end{itemize}
+
+\textit{Fusobacterium nucleatum}\index{Fusobacterium nucleatum}, an oral bacterium, has been found enriched in colorectal tumors compared with adjacent normal tissue and in stool of CRC patients \citep{kosticGenomicAnalysis2012}. Its presence in resected tumors is associated with worse prognosis and with microsatellite-stable molecular subtypes. Whether \textit{F. nucleatum} is oncogenic or simply opportunistically colonizes tumor tissue remains under investigation.
+\index{Inflammatory Bowel Disease|)}\index{Diseases!Colorectal Cancer|)}\index{Gut Barrier|)}
+
+\section{Reflection Questions}
+
+\begin{enumerate}
+
+\item A cohort study reports that children born by cesarean section have significantly higher rates of asthma and food allergy at age 5 compared with vaginally born children. A pediatrician concludes that C-section delivery \textit{causes} allergic disease and recommends all C-section newborns receive probiotic supplementation. Critically evaluate this conclusion. What confounders might explain the association? Using your knowledge of immune entrainment and the hygiene hypothesis, propose a mechanistic pathway by which delivery mode could plausibly influence allergy risk. What type of study would be needed to establish causality?
+
+\item A researcher wants to test whether a high-fiber diet increases the abundance of butyrate-producing bacteria in patients with ulcerative colitis. She is deciding between 16S rRNA sequencing and shotgun metagenomics to characterize the microbiome. Compare the two methods for this specific research question: which would you recommend, and why? What additional measurement would you add to directly assess whether butyrate production actually increased, and what biological matrix would you use?
+
+\item A patient with Crohn's disease has been on broad-spectrum antibiotics for three weeks following a surgical complication. His gastroenterologist now recommends a high-fiber prebiotic supplement to help restore his microbiome. Using your knowledge of the gut microbial niche and fermentation, explain why fiber would be expected to selectively promote the recovery of certain bacterial taxa over others. Given the patient's compromised gut barrier, identify one potential risk of rapidly reintroducing high-fiber fermentable substrates and explain the mechanism.
+
+\item Red meat consumption is associated with elevated plasma TMAO in observational studies, and high TMAO is associated with cardiovascular disease risk. A nutrition advocacy group concludes that dietary choline from red meat raises TMAO and therefore red meat causes heart disease. Identify at least two weaknesses in this causal chain. Design a study that would more rigorously test whether microbiome-derived TMAO mediates the relationship between red meat intake and cardiovascular risk, and describe what result would most strongly support the microbial mediation hypothesis.
+
+\item \textit{Fusobacterium nucleatum} is enriched in colorectal tumor tissue compared with adjacent normal mucosa. A journalist writes that ``gut bacteria cause colon cancer.'' Using what you know about barrier function, the tumor microenvironment, and the distinction between observational and mechanistic evidence, evaluate this claim. What evidence would be needed to conclude that \textit{F. nucleatum} is oncogenic rather than opportunistic? How does butyrate production by a fiber-fed microbiome fit into a more complete model of colorectal cancer risk?
+
+\item A healthy 25-year-old reports that she has avoided all fermented foods and dietary fiber for the past year because she finds them bloating. She asks whether this matters for her health. Using your knowledge of SCFA production, mucus layer maintenance, and immune calibration, construct a mechanistic argument for why chronic low fiber intake might have consequences beyond digestive discomfort. In your answer, identify which properties of dietary polysaccharides make them particularly suitable as microbial substrates, and predict which bacterial taxa would be most depleted by her diet.
+
+\item Twin studies show that roughly one-third of the variation in abundance of certain gut bacterial taxa is heritable, while the majority of variation is environmental. A colleague argues this means the microbiome is ``mostly genetic'' and dietary interventions will have limited effect. Evaluate this interpretation. How would you use the concepts of microbiome stability, life-course plasticity, and prebiotic responsiveness to argue for or against the potential of dietary intervention to meaningfully shift microbiome composition in adults?
+
+\end{enumerate}
+
+\ifx\HCode\undefined
+    \bibliography{library}
+    \bibliographystyle{plainnat}
+    \printnomenclature
+\fi
+\end{document}
