@@ -308,3 +308,4 @@ TSWLatexianTemp*
 *.DS_Store
 tstex_modules/_api.ts
 tex-processed/
+.Rhistory
