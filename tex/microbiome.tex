@@ -89,14 +89,7 @@ The scale and diversity of human-associated microbiota were systematically catal
 \section{Body-Site Microbiomes}\index{Microbiome!Body sites}
 %% ============================================================
 
-\begin{figure}
-  \includegraphics[width=\linewidth]{figures/microbiome-body-sites}
-  \alttext{Schematic diagram of the human body indicating the major microbiome compartments: oral cavity, skin, respiratory tract, gut (stomach, small intestine, large intestine), and urogenital tract, with representative dominant genera labeled at each site.}
-  \caption{Major body-site microbiomes and representative dominant genera. Microbial density and diversity increase dramatically from the stomach to the colon.}\label{fig:body-sites}
-\end{figure}
-%% FIGURE NOTE: placeholder suggest a simple schematic body outline with labeled callouts for each major site and characteristic genera (e.g., Streptococcus in oral; Staphylococcus on skin; Lactobacillus in vagina; gradient from sparse stomach to dense colon)
-
-\newthought{Different body sites support distinct microbial communities} shaped by local conditions such as pH, oxygen tension, nutrient availability, host secretions, and immune activity (Figure~\ref{fig:body-sites}). Table~\ref{tab:body-sites} summarizes key features of the major body-site microbiomes.
+\newthought{Different body sites support distinct microbial communities} shaped by local conditions such as pH, oxygen tension, nutrient availability, host secretions, and immune activity. Table~\ref{tab:body-sites} summarizes key features of the major body-site microbiomes.
 
 \begin{table}[ht]
 \caption{Major body-site microbiomes and their dominant taxa.}\label{tab:body-sites}
@@ -122,13 +115,6 @@ Vagina & \textit{Lactobacillus} (dominant) & Low pH from lactic acid; highly var
 
 At the broadest taxonomic level, two phyla dominate the healthy adult gut microbiome: \textbf{\textit{Firmicutes}}\index{Microbiome!Firmicutes} and \textbf{\textit{Bacteroidetes}}\index{Microbiome!Bacteroidetes}, together accounting for roughly 90\% of gut bacteria in most healthy adults \citep{eckburgDiversityHumanIntestinal2005}. \textit{Actinobacteria} (including the genus \textit{Bifidobacterium}) and \textit{Proteobacteria} are present at lower abundances. The ratio of \textit{Firmicutes} to \textit{Bacteroidetes} (sometimes called the F:B ratio) has attracted attention as a potential marker of metabolic health, though its utility as a biomarker is debated.\marginnote{\textbf{Taxonomic hierarchy:} Domain $\to$ Phylum $\to$ Class $\to$ Order $\to$ Family $\to$ Genus $\to$ Species $\to$ Strain. Microbiome studies typically report at the phylum, genus, or species level depending on the resolution of the method used.}
 
-\begin{figure}
-  \includegraphics[width=\linewidth]{figures/microbiome-phyla-composition}
-  \alttext{Pie chart or stacked bar chart showing the approximate proportional abundance of major bacterial phyla in the healthy adult human gut: Firmicutes approximately 60 percent, Bacteroidetes approximately 25 percent, Actinobacteria approximately 5 percent, Proteobacteria approximately 5 percent, other phyla making up the remainder.}
-  \caption{Approximate phylum-level composition of the healthy adult gut microbiome. Exact proportions vary substantially between individuals and between studies.}\label{fig:phyla}
-\end{figure}
-%% FIGURE NOTE: placeholder a simple pie or stacked bar would work; emphasize that inter-individual variation is large
-
 \subsection{Inter-individual Variation and Core Microbiome}\index{Microbiome!Inter-individual variation}
 
 Despite a shared set of dominant phyla, the specific species-level composition of the gut microbiome varies enormously between individuals almost certainly more than any other organ system. No single species is universally present across all healthy individuals. This has led to the concept of a \textbf{functional core microbiome}: a conserved set of metabolic functions (e.g., SCFA production, bile acid transformation) maintained by different species in different people \citep{humanmicrobiomeprojectconsortiumStructureFunctionHuman2012}. The implication is that functional capacity, rather than species identity, may be the more relevant measure of microbiome ``health.''\sidenote{\textbf{Quantifying diversity the Shannon index.}\index{Microbiome!Shannon diversity index} Microbial diversity is commonly summarized by the \textbf{Shannon diversity index} $H' = -\sum_{i} p_i \ln p_i$, where $p_i$ is the relative abundance of species $i$. $H'$ captures both \textit{richness} (number of species present) and \textit{evenness} (how equally abundant they are). A community dominated by one species has a low $H'$; a community with many equally abundant species has a high $H'$. Higher diversity is generally associated with a more resilient, functionally redundant microbiome, and reduced diversity is a consistent feature of dysbiotic states such as \textit{Clostridioides difficile} infection.}
@@ -150,13 +136,6 @@ The \textbf{16S ribosomal RNA (rRNA) gene} is present in all bacteria and archae
   \item Sequence the amplicons using high-throughput sequencing (e.g., Illumina)
   \item Assign sequences to \textbf{operational taxonomic units} (OTUs\nomenclature{OTU}{operational taxonomic unit}) or amplicon sequence variants (ASVs\nomenclature{ASV}{amplicon sequence variant}) by comparison to reference databases
 \end{enumerate}
-
-\begin{figure}
-  \includegraphics[width=\linewidth]{figures/microbiome-16S-workflow}
-  \alttext{Schematic of the 16S rRNA sequencing workflow: DNA extraction from stool sample, PCR amplification of 16S hypervariable region, high-throughput sequencing, OTU clustering, and taxonomic assignment with a resulting bar chart showing relative abundance of taxa.}
-  \caption{Workflow for 16S rRNA amplicon sequencing. Hypervariable regions (V1--V9) provide taxonomic resolution while conserved flanking regions allow universal primer binding.}\label{fig:16S-workflow}
-\end{figure}
-%% FIGURE NOTE: placeholder a linear workflow diagram with the 16S gene structure showing conserved/variable regions at the top, then arrows through the steps to a final bar chart output
 
 \textbf{Strengths:} inexpensive, high-throughput, well-established pipelines, large reference databases. \textbf{Weaknesses:} PCR amplification introduces biases; typically only resolves to genus level; provides no direct information about metabolic function; does not distinguish live from dead cells.
 
@@ -203,13 +182,6 @@ Metabolomics & No & Yes & Medium & Does not identify organisms \\ \bottomrule
 The gut of a healthy fetus is largely sterile. Colonization begins at birth and the mode of delivery has a marked effect on the founding community. Vaginally born infants acquire microbiota resembling the maternal vaginal microbiome (dominated by \textit{Lactobacillus}), while infants delivered by cesarean section are instead colonized by skin- and hospital-associated bacteria such as \textit{Staphylococcus} and \textit{Clostridium} \citep{dominguezBelloDeliveryModeShapes2010}.\marginnote{C-section delivery has been associated with altered immune development and modestly elevated rates of asthma, allergic disease, and obesity in some cohort studies --- though these relationships are confounded by the indications for cesarean delivery.} Breastfeeding further shapes the infant microbiome: human milk oligosaccharides\index{Human Milk Oligosaccharides} (indigestible by the infant but selectively fermented by \textit{Bifidobacterium}) drive enrichment of bifidobacteria in breastfed compared with formula-fed infants.
 
 Over the first two to three years of life, as solid food is introduced, the microbiome increases in diversity and transitions toward an adult-like composition \citep{backhedDynamicsInfantGut2015}. This period of assembly is considered a critical window: perturbations such as antibiotic use during infancy may have disproportionate and lasting effects compared with equivalent exposures in adulthood.
-
-\begin{figure}
-  \includegraphics[width=\linewidth]{figures/microbiome-life-course}
-  \alttext{Line graph showing gut microbiome diversity over the human lifespan: low diversity at birth, rapid increase through infancy and childhood as solid foods are introduced, a stable plateau through adulthood, and a modest decline in diversity in old age. Key events labeled include mode of delivery, introduction of solid foods, antibiotic exposures, and aging.}
-  \caption{Schematic of gut microbiome diversity across the lifespan. The first years of life represent a critical establishment window; diversity generally stabilizes in adulthood and may decline in old age.}\label{fig:life-course}
-\end{figure}
-%% FIGURE NOTE: placeholder --- a simple schematic line graph of diversity (y-axis) vs age (x-axis) with labeled annotations at key life events
 
 \subsection{Genetic Influences}\index{Microbiome!Host genetics}
 
@@ -259,13 +231,6 @@ Each SCFA has a distinct metabolic fate:
   \item \textbf{Propionate}\index{Short-Chain Fatty Acids!Propionate} is absorbed and transported to the liver, where it serves as a gluconeogenic precursor. It also acts on free fatty acid receptors (FFAR2/FFAR3) in enteroendocrine cells to stimulate release of PYY and GLP-1\index{GLP-1}, gut hormones that promote satiety\index{Satiety} and regulate glucose homeostasis\index{Blood Glucose}.
   \item \textbf{Acetate}\index{Short-Chain Fatty Acids!Acetate} reaches the peripheral circulation and is taken up by muscle, heart, and brain. It is the most abundant SCFA in blood and serves as a carbon source for lipogenesis and cholesterol synthesis in peripheral tissues.
 \end{itemize}
-
-\begin{figure}
-  \includegraphics[width=\linewidth]{figures/microbiome-scfa-metabolism}
-  \alttext{Diagram showing the production of short-chain fatty acids (acetate, propionate, butyrate) by colonic bacteria fermenting dietary fiber, and the distinct metabolic fates of each: butyrate consumed by colonocytes and inhibiting HDACs; propionate transported to liver for gluconeogenesis and stimulating gut hormone release; acetate entering systemic circulation and taken up by peripheral tissues.}
-  \caption{Production and metabolic fates of the three major short-chain fatty acids. Butyrate is largely consumed by colonocytes; propionate reaches the liver; acetate enters systemic circulation.}\label{fig:scfa}
-\end{figure}
-%% FIGURE NOTE: placeholder --- a schematic of the colon lumen with bacteria fermenting fiber, arrows leading to the three SCFAs with diverging metabolic destinations labeled
 
 \subsection{Bile Acid Transformation}\index{Bile Salts!Microbial transformation}
 

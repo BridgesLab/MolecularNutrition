@@ -69,7 +69,7 @@ _Last audit: 2026-05-06 against `tex/*.tex` (23 chapters, 53 `\includegraphics`,
   - Style guidance for alt text: describe the *information conveyed*, not the visual layout.
   - [Notion](https://www.notion.so/358711ec4bd98194b8e3cb25355d1b4a)
 
-- [ ] **ACC-02 — Replace 5 placeholder microbiome figures with real images** _(Medium · [#9](https://github.com/BridgesLab/MolecularNutrition/issues/9))_
+- [x] **ACC-02 — Replace 5 placeholder microbiome figures with real images** _(Medium · [#9](https://github.com/BridgesLab/MolecularNutrition/issues/9))_
   - Placeholders: `microbiome-body-sites`, `microbiome-phyla-composition`, `microbiome-16S-workflow`, `microbiome-life-course`, `microbiome-scfa-metabolism`. Alt text is already in place; only artwork is missing.
   - Verify CC-license compatibility for any imported figure before commit.
   - [Notion](https://www.notion.so/358711ec4bd9811fb208dea05595efbd)
