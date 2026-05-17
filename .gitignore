@@ -309,3 +309,5 @@ TSWLatexianTemp*
 tstex_modules/_api.ts
 tex-processed/
 .Rhistory
+playlist.tsv
+/transcripts
