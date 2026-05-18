@@ -1,0 +1,286 @@
+version: 1
+updated: '2026-05-17'
+sources:
+  notes: tex/*.tex (canonical)
+  decks: ~/Documents/GitHub/TeachingLectures/Michigan/NUTR594/
+  videos_playlist: https://www.youtube.com/playlist?list=PLmJmQ_yi846i-8x4Xn73izm_fSaryfTCU
+disposition_legend:
+  good: Clean overlap; pilot a chapter pass to confirm.
+  good-multi-deck: Chapter is covered by multiple decks/videos in combination.
+  partial: Significant overlap but covers some material beyond the chapter scope.
+  weak-partial: Only loosely covers the chapter content.
+  orphan-chapter: Chapter has no legacy NUTR594 deck/video; decide whether to build new material.
+chapters:
+  metabolic-control-systems:
+    notes: tex/metabolic-control-systems.tex
+    decks: []
+    videos: []
+    disposition: orphan-chapter
+  endocrine-handout:
+    notes: tex/endocrine-handout.tex
+    decks:
+    - Hormonal Regulation of Digestion.pptx
+    - Type 2 Diabetes.pptx
+    - Glucose Control Under Fasting Conditions.pptx
+    videos:
+    - 10
+    - 17
+    - 18
+    disposition: partial
+  energy-balance:
+    notes: tex/energy-balance.tex
+    decks:
+    - Food as Energy.pptx
+    - Energy Expenditure Components.pptx
+    - Adaptations to Weight Loss.ppt
+    - Obesity and the Role of Appetite.pptx
+    videos:
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    disposition: good-multi-deck
+  digestive-tract-introduction:
+    notes: tex/digestive-tract-introduction.tex
+    decks:
+    - Digestive Organs.pptx
+    - Hormonal Regulation of Digestion.pptx
+    videos:
+    - 9
+    - 10
+    disposition: good
+  carb-structure:
+    notes: tex/carb-structure.tex
+    decks:
+    - Carbohydrate Structure.pptx
+    - Carbohydrates Introduction.pptx
+    videos:
+    - 11
+    - 12
+    disposition: good
+  carb-digestion:
+    notes: tex/carb-digestion.tex
+    decks:
+    - Carbohydrate Digestive Enzymes.pptx
+    - Carbohydrate Absorption.pptx
+    - Carbohydrate Transport.pptx
+    - Lactase Nonpersistence.pptx
+    videos:
+    - 13
+    - 14
+    - 15
+    disposition: good-multi-deck
+  fiber:
+    notes: tex/fiber.tex
+    decks:
+    - Fiber.pptx
+    videos:
+    - 21
+    disposition: good
+  microbiome:
+    notes: tex/microbiome.tex
+    decks:
+    - What is the gut microbiome and why does it matter.pptx
+    - Prebiotics and Probiotics.pptx
+    videos:
+    - 19
+    - 20
+    disposition: good
+  glycolysis:
+    notes: tex/glycolysis.tex
+    decks: []
+    videos: []
+    disposition: orphan-chapter
+  tca-cycle:
+    notes: tex/tca-cycle.tex
+    decks: []
+    videos: []
+    disposition: orphan-chapter
+  pentose-phosphate-pathway:
+    notes: tex/pentose-phosphate-pathway.tex
+    decks:
+    - Introduction to antioxidants.pptx
+    videos:
+    - 23
+    disposition: weak-partial
+  glycogen-metabolism:
+    notes: tex/glycogen-metabolism.tex
+    decks:
+    - Storage and transport of carbohydrates.pptx
+    videos:
+    - 16
+    disposition: weak-partial
+  gluconeogenesis:
+    notes: tex/gluconeogenesis.tex
+    decks:
+    - Glucose Control Under Fasting Conditions.pptx
+    videos:
+    - 17
+    disposition: good
+  lipids-introduction:
+    notes: tex/lipids-introduction.tex
+    decks:
+    - Structure and Functions of Lipids, and Essential Lipids.pptx
+    videos:
+    - 33
+    disposition: good
+  lipid-digestion:
+    notes: tex/lipid-digestion.tex
+    decks:
+    - Digestion and Absorption of lipids.pptx
+    videos:
+    - 34
+    disposition: good
+  lipid-synthesis:
+    notes: tex/lipid-synthesis.tex
+    decks:
+    - Choline and PEMT.pptx
+    videos:
+    - 37
+    disposition: weak-partial
+  lipid-catabolism:
+    notes: tex/lipid-catabolism.tex
+    decks: []
+    videos: []
+    disposition: orphan-chapter
+  lipid-transport:
+    notes: tex/lipid-transport.tex
+    decks:
+    - Intra-organ transport of lipids and lipoprotein particles.pptx
+    videos:
+    - 35
+    - 36
+    disposition: good
+  proteins-amino-acids-overview:
+    notes: tex/proteins-amino-acids-overview.tex
+    decks:
+    - Protein Introduction.pptx
+    - Individual variation in protein requirements.pptx
+    - Protein Quality Calculations.pptx
+    videos:
+    - 24
+    - 25
+    - 28
+    disposition: good-multi-deck
+  protein-digestion:
+    notes: tex/protein-digestion.tex
+    decks:
+    - Digestion, Absorption, and Transport of Proteins.pptx
+    videos:
+    - 26
+    disposition: good
+  proteins-amino-acids-synthesis:
+    notes: tex/proteins-amino-acids-synthesis.tex
+    decks: []
+    videos: []
+    disposition: orphan-chapter
+  protein-oxidation:
+    notes: tex/protein-oxidation.tex
+    decks:
+    - Glucogenic, Ketogenic and Essential Amino Acids.pptx
+    - Amino acid inborn errors of metabolism.pptx
+    videos:
+    - 27
+    - 29
+    disposition: good
+  nitrogen-compounds:
+    notes: tex/nitrogen-compounds.tex
+    decks:
+    - Choline and PEMT.pptx
+    videos:
+    - 30
+    - 37
+    disposition: weak-partial
+orphan_videos:
+- index: 1
+  id: tt_gX9FLXFg
+  title: Essential Nutrients in Food
+- index: 2
+  id: Yno-Sa74B0A
+  title: Dietary Reference Intakes
+- index: 22
+  id: -6ktQJbq5l4
+  title: Food Quality and Processing
+- index: 31
+  id: pFjoEFjSzeo
+  title: B Vitamins for Metabolism
+- index: 32
+  id: 8cxlJt2W5J0
+  title: Minerals as Cofactors
+- index: 38
+  id: U-K7AfW4SVY
+  title: Calcium, Phosphorous and Vitamin D
+- index: 39
+  id: vO1p6r7JlaE
+  title: Vitamin K and Clotting
+orphan_decks:
+- Essential Nutrients.pptx
+- Dietary Reference Intakes.pptx
+- Food quality and processing.pptx
+- Calcium, Phosphorous and Vitamin D.pptx
+- Vitamin A.pptx
+- Vitamin A - slides.pptx
+- Vitamin K.pptx
+- Zinc.pptx
+- Zinc - slides.pptx
+design_intent: "Videos may lean more applied and dietary; notes go deeper on molecular detail. Some intentional overlap is\
+  \ fine, and some intentional divergence by medium is fine too. Goal is NOT identical coverage across media \u2014 goal is\
+  \ complementary coverage with no factual conflicts."
+orphan_video_dispositions:
+  1:
+    title: Essential Nutrients in Food
+    disposition: tbd
+  2:
+    title: Dietary Reference Intakes
+    disposition: incorporate-as-they-appear
+    notes: "Don't keep as a standalone video. Work DRI content into chapters where it lands naturally \u2014 first integration:\
+      \ the fiber chapter (fiber AI = 14 g / 1000 kcal). Likely subsequent: energy-balance (EER), protein chapters (RDA, AMDR),\
+      \ lipid chapters (LA/ALA AI, SFA <10% guidance)."
+  22:
+    title: Food Quality and Processing
+    disposition: tbd
+  31:
+    title: B Vitamins for Metabolism
+    disposition: drop
+  32:
+    title: Minerals as Cofactors
+    disposition: incorporate-as-they-appear
+    notes: "Not its own chapter, but the mineral-cofactor content folds into two NUTR630 chapters: Fe-S clusters and Fe in\
+      \ TCA cycle enzymes \u2192 tca-cycle.tex; Se (GPx), Cu/Zn (SOD1), Mn (SOD2), Fe (catalase) for antioxidant defense \u2192\
+      \ pentose-phosphate-pathway.tex."
+  38:
+    title: Calcium, Phosphorous and Vitamin D
+    disposition: drop
+  39:
+    title: Vitamin K and Clotting
+    disposition: drop
+orphan_deck_dispositions:
+  Vitamin A.pptx: drop
+  Vitamin A - slides.pptx: drop
+  Vitamin K.pptx: drop
+  Zinc.pptx: drop
+  Zinc - slides.pptx: drop
+  Calcium, Phosphorous and Vitamin D.pptx: drop
+  Dietary Reference Intakes.pptx: incorporate-as-they-appear
+  Essential Nutrients.pptx: tbd
+  Food quality and processing.pptx: tbd
+  Student Copy PPTs_NUTR594/Unit 7/NUTR594_7-3_Minerals as Cofactors_STUDENT COPY.pptx: incorporate-as-they-appear
+dri_integration_plan:
+- chapter: fiber
+  dri_content: Adequate Intake for fiber (14 g / 1000 kcal; ~25 g/d women, 38 g/d men); margin sidebar with NHANES intake
+    gap
+- chapter: energy-balance
+  dri_content: EER equations; PAL categories; AMDR overview
+- chapter: proteins-amino-acids-overview
+  dri_content: "RDA for protein (0.8 g/kg/d); AMDR 10\u201335%; EAR vs RDA distinction; PDCAAS/DIAAS cross-link"
+- chapter: lipids-introduction
+  dri_content: "AI for linoleic and \u03B1-linolenic acids; AMDR 20\u201335%; SFA <10% guidance"
+mineral_cofactor_integration_plan:
+- chapter: tca-cycle
+  source: 'Minerals as Cofactors (video #32)'
+  content: Fe-S clusters and heme-Fe in TCA enzymes (aconitase, SDH, fumarase); cofactor requirements per step
+- chapter: pentose-phosphate-pathway
+  source: 'Minerals as Cofactors (video #32)'
+  content: Se-dependent GPx, Cu/Zn-SOD1, Mn-SOD2, Fe-catalase; ties to NADPH/GSH from the PPP arm of the chapter
