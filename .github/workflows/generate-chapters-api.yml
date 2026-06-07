@@ -1,0 +1,93 @@
+name: Generate chapters API
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tex/**.tex'
+  workflow_dispatch:
+
+jobs:
+  generate-api:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history needed for git log per file
+
+      - name: Generate chapters.json
+        run: |
+          echo "Generating chapters.json from tex/*.tex ..."
+          python3 - <<'EOF'
+          import subprocess, json, re, os
+          from pathlib import Path
+
+          chapters = []
+          for tex in sorted(Path("tex").glob("*.tex")):
+              slug = tex.stem
+
+              # Last commit date
+              result = subprocess.run(
+                  ["git", "log", "-1", "--pretty=format:%ad", "--date=short", "--", str(tex)],
+                  capture_output=True, text=True
+              )
+              last_commit = result.stdout.strip() or None
+
+              # Commit count
+              result = subprocess.run(
+                  ["git", "log", "--oneline", "--", str(tex)],
+                  capture_output=True, text=True
+              )
+              commits = len(result.stdout.strip().splitlines())
+
+              # Title from \title{...}
+              content = tex.read_text(errors="replace")
+              m = re.search(r'\\title\{([^}]+)\}', content)
+              title = m.group(1).replace("\\\\", " ").strip() if m else slug
+
+              # Word count (approximate: non-command words)
+              words = len(re.findall(r'\b[a-zA-Z]{3,}\b', re.sub(r'\\[a-zA-Z]+', '', content)))
+
+              # Line count
+              lines = len(content.splitlines())
+
+              chapters.append({
+                  "slug": slug,
+                  "title": title,
+                  "last_commit": last_commit,
+                  "lines": lines,
+                  "words": words,
+                  "commits": commits,
+              })
+
+          # Sort by last_commit descending
+          chapters.sort(key=lambda c: c["last_commit"] or "", reverse=True)
+
+          out = {
+              "course": "NUTR630",
+              "title": "Principles of Nutritional Science",
+              "institution": "University of Michigan",
+              "license": "CC BY 4.0",
+              "generated": subprocess.run(
+                  ["git", "log", "-1", "--pretty=format:%ad", "--date=short"],
+                  capture_output=True, text=True
+              ).stdout.strip(),
+              "count": len(chapters),
+              "chapters": chapters,
+          }
+
+          Path("chapters.json").write_text(json.dumps(out, indent=2))
+          print(f"Generated chapters.json with {len(chapters)} chapters.")
+          EOF
+
+      - name: Commit chapters.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add chapters.json
+          git diff --cached --quiet || git commit -m "chore: update chapters.json API [skip ci]"
+          git push
