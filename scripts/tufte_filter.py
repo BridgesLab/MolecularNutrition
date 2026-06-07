@@ -130,58 +130,108 @@ def replace_macros_in_para(elem, doc):
     if not full_text.strip() and not re.search(r'__ELEM_\d+__', full_text):
         return []
 
-    pattern = r'@@(newthought|marginnote|sidenote):(.*?)@@'
-
-    # Process the text and build new elements
-    new_elems = []
-    pos = 0
-
-    for m in re.finditer(pattern, full_text):
-        start, end = m.span()
-        macro_type, macro_content = m.groups()
-
-        # Handle text before the macro
-        before_text = full_text[pos:start]
-        new_elems.extend(process_text_with_preserved_elems(before_text, preserved_elems, doc))
-
-        # Add the macro
-        if macro_type in ['marginnote', 'sidenote']:
-            wrapper = pf.Span(
-                # aria-hidden: icon is visual only; screen readers read the
-                # note content directly from the DOM (SC 4.1.2)
-                pf.Span(pf.Str('‡'), classes=['margin-icon'],
-                        attributes={'aria-hidden': 'true'}),
-                # role="note" marks the content semantically; tabindex="0"
-                # makes it keyboard-reachable so :focus-within shows the
-                # visual tooltip (SC 2.1.1)
-                pf.Span(pf.Str(macro_content), classes=[macro_type],
-                        attributes={'role': 'note', 'tabindex': '0'}),
-                classes=[f"{macro_type}-wrapper"]
-            )
-            new_elems.append(wrapper)
-        else:
-            new_elems.append(pf.Span(pf.Str(macro_content), classes=[macro_type]))
-
-        pos = end
-
-    # Handle remaining text after last macro.
-    # Strip orphaned @@ tokens that arise when sidenote content spans multiple
-    # paragraphs or block elements (e.g. sidenotes containing \begin{enumerate}).
-    after_text = full_text[pos:]
-    # Remove incomplete opening tokens (@@type:... with no closing @@)
-    after_text = re.sub(
-        r'@@(?:newthought|marginnote|sidenote|alttext):[^@]*$', '', after_text, flags=re.DOTALL
-    )
-    # Remove orphaned lone @@ at start (leftover closing token from a split block)
-    after_text = re.sub(r'^@@', '', after_text)
-    after_text = after_text.strip()
-    new_elems.extend(process_text_with_preserved_elems(after_text, preserved_elems, doc))
+    # Parse the (possibly nested) macro token stream into a tree and render it.
+    # A stack-based parse handles \newthought{...\sidenote{...}} nesting and
+    # note content that contains newlines, and silently drops orphaned markers
+    # (e.g. a marginnote whose content pandoc split across paragraphs), so no
+    # raw @@ tokens leak into the output.
+    tree = parse_macro_tree(full_text)
+    new_elems = render_macro_nodes(tree, preserved_elems, doc)
 
     # Suppress the paragraph entirely if nothing substantive remains
     if not new_elems:
         return []
 
     return pf.Para(*new_elems)
+
+
+# A macro marker is either an opening "@@type:" or a bare closing "@@".
+_MACRO_MARK = re.compile(r'@@(newthought|marginnote|sidenote):|@@')
+
+
+def parse_macro_tree(text):
+    """Parse the @@-token stream into a nested tree.
+
+    Returns a list of nodes, each ('text', str) or (macro_type, [child nodes]).
+    A stack pairs each opening "@@type:" with the next bare "@@", which makes
+    nesting work. Stray closing markers are ignored; unclosed openers are
+    flushed with whatever content they collected so output never contains
+    literal @@ tokens.
+    """
+    root = []
+    stack = [root]          # node lists, innermost last
+    types = []              # macro type for each open frame
+    pos = 0
+    for m in _MACRO_MARK.finditer(text):
+        seg = text[pos:m.start()]
+        if seg:
+            stack[-1].append(('text', seg))
+        pos = m.end()
+        if m.group(1):                      # opening @@type:
+            frame = []
+            stack.append(frame)
+            types.append(m.group(1))
+        elif types:                         # closing @@ for an open frame
+            frame = stack.pop()
+            stack[-1].append((types.pop(), frame))
+        # else: stray closing marker with no open frame → drop it
+    tail = text[pos:]
+    if tail:
+        stack[-1].append(('text', tail))
+    # Flush any unclosed openers (note content split across paragraphs)
+    while types:
+        frame = stack.pop()
+        stack[-1].append((types.pop(), frame))
+    return root
+
+
+def render_macro_nodes(nodes, preserved_elems, doc):
+    """Render a macro tree (from parse_macro_tree) into a list of inlines."""
+    out = []
+    for kind, payload in nodes:
+        if kind == 'text':
+            out.extend(restore_inline(payload, preserved_elems, doc))
+        elif kind == 'newthought':
+            out.append(pf.Span(
+                *render_macro_nodes(payload, preserved_elems, doc),
+                classes=['newthought']))
+        else:  # sidenote / marginnote
+            children = render_macro_nodes(payload, preserved_elems, doc)
+            out.extend(build_note(kind, children, doc))
+    return out
+
+
+def build_note(macro_type, children, doc):
+    """Build a checkbox-hack disclosure note around already-rendered children.
+
+    label + checkbox + span are all *phrasing* content, so unlike <details>
+    the marker stays inside the host <p> and does not break the line. On
+    desktop CSS floats the note into the margin (always shown); on mobile it is
+    a tap-to-expand disclosure. The checkbox is hidden but keyboard-focusable.
+    """
+    nid = getattr(doc, '_note_id', 0) + 1
+    doc._note_id = nid
+    if macro_type == 'sidenote':
+        snum = getattr(doc, '_sn_num', 0) + 1
+        doc._sn_num = snum
+        tid = f'sn-{nid}'
+        open_html = (
+            f'<label class="note-toggle sn-toggle" for="{tid}" '
+            f'aria-label="note {snum}"><sup class="sn-num">{snum}</sup></label>'
+            f'<input type="checkbox" id="{tid}" class="note-toggle-input">'
+            f'<span class="sidenote" role="note">'
+            f'<span class="sn-num-prefix" aria-hidden="true">{snum}. </span>'
+        )
+    else:
+        tid = f'mn-{nid}'
+        open_html = (
+            f'<label class="note-toggle mn-toggle" for="{tid}" '
+            f'aria-label="margin note"><sup class="mn-mark" aria-hidden="true">'
+            f'&#9656;</sup></label>'
+            f'<input type="checkbox" id="{tid}" class="note-toggle-input">'
+            f'<span class="marginnote" role="note">'
+        )
+    return [pf.RawInline(open_html, 'html'), *children, pf.RawInline('</span>', 'html')]
 
 def process_text_with_preserved_elems(text, preserved_elems, doc=None):
     """Process text string and restore preserved elements.
@@ -215,6 +265,40 @@ def process_text_with_preserved_elems(text, preserved_elems, doc=None):
                     elems.append(pf.Str(token))
 
     return elems
+
+def restore_inline(text, preserved_elems, doc=None):
+    r"""Restore preserved inline elements inside macro content.
+
+    Unlike process_text_with_preserved_elems, this is used for the *content*
+    of \newthought/\sidenote/\marginnote, which is returned as a new element
+    and therefore not re-walked by the main filter pass. So raw-LaTeX inlines
+    that the filter would normally rewrite later (\ref, \url) are converted
+    here, and output-less ones (\index, \nomenclature, \label) are dropped.
+    Math, citations, emphasis, links, etc. are kept as their parsed elements.
+    """
+    out = []
+    for part in re.split(r'(__ELEM_\d+__)', text):
+        if part in preserved_elems:
+            el = preserved_elems[part]
+            if isinstance(el, pf.RawInline) and el.format == 'latex':
+                t = el.text.strip()
+                ref = re.match(r'\\e?ref\{([^}]+)\}', t)
+                url = re.match(r'\\url\{([^}]+)\}', t)
+                href = re.match(r'\\href\{([^}]+)\}\{([^}]*)\}', t)
+                if ref:
+                    out.append(pf.Link(pf.Str('↑'), url=f'#{ref.group(1)}',
+                                       title=f'See {ref.group(1)}'))
+                elif url:
+                    out.append(pf.Link(pf.Str(url.group(1)), url=url.group(1)))
+                elif href:
+                    out.append(pf.Link(pf.Str(href.group(2)), url=href.group(1)))
+                # \index, \nomenclature, \label, … produce no HTML → drop
+                continue
+            out.append(el)
+        elif part:
+            for token in split_text_with_spaces(part):
+                out.append(pf.Space() if token.isspace() else pf.Str(token))
+    return out
 
 def split_text_with_spaces(text):
     """Split text by spaces but keep spaces as separate tokens."""
@@ -270,11 +354,64 @@ def add_table_scope(elem, doc):
 
 
 # ---------------------------------------------------------------------------
+# margintable → margin-floated <table>
+# ---------------------------------------------------------------------------
+
+def latex_tabular_to_html(tabular_body):
+    r"""Convert a simple LaTeX tabular body to HTML <thead>/<tbody> rows.
+
+    Handles the simple tables used in these notes (no \multicolumn/\multirow).
+    A row whose first cell contains \textbf is treated as the header row.
+    """
+    # Drop rules; split into rows on \\, cells on unescaped &.
+    body = re.sub(r'\\hline|\\toprule|\\midrule|\\bottomrule', '', tabular_body)
+    rows = [r.strip() for r in re.split(r'\\\\', body) if r.strip()]
+    head_html, body_html = '', ''
+    for i, row in enumerate(rows):
+        cells = [caption_latex_to_html(c) for c in re.split(r'(?<!\\)&', row)]
+        is_header = (i == 0 and '\\textbf' in row)
+        if is_header:
+            head_html = ('<tr>'
+                         + ''.join(f'<th scope="col">{c}</th>' for c in cells)
+                         + '</tr>')
+        else:
+            body_html += '<tr>' + ''.join(f'<td>{c}</td>' for c in cells) + '</tr>'
+    thead = f'<thead>{head_html}</thead>' if head_html else ''
+    return f'{thead}<tbody>{body_html}</tbody>'
+
+
+def handle_margintable(text):
+    r"""Convert \begin{margintable}...\end{margintable} to a margin <figure>."""
+    m = re.match(r'\\begin\{margintable\}(.*?)\\end\{margintable\}', text, re.DOTALL)
+    if not m:
+        return None
+    content = m.group(1)
+
+    label_m = re.search(r'\\label\{([^}]+)\}', content)
+    id_attr = f' id="{html_module.escape(label_m.group(1))}"' if label_m else ''
+
+    caption_latex = extract_braced_content(content, '\\caption')
+    caption_html = caption_latex_to_html(caption_latex) if caption_latex else ''
+
+    tab_m = re.search(r'\\begin\{tabular\}(?:\{[^}]*\})?(.*?)\\end\{tabular\}',
+                      content, re.DOTALL)
+    if not tab_m:
+        return None
+    rows_html = latex_tabular_to_html(tab_m.group(1))
+
+    cap = f'<figcaption>{caption_html}</figcaption>' if caption_html else ''
+    return pf.RawBlock(
+        f'<figure class="margintable"{id_attr}><table>{rows_html}</table>{cap}</figure>',
+        'html'
+    )
+
+
+# ---------------------------------------------------------------------------
 # RawBlock handler: marginfigure / figure → <figure>
 # ---------------------------------------------------------------------------
 
 def handle_raw_block(elem, doc):
-    r"""Convert \begin{marginfigure} and \begin{figure} environments to HTML."""
+    r"""Convert \begin{marginfigure}, \begin{figure}, \begin{margintable}."""
     if not isinstance(elem, pf.RawBlock):
         return None
     if doc.format not in ['html', 'html5']:
@@ -283,6 +420,11 @@ def handle_raw_block(elem, doc):
         return None
 
     text = elem.text.strip()
+
+    if text.startswith('\\begin{margintable}'):
+        result = handle_margintable(text)
+        if result is not None:
+            return result
 
     env_re = re.compile(
         r'\\begin\{(marginfigure|figure\*?)\}(.*?)\\end\{(?:marginfigure|figure\*?)\}',

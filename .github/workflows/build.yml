@@ -26,7 +26,9 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-       
+        with:
+          fetch-depth: 0   # full history so per-chapter "Updated" dates resolve
+
       - name: Check for Tufte macro bridge in all .tex files
         run: |
           missing=()
@@ -52,26 +54,15 @@ jobs:
           activate-environment: base
           auto-activate-base: true
       
-      - name: Update, activate, and process tex files
+      - name: Update conda env and build HTML site
         shell: bash -l {0}
         run: |
           source /usr/share/miniconda/etc/profile.d/conda.sh
           conda env update -f environment.yml -n base
           conda activate base
-          for f in tex/*.tex; do
-            fname=$(basename "$f" .tex)
-            pandoc "$f" \
-              --from=latex+raw_tex \
-              --to=html5 \
-              --filter=scripts/tufte_filter.py \
-              --template=html/tufte_template.html \
-              --mathjax=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js \
-              --citeproc \
-              --bibliography=tex/library.bib \
-              -V htmlversion \
-              --standalone \
-              -o "output/${fname}.html"
-          done
+          # Builds every chapter (pandoc + tufte_filter.py + template),
+          # injects the shared navigation, and writes index.html.
+          python scripts/build_html.py output
 
       - name: Compile chapter PDFs
         uses: xu-cheng/latex-action@v4
@@ -95,13 +86,16 @@ jobs:
             cp -r tex/figures/* output/figures/
           fi
 
-      - name: Copy CSS files
-        run: |
-          cp html/tufte.css output/ || true
-          cp html/custom.css output/ || true
+      - name: Copy CSS
+        run: cp html/um.css output/
 
-      - name: Generate index.html from chapter list
-        run: python scripts/generate_index.py
+      - name: Copy compiled book PDF
+        run: |
+          if [ -f "Principles of Nutrition Science.pdf" ]; then
+            cp "Principles of Nutrition Science.pdf" output/
+          else
+            echo "::warning::Compiled book PDF not present in checkout; home-page download link will 404 until compile-book workflow commits it."
+          fi
 
       - name: Upload site content
         uses: actions/upload-pages-artifact@v3
