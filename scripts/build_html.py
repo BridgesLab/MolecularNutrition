@@ -22,6 +22,9 @@ HTML_DIR = REPO_ROOT / "html"
 SCRIPTS_DIR = REPO_ROOT / "scripts"
 MASTER_TEX = REPO_ROOT / "nutr630-notes.tex"
 BOOK_PDF = "Principles of Nutrition Science.pdf"
+# Public base URL of the GitHub Pages site (trailing slash required) — used
+# for the sitemap so search engines get absolute, canonical URLs.
+SITE_BASE = "https://bridgeslab.github.io/MolecularNutrition/"
 
 AUTHORS = ("Dave Bridges, Ph.D. &amp; Olivia Anderson, MPH, R.D., Ph.D.")
 
@@ -100,20 +103,53 @@ def build_nav(parts, current_stem):
         '  </nav>')
 
 
-def last_updated(stem):
-    """Return the date of the last git commit that touched tex/<stem>.tex,
-    formatted like "June 7, 2026". Empty string if unavailable (e.g. the
-    file is untracked, or git history is shallow — see fetch-depth in CI)."""
+def commit_date_iso(stem):
+    """Return YYYY-MM-DD of the last git commit touching tex/<stem>.tex, or
+    '' if unavailable (untracked file, or shallow history — see fetch-depth)."""
     proc = subprocess.run(
         ["git", "log", "-1", "--format=%cs", "--", f"tex/{stem}.tex"],
         cwd=REPO_ROOT, capture_output=True, text=True)
-    iso = proc.stdout.strip()
+    return proc.stdout.strip()
+
+
+def last_updated(stem):
+    """Human-readable last-updated date, e.g. "June 7, 2026" (or '')."""
+    iso = commit_date_iso(stem)
     try:
         from datetime import date
         d = date.fromisoformat(iso)
         return f"{d.strftime('%B')} {d.day}, {d.year}"
     except (ValueError, ImportError):
         return iso
+
+
+def render_sitemap(parts, out_dir):
+    """Write sitemap.xml listing the home page + every chapter, with the
+    git commit date as <lastmod>. Submit this URL in Search Console."""
+    from datetime import date
+    urls = []  # (loc, lastmod_iso)
+    chapter_dates = []
+    for _, chapters in parts:
+        for _, stem in chapters:
+            iso = commit_date_iso(stem)
+            if iso:
+                chapter_dates.append(iso)
+            urls.append((f"{SITE_BASE}{stem}.html", iso))
+    # Home page: use the most recent chapter date as its lastmod.
+    home_lastmod = max(chapter_dates) if chapter_dates else date.today().isoformat()
+    urls.insert(0, (SITE_BASE, home_lastmod))
+
+    entries = []
+    for loc, lastmod in urls:
+        lm = f"\n    <lastmod>{lastmod}</lastmod>" if lastmod else ""
+        entries.append(f"  <url>\n    <loc>{loc}</loc>{lm}\n  </url>")
+    body = "\n".join(entries)
+    xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{body}\n"
+        "</urlset>\n")
+    (out_dir / "sitemap.xml").write_text(xml)
 
 
 def build_chapter(stem, parts, out_dir):
@@ -237,6 +273,8 @@ def main():
 
     render_index(parts, out_dir)
     print("Generated index.html")
+    render_sitemap(parts, out_dir)
+    print("Generated sitemap.xml")
     sys.exit(0 if all_ok else 2)
 
 
