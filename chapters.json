@@ -3,9 +3,41 @@
   "title": "Principles of Nutritional Science",
   "institution": "University of Michigan",
   "license": "CC BY 4.0",
-  "generated": "2026-06-07",
+  "generated": "2026-07-06",
   "count": 23,
   "chapters": [
+    {
+      "slug": "digestive-tract-introduction",
+      "title": "Overview of the Digestive System",
+      "last_commit": "2026-07-06",
+      "lines": 243,
+      "words": 4157,
+      "commits": 13
+    },
+    {
+      "slug": "endocrine-handout",
+      "title": "Endocrine Regulation of Macronutrient Homeostasis",
+      "last_commit": "2026-07-06",
+      "lines": 303,
+      "words": 4091,
+      "commits": 17
+    },
+    {
+      "slug": "energy-balance",
+      "title": "Understanding Energy Balance",
+      "last_commit": "2026-07-06",
+      "lines": 211,
+      "words": 2306,
+      "commits": 15
+    },
+    {
+      "slug": "metabolic-control-systems",
+      "title": "Metabolic Control Systems",
+      "last_commit": "2026-07-06",
+      "lines": 283,
+      "words": 3121,
+      "commits": 19
+    },
     {
       "slug": "glycolysis",
       "title": "Glycolysis",
@@ -29,14 +61,6 @@
       "lines": 181,
       "words": 1829,
       "commits": 9
-    },
-    {
-      "slug": "energy-balance",
-      "title": "Understanding Energy Balance",
-      "last_commit": "2026-04-19",
-      "lines": 211,
-      "words": 2294,
-      "commits": 14
     },
     {
       "slug": "lipid-catabolism",
@@ -119,22 +143,6 @@
       "commits": 12
     },
     {
-      "slug": "digestive-tract-introduction",
-      "title": "Overview of the Digestive System",
-      "last_commit": "2026-04-14",
-      "lines": 240,
-      "words": 4120,
-      "commits": 12
-    },
-    {
-      "slug": "endocrine-handout",
-      "title": "Endocrine Regulation of Macronutrient Homeostasis",
-      "last_commit": "2026-04-14",
-      "lines": 303,
-      "words": 4056,
-      "commits": 16
-    },
-    {
       "slug": "fiber",
       "title": "Fiber",
       "last_commit": "2026-04-14",
@@ -157,14 +165,6 @@
       "lines": 273,
       "words": 2440,
       "commits": 8
-    },
-    {
-      "slug": "metabolic-control-systems",
-      "title": "Metabolic Control Systems",
-      "last_commit": "2026-04-14",
-      "lines": 277,
-      "words": 2879,
-      "commits": 18
     },
     {
       "slug": "nitrogen-compounds",
