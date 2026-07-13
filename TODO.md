@@ -13,20 +13,23 @@ _Last audit: 2026-05-06 against `tex/*.tex` (23 chapters, 53 `\includegraphics`,
   - Action: insert `\section{Learning Objectives}` after `\maketitle` (4–6 items covering insulin/glucagon signaling, counterregulatory hormones, T2DM, endocrine control of protein/lipid metabolism). Model on `metabolic-control-systems.tex`.
   - [Notion](https://www.notion.so/358711ec4bd98163a35ad96395af463e)
 
-- [ ] **PED-02 — Add Reflection Questions to `nitrogen-compounds`** _(High · [#8](https://github.com/BridgesLab/MolecularNutrition/issues/8), [#13](https://github.com/BridgesLab/MolecularNutrition/issues/13))_
+- [x] **PED-02 — Add Reflection Questions to `nitrogen-compounds`** _(High · [#8](https://github.com/BridgesLab/MolecularNutrition/issues/8), [#13](https://github.com/BridgesLab/MolecularNutrition/issues/13))_
   - Only chapter without a Reflection Questions section.
   - Action: 3–5 items at end of chapter, before bibliography. Mirror format from `protein-oxidation.tex`. Topics: GSH redox, creatine for high-intensity exercise, choline/one-carbon flux, neurotransmitter precursor competition.
+  - **Done 2026-07-13** — 4 reflection questions added (acetaminophen/GSH/NAC, MASLD/PEMT/choline, vegan creatine, MAOI/tyramine).
   - [Notion](https://www.notion.so/358711ec4bd98185b2c6ef9b6e5a87ce)
 
-- [ ] **PED-03 — Add Protein/Nitrogen Unit Integration Questions** _(High · [#8](https://github.com/BridgesLab/MolecularNutrition/issues/8), [#13](https://github.com/BridgesLab/MolecularNutrition/issues/13))_
+- [x] **PED-03 — Add Protein/Nitrogen Unit Integration Questions** _(High · [#8](https://github.com/BridgesLab/MolecularNutrition/issues/8), [#13](https://github.com/BridgesLab/MolecularNutrition/issues/13))_
   - Carbs and Lipids each end with unit-level integration sets (in `gluconeogenesis.tex` and `lipid-transport.tex`); Protein/Nitrogen has none.
   - Action: add `\section{Protein and Nitrogen Unit Integration Questions}` to the last chapter (`nitrogen-compounds.tex`), 4–6 capstone scenarios spanning digestion → AA pool → synthesis vs. breakdown → urea cycle → NPN compounds. Consider whether a final cross-macronutrient capstone belongs here or as a stand-alone wrap chapter.
+  - **Done 2026-07-13** — 6 capstone questions added spanning leucine-vs-tryptophan fate, urea cycle disorder + polyamines/NO/creatine, vegan homocysteine/choline/creatine, sarcopenic PPI patient, G6PD athlete, third-trimester pregnancy.
   - [Notion](https://www.notion.so/358711ec4bd981c193efc158b419cd81)
 
-- [ ] **PED-04 — Expand `nitrogen-compounds`: heme, polyamines, BH4, neurotransmitter biosynthesis** _(High · [#8](https://github.com/BridgesLab/MolecularNutrition/issues/8))_
+- [x] **PED-04 — Expand `nitrogen-compounds`: heme, polyamines, BH4, neurotransmitter biosynthesis** _(High · [#8](https://github.com/BridgesLab/MolecularNutrition/issues/8))_
   - Shortest chapter (110 lines, 7 sections). Currently covers GSH, carnitine, choline, creatine, and a one-line Neurotransmitter Synthesis section.
   - Missing classes: heme/porphyrins, polyamines (ornithine → putrescine → spermidine/spermine), BH4 cofactor, melanin, melatonin, histamine, GABA, full catecholamine + serotonin biosynthesis, NO from arginine.
   - Action: draft new subsections; add `\index{}` and `\nomenclature{}` entries; pair with figure work (PED-05).
+  - **Done 2026-07-13** — chapter grew 111 → 216 lines. New sections: four-mode framework, BH4, full catecholamine chain (Tyr → DOPA → DA → NE → Epi), serotonin/melatonin, histamine, GABA, ACh, NO, heme/porphyrias/heme catabolism, polyamines, kynurenine → NAD⁺. Nomenclature 15 → 27, index entries substantially expanded. 4 citations added ([`longoCarnitineTransportFatty2016`](https://doi.org/10.1016/j.bbamcr.2016.01.023), [`wallaceUsualCholineIntakes2017`](https://doi.org/10.3390/nu9080839), [`puyPorphyrias2010`](https://doi.org/10.1016/S0140-6736(09)61925-5), [`covarrubiasNADMetabolismIts2021`](https://doi.org/10.1038/s41580-020-00313-x)). **Melanin moved to future work (PED-08).**
   - [Notion](https://www.notion.so/358711ec4bd9819590dac52a1f2da4c6)
 
 - [ ] **PED-05 — Add figures to Protein/Nitrogen part (currently 0 across 5 chapters)** _(High · [#7](https://github.com/BridgesLab/MolecularNutrition/issues/7), New issue?)_
@@ -42,9 +45,13 @@ _Last audit: 2026-05-06 against `tex/*.tex` (23 chapters, 53 `\includegraphics`,
   - [Notion](https://www.notion.so/358711ec4bd981fab1cecc633e11aa45)
 
 - [ ] **PED-07 — Standardize reflection-question count across chapters (3–5)** _(Low · [#13](https://github.com/BridgesLab/MolecularNutrition/issues/13))_
-  - 21 chapters at 3 each; `carb-digestion` and `lipid-digestion` at 4; `microbiome` at 7.
+  - 21 chapters at 3 each; `carb-digestion` and `lipid-digestion` at 4; `microbiome` at 7; `nitrogen-compounds` at 4.
   - Action: decide between strict 3 baseline or 3–5 range; either trim `microbiome` or document the range in `CONTRIBUTING.md`.
   - [Notion](https://www.notion.so/358711ec4bd9812ab54be8da9fc9f058)
+
+- [ ] **PED-08 — Add melanin biosynthesis to `nitrogen-compounds`** _(Low · [#8](https://github.com/BridgesLab/MolecularNutrition/issues/8))_
+  - Not covered in the 2026-07-13 nitrogen-compounds rewrite; deferred as future minor addition.
+  - Action: 2–3 sentence add in the catecholamines subsection covering tyrosine → tyrosinase → melanin, with a sidenote on albinism (loss-of-function tyrosinase / OCA1) as the classic clinical defect. Cross-link to iron availability if relevant.
 
 ## Accessibility
 
