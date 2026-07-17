@@ -3,16 +3,16 @@
   "title": "Principles of Nutritional Science",
   "institution": "University of Michigan",
   "license": "CC BY 4.0",
-  "generated": "2026-07-13",
+  "generated": "2026-07-17",
   "count": 23,
   "chapters": [
     {
       "slug": "lipids-introduction",
       "title": "Introduction to Lipids",
-      "last_commit": "2026-07-13",
-      "lines": 230,
-      "words": 2763,
-      "commits": 10
+      "last_commit": "2026-07-17",
+      "lines": 223,
+      "words": 2798,
+      "commits": 11
     },
     {
       "slug": "nitrogen-compounds",
