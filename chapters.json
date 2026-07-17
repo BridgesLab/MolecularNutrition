@@ -3,24 +3,16 @@
   "title": "Principles of Nutritional Science",
   "institution": "University of Michigan",
   "license": "CC BY 4.0",
-  "generated": "2026-07-17",
+  "generated": "2026-07-13",
   "count": 23,
   "chapters": [
     {
       "slug": "lipids-introduction",
       "title": "Introduction to Lipids",
-      "last_commit": "2026-07-17",
-      "lines": 223,
-      "words": 2798,
-      "commits": 12
-    },
-    {
-      "slug": "pentose-phosphate-pathway",
-      "title": "Oxidative Stress, the Pentose Phosphate Pathway and Alcohol Metabolism",
-      "last_commit": "2026-07-17",
-      "lines": 221,
-      "words": 2781,
-      "commits": 13
+      "last_commit": "2026-07-13",
+      "lines": 230,
+      "words": 2763,
+      "commits": 10
     },
     {
       "slug": "nitrogen-compounds",
@@ -181,6 +173,14 @@
       "lines": 273,
       "words": 2440,
       "commits": 8
+    },
+    {
+      "slug": "pentose-phosphate-pathway",
+      "title": "Oxidative Stress, the Pentose Phosphate Pathway and Alcohol Metabolism",
+      "last_commit": "2026-04-14",
+      "lines": 201,
+      "words": 2268,
+      "commits": 12
     },
     {
       "slug": "tca-cycle",
