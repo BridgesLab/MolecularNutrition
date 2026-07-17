@@ -1,5 +1,5 @@
 version: 1
-updated: '2026-05-17'
+updated: '2026-07-13'
 sources:
   notes: tex/*.tex (canonical)
   decks: ~/Documents/GitHub/TeachingLectures/Michigan/NUTR594/
@@ -284,3 +284,6 @@ mineral_cofactor_integration_plan:
 - chapter: pentose-phosphate-pathway
   source: 'Minerals as Cofactors (video #32)'
   content: Se-dependent GPx, Cu/Zn-SOD1, Mn-SOD2, Fe-catalase; ties to NADPH/GSH from the PPP arm of the chapter
+  status: done
+  landed: '2026-07-13'
+  landing_section: 'The Endogenous Enzymatic Antioxidant System (new subsection under The Importance of NADPH)'
