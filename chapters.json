@@ -3,160 +3,32 @@
   "title": "Principles of Nutritional Science",
   "institution": "University of Michigan",
   "license": "CC BY 4.0",
-  "generated": "2026-08-22",
+  "generated": "2026-07-13",
   "count": 23,
   "chapters": [
     {
-      "slug": "energy-balance",
-      "title": "Understanding Energy Balance",
-      "last_commit": "2026-08-22",
-      "lines": 219,
-      "words": 2433,
-      "commits": 16
-    },
-    {
-      "slug": "carb-digestion",
-      "title": "Carbohydrate Digestion and Absorption",
-      "last_commit": "2026-07-17",
-      "lines": 217,
-      "words": 2815,
-      "commits": 14
-    },
-    {
-      "slug": "carb-structure",
-      "title": "Carbohydrate Structure",
-      "last_commit": "2026-07-17",
-      "lines": 185,
-      "words": 2041,
-      "commits": 13
-    },
-    {
-      "slug": "digestive-tract-introduction",
-      "title": "Overview of the Digestive System",
-      "last_commit": "2026-07-17",
-      "lines": 243,
-      "words": 4160,
-      "commits": 14
-    },
-    {
-      "slug": "fiber",
-      "title": "Fiber",
-      "last_commit": "2026-07-17",
-      "lines": 159,
-      "words": 1777,
-      "commits": 11
-    },
-    {
-      "slug": "gluconeogenesis",
-      "title": "Gluconeogenesis",
-      "last_commit": "2026-07-17",
-      "lines": 265,
-      "words": 3168,
-      "commits": 11
-    },
-    {
-      "slug": "glycolysis",
-      "title": "Glycolysis",
-      "last_commit": "2026-07-17",
-      "lines": 366,
-      "words": 4118,
-      "commits": 14
-    },
-    {
-      "slug": "lipid-catabolism",
-      "title": "Regulation of Lipid Catabolism",
-      "last_commit": "2026-07-17",
-      "lines": 226,
-      "words": 2954,
-      "commits": 10
-    },
-    {
-      "slug": "lipid-digestion",
-      "title": "Lipid Digestion and Absorption",
-      "last_commit": "2026-07-17",
-      "lines": 165,
-      "words": 2423,
-      "commits": 12
-    },
-    {
-      "slug": "lipid-synthesis",
-      "title": "Lipid Synthesis",
-      "last_commit": "2026-07-17",
-      "lines": 278,
-      "words": 3726,
-      "commits": 12
-    },
-    {
-      "slug": "lipid-transport",
-      "title": "Lipid Transport and Blood Lipid Levels",
-      "last_commit": "2026-07-17",
-      "lines": 206,
-      "words": 2879,
-      "commits": 13
-    },
-    {
       "slug": "lipids-introduction",
       "title": "Introduction to Lipids",
-      "last_commit": "2026-07-17",
-      "lines": 223,
-      "words": 2800,
-      "commits": 13
-    },
-    {
-      "slug": "metabolic-control-systems",
-      "title": "Metabolic Control Systems",
-      "last_commit": "2026-07-17",
-      "lines": 283,
-      "words": 3128,
-      "commits": 20
-    },
-    {
-      "slug": "microbiome",
-      "title": "The Gut Microbiome",
-      "last_commit": "2026-07-17",
-      "lines": 348,
-      "words": 4326,
-      "commits": 6
+      "last_commit": "2026-07-13",
+      "lines": 230,
+      "words": 2763,
+      "commits": 10
     },
     {
       "slug": "nitrogen-compounds",
       "title": "Nitrogen Containing Compounds",
-      "last_commit": "2026-07-17",
+      "last_commit": "2026-07-13",
       "lines": 212,
-      "words": 3791,
+      "words": 3782,
+      "commits": 12
+    },
+    {
+      "slug": "digestive-tract-introduction",
+      "title": "Overview of the Digestive System",
+      "last_commit": "2026-07-06",
+      "lines": 243,
+      "words": 4157,
       "commits": 13
-    },
-    {
-      "slug": "pentose-phosphate-pathway",
-      "title": "Oxidative Stress, the Pentose Phosphate Pathway and Alcohol Metabolism",
-      "last_commit": "2026-07-17",
-      "lines": 221,
-      "words": 2787,
-      "commits": 14
-    },
-    {
-      "slug": "proteins-amino-acids-overview",
-      "title": "Introduction to Proteins and Amino Acids",
-      "last_commit": "2026-07-17",
-      "lines": 181,
-      "words": 1830,
-      "commits": 10
-    },
-    {
-      "slug": "proteins-amino-acids-synthesis",
-      "title": "Protein and Amino Acid Synthesis",
-      "last_commit": "2026-07-17",
-      "lines": 221,
-      "words": 2316,
-      "commits": 10
-    },
-    {
-      "slug": "tca-cycle",
-      "title": "TCA Cycle and the Electron Transport Chain",
-      "last_commit": "2026-07-17",
-      "lines": 311,
-      "words": 3485,
-      "commits": 15
     },
     {
       "slug": "endocrine-handout",
@@ -165,6 +37,78 @@
       "lines": 303,
       "words": 4091,
       "commits": 17
+    },
+    {
+      "slug": "energy-balance",
+      "title": "Understanding Energy Balance",
+      "last_commit": "2026-07-06",
+      "lines": 211,
+      "words": 2306,
+      "commits": 15
+    },
+    {
+      "slug": "metabolic-control-systems",
+      "title": "Metabolic Control Systems",
+      "last_commit": "2026-07-06",
+      "lines": 283,
+      "words": 3121,
+      "commits": 19
+    },
+    {
+      "slug": "glycolysis",
+      "title": "Glycolysis",
+      "last_commit": "2026-06-07",
+      "lines": 366,
+      "words": 4116,
+      "commits": 13
+    },
+    {
+      "slug": "microbiome",
+      "title": "The Gut Microbiome",
+      "last_commit": "2026-05-12",
+      "lines": 348,
+      "words": 4322,
+      "commits": 5
+    },
+    {
+      "slug": "proteins-amino-acids-overview",
+      "title": "Introduction to Proteins and Amino Acids",
+      "last_commit": "2026-05-11",
+      "lines": 181,
+      "words": 1829,
+      "commits": 9
+    },
+    {
+      "slug": "lipid-catabolism",
+      "title": "Regulation of Lipid Catabolism",
+      "last_commit": "2026-04-19",
+      "lines": 226,
+      "words": 2954,
+      "commits": 9
+    },
+    {
+      "slug": "lipid-digestion",
+      "title": "Lipid Digestion and Absorption",
+      "last_commit": "2026-04-19",
+      "lines": 165,
+      "words": 2423,
+      "commits": 10
+    },
+    {
+      "slug": "lipid-synthesis",
+      "title": "Lipid Synthesis",
+      "last_commit": "2026-04-19",
+      "lines": 278,
+      "words": 3723,
+      "commits": 11
+    },
+    {
+      "slug": "lipid-transport",
+      "title": "Lipid Transport and Blood Lipid Levels",
+      "last_commit": "2026-04-19",
+      "lines": 206,
+      "words": 2866,
+      "commits": 11
     },
     {
       "slug": "protein-digestion",
@@ -183,12 +127,68 @@
       "commits": 8
     },
     {
+      "slug": "proteins-amino-acids-synthesis",
+      "title": "Protein and Amino Acid Synthesis",
+      "last_commit": "2026-04-19",
+      "lines": 221,
+      "words": 2312,
+      "commits": 9
+    },
+    {
+      "slug": "carb-digestion",
+      "title": "Carbohydrate Digestion and Absorption",
+      "last_commit": "2026-04-14",
+      "lines": 217,
+      "words": 2813,
+      "commits": 13
+    },
+    {
+      "slug": "carb-structure",
+      "title": "Carbohydrate Structure",
+      "last_commit": "2026-04-14",
+      "lines": 185,
+      "words": 2041,
+      "commits": 12
+    },
+    {
+      "slug": "fiber",
+      "title": "Fiber",
+      "last_commit": "2026-04-14",
+      "lines": 159,
+      "words": 1778,
+      "commits": 10
+    },
+    {
+      "slug": "gluconeogenesis",
+      "title": "Gluconeogenesis",
+      "last_commit": "2026-04-14",
+      "lines": 265,
+      "words": 3166,
+      "commits": 10
+    },
+    {
       "slug": "glycogen-metabolism",
       "title": "Glycogen Metabolism",
       "last_commit": "2026-04-14",
       "lines": 273,
       "words": 2440,
       "commits": 8
+    },
+    {
+      "slug": "pentose-phosphate-pathway",
+      "title": "Oxidative Stress, the Pentose Phosphate Pathway and Alcohol Metabolism",
+      "last_commit": "2026-04-14",
+      "lines": 201,
+      "words": 2268,
+      "commits": 12
+    },
+    {
+      "slug": "tca-cycle",
+      "title": "TCA Cycle and the Electron Transport Chain",
+      "last_commit": "2026-04-14",
+      "lines": 311,
+      "words": 3484,
+      "commits": 14
     }
   ]
 }
