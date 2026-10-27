@@ -26,7 +26,7 @@ body.push(P([],{spacing:{after:240}}));
 body.push(P([new TextRun({text:'Instructions',bold:true,font:FONT,size:26})],{spacing:{after:120}}));
 const saPts=data.SA.map(x=>x.pts); const saTot=saPts.reduce((a,b)=>a+b,0); const mcTot=2*data.MC.length;
 const instr=[`You have **${data.minutes||80} minutes** to complete this exam. It is worth ${mcTot+saTot} points total: ${mcTot} points for multiple choice (2 points per question) and ${saTot} points for short answer, with point distributions shown on the questions.`,
- 'You may use **one 4 × 6 inch index card** with your own handwritten notes. **No calculators**, phones, or other electronic devices are allowed.',
+ `You may use **${data.card||'one 4 × 6 inch index card'}** with your own handwritten notes. **No calculators**, phones, or other electronic devices are allowed.`,
  '**Part I (Multiple choice):** For each question, **circle the letter** of the single best answer. If a question says “Select all”, circle every correct answer.',
  '**Part II (Short answer):** Write your answers **inside the boxes** provided. Writing outside the boxes may not be graded.',
  'Read each question carefully. If a question seems unclear, ask me or state any assumptions you made to help me grade it.'];

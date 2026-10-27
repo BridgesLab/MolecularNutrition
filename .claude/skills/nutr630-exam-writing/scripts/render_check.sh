@@ -15,10 +15,14 @@ for f in "$@"; do
   base="$(basename "$f" .docx)"; cp "$f" "$STAGE/$base.docx"; f="$STAGE/$base.docx"; tmp="$STAGE/$base.pdf"
   osascript <<EOF
 tell application "Microsoft Word"
+  with timeout of 600 seconds
   open file name "$f"
   delay 2
   save as active document file name "$tmp" file format format PDF
-  close active document saving no
+  end timeout
+  try
+    close every document saving no
+  end try
 end tell
 EOF
   mv "$tmp" "$OUT/$base.pdf"; rm -f "$f"

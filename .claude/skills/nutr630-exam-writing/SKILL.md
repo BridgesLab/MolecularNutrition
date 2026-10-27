@@ -79,6 +79,7 @@ Lines starting with `>` are key-only and are never printed on the student exam. 
 python3 scripts/parse_draft.py draft.md exam.json --order 5,15,3,... --title "Midterm Exam 1 — Fall 2026" --footer "NUTR 630 Midterm 1"
 NODE_PATH=<dir with node_modules/docx> node scripts/build_exam.js exam.json exams/<exam>/<name>.docx
 ```
+- The cue-card line is set from the JSON key `card`, for example `"card": "one double-sided 3 × 5 inch index card"`. It defaults to 4 × 6. `minutes` can be set the same way. Add these keys to the JSON after `parse_draft.py`.
 - `docx` is not globally installed: run `npm install docx` in the scratchpad and point `NODE_PATH` there.
 - Layout: US Letter, and a cover page with a **UMID box only** (no name field, no points table), the instructions, and the point total.
 - Each MC stem and its options are kept together, so no question splits across pages.
@@ -104,6 +105,14 @@ bash scripts/render_check.sh <scratch-outdir> final-exam.docx key.docx   # every
 - Spacing must match the exam exactly (Gradescope aligns templates). Never use a fallback-font arrow such as ➜: it changes line height and shifts pages.
 - The script verifies each marked option's text against the draft. If Dave reworded options in Word, confirm the mapping manually.
 
+### 7b. Short-answer rubric key
+```bash
+NODE_PATH=<dir with node_modules/docx> node scripts/build_sa_key.js draft.md exams/<exam>/<name>-SA-Key.docx "NUTR 630 Midterm N — Short Answer Key (Term)" 26 "NUTR 630 Midterm N — Short Answer Key"
+```
+- This reads Part II of the draft, including the `>` key lines, and prints one page per question: the vignette, each part with its tags, "Key idea n (1 pt)" lines, and italic grading notes.
+- The fourth argument is the Gradescope number of the first SA question (the MC count + 1).
+- Check that the number of key ideas equals the SA point total.
+
 ### 8. Gradescope tags
 Give Dave a table for each question/part with a lecture tag and a Bloom tag. Use prefixes such as `L: Energy Balance` and `Bloom: Remember`. Tags are added on the assignment's Statistics page ("Click to Add Tags"). Short-answer parts must be separate subquestions in the Gradescope outline to be tagged individually.
 
@@ -121,4 +130,5 @@ Give Dave a table for each question/part with a lecture tag and a Bloom tag. Use
 | `scripts/check_mc.py` | Checks answer length and letter balance. Exits non-zero if an exploitable pattern exists. |
 | `scripts/build_exam.js` | Exam JSON → student .docx (docx-js). |
 | `scripts/make_mc_key.py` | Final exam .docx + JSON → arrow-marked MC key with identical pagination. |
+| `scripts/build_sa_key.js` | Draft Part II → short-answer rubric key .docx (key ideas, grading notes, tags). |
 | `scripts/render_check.sh` | Word → PDF → page images, plus a per-page text comparison of exam vs key. |
